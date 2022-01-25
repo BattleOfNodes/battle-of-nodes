@@ -1,0 +1,50 @@
+.menu {
+    margin-top: 16px;
+
+    &__links {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    &__item {
+        position: relative;
+
+        &::before {
+            background: #fff;
+            border-radius: 50%;
+            content: '';
+            display: block;
+            height: 4px;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+        }
+        &:first-child {
+            &::before {
+                display: none;
+            }
+        }
+        &-link {
+            color: $textColor;
+            font-family: 'grifter', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: inline-block;
+            outline: none;
+            padding: 12px 14px;
+            position: relative;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+    }
+}
+
+@media screen and (min-width: $desktopBreakpoint) {
+
+    .menu {
+        margin-top: 0;
+    }
+
+}

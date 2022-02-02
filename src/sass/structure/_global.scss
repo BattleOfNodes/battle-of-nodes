@@ -15,7 +15,6 @@ body {
 @media screen and (min-width: $largeBreakpoint) {
 
     .cntnt {
-        background: $backgroundColor;
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 32px;
         min-height: calc(100vh - 64px);

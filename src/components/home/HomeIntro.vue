@@ -8,7 +8,7 @@
             <h2 class="cntnt__intro-title">A trading card game project</h2>
             <p class="cntnt__intro-txt">Collect cards, Trade, Battle</p>
             <router-link
-                to="/connect"
+                to="/login"
                 class="cntnt__zone-btn"><span>Connect Wallet</span></router-link>
         </div>
     </section>

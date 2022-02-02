@@ -5,19 +5,24 @@
                 <router-link
                     class="header__logo-link"
                     to="/">
-                    About the game
+                    <img
+                        alt="Battle of Nodes - Logo"
+                        src="@/assets/images/battle-of-nodes-logo.png">
                 </router-link>
             </h1>
             <Menu></Menu>
+            <SubMenu></SubMenu>
         </div>
     </header>
 </template>
 
 <script>
 import Menu from "./Menu";
+import SubMenu from "./SubMenu";
 export default {
-  components: {
-    Menu,
-  },
+    components: {
+        Menu,
+        SubMenu
+    },
 };
 </script>

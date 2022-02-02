@@ -1,9 +1,9 @@
-$backgroundColor: #0c0628;
-$mainColor: #474340;
-$secondaryColor: #d45568;
-$hoverSecondaryColor: #a13341;
-$textColor: #FFFFFF;
+// Colors
+$backgroundColor: #062038;
+$ctaBackground: linear-gradient(232.7deg, #F9DEA1 25.82%, #D0B984 71.62%);
+$textColor: #fff;
 
+// Breakpoints
 $mediumMobileBreakpoint: 440px;
 $bigMobileBreakpoint: 660px;
 $tabBreakpoint: 768px;
@@ -11,3 +11,7 @@ $desktopBreakpoint: 1024px;
 $largeBreakpoint: 1280px;
 $bigBreakpoint: 1440px;
 $bigPlusBreakpoint: 1580px;
+
+// Fonts
+$mainFont: 'theBoldFont', sans-serif;
+$txtFont: 'rawengulk', sans-serif;

@@ -37,7 +37,7 @@
             margin-right: 4px;
         }
         &-address {
-            color: $mainColor;
+            color: $textColor;
             text-align: center;
             padding: 12px 32px;
             margin-bottom: 6px;
@@ -61,7 +61,7 @@
                     color: #fff;
                 }
                 &-logout {
-                    background: $secondaryColor;
+                    background: #eee;
                 }
             }
         }

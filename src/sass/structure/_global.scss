@@ -1,26 +1,35 @@
 html {
+    // animation: animParticles 1000s linear infinite;
     font-size: 10px;
-    background-color: $backgroundColor;
+    background: $backgroundColor url('./assets/images/bg-particles.svg') repeat-y top center;
+    background-size: 100%;
 }
 body {
     color: $textColor;
-    font-family: 'archivo', sans-serif;
-    font-weight: 500;
-    text-rendering: geometricPrecision;
+    font-family: $mainFont;
+    letter-spacing: 0.2em;
+    text-align: center;
     -webkit-text-size-adjust: 100%;
 }
 
-.button-style{
-    background-color: $secondaryColor;
-    border-radius:8px;
-    font-weight: bold;  
-    border: none;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    width: 200px;
+@media screen and (min-width: $largeBreakpoint) {
+
+    .cntnt {
+        background: $backgroundColor;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 32px;
+        min-height: calc(100vh - 64px);
+        margin: 32px;
+        overflow: hidden;
+    }
+
+}
+
+@keyframes animParticles {
+    from {
+        background-position: top 0 center;
+    }
+    to {
+        background-position: top -1000vh center;
+    }
 }

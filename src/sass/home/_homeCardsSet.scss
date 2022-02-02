@@ -1,0 +1,151 @@
+$cardDelay: 80ms;
+$cardDuration: 2000ms;
+$cardEasing: cubic-bezier(.27,.78,.38,1.34);
+
+.cardsset {
+    margin: -338px auto 0;
+    max-width: 860px;
+    width: 100%;
+
+    &__cards {
+        height: 530px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+
+        &::after {
+            background: transparent url('./assets/images/cardsset.png') no-repeat top center;
+            background-size: contain;
+            content: '';
+            display: none;
+            height: 521px; // 521px
+            opacity: 0.5;
+            position: absolute;
+            top: -28px; left: 50%;
+            transform: translateX(-50%);
+            width: 688px; // 861px
+        }
+    }
+    &__card {
+        opacity: 0;
+        position: absolute;
+        top: 40px; left: 50%;
+        transform: translate(-50%, 50%) scale(0.5);
+        transform-origin: bottom center;
+        
+        &-1, &-5 {
+            display: none;
+        }
+        &-2 {
+            animation: animCard2 $cardDuration $cardEasing $cardDelay*2 forwards;
+        }
+        &-3 {
+            animation: animCard3 $cardDuration $cardEasing $cardDelay*3 forwards;
+            
+        }
+        &-4 {
+            animation: animCard4 $cardDuration $cardEasing $cardDelay*4 forwards;
+            
+        }
+        &-card {
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px #082E4D;
+            height: 274px; // 343px
+            overflow: hidden;
+            transition: transform 300ms $cardEasing;
+            width: 196px; // 246px
+
+            &:hover {
+                transform: translateY(-10%);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $tabBreakpoint) {
+
+    .cardsset {
+        &__card {
+            &-1, &-5 {
+                display: block;
+            }
+            &-1 {
+                animation: animCard1 $cardDuration $cardEasing $cardDelay forwards;
+            }
+            &-5 {
+                animation: animCard5 $cardDuration $cardEasing $cardDelay*5 forwards;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: $desktopBreakpoint) {
+
+    .cardsset {
+        max-width: 1024px;
+        
+        &__cards {
+            // height: 560px;
+        }
+        &__card {
+            &-card {
+                height: 343px;
+                width: 246px;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: $largeBreakpoint) {
+
+    .cardsset {
+        margin: -320px auto 0;
+    }
+
+    @media screen and (min-height: 900px) {
+    
+        .cardsset {
+            margin: -292px auto 0;
+
+            &__card {
+                top: 72px;
+
+                &-card {
+                    &:hover {
+                        transform: translateY(-18%);
+                    }
+                }
+            }
+        }
+    
+    }
+
+}
+
+@keyframes animCard1 {
+    80% { opacity: 0; transform: translate(-50%, 50%) rotate(0deg) scale(0.5); }
+    90% { opacity: 1; }
+    to { opacity: 1; transform: translate(35%, 16%) rotate(16deg); }
+}
+@keyframes animCard2 {
+    80% { opacity: 0; transform: translate(-50%, 50%) rotate(0deg) scale(0.5); }
+    90% { opacity: 1; }
+    to { opacity: 1; transform: translate(-16%, 4%) rotate(8deg); }
+}
+@keyframes animCard3 {
+    80% { opacity: 0; transform: translate(-50%, 50%) rotate(0deg) scale(0.5); }
+    90% { opacity: 1; }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+@keyframes animCard4 {
+    80% { opacity: 0; transform: translate(-50%, 50%) rotate(0deg) scale(0.5); }
+    90% { opacity: 1; }
+    to { opacity: 1; transform: translate(-93%, 4%) rotate(-8deg); }
+}
+@keyframes animCard5 {
+    80% { opacity: 0; transform: translate(-50%, 50%) rotate(0deg) scale(0.5); }
+    90% { opacity: 1; }
+    to { opacity: 1; transform: translate(-135%, 11.5%) rotate(-16deg); }
+}

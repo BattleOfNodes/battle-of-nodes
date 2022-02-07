@@ -4,18 +4,21 @@
         :class="{ loading: isLoading, loaded: isLoaded }">
         <HomeIntro></HomeIntro>
         <HomeCardsSet></HomeCardsSet>
+        <HomeInfos></HomeInfos>
     </main>
 </template>
 
 <script>
 import HomeIntro from '@/components/home/HomeIntro';
 import HomeCardsSet from '@/components/home/HomeCardsSet';
+import HomeInfos from '@/components/home/HomeInfos';
 
 export default {
     name: 'Homepage',
     components: {
         HomeIntro,
-        HomeCardsSet
+        HomeCardsSet,
+        HomeInfos
     },
     data () {
         return {

@@ -8,9 +8,13 @@
 @import "structure/menu";
 @import "structure/commons";
 
+// Components
+@import "components/blockInfos";
+
 // Homepage
 @import "home/homeIntro";
 @import "home/homeCardsSet";
+@import "home/homeInfos";
 
 // Login
 @import "login/login";

@@ -1,0 +1,56 @@
+.cntnt {
+    &__infos {
+        margin-top: -100px;
+        padding: 0 16px;
+
+        &-infos {
+            margin: 190px auto 0;
+            max-width: 594px;
+        }
+        &-title {
+            font-size: 2rem;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        &-txt {
+            font-family: $txtFont;
+            font-size: 1.8rem;
+            letter-spacing: 0;
+            line-height: 1.2;
+        }
+    }
+}
+
+@media screen and (min-width: $mediumMobileBreakpoint) {
+
+    .cntnt {
+        &__infos {
+            padding: 0 24px;
+
+            &-txt {
+                font-size: 2rem;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: $tabBreakpoint) {
+
+    .cntnt {
+        &__infos {
+            margin-top: -60px;
+        }
+    }
+
+}
+
+@media screen and (min-width: $desktopBreakpoint) {
+
+    .cntnt {
+        &__infos {
+            margin-top: 80px; // 290px
+        }
+    }
+
+}

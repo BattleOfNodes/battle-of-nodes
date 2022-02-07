@@ -1,5 +1,5 @@
 html {
-    // animation: animParticles 1000s linear infinite;
+    // animation: animParticles 100s linear infinite;
     font-size: 10px;
     background: $backgroundColor url('./assets/images/bg-particles.svg') repeat-y top center;
     background-size: 100%;
@@ -29,6 +29,6 @@ body {
         background-position: top 0 center;
     }
     to {
-        background-position: top -1000vh center;
+        background-position: top -100vh center;
     }
 }

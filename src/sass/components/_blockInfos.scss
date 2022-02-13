@@ -52,6 +52,18 @@
     100% { background-position: 0% 150%; transform: rotate(360deg); }
 }
 
+@media screen and (min-width: $mediumMobileBreakpoint) {
+
+    .blockinfos {
+        &__title {
+            br {
+                display: none;
+            }
+        }
+    }
+
+}
+
 @media screen and (min-width: $desktopBreakpoint) {
 
     .blockinfos {

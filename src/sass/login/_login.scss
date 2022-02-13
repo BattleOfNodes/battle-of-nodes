@@ -3,120 +3,19 @@
         align-items: center;
         display: flex;
         justify-content: center;
-        min-height: calc(100vh - 220px);
+        min-height: calc(100vh - 300px);
         padding-bottom: 50px;
         text-align: center;
 
         &-inner {
-            margin: 0 auto;
-            max-width: 1540px;
+            max-width: 1160px;
+            padding: 0 16px;
             width: 100%;
         }
-        &-qrcode {
-            min-height: 300px;
-            padding-bottom: 10px;
-        }
-        &-links {
-            margin-top: 16px;
-        }
-        &-link {
-            background-color: #1942b9;
-            border-color: #1942b9;
-
-            &:hover {
-                background-color: #14369a;
-                border-color: #14369a;
-            }
-            &-logo {
-                align-items: center;
-                display: flex;
-            }
-        }
-        &-maiar {
-            height: 40px;
-            margin-right: 4px;
-        }
-        &-address {
-            color: $textColor;
-            text-align: center;
-            padding: 12px 32px;
-            margin-bottom: 6px;
-            border: 1px solid #1942b9;
-        }
-        .vue3rdj5 {
-            &__modes {
-                &-open {
-                    border-radius: 12px;
-
-                    &-active {
-                        border-radius: 12px 12px 0 0;
-                    }
-                }
-            }
-            &__mode {
-                border-radius: 0 0 12px 12px;
-            }
-            &__logged {
-                &-address {
-                    color: #fff;
-                }
-                &-logout {
-                    background: #eee;
-                }
-            }
+        &-title {
+            font-size: 3.8rem;
+            line-height: 1;
+            margin-bottom: 32px;
         }
     }
-}
-
-@media screen and (min-width: $tabBreakpoint) {
-
-    .cntnt {
-        &__login {
-            min-height: calc(100vh - 300px);
-        }
-    }
-
-}
-
-@media screen and (min-width: $desktopBreakpoint) {
-
-    .cntnt {
-        &__login {
-            min-height: calc(100vh - 210px);
-        }
-    }
-
-}
-
-@media screen and (min-width: $largeBreakpoint) {
-
-    .cntnt {
-        &__login {
-            padding-bottom: 160px;
-
-            .vue3rdj5 {
-                &__modes {
-                    min-height: 609px;
-
-                    &-open {
-                        border-radius: 12px;
-                        transition: border-radius 0.5s ease;
-    
-                        &-active {
-                            border-radius: 40px;
-                        }
-                    }
-                }
-                &__mode {
-                    border-radius: 0;
-                    margin-top: 24px;
-                }
-            }
-        }
-    }
-
-}
-
-.label-style{
-    color:white;
 }

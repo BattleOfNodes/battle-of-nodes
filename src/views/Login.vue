@@ -1,12 +1,10 @@
 <template>
-    <div class="cntnt">
-        <div class="cntnt__zone cntnt__login">
-            <div class="cntnt__zone-inner cntnt__login-inner">
-                <h2 class="cntnt__zone-title">Connect{{ $erd.logged ? 'ed' : '' }}</h2>
-                <vue-erdjs-connect :qrcodeHandler="customQrcodeHandler"></vue-erdjs-connect>
-            </div>
+    <section class="cntnt__login">
+        <div class="cntnt__login-inner">
+            <h2 class="cntnt__login-title">Connect{{ $erd.logged ? 'ed' : '' }}</h2>
+            <vue-erdjs-connect :qrcodeHandler="customQrcodeHandler"></vue-erdjs-connect>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

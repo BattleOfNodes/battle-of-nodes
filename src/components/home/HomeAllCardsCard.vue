@@ -2,7 +2,7 @@
     <figure
         class="cntnt__allcards-img"
         :class="{ active: isActive }"
-        @click="isActive = !isActive">
+        @click="activateCard()">
         <img 
             :src="'./cards/' + card.img" />
     </figure>
@@ -22,14 +22,26 @@ export default {
                 return {}
             }
         },
-        isMouseDown: {
-            type: Boolean,
-            default: false
+        cardIndex: {
+            type: Number,
+            default: 0
+        },
+        activeCard: {
+            type: Number,
+            default: null
         }
     },
     watch: {
-        isMouseDown () {
-            this.isActive = false;
+        activeCard ( activeCard ) {
+            if ( activeCard !== this.cardIndex ) {
+                this.isActive = false;
+            }
+        }
+    },
+    methods: {
+        activateCard () {
+            this.isActive = !this.isActive;
+            this.$emit('activate-card', this.cardIndex);
         }
     }
 }

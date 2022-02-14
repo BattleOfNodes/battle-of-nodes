@@ -10,14 +10,17 @@
                 @mousedown="mouseDown($event)"
                 @mouseup="mouseUp()"
                 @mouseleave="mouseLeave()"
-                @mousemove="mouseMove($event)">
+                @mousemove="mouseMove($event)"
+                ref="cards">
                 <div
                     class="cntnt__allcards-list"
                     ref="list">
                     <HomeAllCardsCard
                         v-for="(card, index) in cards"
                         :card="card"
-                        :isMouseDown="isMouseDown"
+                        :active-card="activeCard"
+                        :card-index="index"
+                        @activate-card="activeCard = index"
                         :key="index"
                         ></HomeAllCardsCard>
                 </div>
@@ -38,6 +41,7 @@ export default {
         return {
             cards: [],
             isMouseDown: false,
+            activeCard: null,
             startX: null,
             scrollLeft: null
         }
@@ -50,6 +54,10 @@ export default {
             .catch( error => {
                 console.log('error : ', error)
             });
+
+        this.$refs.cards.addEventListener('scroll', () => {
+            this.activeCard = null;
+        });
     },
     methods: {
         mouseDown (e) {
@@ -62,6 +70,7 @@ export default {
         },
         mouseLeave () {
             this.isMouseDown = false;
+            this.activeCard = null;
         },
         mouseMove (e) {
             if (!this.isMouseDown) return;
@@ -69,6 +78,7 @@ export default {
             const x = e.pageX - this.$refs.list.offsetLeft;
             const walk = (x - this.startX) * 3;
             this.$refs.list.scrollLeft = this.scrollLeft - walk;
+            this.activeCard = null;
         }
     }
 }

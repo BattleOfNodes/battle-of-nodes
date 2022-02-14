@@ -13,14 +13,13 @@
                 @mousemove="mouseMove($event)">
                 <div
                     class="cntnt__allcards-list"
-                    :class="{ active: isMouseDown }"
                     ref="list">
-                    <figure
-                        class="cntnt__allcards-img"
+                    <HomeAllCardsCard
                         v-for="(card, index) in cards"
-                        :key="index">
-                        <img :src="'./cards/' + card.img" />
-                    </figure>
+                        :card="card"
+                        :isMouseDown="isMouseDown"
+                        :key="index"
+                        ></HomeAllCardsCard>
                 </div>
             </div>
         </div>
@@ -29,8 +28,12 @@
 
 <script>
 import axios from "axios";
+import HomeAllCardsCard from '@/components/home/HomeAllCardsCard';
 
 export default {
+    components: {
+        HomeAllCardsCard
+    },
     data () {
         return {
             cards: [],

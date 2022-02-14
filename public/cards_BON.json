@@ -1,0 +1,423 @@
+[
+  {
+    "name": "OBSERVER NODE",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 200,
+    "mana": 1,
+    "img": "1.png"
+  },
+  {
+    "name": "MECHANICAL DEFENDER",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 300,
+    "mana": 3,
+    "img": "1.png"
+  },
+  {
+    "name": "FLYING SENTINEL",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Swift Attacker",
+    "attack": 400,
+    "mana": 5,
+    "img": "1.png"
+  },
+  {
+    "name": "UNSTABLE NODE",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Poison",
+    "attack": 100,
+    "mana": 4,
+    "img": "1.png"
+  },
+  {
+    "name": "CHARGED UP!",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal_Spell",
+    "attack": 0 ,
+    "mana": 3,
+    "img": "1.png"
+  },
+  {
+    "name": "ADAPTIVE STATE SHARDING",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal_Spell",
+    "attack": 0,
+    "mana": 3,
+    "img": "1.png"
+  },
+  {
+    "name": "SHOCK WAVE",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal_Spell",
+    "attack": 0,
+    "mana": 3,
+    "img": "1.png"
+  },
+  {
+    "name": "JUGGERNAUT",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 500,
+    "mana": 5,
+    "img": "1.png"
+  },
+  {
+    "name": "MK-3 CENTURION",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 700,
+    "mana": 7,
+    "img": "1.png"
+  },
+  {
+    "name": "SWITCH O’TRON",
+    "civilisation": "Robot",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 100,
+    "mana": 2,
+    "img": "1.png"
+  },
+  {
+    "name": "M.E.X (MOTORISED EXPLOSIVE EXTRUDER)",
+    "civilisation": "Robot",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 600,
+    "mana": 4,
+    "img": "1.png"
+  },
+  {
+    "name": "CHAIN SLPIT",
+    "civilisation": "Robot",
+    "rarity": "Uncommon",
+    "type": "SPELL",
+    "class": "Normal_Spell",
+    "attack": 0,
+    "mana": 3,
+    "img": "1.png"
+  },
+  {
+    "name": "MASS GOVERNANCE",
+    "civilisation": "Robot",
+    "rarity": "Uncommon",
+    "type": "SPELL",
+    "class": "Trap ",
+    "attack": 0,
+    "mana": 4,
+    "img": "1.png"
+  },
+  {
+    "name": "SENTINEL COMMANDER",
+    "civilisation": "Robot",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 200,
+    "mana": 2,
+    "img": "1.png"
+  },
+  {
+    "name": "ESSENCE DRIVING UNIT",
+    "civilisation": "Robot",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 500,
+    "mana": 6,
+    "img": "1.png"
+  },
+  {
+    "name": "X35 COMBATTANT",
+    "civilisation": "Robot",
+    "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 400,
+    "mana": 6,
+    "img": "1.png"
+  },
+  {
+    "name": "DECENTRALISATION",
+    "civilisation": "Robot",
+    "rarity": "Rare",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 5,
+    "img": "1.png"
+  },
+  {
+    "name": "SWORN BOT PROTECTOR",
+    "civilisation": "Robot",
+    "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Vengeance",
+    "attack": 350,
+    "mana": 5,
+    "img": "1.png"
+  },
+  {
+    "name": "ZEENOK INFLILTRATOR",
+    "civilisation": "Robot",
+    "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 600,
+    "mana": 8,
+    "img": "1.png"
+  },
+  {
+    "name": "XEDRAIAM",
+    "civilisation": "Robot",
+    "rarity": "Legendary",
+    "type": "CREATURE",
+    "class": "Swift Attacker",
+    "attack": 100,
+    "mana": 7,
+    "img": "1.png"
+  },
+  {
+    "name": "BLOCKMASTER, CHAIN UNLOCKED",
+    "civilisation": "Robot",
+    "rarity": "Legendary",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 800,
+    "mana": 9,
+    "img": "1.png"
+  },
+  {
+    "name": "CORRUPTED NODE",
+    "civilisation": "Nightmare",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 300,
+    "mana": 1,
+    "img": "2.png"
+  },
+
+  {
+    "name": "NAAZ’GORTH, INSURGENCE SOLIDER",
+    "civilisation": "Nightmare",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Swift Attacker",
+    "attack": 200,
+    "mana": 2,
+    "img": "2.png"
+  },
+  {
+    "name": "UNDEAD COMMANDER",
+    "civilisation": "Nightmare",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 700,
+    "mana": 4,
+    "img": "2.png"
+  },
+  {
+    "name": "WALKING ABOMINATION",
+    "civilisation": "Nightmare",
+    "rarity": "Common",
+    "type": "SWIFT ATTACKER",
+    "class": "Poison",
+    "attack": 150,
+    "mana": 3,
+    "img": "2.png"
+  },
+  {
+    "name": "RISE FROM THE DEAD!",
+    "civilisation": "Nightmare",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal_Spell",
+    "attack": 0,
+    "mana": 2,
+    "img": "2.png"
+  },
+  {
+    "name": "MIND CORRUPTION",
+    "civilisation": "Nightmare",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 4,
+    "img": "2.png"
+  },
+  {
+    "name": "DEATH’S GRASP",
+    "civilisation": "Nightmare",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 6,
+    "img": "2.png"
+  },
+  {
+    "name": "UNDERWORLD SLAVE",
+    "civilisation": "Nightmare",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 350,
+    "mana": 2,
+    "img": "2.png"
+  },
+  {
+    "name": "UNDERWORLD LACKEY",
+    "civilisation": "Nightmare",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 100,
+    "mana": 1,
+    "img": "2.png"
+  },
+  {
+    "name": "DEFIANT SOUL",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 600,
+    "mana": 5,
+    "img": "2.png"
+  },
+  {
+    "name": "HORDE KING",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 150,
+    "mana": 3,
+    "img": "2.png"
+  },
+  {
+    "name": "MORTUAL SACRIFICE",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "SPELL",
+    "class": "Normal_Spell",
+    "attack": 0,
+    "mana": 7,
+    "img": "2.png"
+  },
+  {
+    "name": "RAGING SORROW",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 1,
+    "img": "2.png"
+  },
+  {
+    "name": "SERVANT OF THE ABYSS",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 550,
+    "mana": 4,
+    "img": "2.png"
+  },
+  {
+    "name": "VENGEFUL PARASITE",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 250,
+    "mana": 3,
+    "img": "2.png"
+  },
+  {
+    "name": "ROGKAR, DARK ART MANIPULATOR",
+    "civilisation": "Nightmare",
+    "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Poison",
+    "attack": 450,
+    "mana": 6,
+    "img": "2.png"
+  },
+  {
+    "name": "BLOOD MOON ECLIPSE",
+    "civilisation": "Nightmare",
+    "rarity": "Rare",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 5,
+    "img": "2.png"
+  },
+  {
+    "name": "ELD’VAR, THE UNLEASHED",
+    "civilisation": "Nightmare",
+    "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 700,
+    "mana": 8,
+    "img": "2.png"
+  },
+  {
+    "name": "RAZIEL, SOULD UNBOUND",
+    "civilisation": "Nightmare",
+    "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 500,
+    "mana": 10,
+    "img": "2.png"
+  },
+  {
+    "name": "TRA’ZUL, TORMENTOR OF SOULD",
+    "civilisation": "Nightmare",
+    "rarity": "Legendary",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 250,
+    "mana": 5,
+    "img": "2.png"
+  },
+  {
+    "name": "AZAMGARH, DESTROYER OF CHAINS",
+    "civilisation": "Nightmare",
+    "rarity": "Legendary",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 100,
+    "mana": 7,
+    "img": "2.png"
+  }
+]

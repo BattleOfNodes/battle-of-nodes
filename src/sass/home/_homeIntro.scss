@@ -61,12 +61,19 @@
 
     .cntnt {
         &__intro {
+            background: transparent;
+            
             &-inner {
                 background-position: top -25px center;
                 background-size: 1574px 900px;
+                border-radius: 32px 32px 0 0;
                 margin-top: -207px;
                 max-width: 1574px;
                 padding: 275px 12px 372px;
+
+                &::before {
+                    border-radius: 32px 32px 0 0;
+                }
             }
             &-power {
                 font-size: 2rem;

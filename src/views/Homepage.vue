@@ -6,6 +6,7 @@
         <HomeCardsSet></HomeCardsSet>
         <HomeInfos></HomeInfos>
         <HomeRoadmap></HomeRoadmap>
+        <HomeAllCards></HomeAllCards>
     </main>
 </template>
 
@@ -14,6 +15,7 @@ import HomeIntro from '@/components/home/HomeIntro';
 import HomeCardsSet from '@/components/home/HomeCardsSet';
 import HomeInfos from '@/components/home/HomeInfos';
 import HomeRoadmap from '@/components/home/HomeRoadmap';
+import HomeAllCards from '@/components/home/HomeAllCards';
 
 export default {
     name: 'Homepage',
@@ -21,7 +23,8 @@ export default {
         HomeIntro,
         HomeCardsSet,
         HomeInfos,
-        HomeRoadmap
+        HomeRoadmap,
+        HomeAllCards
     },
     data () {
         return {

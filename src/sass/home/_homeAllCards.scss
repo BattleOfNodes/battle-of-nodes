@@ -1,0 +1,101 @@
+$cardMargin: 12px;
+
+.cntnt {
+    &__allcards {
+        padding: 20px 0;
+
+        &-title {
+            font-size: 3.8rem;
+            line-height: 1;
+            margin-bottom: 40px;
+        }
+        &-cards {
+            overflow-x: auto;
+            padding-bottom: 12px;
+        }
+        &-list {
+            margin: 0 auto;
+            text-align: center;
+            width: 242px + (2 * $cardMargin);
+            white-space: nowrap;
+        }
+        &-img {
+            display: inline-block;
+            margin: 0 $cardMargin;
+            user-select: none;
+        }
+    }
+}
+
+@media screen and (min-width: $tabBreakpoint) {
+
+    .cntnt {
+        &__allcards {
+            &-list {
+                width: 520px + (2 * $cardMargin);
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: $desktopBreakpoint) {
+
+    .cntnt {
+        &__allcards {
+            &-cards {
+                position: relative;
+
+                &:hover {
+                    cursor: url('./assets/images/cursor.png') 40 42, grab;
+                }
+                &::after {
+                    background: transparent;
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0; right: 0; bottom: 0; left: 0;
+                }
+                &.active {
+                    // scroll-behavior: smooth;
+                }
+            }
+            &-list {
+                overflow: hidden;
+                padding: 0 10.5%;
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: $largeBreakpoint) {
+
+    .cntnt {
+        &__allcards {
+            &-list {
+                padding: 0 17.6%;
+            }
+            &-cards {
+                margin: 0 -32px;
+            }
+            &-img {
+                margin: 0 16px;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: $bigBreakpoint) {
+
+    .cntnt {
+        &__allcards {
+            &-list {
+                padding: 0 11.3%;
+            }
+        }
+    }
+
+}

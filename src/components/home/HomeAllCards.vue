@@ -41,6 +41,7 @@
                             :key="index"
                             ></HomeAllCardsCard>
                     </template>
+                    <p v-if="!filteredCards.length">Coming soon</p>
                 </div>
             </div>
         </div>

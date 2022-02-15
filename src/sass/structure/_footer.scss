@@ -1,0 +1,21 @@
+.footer {
+    padding: 80px 0 40px;
+
+    &__img {
+        max-width: 200px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: $desktopBreakpoint) {
+
+    .footer {
+        padding: 240px 0 80px;
+    
+        &__img {
+            max-width: 200px;
+            text-align: center;
+        }
+    }
+
+}

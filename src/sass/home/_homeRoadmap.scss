@@ -100,6 +100,7 @@
 
     .cntnt {
         &__road {
+            margin-bottom: 40px;
             padding: 0 24px 24px;
 
             &-list {
@@ -185,6 +186,8 @@
 
     .cntnt {
         &__road {
+            margin-top: 300px;
+
             &-infos {
                 flex-basis: 460px;
             }

@@ -49,8 +49,19 @@
 
     .cntnt {
         &__infos {
-            margin-top: 80px; // 290px
+            margin-top: 80px;
         }
     }
 
 }
+
+@media screen and (min-width: $largeBreakpoint) {
+
+    .cntnt {
+        &__infos {
+            margin-top: 290px;
+        }
+    }
+
+}
+

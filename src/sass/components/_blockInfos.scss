@@ -70,8 +70,9 @@
         align-items: center;
         display: flex;
         flex-direction: column;
-        min-height: 432px;
         justify-content: center;
+        min-height: 432px;
+        padding: 100px 20px 60px;
 
         &__title {
             font-size: 5.4rem;

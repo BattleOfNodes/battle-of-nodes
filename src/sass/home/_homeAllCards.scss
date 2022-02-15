@@ -40,6 +40,9 @@ $cardMargin: 12px;
                 transform: scale(1.25) rotate(-2deg);
                 z-index: 1;
             }
+            &:last-child {
+                margin-right: 20%;
+            }
         }
         &-filters {
             display: inline-block;

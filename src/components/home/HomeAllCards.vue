@@ -2,8 +2,25 @@
     <section class="cntnt__zone cntnt__allcards">
         <div class="cntnt__zone-inner">
             <h2 class="cntnt__allcards-title">Meet the 4 civilizations</h2>
-            <div class="cntnt__allcards-filters">
-
+            <div
+                class="cntnt__allcards-filters"
+                :class="{ active: cardFilter !== '' }">
+                <div
+                    class="cntnt__allcards-filter"
+                    :class="{ active: cardFilter === 'Robot' }"
+                    @click="setFilter('Robot')">Robots</div>
+                <div
+                    class="cntnt__allcards-filter"
+                    :class="{ active: cardFilter === 'Nightmare' }"
+                    @click="setFilter('Nightmare')">Nightmare</div>
+                <div
+                    class="cntnt__allcards-filter"
+                    :class="{ active: cardFilter === 'Nature' }"
+                    @click="setFilter('Nature')">Nature</div>
+                <div
+                    class="cntnt__allcards-filter"
+                    :class="{ active: cardFilter === 'Beast' }"
+                    @click="setFilter('Beast')">Beasts</div>
             </div>
             <div 
                 class="cntnt__allcards-cards"
@@ -15,14 +32,15 @@
                 <div
                     class="cntnt__allcards-list"
                     ref="list">
-                    <HomeAllCardsCard
-                        v-for="(card, index) in cards"
-                        :card="card"
-                        :active-card="activeCard"
-                        :card-index="index"
-                        @activate-card="activeCard = index"
-                        :key="index"
-                        ></HomeAllCardsCard>
+                    <template v-for="(card, index) in filteredCards">
+                        <HomeAllCardsCard
+                            :card="card"
+                            :active-card="activeCard"
+                            :card-index="index"
+                            @activate-card="activeCard = index"
+                            :key="index"
+                            ></HomeAllCardsCard>
+                    </template>
                 </div>
             </div>
         </div>
@@ -40,10 +58,18 @@ export default {
     data () {
         return {
             cards: [],
+            cardFilter: '',
             isMouseDown: false,
             activeCard: null,
             startX: null,
             scrollLeft: null
+        }
+    },
+    computed: {
+        filteredCards () {
+            return this.cards.filter( card => {
+                return card.civilisation === this.cardFilter || this.cardFilter === '';
+            });
         }
     },
     mounted () {
@@ -60,6 +86,9 @@ export default {
         });
     },
     methods: {
+        setFilter (filter) { 
+            this.cardFilter = this.cardFilter === filter ? '' : filter;
+        },
         mouseDown (e) {
             this.isMouseDown = true;
             this.startX = e.pageX - this.$refs.list.offsetLeft;

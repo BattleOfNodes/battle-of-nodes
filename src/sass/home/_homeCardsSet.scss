@@ -41,11 +41,9 @@ $cardEasing: cubic-bezier(.27,.78,.38,1.34);
         }
         &-3 {
             animation: animCard3 $cardDuration $cardEasing $cardDelay*3 forwards;
-            
         }
         &-4 {
             animation: animCard4 $cardDuration $cardEasing $cardDelay*4 forwards;
-            
         }
         &-card {
             border-radius: 20px;

@@ -65,6 +65,9 @@
                 width: 52px;
             }
         }
+        &-subtitle {
+            margin-bottom: 16px;
+        }
         &-infos {
             background: transparent url('./assets/images/bg-block-purple.png') no-repeat center center;
             background-size: 100% 100%;
@@ -76,8 +79,18 @@
                 font-family: $txtFont;
                 font-size: 1.8rem;
                 letter-spacing: 0;
-                line-height: 1.2;
+                line-height: 1.25;
                 margin-top: 12px;
+            }
+        }
+        &-items {
+            font-family: $txtFont;
+            font-size: 1.8rem;
+            letter-spacing: 0;
+            line-height: 1.2;
+
+            li {
+                margin-top: 8px;
             }
         }
     }

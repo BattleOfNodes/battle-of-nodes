@@ -11,7 +11,7 @@ $cardMargin: 12px;
         }
         &-cards {
             overflow-x: auto;
-            padding: 60px 0;
+            padding: 54px 0 30px;
         }
         &-list {
             margin: 0 auto;
@@ -44,11 +44,11 @@ $cardMargin: 12px;
         &-filters {
             display: inline-block;
 
-            &:hover, &.active {
+            &.active {
                 .cntnt__allcards-filter {
                     opacity: 0.3;
 
-                    &:hover, &.active {
+                    &.active {
                         opacity: 1;
                     }
                 }
@@ -93,6 +93,15 @@ $cardMargin: 12px;
                 margin-top: 0;
             }
         }
+        &-txt {
+            font-family: $txtFont;
+            font-size: 2rem;
+            letter-spacing: 0;
+            line-height: 1.2;
+            margin: 0 auto 40px;
+            max-width: 626px;
+            padding: 0 16px;
+        }
     }
 }
 
@@ -100,6 +109,9 @@ $cardMargin: 12px;
 
     .cntnt {
         &__allcards {
+            &-title {
+                margin-bottom: 52px;
+            }
             &-filter {
                 display: inline-block;
                 margin: 0;
@@ -125,7 +137,24 @@ $cardMargin: 12px;
 
     .cntnt {
         &__allcards {
+            &-filters {
+                display: block;
+                padding: 16px;
+                position: relative;
+                z-index: 1;
+
+                &:hover {
+                    .cntnt__allcards-filter {
+                        opacity: 0.3;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
             &-cards {
+                margin: -52px 0 -24px;
                 padding: 0;
                 position: relative;
 
@@ -140,16 +169,20 @@ $cardMargin: 12px;
                 //     top: 0; right: 0; bottom: 0; left: 0;
                 // }
             }
-            &-img {
-                &.active {
-                    transform: scale(1.5) rotate(-3deg);
-                }
-            }
             &-list {
                 min-height: 566px;
                 overflow: hidden;
                 padding: 110px 10.5%;
                 width: 100%;
+            }
+            &-img {
+                &.active {
+                    transform: scale(1.5) rotate(-3deg);
+                }
+            }
+            &-check {
+                position: relative;
+                z-index: 1;
             }
         }
     }
@@ -160,12 +193,12 @@ $cardMargin: 12px;
 
     .cntnt {
         &__allcards {
+            &-cards {
+                margin: -52px -32px -20px;
+            }
             &-list {
                 padding-left: 17.6%;
                 padding-right: 17.6%;
-            }
-            &-cards {
-                margin: 0 -32px;
             }
             &-img {
                 margin: 0 16px;

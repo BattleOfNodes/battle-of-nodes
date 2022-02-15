@@ -2,6 +2,7 @@
     <section class="cntnt__zone cntnt__allcards">
         <div class="cntnt__zone-inner">
             <h2 class="cntnt__allcards-title">Meet the 4 civilizations</h2>
+            <p class="cntnt__allcards-txt">Assemble powerful decks from 4 vibrant and fun civilizations. Discover new synergies and have fun collecting!</p>
             <div
                 class="cntnt__allcards-filters"
                 :class="{ active: cardFilter !== '' }">
@@ -43,6 +44,11 @@
                     </template>
                     <p v-if="!filteredCards.length">Coming soon</p>
                 </div>
+            </div>
+            <div class="cntnt__allcards-check">
+                <a
+                    class="cntnt__zone-btn"
+                    href="#"><span>Check your collection</span></a>
             </div>
         </div>
     </section>

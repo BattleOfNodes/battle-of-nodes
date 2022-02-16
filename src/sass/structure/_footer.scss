@@ -5,12 +5,17 @@
         max-width: 200px;
         text-align: center;
     }
+    p {
+        font-family: $txtFont;
+        font-size: 1.4rem;
+        margin-top: 32px;
+    }
 }
 
 @media screen and (min-width: $desktopBreakpoint) {
 
     .footer {
-        padding: 240px 0 80px;
+        padding: 140px 0 40px;
     
         &__img {
             max-width: 200px;

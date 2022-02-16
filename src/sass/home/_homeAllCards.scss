@@ -2,7 +2,9 @@ $cardMargin: 12px;
 
 .cntnt {
     &__allcards {
-        padding: 20px 0;
+        background: radial-gradient(48.92% 48.92% at 50% 50%, rgba(9, 51, 106, 0.5) 0%, rgba(25, 119, 206, 0) 100%);
+        margin-top: -40px;
+        padding: 100px 0;
 
         &-title {
             font-size: 3.8rem;
@@ -94,6 +96,10 @@ $cardMargin: 12px;
                 display: block;
                 max-width: 242px;
                 user-select: none;
+                image-rendering: -o-crisp-edges;
+                image-rendering: -moz-crisp-edges;
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
             }
             &.active {
                 box-shadow: 0 0 10px 5px rgb(4, 31, 54, 0.8);
@@ -199,8 +205,6 @@ $cardMargin: 12px;
 
     .cntnt {
         &__allcards {
-            margin-top: 140px;
-
             &-cards {
                 margin: -52px -32px -20px;
             }

@@ -4,7 +4,7 @@
         padding: 0 16px;
 
         &-infos {
-            margin: 140px auto 0;
+            margin: 280px auto 0;
             max-width: 594px;
         }
         &-title {
@@ -18,8 +18,31 @@
             line-height: 1.2;
             margin-top: 20px;
         }
+        &-img {
+            border-radius: 16px;
+            box-shadow: 0 0 10px 0 #082E4D;
+            overflow: hidden;
+            position: absolute;
+            left: 50%;
+
+            &-1 {
+                top: 102%;
+                transform: rotate(-7deg) translateX(-100%);
+                width: 146px;
+                z-index: 1;
+            }
+            &-2 {
+                top: 98%;
+                transform: rotate(5deg) translateX(-10%);
+                width: 156px;
+            }
+            img {
+                display: block;
+            }
+        }
     }
 }
+
 
 @media screen and (min-width: $mediumMobileBreakpoint) {
 
@@ -40,6 +63,25 @@
     .cntnt {
         &__infos {
             margin-top: -60px;
+
+            &-img {
+                left: auto;
+    
+                &-1 {
+                    top: 80%; left: 10%;
+                    transform: rotate(-7deg);
+                    width: 146px;
+                    z-index: 0;
+                }
+                &-2 {
+                    top: 74%; right: 8%;
+                    transform: rotate(5deg);
+                    width: 156px;
+                }
+            }
+            &-infos {
+                margin-top: 220px;
+            }
         }
     }
 
@@ -50,6 +92,19 @@
     .cntnt {
         &__infos {
             margin-top: 80px;
+
+            &-img {    
+                &-1 {
+                    top: -14%; left: -2%;
+                    transform: rotate(-8deg);
+                    width: 156px;
+                }
+                &-2 {
+                    top: 74%; right: -2%;
+                    transform: rotate(8deg);
+                    width: 186px;
+                }
+            }
         }
     }
 
@@ -60,6 +115,20 @@
     .cntnt {
         &__infos {
             margin-top: 290px;
+
+            &-img {    
+                &-1 {
+                    top: -23%; left: -10%;
+                    width: 192px;
+                }
+                &-2 {
+                    top: 54%; right: -16%;
+                    width: 245px;
+                }
+            }
+            &-infos {
+                margin-top: 190px;
+            }
         }
     }
 

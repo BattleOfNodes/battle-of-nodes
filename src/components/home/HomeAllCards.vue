@@ -42,7 +42,9 @@
                             :key="index"
                             ></HomeAllCardsCard>
                     </template>
-                    <p v-if="!filteredCards.length">Coming soon</p>
+                    <p
+                        class="cntnt__allcards-coming"
+                        v-if="!filteredCards.length">Coming soon</p>
                 </div>
             </div>
             <div class="cntnt__allcards-check">

@@ -4,6 +4,12 @@
             <h2 class="blockinfos__title">Battle <br>of nodes</h2>
             <p class="blockinfos__txt">Battle of Nodes is an original Trading Card Game powered by the Elrond Network. Assemble a deck of powerful creatures & spells and duel away in a competitive, fun & rewarding gameplay. Inspired by the genesis of the blockchain, you can collect cards from 4 different civilizations. In a war between machines and the underworld, you must choose which side to take.</p>
             <a class="cntnt__zone-btn"><span>Buy a pack now</span></a>
+            <div class="cntnt__infos-img cntnt__infos-img-1">
+                <img src="@/assets/images/cards/card2.jpg" />
+            </div>
+            <div class="cntnt__infos-img cntnt__infos-img-2">
+                <img src="@/assets/images/cards/card5.jpg" />
+            </div>
         </div>
         <div class="cntnt__infos-infos">
             <h2 class="cntnt__infos-title">Blockchain implementation</h2>

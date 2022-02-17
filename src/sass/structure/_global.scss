@@ -1,14 +1,28 @@
 html {
-    // animation: animParticles 100s linear infinite;
     font-size: 10px;
-    background: $backgroundColor url('./assets/images/bg-particles.svg') repeat-y top center;
-    background-size: 100%;
+    position: relative;
+
+    &::before {
+        animation: animParticles 100s linear infinite;
+        animation-direction: alternate;
+        background: $backgroundColor url('./assets/images/bg-particles.svg') repeat-y top center;
+        background-size: 100% auto;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        bottom: 0; left: 0;
+        transform-origin: bottom center;
+        width: 100%;
+    }
 }
 body {
     color: $textColor;
     font-family: $mainFont;
     letter-spacing: 0.2em;
+    position: relative;
     text-align: center;
+    z-index: 1;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -25,9 +39,9 @@ body {
 
 @keyframes animParticles {
     from {
-        background-position: top 0 center;
+        transform: scaleY(1);
     }
     to {
-        background-position: top -100vh center;
+        transform: scaleY(1.3);
     }
 }

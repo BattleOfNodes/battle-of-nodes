@@ -145,7 +145,7 @@ $cardMargin: 12px;
 
 }
 
-@media screen and (min-width: $desktopBreakpoint) {
+@media screen and (hover: hover) and (min-width: $desktopBreakpoint) {
 
     .cntnt {
         &__allcards {
@@ -173,13 +173,6 @@ $cardMargin: 12px;
                 &:hover {
                     cursor: url('./assets/images/cursor.png') 40 42, grab;
                 }
-                // &::after {
-                //     background: transparent;
-                //     content: '';
-                //     display: block;
-                //     position: absolute;
-                //     top: 0; right: 0; bottom: 0; left: 0;
-                // }
             }
             &-list {
                 min-height: 566px;
@@ -201,7 +194,7 @@ $cardMargin: 12px;
 
 }
 
-@media screen and (min-width: $largeBreakpoint) {
+@media screen and (hover: hover) and (min-width: $largeBreakpoint) {
 
     .cntnt {
         &__allcards {
@@ -220,7 +213,7 @@ $cardMargin: 12px;
 
 }
 
-@media screen and (min-width: $bigBreakpoint) {
+@media screen and (hover: hover) and (min-width: $bigBreakpoint) {
 
     .cntnt {
         &__allcards {

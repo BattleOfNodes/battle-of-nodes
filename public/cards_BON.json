@@ -7,7 +7,7 @@
     "class": "Normal",
     "attack": 200,
     "mana": 1,
-    "img": "1.png"
+    "img": "13.png"
   },
   {
     "name": "MECHANICAL DEFENDER",
@@ -17,7 +17,7 @@
     "class": "Tank",
     "attack": 300,
     "mana": 3,
-    "img": "1.png"
+    "img": "12.png"
   },
   {
     "name": "FLYING SENTINEL",
@@ -27,7 +27,7 @@
     "class": "Swift Attacker",
     "attack": 400,
     "mana": 5,
-    "img": "1.png"
+    "img": "11.png"
   },
   {
     "name": "UNSTABLE NODE",
@@ -37,7 +37,7 @@
     "class": "Poison",
     "attack": 100,
     "mana": 4,
-    "img": "1.png"
+    "img": "15.png"
   },
   {
     "name": "CHARGED UP!",
@@ -47,7 +47,7 @@
     "class": "Normal_Spell",
     "attack": 0 ,
     "mana": 3,
-    "img": "1.png"
+    "img": "4.png"
   },
   {
     "name": "ADAPTIVE STATE SHARDING",
@@ -57,7 +57,7 @@
     "class": "Normal_Spell",
     "attack": 0,
     "mana": 3,
-    "img": "1.png"
+    "img": "6.png"
   },
   {
     "name": "SHOCK WAVE",
@@ -67,7 +67,7 @@
     "class": "Normal_Spell",
     "attack": 0,
     "mana": 3,
-    "img": "1.png"
+    "img": "2.png"
   },
   {
     "name": "JUGGERNAUT",
@@ -77,7 +77,7 @@
     "class": "Normal",
     "attack": 500,
     "mana": 5,
-    "img": "1.png"
+    "img": "17.png"
   },
   {
     "name": "MK-3 CENTURION",
@@ -87,7 +87,7 @@
     "class": "Tank",
     "attack": 700,
     "mana": 7,
-    "img": "1.png"
+    "img": "39.png"
   },
   {
     "name": "SWITCH O’TRON",
@@ -97,7 +97,7 @@
     "class": "Normal",
     "attack": 100,
     "mana": 2,
-    "img": "1.png"
+    "img": "14.png"
   },
   {
     "name": "M.E.X (MOTORISED EXPLOSIVE EXTRUDER)",
@@ -107,17 +107,17 @@
     "class": "Normal",
     "attack": 600,
     "mana": 4,
-    "img": "1.png"
+    "img": "38.png"
   },
   {
-    "name": "CHAIN SLPIT",
+    "name": "CHAIN SPLIT",
     "civilisation": "Robot",
     "rarity": "Uncommon",
     "type": "SPELL",
     "class": "Normal_Spell",
     "attack": 0,
     "mana": 3,
-    "img": "1.png"
+    "img": "5.png"
   },
   {
     "name": "MASS GOVERNANCE",
@@ -127,7 +127,7 @@
     "class": "Trap ",
     "attack": 0,
     "mana": 4,
-    "img": "1.png"
+    "img": "7.png"
   },
   {
     "name": "SENTINEL COMMANDER",
@@ -137,7 +137,7 @@
     "class": "Normal",
     "attack": 200,
     "mana": 2,
-    "img": "1.png"
+    "img": "16.png"
   },
   {
     "name": "ESSENCE DRIVING UNIT",
@@ -147,7 +147,7 @@
     "class": "Normal",
     "attack": 500,
     "mana": 6,
-    "img": "1.png"
+    "img": "40.png"
   },
   {
     "name": "X35 COMBATTANT",
@@ -157,7 +157,7 @@
     "class": "Normal",
     "attack": 400,
     "mana": 6,
-    "img": "1.png"
+    "img": "8.png"
   },
   {
     "name": "DECENTRALISATION",
@@ -167,7 +167,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 5,
-    "img": "1.png"
+    "img": "3.png"
   },
   {
     "name": "SWORN BOT PROTECTOR",
@@ -177,7 +177,7 @@
     "class": "Vengeance",
     "attack": 350,
     "mana": 5,
-    "img": "1.png"
+    "img": "9.png"
   },
   {
     "name": "ZEENOK INFLILTRATOR",
@@ -187,7 +187,7 @@
     "class": "Normal",
     "attack": 600,
     "mana": 8,
-    "img": "1.png"
+    "img": "10.png"
   },
   {
     "name": "XEDRAIAM",
@@ -197,7 +197,7 @@
     "class": "Swift Attacker",
     "attack": 100,
     "mana": 7,
-    "img": "1.png"
+    "img": "30.png"
   },
   {
     "name": "BLOCKMASTER, CHAIN UNLOCKED",
@@ -217,18 +217,18 @@
     "class": "Normal",
     "attack": 300,
     "mana": 1,
-    "img": "2.png"
+    "img": "21.png"
   },
 
   {
-    "name": "NAAZ’GORTH, INSURGENCE SOLIDER",
+    "name": "NAAZ’GORTH, INSURGENCE SOLDIER",
     "civilisation": "Nightmare",
     "rarity": "Common",
     "type": "CREATURE",
     "class": "Swift Attacker",
     "attack": 200,
     "mana": 2,
-    "img": "2.png"
+    "img": "20.png"
   },
   {
     "name": "UNDEAD COMMANDER",
@@ -238,7 +238,7 @@
     "class": "Normal",
     "attack": 700,
     "mana": 4,
-    "img": "2.png"
+    "img": "19.png"
   },
   {
     "name": "WALKING ABOMINATION",
@@ -248,7 +248,7 @@
     "class": "Poison",
     "attack": 150,
     "mana": 3,
-    "img": "2.png"
+    "img": "18.png"
   },
   {
     "name": "RISE FROM THE DEAD!",
@@ -258,7 +258,7 @@
     "class": "Normal_Spell",
     "attack": 0,
     "mana": 2,
-    "img": "2.png"
+    "img": "22.png"
   },
   {
     "name": "MIND CORRUPTION",
@@ -268,7 +268,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 4,
-    "img": "2.png"
+    "img": "24.png"
   },
   {
     "name": "DEATH’S GRASP",
@@ -278,7 +278,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 6,
-    "img": "2.png"
+    "img": "23.png"
   },
   {
     "name": "UNDERWORLD SLAVE",
@@ -288,7 +288,7 @@
     "class": "Normal",
     "attack": 350,
     "mana": 2,
-    "img": "2.png"
+    "img": "25.png"
   },
   {
     "name": "UNDERWORLD LACKEY",
@@ -298,7 +298,7 @@
     "class": "Normal",
     "attack": 100,
     "mana": 1,
-    "img": "2.png"
+    "img": "34.png"
   },
   {
     "name": "DEFIANT SOUL",
@@ -308,7 +308,7 @@
     "class": "Normal",
     "attack": 600,
     "mana": 5,
-    "img": "2.png"
+    "img": "29.png"
   },
   {
     "name": "HORDE KING",
@@ -318,7 +318,7 @@
     "class": "Normal",
     "attack": 150,
     "mana": 3,
-    "img": "2.png"
+    "img": "35.png"
   },
   {
     "name": "MORTUAL SACRIFICE",
@@ -328,7 +328,7 @@
     "class": "Normal_Spell",
     "attack": 0,
     "mana": 7,
-    "img": "2.png"
+    "img": "28.png"
   },
   {
     "name": "RAGING SORROW",
@@ -338,7 +338,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 1,
-    "img": "2.png"
+    "img": "27.png"
   },
   {
     "name": "SERVANT OF THE ABYSS",
@@ -348,7 +348,7 @@
     "class": "Normal",
     "attack": 550,
     "mana": 4,
-    "img": "2.png"
+    "img": "36.png"
   },
   {
     "name": "VENGEFUL PARASITE",
@@ -358,17 +358,17 @@
     "class": "Normal",
     "attack": 250,
     "mana": 3,
-    "img": "2.png"
+    "img": "32.png"
   },
   {
-    "name": "ROGKAR, DARK ART MANIPULATOR",
+    "name": "RO’KAR, DARK ART MANIPULATOR",
     "civilisation": "Nightmare",
     "rarity": "Rare",
     "type": "CREATURE",
     "class": "Poison",
     "attack": 450,
     "mana": 6,
-    "img": "2.png"
+    "img": "31.png"
   },
   {
     "name": "BLOOD MOON ECLIPSE",
@@ -378,7 +378,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 5,
-    "img": "2.png"
+    "img": "26.png"
   },
   {
     "name": "ELD’VAR, THE UNLEASHED",
@@ -388,7 +388,7 @@
     "class": "Tank",
     "attack": 700,
     "mana": 8,
-    "img": "2.png"
+    "img": "37.png"
   },
   {
     "name": "RAZIEL, SOULD UNBOUND",
@@ -398,26 +398,6 @@
     "class": "Normal",
     "attack": 500,
     "mana": 10,
-    "img": "2.png"
-  },
-  {
-    "name": "TRA’ZUL, TORMENTOR OF SOULD",
-    "civilisation": "Nightmare",
-    "rarity": "Legendary",
-    "type": "CREATURE",
-    "class": "Normal",
-    "attack": 250,
-    "mana": 5,
-    "img": "2.png"
-  },
-  {
-    "name": "AZAMGARH, DESTROYER OF CHAINS",
-    "civilisation": "Nightmare",
-    "rarity": "Legendary",
-    "type": "CREATURE",
-    "class": "Tank",
-    "attack": 100,
-    "mana": 7,
-    "img": "2.png"
+    "img": "33.png"
   }
 ]

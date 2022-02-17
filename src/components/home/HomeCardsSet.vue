@@ -1,6 +1,6 @@
 <template>
     <section
-        class="cardsset"
+        class="cntnt__zone cardsset"
         :class="{ scrolling: scrolling }">
         <div class="cardsset__cards">
             <div class="cardsset__card cardsset__card-1">

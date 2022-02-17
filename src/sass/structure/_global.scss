@@ -3,7 +3,7 @@ html {
     position: relative;
 
     &::before {
-        animation: animParticles 100s linear infinite;
+        animation: animParticles 90s linear infinite;
         animation-direction: alternate;
         background: $backgroundColor url('./assets/images/bg-particles.svg') repeat-y top center;
         background-size: 100% auto;

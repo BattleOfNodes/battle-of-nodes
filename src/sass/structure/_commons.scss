@@ -4,6 +4,9 @@
     line-height: 1.333;
 
     &__zone {
+        position: relative;
+        z-index: 1;
+        
         &-btn {
             background: transparent;
             color: #fff;

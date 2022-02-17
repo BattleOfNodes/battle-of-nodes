@@ -151,7 +151,7 @@ $cardMargin: 12px;
         &__allcards {
             &-filters {
                 display: block;
-                padding: 16px;
+                padding: 0 16px;
                 position: relative;
                 z-index: 1;
 
@@ -164,6 +164,9 @@ $cardMargin: 12px;
                         }
                     }
                 }
+            }
+            &-filter {
+                padding: 28px 32px 28px 56px;
             }
             &-cards {
                 margin: -52px 0 -24px;

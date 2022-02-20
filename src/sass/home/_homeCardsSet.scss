@@ -37,13 +37,13 @@ $cardEasing: cubic-bezier(.27,.78,.38,1.34);
             display: none;
         }
         &-2 {
-            animation: animCard2 $cardDuration $cardEasing $cardDelay*2 forwards;
+            animation: animCard2 $cardDuration $cardEasing $cardDelay forwards;
         }
         &-3 {
-            animation: animCard3 $cardDuration $cardEasing $cardDelay*3 forwards;
+            animation: animCard3 $cardDuration $cardEasing $cardDelay*2 forwards;
         }
         &-4 {
-            animation: animCard4 $cardDuration $cardEasing $cardDelay*4 forwards;
+            animation: animCard4 $cardDuration $cardEasing $cardDelay*3 forwards;
         }
         &-card {
             border-radius: 20px;
@@ -68,10 +68,10 @@ $cardEasing: cubic-bezier(.27,.78,.38,1.34);
                 display: block;
             }
             &-1 {
-                animation: animCard1 $cardDuration $cardEasing $cardDelay forwards;
+                animation: animCard1 $cardDuration $cardEasing forwards;
             }
             &-5 {
-                animation: animCard5 $cardDuration $cardEasing $cardDelay*5 forwards;
+                animation: animCard5 $cardDuration $cardEasing $cardDelay*4 forwards;
             }
         }
     }

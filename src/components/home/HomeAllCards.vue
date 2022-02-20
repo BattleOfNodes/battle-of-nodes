@@ -48,9 +48,7 @@
                 </div>
             </div>
             <div class="cntnt__allcards-check">
-                <a
-                    class="cntnt__zone-btn"
-                    href="#"><span>Check your collection</span></a>
+                <a href="https://elrondplace.io/launchpad" target="_blank" class="cntnt__zone-btn">Buy a pack now</a>
             </div>
         </div>
     </section>

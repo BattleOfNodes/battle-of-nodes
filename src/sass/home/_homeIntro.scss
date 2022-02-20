@@ -57,6 +57,20 @@
 }
 
 
+@media screen and (min-width: $tabBreakpoint) {
+
+    .cntnt {
+        &__intro {
+            &-inner {
+                margin-top: -247px;
+                padding-top: 247px;
+            }
+        }
+    }
+
+}
+
+
 @media screen and (min-width: $largeBreakpoint) {
 
     .cntnt {

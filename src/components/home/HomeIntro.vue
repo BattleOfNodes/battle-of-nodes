@@ -7,9 +7,7 @@
             </div>
             <h2 class="cntnt__intro-title">A trading card game project</h2>
             <p class="cntnt__intro-txt">Collect cards, Trade, Battle</p>
-            <router-link
-                to="/login"
-                class="cntnt__zone-btn"><span>Connect Wallet</span></router-link>
+            <a href="https://elrondplace.io/launchpad" target="_blank" class="cntnt__zone-btn">Buy a pack now</a>
         </div>
     </section>
 </template>

@@ -1,0 +1,12 @@
+.cntnt {
+    &__collect {
+        min-height: calc(100vh - 450px);
+        padding: 100px 0;
+
+        &-title {
+            font-size: 3.8rem;
+            margin-bottom: 32px;
+        }
+    }
+}
+

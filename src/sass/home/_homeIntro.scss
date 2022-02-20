@@ -33,7 +33,7 @@
             justify-content: center;
             line-height: 1;
             position: relative;
-            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.1s;
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
 
             img {
                 margin-left: 4px;
@@ -49,7 +49,7 @@
             line-height: 1;
             margin: 20px 0 12px;
             position: relative;
-            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.24s;
 
             .loading & {
                 opacity: 0;
@@ -63,7 +63,7 @@
             letter-spacing: 0;
             margin-bottom: 36px;
             position: relative;
-            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.36s;
 
             .loading & {
                 opacity: 0;
@@ -71,7 +71,7 @@
             }
         }
         &-btn {
-            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.48s;
 
             .loading & {
                 opacity: 0;

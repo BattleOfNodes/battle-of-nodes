@@ -1,5 +1,8 @@
 <template>
-    <div class="cntnt" id="app">
+    <div
+        class="cntnt"
+        :class="{ loading: isLoading, loaded: isLoaded }"
+        id="app">
         <Header></Header>
         <router-view />
         <Footer></Footer>
@@ -15,6 +18,21 @@ export default {
         Header,
         Footer
     },
+    data () {
+        return {
+            isLoading: true,
+            isLoaded: false
+        }
+    },
+    mounted () {
+        setTimeout(() => {
+            this.isLoading = false;
+
+            setTimeout(() => {
+                this.isLoaded = true;
+            }, 1000)
+        }, 1000);
+    }
 };
 </script>
 

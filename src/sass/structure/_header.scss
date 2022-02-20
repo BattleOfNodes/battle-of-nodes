@@ -7,12 +7,17 @@
         margin: 0 auto;
         max-width: 208px;
         text-align: center;
+        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
         &-link {
             -webkit-tap-highlight-color: rgba(0,0,0,0);
         }
         img {
             display: block;
+        }
+        .loading & {
+            opacity: 0;
+            transform: translateY(-30px);
         }
     }
 }

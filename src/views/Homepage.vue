@@ -1,7 +1,6 @@
 <template>
     <main 
-        class="cntnt__home"
-        :class="{ loading: isLoading, loaded: isLoaded }">
+        class="cntnt__home">
         <HomeIntro></HomeIntro>
         <HomeCardsSet></HomeCardsSet>
         <HomeInfos></HomeInfos>
@@ -36,19 +35,8 @@ export default {
     },
     data () {
         return {
-            isLoading: true,
-            isLoaded: false,
             isDesktop: window.innerWidth >= 1024
         }
-    },
-    mounted () {
-        setTimeout(() => {
-            this.isLoading = false;
-
-            setTimeout(() => {
-                this.isLoaded = true;
-            }, 2400)
-        }, 1000);
     }
 }
 </script>

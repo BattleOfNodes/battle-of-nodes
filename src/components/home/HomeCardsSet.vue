@@ -1,7 +1,6 @@
 <template>
     <section
-        class="cntnt__zone cardsset"
-        :class="{ scrolling: scrolling }">
+        class="cntnt__zone cardsset">
         <div class="cardsset__cards">
             <div class="cardsset__card cardsset__card-1">
                 <div class="cardsset__card-card">
@@ -31,33 +30,3 @@
         </div>
     </section>
 </template>
-
-<script>
-export default {
-    data () {
-        return {
-            scrolling: true
-        }
-    },
-    mounted () {
-        // const cardsSet = document.querySelector('.cardsset');
-
-        // setTimeout(() => {
-        //     this.scrolledToElement(cardsSet);
-        // }, 1000);
-
-        // if ( this.scrolling ) {
-        //     document.addEventListener('scroll', () => {
-        //         this.scrolledToElement(cardsSet);
-        //     });
-        // }
-    },
-    methods: {
-        // scrolledToElement (element) {
-        //     if ( this.scrolling && window.innerHeight - element.getBoundingClientRect().top >= 180 ) {
-        //         this.scrolling = false;
-        //     }
-        // }
-    }
-}
-</script>

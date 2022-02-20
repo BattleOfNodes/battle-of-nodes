@@ -7,6 +7,9 @@
         position: relative;
         z-index: 1;
         
+        &-title {
+            font-size: 3.8rem;
+        }
         &-btn {
             background: transparent;
             color: #fff;
@@ -41,16 +44,14 @@
     }
 }
 
-@media screen and (min-width: $tabBreakpoint) {
-
-    .cntnt {
-    }
-
-}
-
 @media screen and (min-width: $desktopBreakpoint) {
 
-    .cntnt {
+    .cntnt {    
+        &__zone {            
+            &-title {
+                font-size: 5.4rem;
+            }
+        }
     }
 
 }

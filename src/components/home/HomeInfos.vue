@@ -1,7 +1,7 @@
 <template>
     <section class="cntnt__zone cntnt__infos">
         <div class="blockinfos">
-            <h2 class="blockinfos__title">Battle <br>of nodes</h2>
+            <h2 class="cntnt__zone-title blockinfos__title">Battle <br>of nodes</h2>
             <p class="blockinfos__txt">Battle of Nodes is an original Trading Card Game powered by the Elrond Network. Assemble a deck of powerful creatures & spells and duel away in a competitive, fun & rewarding gameplay. Inspired by the genesis of the blockchain, you can collect cards from 4 different civilizations. In a war between machines and the underworld, you must choose which side to take.</p>
             <a href="https://elrondplace.io/launchpad" target="_blank" class="cntnt__zone-btn">Buy a pack now</a>
             <div class="cntnt__infos-img cntnt__infos-img-1">

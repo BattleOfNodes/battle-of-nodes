@@ -1,7 +1,7 @@
 <template>
     <section class="cntnt__zone cntnt__road">
         <div class="cntnt__zone-inner">
-            <h2 class="cntnt__road-title">Roadmap</h2>
+            <h2 class="cntnt__zone-title cntnt__road-title">Roadmap</h2>
             <div class="cntnt__road-list">
                 <div class="cntnt__road-period">
                     <div class="cntnt__road-date"><span>Q1 2022</span></div>

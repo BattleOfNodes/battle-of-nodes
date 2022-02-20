@@ -1,7 +1,7 @@
 <template>
     <section class="cntnt__zone cntnt__allcards">
         <div class="cntnt__zone-inner">
-            <h2 class="cntnt__allcards-title">Meet the 4 civilizations</h2>
+            <h2 class="cntnt__zone-title cntnt__allcards-title">Meet the 4 civilizations</h2>
             <p class="cntnt__allcards-txt">Assemble powerful decks from 4 vibrant and fun civilizations. Discover new synergies and have fun collecting!</p>
             <div
                 class="cntnt__allcards-filters"
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="cntnt__allcards-check">
-                <a href="https://elrondplace.io/launchpad" target="_blank" class="cntnt__zone-btn">Buy a pack now</a>
+                <router-link class="cntnt__zone-btn" to="/explore">Explore</router-link>
             </div>
         </div>
     </section>

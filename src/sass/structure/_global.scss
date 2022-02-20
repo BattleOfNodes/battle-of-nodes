@@ -6,7 +6,7 @@ html {
         animation: animParticles 90s linear infinite;
         animation-direction: alternate;
         background: $backgroundColor url('./assets/images/bg-particles.svg') repeat-y top center;
-        background-size: 100% auto;
+        background-size: 200% auto;
         content: '';
         display: block;
         height: 100%;
@@ -24,6 +24,16 @@ body {
     text-align: center;
     z-index: 1;
     -webkit-text-size-adjust: 100%;
+}
+
+@media screen and (min-width: $tabBreakpoint) {
+
+    html {
+        &::before {
+            background-size: 100% auto;
+        }
+    }
+
 }
 
 @media screen and (min-width: $largeBreakpoint) {

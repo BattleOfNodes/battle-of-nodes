@@ -4,6 +4,7 @@
         :class="{ loading: isLoading, loaded: isLoaded }">
         <ExploreIntro></ExploreIntro>
         <ExploreStory></ExploreStory>
+        <CardsList></CardsList>
         <!-- <template v-if="isDesktop">
             <img class="cntnt__home-card cntnt__home-card-1" src="@/assets/images/bg-card-blue.png" />
             <img class="cntnt__home-card cntnt__home-card-2" src="@/assets/images/bg-card-red.png" />
@@ -18,12 +19,14 @@
 <script>
 import ExploreIntro from '@/components/explore/ExploreIntro';
 import ExploreStory from '@/components/explore/ExploreStory';
+import CardsList from '@/components/commons/CardsList';
 
 export default {
     name: 'Explore',
     components: {
         ExploreIntro,
-        ExploreStory
+        ExploreStory,
+        CardsList
     },
     data () {
         return {

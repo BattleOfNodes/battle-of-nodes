@@ -152,7 +152,7 @@
   {
     "name": "X35 COMBATTANT",
     "civilisation": "Robot",
-    "rarity": "Rare",
+    "rarity": "Epic",
     "type": "CREATURE",
     "class": "Normal",
     "attack": 400,
@@ -192,7 +192,7 @@
   {
     "name": "XEDRAIAM",
     "civilisation": "Robot",
-    "rarity": "Legendary",
+    "rarity": "Epic",
     "type": "CREATURE",
     "class": "Swift Attacker",
     "attack": 100,
@@ -393,11 +393,31 @@
   {
     "name": "RAZIEL, SOULD UNBOUND",
     "civilisation": "Nightmare",
-    "rarity": "Rare",
+    "rarity": "Epic",
     "type": "CREATURE",
     "class": "Normal",
     "attack": 500,
     "mana": 10,
     "img": "33.png"
+  },
+  {
+    "name": "Tra'Zhul, Tormentor of Souls",
+    "civilisation": "Nightmare",
+    "rarity": "Epic",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 250,
+    "mana": 5,
+    "img": "41.png"
+  },
+  {
+    "name": "RAZIEL, SOULD UNBOUND",
+    "civilisation": "Nightmare",
+    "rarity": "Legendary",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 300,
+    "mana": 7,
+    "img": "42.png"
   }
 ]

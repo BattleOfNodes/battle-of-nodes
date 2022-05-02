@@ -46,7 +46,6 @@
                 display: block;
                 position: absolute;
                 left: 50%;
-                transform: scale(0.9);
             }
             &::before {
                 background: transparent url('./assets/images/badge.svg') no-repeat center center;
@@ -69,6 +68,8 @@
             animation-direction: alternate !important;
             background: linear-gradient(180deg, #88578C, #4E3A93 25%, #4E3A93 75%, #88578C 100%) !important;
             background-size: 100% 800% !important;
+            height: 52px;
+            width: 52px;
         }
         &-subtitle {
             margin-bottom: 16px;
@@ -126,7 +127,6 @@
                 &::before, &::after {
                     margin: 0;
                     bottom: 50%; left: unset;
-                    transform: scale(1);
                 }
                 &::before {
                     margin-bottom: -32px;

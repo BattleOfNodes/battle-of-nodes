@@ -4,8 +4,12 @@
         padding: 100px 0;
 
         &-title {
-            margin-bottom: 32px;
+            margin-bottom: 27px;
         }
+    }
+    &__content {
+        font-family: rawengulk,sans-serif;
+        padding-bottom: 32px;
     }
 }
 

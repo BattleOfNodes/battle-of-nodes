@@ -56,5 +56,40 @@
                 }
             }
         }
+        &__modes {
+            &-open{
+                border-radius: 25px;
+                background: linear-gradient(180deg, #6faae7, #b13d6e 25%, #395683 75%, #95d0f2 100%);
+                background-size: 100% 800%;
+            }
+        }
+
+        &__mode{
+            margin-top: 10px;
+            border-radius: 25px;
+            background: linear-gradient(180deg,#6faae7,#062038 90%);
+            animation: growDown 300ms ease-in-out forwards;
+            transform-origin: top center;
+
+            &-error{
+                color: #fd0f0f
+            }
+
+        }
+        &__infos{
+            color: #fff
+        }
     }
 }
+
+@keyframes growDown {
+    0% {
+      transform: scaleY(0)
+    }
+    80% {
+      transform: scaleY(1.1)
+    }
+    100% {
+      transform: scaleY(1)
+    }
+  }

@@ -4,7 +4,7 @@
             <h2 class="cntnt__zone-title cntnt__road-title">Roadmap</h2>
             <div class="cntnt__road-list">
                 <div class="cntnt__road-period">
-                    <div class="cntnt__road-date"><span>Q1 2022</span></div>
+                    <div class="cntnt__road-done"><span>Q1 2022</span></div>
                     <div class="cntnt__road-infos">
                         <h3 class="cntnt__road-subtitle">Foundation Set up</h3>
                         <ul class="cntnt__road-items">

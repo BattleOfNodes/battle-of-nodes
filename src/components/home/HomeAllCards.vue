@@ -83,6 +83,7 @@ export default {
         axios.get('/cards_BON.json')
             .then( success => {
                 this.cards = success.data;
+                console.log(this.cards)
             })
             .catch( error => {
                 console.log('error : ', error)

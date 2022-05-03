@@ -109,6 +109,7 @@
             background-size: 100% 100%;
             animation: growDown 300ms ease-in-out forwards;
             transform-origin: top center;
+            z-index: 1;
 
             &::before, &::after {
                 border-radius: 50%;

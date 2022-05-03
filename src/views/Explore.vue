@@ -4,14 +4,14 @@
         <ExploreIntro></ExploreIntro>
         <ExploreStory></ExploreStory>
         <CardsList></CardsList>
-        <!-- <template v-if="isDesktop">
+        <template v-if="isDesktop">
             <img class="cntnt__home-card cntnt__home-card-1" src="@/assets/images/bg-card-blue.png" />
             <img class="cntnt__home-card cntnt__home-card-2" src="@/assets/images/bg-card-red.png" />
             <img class="cntnt__home-card cntnt__home-card-3" src="@/assets/images/bg-card-blue.png" />
             <img class="cntnt__home-card cntnt__home-card-4" src="@/assets/images/bg-card-red.png" />
             <img class="cntnt__home-card cntnt__home-card-5" src="@/assets/images/bg-card-blue.png" />
             <img class="cntnt__home-card cntnt__home-card-6" src="@/assets/images/bg-card-red.png" />
-        </template> -->
+        </template>
     </main>
 </template>
 

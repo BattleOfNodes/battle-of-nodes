@@ -419,5 +419,35 @@
     "attack": 300,
     "mana": 7,
     "img": "42.png"
+  },
+  {
+    "name": "nat test",
+    "civilisation": "Nature",
+    "rarity": "Legendary",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 300,
+    "mana": 7,
+    "img": "42.png"
+  },
+  {
+    "name": "RAZIEL, SOU",
+    "civilisation": "Nature",
+    "rarity": "Legendary",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 300,
+    "mana": 7,
+    "img": "42.png"
+  },
+  {
+    "name": "RAZI",
+    "civilisation": "Beast",
+    "rarity": "Legendary",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 300,
+    "mana": 7,
+    "img": "42.png"
   }
 ]

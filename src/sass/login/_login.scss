@@ -16,6 +16,12 @@
             line-height: 1;
             margin-bottom: 32px;
         }
+        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+
+        .loading & {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
     }
 
     .vue3rdj5 {
@@ -71,6 +77,12 @@
                 text-shadow: 0px 0px 10px rgba(8, 47, 79, 0.26);
                 z-index: 1;
                 -webkit-tap-highlight-color: rgba(0,0,0,0);
+                transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+
+                .loading & {
+                    opacity: 0;
+                    transform: translateY(-40px);
+                }
 
                 &::before, &::after {
                     background: transparent url('./assets/images/btn-front.svg') no-repeat top center;
@@ -91,11 +103,36 @@
         }
 
         &__mode{
-            margin-top: 10px;
+            margin-top: 50px;
             border-radius: 25px;
-            background: linear-gradient(180deg,#f3d794,#062038 90%);
+            background: transparent url('./assets/images/bg-block-red.png') no-repeat center center;
+            background-size: 100% 100%;
             animation: growDown 300ms ease-in-out forwards;
             transform-origin: top center;
+
+            &::before, &::after {
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0; left: 50%;
+            }
+            &::before {
+                background: transparent url('./assets/images/badge.svg') no-repeat center center;
+                background-size: 100% auto;
+                margin: -45px 0 0 -45px;
+                height: 90px;
+                width: 90px;
+            }
+            &::after {
+                animation: badge 10s ease infinite;
+                animation-direction: alternate;
+                background: linear-gradient(180deg, #88578C, #4E3A93 25%, #4E3A93 75%, #88578C 100%);
+                background-size: 100% 800%;
+                margin: -36px 0 0 -36px;
+                height: 72px;
+                width: 72px;
+            }
 
             &-error{
                 color: #fd0f0f;
@@ -104,6 +141,22 @@
         }
         &__infos{
             color: #fff
+        }
+    }
+}
+
+@media screen and (max-width: $desktopBreakpoint) {
+    .cntnt {
+        .vue3rdj5 {
+            &__mode{
+                margin-top: 10px;
+                &::before, &::after {
+                    display: none;
+                }
+            }
+            &__infos-txt{
+                font-size: 1.5rem;
+            }
         }
     }
 }

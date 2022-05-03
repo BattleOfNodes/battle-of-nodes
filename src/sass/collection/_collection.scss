@@ -2,14 +2,37 @@
     &__collect {
         min-height: calc(100vh - 450px);
         padding: 100px 0;
+        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
 
         &-title {
             margin-bottom: 27px;
         }
+        
+        .loading & {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
     }
-    &__content {
+    &__contentCollection{
+        font-size: 2rem;
         font-family: rawengulk,sans-serif;
-        padding-bottom: 32px;
+        font-weight: 500;
+        letter-spacing: 0;
+        margin-bottom: 36px;
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+
+        .loading & {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
+    }
+    &__zone-btn{
+        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+        .loading & {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
     }
 }
 

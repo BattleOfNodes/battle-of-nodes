@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="cntnt__allcards-check">
-                <router-link class="cntnt__zone-btn" to="/explore">Explore</router-link>
+                <router-link class="cntnt__zone-btn" @click.native="moveUp()" to="/explore">Explore</router-link>
             </div>
         </div>
     </section>
@@ -115,6 +115,9 @@ export default {
             const walk = (x - this.startX) * 3;
             this.$refs.list.scrollLeft = this.scrollLeft - walk;
             this.activeCard = null;
+        },
+        moveUp (){
+           window.scrollTo(0,0);
         }
     }
 }

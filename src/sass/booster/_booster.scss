@@ -1,0 +1,55 @@
+.cntnt {
+    &__booster{
+        &-title {
+            font-size:5rem;
+            margin-bottom: 14rem;
+        }
+        &-image {
+            border-radius: 25px;
+            margin-bottom: 2rem;
+        }
+        &-pack {
+            margin: auto;
+        }
+        &-content {
+            display: flex;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        &-text {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+@media screen and (max-width: $desktopBreakpoint) {
+    .cntnt {
+        &__booster {
+            &-title{
+                font-size:3.4rem;
+                margin-bottom: 5rem;
+            }
+            &-content {
+                display: flex;
+                flex-direction: column;
+                margin-left: 0%;
+                margin-right: 0%;
+            }
+            &-image{
+                max-width: 400px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: $tabBreakpoint) {
+    .cntnt {
+        &__booster {
+            &-image{
+                max-width: 350px;
+            }
+        }
+    }
+}

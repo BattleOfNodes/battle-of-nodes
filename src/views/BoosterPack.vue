@@ -5,14 +5,14 @@
             <div class="cntnt__booster-pack">
                 <p class="cntnt__booster-text">1ST EDITION BOOSTER PACK - BASE SET</p>
                 <img class="cntnt__booster-image" src="@/assets/images/1stEditionBoosterPack.png" />
-                <router-link class="cntnt__zone-btn" to="/login" @click.native="moveUp()">
+                <router-link class="cntnt__zone-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
                     CONNECT TO OPEN
                 </router-link>
             </div>
             <div class="cntnt__booster-packs">
                 <p class="cntnt__booster-text">BASIC BOOSTER PACK - BASE SET</p>
                 <img class="cntnt__booster-image" src="@/assets/images/BaseSetBoosterPack.png"  />
-                <router-link class="cntnt__zone-btn" to="/login" @click.native="moveUp()">
+                <router-link class="cntnt__zone-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
                     CONNECT TO OPEN
                 </router-link>
             </div>

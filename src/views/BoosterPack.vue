@@ -28,9 +28,9 @@
                     <a v-if="this.redBoosterCount === 0" class="cntnt__zone-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%221st+Edition%22%2C%22value%22%3A%221st+Edition%22%7D%5D%7D">
                         BUY 1ST EDITION PACK
                     </a>
-                    <router-link v-else class="cntnt__zone-btn cntnt__booster-btn" to="/booster-pack" @click.native="handleSubmit(getRedBoosterID())">
+                    <div v-else class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="handleSubmit(getRedBoosterID())">
                         OPEN 1ST EDITION PACK
-                    </router-link>
+                    </div>
                 </div>
             </div>
             <div class="cntnt__booster-pack cntnt__booster-pack-cardTwo">
@@ -59,9 +59,9 @@
                     <a v-if="this.blueBoosterCount === 0" class="cntnt__zone-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%22Basic+Pack%22%2C%22value%22%3A%22Basic+Pack%22%7D%5D%7D">
                         BUY X BASIC PACK
                     </a>
-                    <router-link v-else class="cntnt__zone-btn cntnt__booster-btn" to="/booster-pack" @click.native="handleSubmit(getBlueBoosterID())">
+                    <div v-else class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="handleSubmit(getBlueBoosterID())">
                         OPEN X BASIC PACK
-                    </router-link>
+                    </div>
                 </div>
             </div>
         </div>
@@ -118,21 +118,6 @@ function intToHex(string) {
 function stringToHex(string) {
     return string.split('').map((c) => c.charCodeAt(0).toString(16).padStart(2, '0')) .join('');
 }
-
-/*
-function getParameterByName(name, url = window.location.href)
-{
-    const tmpName = name.replace(/[[]]/g, '\\$&');
-    const regex = new RegExp(`[?&]${tmpName}(=([^&#]*)|&|#|$)`);
-    const results = regex.exec(url);
-    if (!results)
-        return '';
-    if (!results[2])
-        return '';
-    const decodedUri = decodeURIComponent(results[2].replace(/\+/g, ' '));
-    return decodedUri || '';
-}
-*/
 
 export default {
     name: 'BoosterPack',
@@ -331,9 +316,7 @@ export default {
                 /* We're pending for the
                 status to be defined  */
                 setTimeout(this.pending, 250, hashHex);
-            } catch (err) {
-                console.log(err)
-            }
+            } catch (err) { console.log(err) }
         },
         /***************************************************************
          * pending                                                     *
@@ -361,11 +344,9 @@ export default {
                          the user to the burn booster result
                        page with the status and the transaction
                                 hash as url parameters          */
-                    console.log("Transaction status : " + rawRequest.data.status);
+                    console.log(await this.getObtainedCards(hashHex))
 
-                    //this.$router.push(`/booster-pack-result?status=${rawRequest.data.status}&txHash=${hashHex}&address=${this.$erd.walletAddress}`);
-                }
-                
+                } 
             } catch (err) {
                 console.log(err)
                 /* We need to wait a little bit more time, because the transaction
@@ -405,21 +386,13 @@ export default {
         },
     },
     beforeMount() {
-        /* If the page is loades with parameters from
-           WebWallet transaction, we redirect the user */
-        // if (window.location.search.includes("status") && window.location.search.includes("txHash"))
-            // this.$router.push(`/booster-pack-result${window.location.search}`);
-
         /*  We setup some user's data
            that require functions calls */
-        this.initComponent();
+        this.initComponent()
 
         /* We get some user's data
            that require some time  */
-        setTimeout(this.updateIsBoostersOwner, 250);
-
-        /* Obtained Cards test :3 */
-        setTimeout(this.getObtainedCards, 250, "1e2568352c47f41a462d397c8515d54594148da448333357e735a2d59c185e75");
+        this.updateIsBoostersOwner()
     },
 }
 </script>

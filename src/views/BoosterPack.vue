@@ -4,7 +4,7 @@
         <div class="cntnt__booster-content">
             <div class="cntnt__booster-pack cntnt__booster-pack-cardOne">
                 <p class="cntnt__booster-text">1ST EDITION BOOSTER PACK - BASE SET</p>
-                <div class="scene scene--card">
+                <div class="scene scene--card" :class="{ active: loaderRed }">
                     <div
                         class="card"
                         @click="cardOne == 'start' ? (cardOne = 'flipped' ) : (cardOne = 'start' )"
@@ -17,25 +17,27 @@
                             <p class="cntnt__booster-pack-text">Higher drop chance for rarer cards</p>
                             <p class="cntnt__booster-pack-text">6 random golden cards inside</p>
                             <p class="cntnt__booster-pack-text">1 Rare card guaranteed</p>
+                            <p class="cntnt__booster-pack-text" style="margin-top: 3rem;">Packs opened</p>
+                            <p class="cntnt__booster-pack-boldText">{{ redBoosterOpened }}</p>
                             <p class="cntnt__booster-pack-boldText cntnt__booster-pack-boldText-bottomText">SOLD OUT</p>
                         </div>
                     </div>
                 </div>
-                <router-link v-if="!logged" class="cntnt__zone-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
+                <router-link v-if="!this.$erd.logged" class="cntnt__zone-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
                     CONNECT TO OPEN
                 </router-link>
                 <div v-else>
                     <a v-if="this.redBoosterCount === 0" class="cntnt__zone-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%221st+Edition%22%2C%22value%22%3A%221st+Edition%22%7D%5D%7D">
                         BUY 1ST EDITION PACK
                     </a>
-                    <div v-else class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="handleSubmit(getRedBoosterID())">
+                    <div v-else class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="if(!loaderRed && !loaderBlue) {handleSubmit('RED')}">
                         OPEN 1ST EDITION PACK
                     </div>
                 </div>
             </div>
             <div class="cntnt__booster-pack cntnt__booster-pack-cardTwo">
                 <p class="cntnt__booster-text">BASIC BOOSTER PACK - BASE SET</p>
-                <div class="scene scene--card">
+                <div class="scene scene--card" :class="{ active: loaderBlue }">
                     <div
                         class="card"
                         @click="cardTwo == 'start' ? (cardTwo = 'flipped' ) : (cardTwo = 'start' )"
@@ -48,40 +50,43 @@
                             <p class="cntnt__booster-pack-text">Normal drop chance for rarer cards</p>
                             <p class="cntnt__booster-pack-text">6 random cards inside</p>
                             <p class="cntnt__booster-pack-text">1 Uncommon card guaranteed</p>
+                            <p class="cntnt__booster-pack-text" style="margin-top: 3rem;">Packs opened</p>
+                            <p class="cntnt__booster-pack-boldText">{{ blueBoosterOpened }}</p>
                             <p class="cntnt__booster-pack-boldText cntnt__booster-pack-boldText-bottomText">2300/6000 Minted</p>
                         </div>
                     </div>
                 </div>
-                <router-link v-if="!logged" class="cntnt__zone-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
+                <router-link v-if="!this.$erd.logged" class="cntnt__zone-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
                     CONNECT TO OPEN
                 </router-link>
                 <div v-else>
                     <a v-if="this.blueBoosterCount === 0" class="cntnt__zone-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%22Basic+Pack%22%2C%22value%22%3A%22Basic+Pack%22%7D%5D%7D">
-                        BUY X BASIC PACK
+                        BUY BASIC PACK
                     </a>
-                    <div v-else class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="handleSubmit(getBlueBoosterID())">
-                        OPEN X BASIC PACK
+                    <div v-else class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="if(!loaderRed && !loaderBlue) {handleSubmit('BLUE')}">
+                        OPEN BASIC PACK
                     </div>
                 </div>
             </div>
         </div>
-        <div v-if="logged && (this.blueBoosterCount !== 0 || this.redBoosterCount !== 0)">
+        <div v-if="this.$erd.logged && (this.blueBoosterCount !== 0 || this.redBoosterCount !== 0)">
             <h1 class="cntnt__booster-title-bottom">MY BOOSTER PACKS</h1>
             <div class="cntnt__booster-ownedPacks" v-if="this.redBoosterCount !== 0"> 
                 <div class="cntnt__booster-ownedPacks-content">
                     <p class="cntnt__booster-ownedPacks-text">{{ redBoosterID }}</p>
                     <img class="cntnt__booster-ownedPacks-image" src="@/assets/images/1stEditionBoosterPack.png" />
                 </div>
-                <p class="cntnt__booster-title-bottom cntnt__booster-ownedPacks-count">X{{ redBoosterCount }} PACKS OWNED</p>
+                <p class="cntnt__booster-ownedPacks-count">X{{ redBoosterCount }} PACKS OWNED</p>
             </div>
             <div class="cntnt__booster-ownedPacks" v-if="this.blueBoosterCount !== 0">
                 <div class="cntnt__booster-ownedPacks-content">
                     <p class="cntnt__booster-ownedPacks-text">{{ blueBoosterID }}</p>
                     <img class="cntnt__booster-ownedPacks-image" src="@/assets/images/BaseSetBoosterPack.png" /> 
                 </div>
-                <p class="cntnt__booster-title-bottom cntnt__booster-ownedPacks-count">X{{ blueBoosterCount }} PACKS OWNED</p>
+                <p class="cntnt__booster-ownedPacks-count">X{{ blueBoosterCount }} PACKS OWNED</p>
             </div>
         </div>
+
         <template v-if="isDesktop">
             <img class="cntnt__home-card cntnt__home-card-1" src="@/assets/images/bg-card-blue.png" />
             <img class="cntnt__home-card cntnt__home-card-2" src="@/assets/images/bg-card-red.png" />
@@ -93,10 +98,12 @@
     </main>
 </template>
 
-<script>
+<script>//         <div class="loader-dual"></div>
 
 import { Account, Transaction, TransactionPayload, Balance, GasLimit } from "@elrondnetwork/erdjs";
 import axios from "axios";
+
+function sleep(n) { return new Promise(resolve=>setTimeout(resolve,n)); }
 
 function hashArrayToHex(hashArray) {
     /* We convert the hash
@@ -119,10 +126,18 @@ function stringToHex(string) {
     return string.split('').map((c) => c.charCodeAt(0).toString(16).padStart(2, '0')) .join('');
 }
 
+import boosterModal from "@/components/modals/boosterModal";
+
 export default {
     name: 'BoosterPack',
+    Components: {
+        boosterModal
+    },
     data () {
         return {
+            loaderBlue: false,
+            loaderRed: false,
+            allCards: [],
             cardOne: "start",
             cardTwo: "start",
             isDesktop: window.innerWidth >= 1024,
@@ -133,21 +148,31 @@ export default {
             blueBooserSupply : 0,
             cardsObtained : [],
             /* DEVNET DATAS */
+            SCFunctionHex : "6275726e426f6f73746572",
+            // devApi : "https://api.elrond.com",
+            // SCAddressHex : "00000000000000000500eb9c542033a0f3e48b2a6aea6fc1e60e2e753597a1e0",
+            // redBoosterID : "BONPACKS-f0b549-01",
+            // blueBoosterID : "BONPACKS-f0b549-02",
             devApi : "https://devnet-api.elrond.com",
             SCAddressHex : "00000000000000000500679c7b8d348a83feddbe2e1a439d64c3a0df8f64cb1f",
-            SCFunctionHex : "6275726e426f6f73746572",
             redBoosterID : "BONPACKS-1de767-01",
             blueBoosterID : "BONPACKS-1de767-02",
             redBoosterIDHex : null,
             blueBoosterIDHex : null,
+            redBoosterOpened: 0,
+            blueBoosterOpened: 0
         }
     },
-    computed: {
-        logged() {
-            return this.$erd.logged;
-        },
-    },
     methods: {
+        openModal() {
+            const options = { cards: this.cardsObtained };
+            const style = {top: '5%', margin: 'auto', width: '80%', height: '90%'};
+            const events = {'before-close': () => {
+                this.updateSupply()
+                this.updateIsBoostersOwner()
+                }}
+            this.$modal.show(boosterModal, options, style, events);
+        },
         moveUp() {
            window.scrollTo(0,0);
         },
@@ -191,7 +216,7 @@ export default {
          * ---------------------                                   *
          * Used by the dApp to update the boosters owner variables *
          ***********************************************************/
-        async updateIsBoostersOwner() {
+        async updateSupply() {
             await axios.get(`${this.devApi}/nfts/${this.redBoosterID}/supply`)
             .then(res => {
                 if(res?.data?.supply)
@@ -216,6 +241,31 @@ export default {
                 this.blueBooserSupply = 0
             })
 
+            await axios.get(`${this.devApi}/accounts/${this.SCAddressHex}/nfts?identifiers=${this.redBoosterID}`)
+            .then(res => {
+                if(res?.data?.length)
+                    this.redBoosterOpened = res?.data[0]?.balance
+                else
+                    this.redBoosterOpened = 0
+            })
+            .catch(err => {
+                console.log(err)
+                this.redBoosterOpened = 0
+            })
+
+            await axios.get(`${this.devApi}/accounts/${this.SCAddressHex}/nfts?identifiers=${this.blueBoosterID}`)
+            .then(res => {
+                if(res?.data?.length)
+                    this.blueBoosterOpened = res?.data[0]?.balance
+                else
+                    this.blueBoosterOpened = 0
+            })
+            .catch(err => {
+                console.log(err)
+                this.blueBoosterOpened = 0
+            })
+        },
+        async updateIsBoostersOwner() {
             /* If the user isn't logged
                in, the function returns */
             if (this.$erd.logged === false)
@@ -229,7 +279,6 @@ export default {
                 /* We call the function again after
                     50ms and the function returns   */
                 setTimeout(this.updateIsBoostersOwner, 50);
-                console.log("AGAIN DANS 50ms");
                 return;
             }
 
@@ -257,6 +306,13 @@ export default {
                 this.blueBoosterCount = 0
             })
 
+            await axios.get('/cards_BON.json')
+            .then(res => this.allCards = res.data)
+            .catch(err => console.log(err))
+            await axios.get('/cards_golden_BON.json')
+            .then(res => this.allCards =[...res.data,...this.allCards])
+            .catch(err => console.log(err))
+
         },
         /*****************************************************************
          * handleSubmit                                                  *
@@ -264,8 +320,16 @@ export default {
          * Used by the dApp to handle a booster burning                  *
          * @param (str) boosterID : the booster ID of te booster to burn *
          *****************************************************************/
-        async handleSubmit(boosterID) {
+        async handleSubmit(boosterType) {
             try {
+                let boosterID
+                if(boosterType === 'BLUE') {
+                    this.loaderBlue = true
+                    boosterID = await this.getRedBoosterID()
+                } else {
+                    this.loaderRed = true
+                    boosterID = await this.getRedBoosterID()
+                }
                 /*   If the user is not connected,
                 we redirect him to the login page */
                 if (!this.$erd.logged) {
@@ -301,12 +365,10 @@ export default {
 
                 /* We set the transaction's nonce
                     which is the account's one   */
-                transaction.setNonce(account.nonce);
-
+                await transaction.setNonce(account.nonce);
                 /*  We send the transaction and
                 get its transaction hash array */
                 const hashArray = await this.$erd.providers.signAndSend(transaction).then((result) => {return result.hash.hash;});
-
                 /* We convert the hash
                     array to hex     */
                 var hashHex = hashArrayToHex(hashArray);
@@ -344,8 +406,16 @@ export default {
                          the user to the burn booster result
                        page with the status and the transaction
                                 hash as url parameters          */
-                    console.log(await this.getObtainedCards(hashHex))
-
+                    await sleep(2000)
+                    await this.getObtainedCards(hashHex)
+                    let waiting = 35
+                    while(!this.cardsObtained.length && waiting !=0) {
+                        await sleep(1000)
+                        await this.getObtainedCards(hashHex)
+                        waiting--
+                    }
+                    this.loaderBlue = false
+                    this.loaderRed = false
                 } 
             } catch (err) {
                 console.log(err)
@@ -366,33 +436,51 @@ export default {
             try {
                 /* We get the raw request result */
                 var rawRequest = await axios.get(`${this.devApi}/transactions/${hashHex}`);
-
                 /* We get the result's operations except the
                 first one, which is the Booster transfer  */
                 var operations = rawRequest.data.operations.slice(1);
-
+                this.cardsObtained = []
                 /* For each NFTs transfer */
                 for (const i in operations) {
                     if (operations[i].action === "transfer") {
                         /*   We add the NFT obtained
                         to the ~cardsObtained~ array */
-                        this.cardsObtained.push(operations[i].identifier);
-                        console.log("    -" + operations[i].identifier);
+                        this.cardsObtained.push(...this.allCards.filter(card=> card.identifier === operations[i].identifier.substr(-2)));
                     }
                 }
+                if(this.cardsObtained.length) {
+                    this.loaderBlue = false
+                    this.loaderRed = false
+                    this.openModal()
+                }
+                // this.openModal()
             } catch (error) {
                 console.log("Unable to call elrond API", error);
             }
         },
     },
-    beforeMount() {
-        /*  We setup some user's data
-           that require functions calls */
+    async beforeMount() {
         this.initComponent()
-
-        /* We get some user's data
-           that require some time  */
+        this.updateSupply()
         this.updateIsBoostersOwner()
+        if(this.$erd.logged !== true) {
+            setTimeout(() => {
+                this.updateIsBoostersOwner()}, 500);
+            if(this.$erd.logged !== true) {
+                setTimeout(() => {
+                    this.updateIsBoostersOwner()}, 500);
+                if(this.$erd.logged !== true) {
+                    setTimeout(() => {
+                        this.updateIsBoostersOwner()}, 500);
+                    if(this.$erd.logged !== true) {
+                        setTimeout(() => {
+                            this.updateIsBoostersOwner()}, 500);
+                    } else {
+                        this.updateIsBoostersOwner()
+                    }
+                } 
+            } 
+        }
     },
 }
 </script>

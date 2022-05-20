@@ -8,7 +8,7 @@
                 <router-link class="menu__item-link" to="/explore">Explore</router-link>
             </li>
             <li class="menu__item">
-                <router-link class="menu__item-link" to="/my-collection">My Collection</router-link>
+                <router-link ref="fetch" class="menu__item-link" to="/my-collection">My Collection</router-link>
             </li>
             <li class="menu__item">
                 <router-link class="menu__item-link" to="/booster-pack">Booster Pack</router-link>

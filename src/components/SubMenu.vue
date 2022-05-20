@@ -3,7 +3,7 @@
         <ul class="menu__links menu__submenu-links">
             <li class="menu__item">
                 <router-link class="menu__item-link" to="/login">
-                    <span v-if="logged">{{ $erd.obfuscatedWalletAddress }}</span>
+                    <span v-if="this.$erd.logged">{{ $erd.obfuscatedWalletAddress }}</span>
                     <span v-else>Connect</span>
                 </router-link>
             </li>
@@ -21,11 +21,6 @@
 export default {
     data() {
         return {};
-    },
-    computed: {
-        logged() {
-            return this.$erd.logged;
-        }
-    },
+    }
 };
 </script>

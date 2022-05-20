@@ -1,3 +1,13 @@
+@keyframes slideInFromTop {
+    0% {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
 .cntnt {
     &__login {
         align-items: center;
@@ -11,22 +21,22 @@
             max-width: 1160px;
             padding: 0 16px;
             width: 100%;
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
         }
         &-title {
             line-height: 1;
             margin-bottom: 32px;
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
         }
         transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+        animation: 0.75s ease-out 0s 1 slideInFromTop;
 
-        .loading & {
-            opacity: 0;
-            transform: translateY(-40px);
-        }
     }
 
     .vue3rdj5 {
         &__logged {
             color: #fff;
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
 
             &-logout {
                 background: transparent;
@@ -44,6 +54,7 @@
                 width: auto;
                 z-index: 1;
                 -webkit-tap-highlight-color: rgba(0,0,0,0);
+                transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
     
                 &::before, &::after {
                     background: transparent url('./assets/images/btn-front.svg') no-repeat top center;
@@ -78,11 +89,7 @@
                 z-index: 1;
                 -webkit-tap-highlight-color: rgba(0,0,0,0);
                 transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
-
-                .loading & {
-                    opacity: 0;
-                    transform: translateY(-40px);
-                }
+                animation: 0.75s ease-out 0s 1 slideInFromTop;
 
                 &::before, &::after {
                     background: transparent url('./assets/images/btn-front.svg') no-repeat top center;
@@ -110,6 +117,7 @@
             animation: growDown 300ms ease-in-out forwards;
             transform-origin: top center;
             z-index: 1;
+            
 
             &::before, &::after {
                 border-radius: 50%;

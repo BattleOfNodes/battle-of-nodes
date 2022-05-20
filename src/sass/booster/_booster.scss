@@ -1,12 +1,28 @@
+@keyframes slideInFromTop {
+    0% {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
 .cntnt {
     &__booster{
         &-btn{
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+            animation: 0.75s ease-out 0s 1 slideInFromTop;
             margin-bottom: 2rem;
         }
         &-title {
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+            animation: 0.75s ease-out 0s 1 slideInFromTop;
             font-size:5rem;
             margin-bottom: 14rem;
             &-bottom{
+                transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+                animation: 0.75s ease-out 0s 1 slideInFromTop;
                 font-size: 4rem;
                 font-family: rawengulk,sans-serif;
                 font-weight: 800;
@@ -14,6 +30,8 @@
             }
         }
         &-pack {
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+            animation: 0.75s ease-out 0s 1 slideInFromTop;
             margin: auto !important;
             &-packOne {
                 margin-right: 2rem;
@@ -35,13 +53,15 @@
                 font-size: 2.5rem;
                 font-weight: bold;
                 max-height: 3rem;
-                margin-bottom: 6rem;
+                margin-bottom: 3rem;
                 &-bottomText {
-                    margin-top: 12rem;
+                    margin-top: 11rem;
                 }
             }
         }
         &-content {
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+            animation: 0.75s ease-out 0s 1 slideInFromTop;
             display: flex;
             margin-left: 20%;
             margin-right: 20%;
@@ -49,25 +69,39 @@
             
         }
         &-text {
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+            animation: 0.75s ease-out 0s 1 slideInFromTop;
             font-size: 1.3rem;
             margin-bottom: 2rem;
         }
         &-ownedPacks {
+            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+            animation: 0.75s ease-out 0s 1 slideInFromTop;
             display: flex;
             &-content {
-                margin-left:-27%;
+                display: flex;
+                flex-direction: column;
+                margin-left: 5%;
             }
             &-text {
+                margin-left: 2rem;
                 font-size: 1.3rem;
+                margin-right: auto;
             }
             &-image{
-                max-width: 15%;
+                width: 220px;
                 border-radius: 25px;
+                margin-right: auto;
             }
             &-count {
-                margin-left: -30%;
+                margin-left: 2rem;
                 margin-top: auto;
                 margin-bottom: auto;
+                transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+                animation: 0.75s ease-out 0s 1 slideInFromTop;
+                font-size: 4rem;
+                font-family: rawengulk,sans-serif;
+                font-weight: 800;
             }
         }
     }
@@ -78,6 +112,9 @@
     height: 550px;
     margin: auto;
     margin-bottom: 2rem;
+    &.active {
+        filter: blur(5px)
+    }
 }
   
 .card {
@@ -127,9 +164,31 @@
     transform: rotateY(180deg);
 }
 
+.card__facePack--front {
+}
+
+.card__facePack--back {
+    transform: rotateY(180deg);
+}
+
 /* this style is applied when the card is clicked */
 .flipme {
     transform: rotateY(180deg);
+}
+
+@media screen and (max-width: $bigMobileBreakpoint) {
+    .cntnt {
+        &__booster {
+            &-ownedPacks {
+                &-image {
+                    width: 200px;
+                }
+                &-text {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: $desktopBreakpoint) {
@@ -148,6 +207,11 @@
                 flex-direction: column;
                 margin-left: 0%;
                 margin-right: 0%;
+            }
+            &-ownedPacks {
+                &-count {
+                    font-size: 2.5rem;
+                }
             }
         }
     }
@@ -180,7 +244,7 @@
                 &-boldText {
                     font-size: 1.9rem;
                     &-bottomText {
-                        margin-top: 10rem;
+                        margin-top: 6rem;
                     }
                 }
             }
@@ -188,7 +252,100 @@
     }
 }
 
-.pointerCursor {
-    cursor: pointer;
+
+.vm--modal {
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
+.vm--overlay {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+
+// modal
+
+.fullsize {
+    width: 100%;
+    height: 100%;
+}
+.boxModal {    
+    width: 100%;
+    height: 42%;
+    display: flex;
+}
+
+.cardModal {
+    border-radius: 25px;
+    margin: auto;
+    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+    animation: 0.75s ease-out 0s 1 slideInFromTop;
+    width: 15%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+
+.cardModal__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 260px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    backface-visibility: hidden;
+}
+
+.cardModal__facePack--front {
+}
+
+.cardModal__facePack--back {
+transform: rotateY(180deg);
+cursor: auto;
+}
+
+
+.boosterImgPack{
+    border-radius: 15px
+}
+@media screen and (max-width: $largeBreakpoint) {
+    .cardModal { 
+        width: 19%;
+    }
+}
+
+@media screen and (max-width: $desktopBreakpoint) {
+    .cardModal { 
+        width: 28%;
+    }
+}
+
+.pointerCursor {
+    cursor: pointer
+}
+
+/* Loader */
+.loader-dual {
+    top: 40%;
+    left: 59%;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border-radius: 50%;
+    border: 10px solid #dfc372;
+    border-color: #dfc372 transparent #dfc372 transparent;
+    animation: loader-dual 1.2s linear infinite;
+}
+
+@keyframes loader-dual {
+    0% {
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

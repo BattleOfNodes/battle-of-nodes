@@ -23,23 +23,23 @@
                         <div class="cntnt__collectionBlock-filters">
                             <select class="cntnt__contentCollection-filter pointerCursor" v-model="filterCiv" @change="setfilterCards()">
                                 <option value="CIVILIZATION" selected disabled hidden>CIVILIZATION</option>
-                                <option v-for="filter in filterCivArray" :key="{filter}"  :value=filter>{{filter}}</option>
+                                <option v-for="filter in filterCivArray" :key="filter"  v-bind="filter">{{filter}}</option>
                             </select>
                             <select class="cntnt__contentCollection-filter pointerCursor" v-model="filterClass" @change="setfilterCards()">
                                 <option value="TYPE" selected disabled hidden>TYPE</option>
-                                <option v-for="filter in filterClassArray" :key="filter" :value=filter>{{filter}}</option>
+                                <option v-for="filter in filterClassArray" :key="filter" v-bind="filter">{{filter}}</option>
                             </select>
                             <select class="cntnt__contentCollection-filter pointerCursor" v-model="filterType" @change="setfilterCards()">
                                 <option value="CARD TYPE" selected disabled hidden>CARD TYPE</option>
-                                <option v-for="filter in filterTypeArray" :key="filter" :value=filter>{{filter}}</option>
+                                <option v-for="filter in filterTypeArray" :key="filter" v-bind="filter">{{filter}}</option>
                             </select>
                             <select class="cntnt__contentCollection-filter pointerCursor" v-model="filterRarity" @change="setfilterCards()">
                                 <option value="RARITY" selected disabled hidden>RARITY</option>
-                                <option v-for="filter in filterRarityArray" :key="filter" :value=filter>{{filter}}</option>
+                                <option v-for="filter in filterRarityArray" :key="filter" v-bind="filter">{{filter}}</option>
                             </select>
                             <select class="cntnt__contentCollection-filter pointerCursor" v-model="filterEdition" @change="setfilterCards()">
                                 <option value="EDITION" selected disabled hidden>EDITION</option>
-                                <option v-for="filter in filterEditionArray" :key="filter" :value=filter>{{filter}}</option>
+                                <option v-for="filter in filterEditionArray" :key="filter" v-bind="filter">{{filter}}</option>
                             </select>
                             <div class="cntnt__zone-btn cntnt__contentCollection-btn cntnt__booster-btn pointerCursor" v-on:click="resetFilters()">
                                 RESET FILTERS
@@ -140,8 +140,8 @@ export default {
         },
         async getUserCards () {
             if(this.$erd.logged) { 
-                await axios.get(`https://devnet-api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d326b4`) // change identifier for live and api endpoint
-                // await axios.get(`https://api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d1fb64`)
+                // await axios.get(`https://devnet-api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d326b4`) // change identifier for live and api endpoint
+                await axios.get(`https://api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d1fb64`)
                 .then(async res => {
                     this.usersCards = this.allCards.filter((card) => {
                         return res.data.find((userCard) => {
@@ -149,6 +149,12 @@ export default {
                             return card.identifier === userCard.identifier.substr(-2) })
                     })
                     this.setfilterCards()
+
+                    await this.CivFilters(this.usersCards)
+                    await this.TypeFilters(this.usersCards)
+                    await this.CardTypeFilters(this.usersCards)
+                    await this.RarityFilters(this.usersCards)
+                    await this.EditionFilters(this.usersCards)
                 })
                 .catch(err => console.log(err))
             }
@@ -160,89 +166,47 @@ export default {
             filteredCards = await this.filterByCardType(filteredCards)
             filteredCards = await this.filterByRarity(filteredCards)
             filteredCards = await this.filterByEdition(filteredCards)
-            this.filteredCard = filteredCards
-
-            await this.CivFilters(this.usersCards)
-            await this.TypeFilters(this.usersCards)
-            await this.CardTypeFilters(this.usersCards)
-            await this.RarityFilters(this.usersCards)
-            await this.EditionFilters(this.usersCards)
-            
+            this.filteredCard = filteredCards            
         },
         async filterByCivilization(filteredCards) {
             return filteredCards.filter( card => {
-                return card.civilisation === this.filterCiv || this.filterCiv === 'CIVILIZATION' || this.filterCiv === 'ALL CIVILIZATIONS';
+                return card.civilisation.toUpperCase() === this.filterCiv || this.filterCiv === 'CIVILIZATION' || this.filterCiv === 'ALL CIVILIZATIONS';
             });
         },
         async filterByType(filteredCards) {
             return filteredCards.filter( card => {
-                return card.class === this.filterClass || this.filterClass === 'TYPE' || this.filterClass === 'ALL TYPES';
+                return card.class.toUpperCase() === this.filterClass || this.filterClass === 'TYPE' || this.filterClass === 'ALL TYPES';
             });
         },
         async filterByCardType(filteredCards) {
             return filteredCards.filter( card => {
-                return card.type === this.filterType || this.filterType === 'CARD TYPE' || this.filterType === 'ALL CARD TYPES';
+                return card.type.toUpperCase() === this.filterType || this.filterType === 'CARD TYPE' || this.filterType === 'ALL CARD TYPES';
             });
         },
         async filterByRarity(filteredCards) {
             return filteredCards.filter( card => {
-                return card.rarity === this.filterRarity || this.filterRarity === 'RARITY' || this.filterRarity === 'ALL RARITYS';
+                return card.rarity.toUpperCase() === this.filterRarity || this.filterRarity === 'RARITY' || this.filterRarity === 'ALL RARITYS';
             });
         },
         async filterByEdition(filteredCards) {
             return filteredCards.filter( card => {
-                return card.edition === this.filterEdition || this.filterEdition === 'EDITION' || this.filterEdition === 'ALL EDITIONS';
+                return card.edition.toUpperCase() === this.filterEdition || this.filterEdition === 'EDITION' || this.filterEdition === 'ALL EDITIONS';
             });
         },
         async CivFilters(filteredCards) {
-            this.filterCivArray = [...new Set(filteredCards.map(card => card.civilisation))]
-            const index = this.filterCivArray.indexOf(this.filterCiv)
-            if(index !== -1) {
-                this.filterCivArray.splice(index ,1)
-            }
-            if(this.filterCiv !== 'CIVILIZATION' && this.filterCiv !== 'ALL CIVILIZATIONS') {
-                this.filterCivArray = ['ALL CIVILIZATIONS' ,...this.filterCivArray]
-            }
+            this.filterCivArray = [...new Set(filteredCards.map(card => card.civilisation.toUpperCase()))]
         },
         async TypeFilters(filteredCards) {
-            this.filterClassArray = [...new Set(filteredCards.map(card => card.class))]
-            const index = this.filterClassArray.indexOf(this.filterClass)
-            if(index !== -1) {
-                this.filterClassArray.splice(index ,1)
-            }
-            if(this.filterClass !== 'TYPE' && this.filterClass !== 'ALL TYPES') {
-                this.filterClassArray = ['ALL TYPES' ,...this.filterClassArray]
-            }
+            this.filterClassArray = [...new Set(filteredCards.map(card => card.class.toUpperCase()))]
         },
         async CardTypeFilters(filteredCards) {
-            this.filterTypeArray = [...new Set(filteredCards.map(card => card.type))]
-            const index = this.filterTypeArray.indexOf(this.filterType)
-            if(index !== -1) {
-                this.filterTypeArray.splice(index ,1)
-            }
-            if(this.filterType !== 'CARD TYPE' && this.filterType !== 'ALL CARD TYPES') {
-                this.filterTypeArray = ['ALL CARD TYPES' ,...this.filterTypeArray]
-            }
+            this.filterTypeArray = [...new Set(filteredCards.map(card => card.type.toUpperCase()))]
         },
         async RarityFilters(filteredCards) {
-            this.filterRarityArray = [...new Set(filteredCards.map(card => card.rarity))]
-            const index = this.filterRarityArray.indexOf(this.filterRarity)
-            if(index !== -1) {
-                this.filterRarityArray.splice(index ,1)
-            }
-            if(this.filterRarity !== 'RARITY' && this.filterRarity !== 'ALL RARITYS') {
-                this.filterRarityArray = ['ALL RARITYS' ,...this.filterRarityArray]
-            }
+            this.filterRarityArray = [...new Set(filteredCards.map(card => card.rarity.toUpperCase()))]
         },
         async EditionFilters(filteredCards) {
-            this.filterEditionArray = [...new Set(filteredCards.map(card => card.edition))]
-            const index = this.filterEditionArray.indexOf(this.filterEdition)
-            if(index !== -1) {
-                this.filterEditionArray.splice(index ,1)
-            }
-            if(this.filterEdition !== 'EDITION' && this.filterEdition !== 'ALL EDITIONS') {
-                this.filterEditionArray = ['ALL EDITIONS' ,...this.filterEditionArray]
-            }
+            this.filterEditionArray = [...new Set(filteredCards.map(card => card.edition.toUpperCase()))]
         },
         mouseDown (e) {
             this.isMouseDown = true;

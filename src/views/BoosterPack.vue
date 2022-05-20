@@ -149,16 +149,18 @@ export default {
             cardsObtained : [],
             /* DEVNET DATAS */
             SCFunctionHex : "6275726e426f6f73746572",
-            // devApi : "https://api.elrond.com",
-            // SCAddressHex : "00000000000000000500eb9c542033a0f3e48b2a6aea6fc1e60e2e753597a1e0",
-            // redBoosterID : "BONPACKS-f0b549-01",
-            // blueBoosterID : "BONPACKS-f0b549-02",
-            // SCAddress: "erd1qqqqqqqqqqqqqpgqaww9ggpn5re7fze2dt4xls0xpch82dvh58sqpu76dr",
-            devApi : "https://devnet-api.elrond.com",
-            SCAddressHex : "00000000000000000500679c7b8d348a83feddbe2e1a439d64c3a0df8f64cb1f",
-            SCAddress : "erd1qqqqqqqqqqqqqpgqv7w8hrf532plahd79cdy88tycwsdlrmyev0swdhkzp",
-            redBoosterID : "BONPACKS-1de767-01",
-            blueBoosterID : "BONPACKS-1de767-02",
+
+            devApi : "https://api.elrond.com",
+            SCAddressHex : "00000000000000000500eb9c542033a0f3e48b2a6aea6fc1e60e2e753597a1e0",
+            redBoosterID : "BONPACKS-f0b549-01",
+            blueBoosterID : "BONPACKS-f0b549-02",
+            SCAddress: "erd1qqqqqqqqqqqqqpgqaww9ggpn5re7fze2dt4xls0xpch82dvh58sqpu76dr",
+            // devApi : "https://devnet-api.elrond.com",
+            // SCAddressHex : "00000000000000000500679c7b8d348a83feddbe2e1a439d64c3a0df8f64cb1f",
+            // SCAddress : "erd1qqqqqqqqqqqqqpgqv7w8hrf532plahd79cdy88tycwsdlrmyev0swdhkzp",
+            // redBoosterID : "BONPACKS-1de767-01",
+            // blueBoosterID : "BONPACKS-1de767-02",
+
             redBoosterIDHex : null,
             blueBoosterIDHex : null,
             redBoosterOpened: 0,
@@ -343,8 +345,8 @@ export default {
                 }
                 /*   We get both booster collection
                 ID and booster nonce from boosterID */
-                var splittedBoosterID = boosterID.split('-');
-                var boosterCollectionID = stringToHex(splittedBoosterID.slice(0, splittedBoosterID.length - 1).join('-'));
+                var splittedBoosterID = boosterID?.split('-');
+                var boosterCollectionID = stringToHex(splittedBoosterID?.slice(0, splittedBoosterID.length - 1).join('-'));
                 var boosterNonce = splittedBoosterID[splittedBoosterID.length - 1];
 
                 /* We create an account object */
@@ -359,19 +361,19 @@ export default {
 
                 /* We create the transaction */
                 var transaction = new Transaction({
-                    sender   : this.$erd.walletAddress,
-                    receiver : this.$erd.walletAddress,
-                    gasLimit : new GasLimit(100000000),
-                    value    : Balance.egld(0),
-                    data     : payload,
+                    sender: this.$erd.walletAddress,
+                    receiver: this.$erd.walletAddress,
+                    gasLimit: new GasLimit(20000000),
+                    value: Balance.egld(0),
+                    data: payload,
                 });
 
                 /* We set the transaction's nonce
                     which is the account's one   */
-                await transaction.setNonce(account.nonce);
+                await transaction.setNonce(account?.nonce);
                 /*  We send the transaction and
                 get its transaction hash array */
-                const hashArray = await this.$erd.providers.signAndSend(transaction).then((result) => {return result.hash.hash;});
+                const hashArray = await this.$erd?.providers?.signAndSend(transaction).then((result) => {return result?.hash?.hash;});
                 /* We convert the hash
                     array to hex     */
                 var hashHex = hashArrayToHex(hashArray);
@@ -412,7 +414,7 @@ export default {
                          the user to the burn booster result
                        page with the status and the transaction
                                 hash as url parameters          */
-                    await sleep(2000)
+                    await sleep(1500)
                     await this.getObtainedCards(hashHex)
                     let waiting = 35
                     while(!this.cardsObtained.length && waiting !=0) {
@@ -447,7 +449,7 @@ export default {
                 var rawRequest = await axios.get(`${this.devApi}/transactions/${hashHex}`);
                 /* We get the result's operations except the
                 first one, which is the Booster transfer  */
-                var operations = rawRequest.data.operations.slice(1);
+                var operations = rawRequest?.data?.operations?.slice(1);
                 this.cardsObtained = []
                 /* For each NFTs transfer */
                 for (const i in operations) {

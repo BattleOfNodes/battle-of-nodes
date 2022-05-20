@@ -5,8 +5,10 @@ import BoosterPack from '@/views/BoosterPack'
 import Explore from '@/views/Explore'
 import Homepage from '@/views/Homepage'
 import MyCollection from '@/views/MyCollection'
+import vmodal from 'vue-js-modal'
 
 Vue.use(VueRouter)
+Vue.use(vmodal)
 
 const routes = [
   {

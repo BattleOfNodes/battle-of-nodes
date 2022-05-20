@@ -1,20 +1,17 @@
 <template>
     <nav class="menu menu__submenu">
         <ul class="menu__links menu__submenu-links">
-            <!-- <li class="menu__item">
+            <li class="menu__item">
                 <router-link class="menu__item-link" to="/login">
-                    <span v-if="logged">{{ $erd.obfuscatedWalletAddress }}</span>
+                    <span v-if="this.$erd.logged">{{ $erd.obfuscatedWalletAddress }}</span>
                     <span v-else>Connect</span>
                 </router-link>
-            </li> -->
-            <!-- <li class="menu__item">
-                <router-link class="menu__item-link" to="/my-collection">FAQ</router-link>
-            </li> -->
-            <li class="menu__item">
-                <a href="https://twitter.com/BattleOfNodeNFT" target="_blank" class="menu__item-link">Twitter</a>
             </li>
             <li class="menu__item">
-                <a href="https://discord.gg/g8T6FPwK" target="_blank" class="menu__item-link">Discord</a>
+                <a href="https://twitter.com/BattleOfNodeNFT" target="_blank" class="menu__item-link"><img class="thumbnailLogo" src="@/assets/images/twitterWhite.png" alt="Twitter Logo" /></a>
+            </li>
+            <li class="menu__item">
+                <a href="https://discord.gg/6X2FN6BRKz" target="_blank" class="menu__item-link"><img class="thumbnailLogo" src="@/assets/images/discordWhite.png" alt="Discord Logo" /></a>
             </li>
         </ul>
     </nav>
@@ -24,11 +21,6 @@
 export default {
     data() {
         return {};
-    },
-    computed: {
-        logged() {
-            return this.$erd.logged;
-        }
-    },
+    }
 };
 </script>

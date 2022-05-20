@@ -36,8 +36,18 @@
                 position: relative;
                 text-decoration: none;
                 white-space: nowrap;
+                &:hover {
+                    color: $hoverColor;
+                }
             }
         }
     }
 
+    .router-link-exact-active {
+        color: $hoverColor;
+    }
+
+    .thumbnailLogo {
+        max-width: 1.5rem;
+    }
 }

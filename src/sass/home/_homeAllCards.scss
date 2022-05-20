@@ -6,6 +6,23 @@ $cardMargin: 12px;
         margin-top: -40px;
         padding: 100px 0;
 
+        &-cardBalance {
+            background-image: url('./assets/images/cardAmount.png');
+            background-size: 100%;
+            position: absolute;
+            top: 87%;
+            left: -1%;
+            width: 20%;
+            height: 13%;
+        }
+
+        &-cardBalanceText {
+            font-size: 2rem;
+            margin:auto;
+            color: #ddc275;
+            margin-top: 25%;
+        }
+
         &-title {
             line-height: 1;
             margin-bottom: 40px;
@@ -105,6 +122,35 @@ $cardMargin: 12px;
                 position: relative;
                 transform: scale(1.25) rotate(-2deg);
                 z-index: 1;
+            }
+            &:last-child {
+                margin-right: 20%;
+            }
+        }
+        &-imgCollection {
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.15s cubic-bezier(.27,.78,.38,1.34);
+            user-select: none;
+            will-change: transform;
+
+            img {
+                display: block;
+                max-width: 242px;
+                user-select: none;
+                image-rendering: -o-crisp-edges;
+                image-rendering: -moz-crisp-edges;
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+            &.active {
+                top: 30%;
+                left: 43%;
+                z-index: 9;
+                position: fixed;
+                transform: scale(2.5);
+                transition: all 0.15s cubic-bezier(.27,.78,.38,1.34);
             }
             &:last-child {
                 margin-right: 20%;
@@ -226,4 +272,93 @@ $cardMargin: 12px;
         }
     }
 
+}
+
+
+// ------------- scale cards my collection
+@media screen and (max-width: $bigPlusBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    transform: scale(2.25)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $bigBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    transform: scale(2)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $largeBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    transform: scale(2)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $desktopBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    transform: scale(1.75)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tabBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    left: 37%;
+                    transform: scale(1.75)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $bigMobileBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    left: 25%;
+                    transform: scale(1.5)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mediumMobileBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    left: 16%;
+                    transform: scale(1.25)
+                }
+            }
+        }
+    }
 }

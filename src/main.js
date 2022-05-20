@@ -7,11 +7,11 @@ import api from "@/config"
 
 Vue.config.productionTip = false
 
-console.log("before")
+// console.log("before")
 
 const fetchConfig = api.fetchConfig();
 fetchConfig.then((config) => {
-  console.log(config)
+  // console.log(config)
   Vue.use(VueErdjs, config.elrond)
 
   new Vue({

@@ -9,6 +9,7 @@
 
             $cardsDuration: 70s;
             $cardsGap: 10s;
+            z-index: -1;
             &-1 {
                 animation-duration: $cardsDuration;
                 top: 19.6%; left: 56%;

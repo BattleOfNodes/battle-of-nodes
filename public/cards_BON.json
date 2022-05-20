@@ -7,8 +7,10 @@
     "class": "Normal",
     "attack": 200,
     "mana": 1,
-    "img": "13.png"
-  },
+    "img": "1.png",
+    "identifier" : "16",
+  	"edition": "Normal"
+},
   {
     "name": "MECHANICAL DEFENDER",
     "civilisation": "Robot",
@@ -17,58 +19,10 @@
     "class": "Tank",
     "attack": 300,
     "mana": 3,
-    "img": "12.png"
-  },
-  {
-    "name": "FLYING SENTINEL",
-    "civilisation": "Robot",
-    "rarity": "Common",
-    "type": "CREATURE",
-    "class": "Swift Attacker",
-    "attack": 400,
-    "mana": 5,
-    "img": "11.png"
-  },
-  {
-    "name": "UNSTABLE NODE",
-    "civilisation": "Robot",
-    "rarity": "Common",
-    "type": "CREATURE",
-    "class": "Poison",
-    "attack": 100,
-    "mana": 4,
-    "img": "15.png"
-  },
-  {
-    "name": "CHARGED UP!",
-    "civilisation": "Robot",
-    "rarity": "Common",
-    "type": "SPELL",
-    "class": "Normal_Spell",
-    "attack": 0 ,
-    "mana": 3,
-    "img": "4.png"
-  },
-  {
-    "name": "ADAPTIVE STATE SHARDING",
-    "civilisation": "Robot",
-    "rarity": "Common",
-    "type": "SPELL",
-    "class": "Normal_Spell",
-    "attack": 0,
-    "mana": 3,
-    "img": "6.png"
-  },
-  {
-    "name": "SHOCK WAVE",
-    "civilisation": "Robot",
-    "rarity": "Common",
-    "type": "SPELL",
-    "class": "Normal_Spell",
-    "attack": 0,
-    "mana": 3,
-    "img": "2.png"
-  },
+    "img": "2.png",
+    "identifier" : "17" ,
+  	"edition": "Normal"
+},
   {
     "name": "JUGGERNAUT",
     "civilisation": "Robot",
@@ -77,8 +31,70 @@
     "class": "Normal",
     "attack": 500,
     "mana": 5,
-    "img": "17.png"
-  },
+    "img": "3.png",
+    "identifier" : "1d" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "UNSTABLE NODE",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Poison",
+    "attack": 100,
+    "mana": 4,
+    "img": "4.png",
+    "identifier" : "19" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "FLYING SENTINEL",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Swift Attacker",
+    "attack": 400,
+    "mana": 5,
+    "img": "5.png",
+    "identifier" : "18" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "ADAPTIVE STATE SHARDING",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 3,
+    "img": "6.png",
+    "identifier" : "1b" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "CHARGED UP!",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0 ,
+    "mana": 3,
+    "img": "7.png",
+    "identifier" : "1a", 
+  	"edition": "Normal"
+},
+  {
+    "name": "SHOCK WAVE",
+    "civilisation": "Robot",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 3,
+    "img": "8.png",
+    "identifier" : "1c" ,
+  	"edition": "Normal"
+},
   {
     "name": "MK-3 CENTURION",
     "civilisation": "Robot",
@@ -87,48 +103,10 @@
     "class": "Tank",
     "attack": 700,
     "mana": 7,
-    "img": "39.png"
-  },
-  {
-    "name": "SWITCH O’TRON",
-    "civilisation": "Robot",
-    "rarity": "Uncommon",
-    "type": "CREATURE",
-    "class": "Normal",
-    "attack": 100,
-    "mana": 2,
-    "img": "14.png"
-  },
-  {
-    "name": "M.E.X (MOTORISED EXPLOSIVE EXTRUDER)",
-    "civilisation": "Robot",
-    "rarity": "Uncommon",
-    "type": "CREATURE",
-    "class": "Normal",
-    "attack": 600,
-    "mana": 4,
-    "img": "38.png"
-  },
-  {
-    "name": "CHAIN SPLIT",
-    "civilisation": "Robot",
-    "rarity": "Uncommon",
-    "type": "SPELL",
-    "class": "Normal_Spell",
-    "attack": 0,
-    "mana": 3,
-    "img": "5.png"
-  },
-  {
-    "name": "MASS GOVERNANCE",
-    "civilisation": "Robot",
-    "rarity": "Uncommon",
-    "type": "SPELL",
-    "class": "Trap ",
-    "attack": 0,
-    "mana": 4,
-    "img": "7.png"
-  },
+    "img": "9.png",
+    "identifier" : "1e" ,
+  	"edition": "Normal"
+},
   {
     "name": "SENTINEL COMMANDER",
     "civilisation": "Robot",
@@ -137,38 +115,70 @@
     "class": "Normal",
     "attack": 200,
     "mana": 2,
-    "img": "16.png"
-  },
+    "img": "10.png",
+    "identifier" : "23" ,
+  	"edition": "Normal"
+},
   {
-    "name": "ESSENCE DRIVING UNIT",
+    "name": "SWITCH O’TRON",
     "civilisation": "Robot",
     "rarity": "Uncommon",
     "type": "CREATURE",
     "class": "Normal",
-    "attack": 500,
-    "mana": 6,
-    "img": "40.png"
-  },
+    "attack": 100,
+    "mana": 2,
+    "img": "11.png",
+    "identifier" : "1f" ,
+  	"edition": "Normal"
+},
   {
-    "name": "X35 COMBATTANT",
-    "civilisation": "Robot",
-    "rarity": "Epic",
-    "type": "CREATURE",
-    "class": "Normal",
-    "attack": 400,
-    "mana": 6,
-    "img": "8.png"
-  },
-  {
-    "name": "DECENTRALISATION",
+    "name": "ZEENOK INFILTRATOR",
     "civilisation": "Robot",
     "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 600,
+    "mana": 8,
+    "img": "12.png",
+    "identifier" : "24" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "MASS GOVERNANCE",
+    "civilisation": "Robot",
+    "rarity": "Uncommon",
     "type": "SPELL",
     "class": "Trap",
     "attack": 0,
-    "mana": 5,
-    "img": "3.png"
-  },
+    "mana": 4,
+    "img": "13.png",
+    "identifier" : "22" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "CHAIN SPLIT",
+    "civilisation": "Robot",
+    "rarity": "Uncommon",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 3,
+    "img": "14.png",
+    "identifier" : "21" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "M.E.X (MOTORISED EXPLOSIVE EXTRUDER)",
+    "civilisation": "Robot",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 600,
+    "mana": 4,
+    "img": "15.png",
+    "identifier" : "20" ,
+  	"edition": "Normal"
+},
   {
     "name": "SWORN BOT PROTECTOR",
     "civilisation": "Robot",
@@ -177,28 +187,58 @@
     "class": "Vengeance",
     "attack": 350,
     "mana": 5,
-    "img": "9.png"
-  },
+    "img": "16.png",
+    "identifier" : "27" ,
+  	"edition": "Normal"
+},
   {
-    "name": "ZEENOK INFLILTRATOR",
+    "name": "DECENTRALISATION",
     "civilisation": "Robot",
     "rarity": "Rare",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 5,
+    "img": "17.png",
+    "identifier" : "26" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "ESSENCE DRIVING UNIT",
+    "civilisation": "Robot",
+    "rarity": "Uncommon",
     "type": "CREATURE",
     "class": "Normal",
-    "attack": 600,
-    "mana": 8,
-    "img": "10.png"
-  },
+    "attack": 500,
+    "mana": 6,
+    "img": "18.png",
+    "identifier" : "25" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "X35 COMBATANT",
+    "civilisation": "Robot",
+    "rarity": "Epic",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 400,
+    "mana": 6,
+    "img": "19.png",
+    "identifier" : "28", 
+  	"edition": "Normal"
+},
   {
     "name": "XEDRAIAM",
     "civilisation": "Robot",
     "rarity": "Epic",
     "type": "CREATURE",
     "class": "Swift Attacker",
-    "attack": 100,
+    "attack": 200,
     "mana": 7,
-    "img": "30.png"
-  },
+    "img": "20.png",
+    "identifier" : "29" ,
+  	"edition": "Normal"
+},
   {
     "name": "BLOCKMASTER, CHAIN UNLOCKED",
     "civilisation": "Robot",
@@ -207,8 +247,13 @@
     "class": "Tank",
     "attack": 800,
     "mana": 9,
-    "img": "1.png"
-  },
+    "img": "21.png",
+    "identifier" : "2a", 
+  	"edition": "Normal"
+},
+
+
+
   {
     "name": "CORRUPTED NODE",
     "civilisation": "Nightmare",
@@ -217,9 +262,10 @@
     "class": "Normal",
     "attack": 300,
     "mana": 1,
-    "img": "21.png"
-  },
-
+    "img": "22.png",
+    "identifier" : "40", 
+  	"edition": "Normal"
+},
   {
     "name": "NAAZ’GORTH, INSURGENCE SOLDIER",
     "civilisation": "Nightmare",
@@ -228,8 +274,10 @@
     "class": "Swift Attacker",
     "attack": 200,
     "mana": 2,
-    "img": "20.png"
-  },
+    "img": "23.png",
+    "identifier" : "41", 
+  	"edition": "Normal"
+},
   {
     "name": "UNDEAD COMMANDER",
     "civilisation": "Nightmare",
@@ -238,8 +286,22 @@
     "class": "Normal",
     "attack": 700,
     "mana": 4,
-    "img": "19.png"
-  },
+    "img": "24.png",
+    "identifier" : "42", 
+  	"edition": "Normal"
+},
+  {
+    "name": "RISE FROM THE DEAD!",
+    "civilisation": "Nightmare",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 2,
+    "img": "25.png",
+    "identifier" : "44", 
+  	"edition": "Normal"
+},
   {
     "name": "WALKING ABOMINATION",
     "civilisation": "Nightmare",
@@ -248,38 +310,10 @@
     "class": "Poison",
     "attack": 150,
     "mana": 3,
-    "img": "18.png"
-  },
-  {
-    "name": "RISE FROM THE DEAD!",
-    "civilisation": "Nightmare",
-    "rarity": "Common",
-    "type": "SPELL",
-    "class": "Normal_Spell",
-    "attack": 0,
-    "mana": 2,
-    "img": "22.png"
-  },
-  {
-    "name": "MIND CORRUPTION",
-    "civilisation": "Nightmare",
-    "rarity": "Common",
-    "type": "SPELL",
-    "class": "Trap",
-    "attack": 0,
-    "mana": 4,
-    "img": "24.png"
-  },
-  {
-    "name": "DEATH’S GRASP",
-    "civilisation": "Nightmare",
-    "rarity": "Common",
-    "type": "SPELL",
-    "class": "Trap",
-    "attack": 0,
-    "mana": 6,
-    "img": "23.png"
-  },
+    "img": "26.png",
+    "identifier" : "43", 
+  	"edition": "Normal"
+},
   {
     "name": "UNDERWORLD SLAVE",
     "civilisation": "Nightmare",
@@ -288,48 +322,10 @@
     "class": "Normal",
     "attack": 350,
     "mana": 2,
-    "img": "25.png"
-  },
-  {
-    "name": "UNDERWORLD LACKEY",
-    "civilisation": "Nightmare",
-    "rarity": "Common",
-    "type": "CREATURE",
-    "class": "Normal",
-    "attack": 100,
-    "mana": 1,
-    "img": "34.png"
-  },
-  {
-    "name": "DEFIANT SOUL",
-    "civilisation": "Nightmare",
-    "rarity": "Uncommon",
-    "type": "CREATURE",
-    "class": "Normal",
-    "attack": 600,
-    "mana": 5,
-    "img": "29.png"
-  },
-  {
-    "name": "HORDE KING",
-    "civilisation": "Nightmare",
-    "rarity": "Uncommon",
-    "type": "CREATURE",
-    "class": "Normal",
-    "attack": 150,
-    "mana": 3,
-    "img": "35.png"
-  },
-  {
-    "name": "MORTUAL SACRIFICE",
-    "civilisation": "Nightmare",
-    "rarity": "Uncommon",
-    "type": "SPELL",
-    "class": "Normal_Spell",
-    "attack": 0,
-    "mana": 7,
-    "img": "28.png"
-  },
+    "img": "27.png",
+    "identifier" : "47", 
+  	"edition": "Normal"
+},
   {
     "name": "RAGING SORROW",
     "civilisation": "Nightmare",
@@ -338,38 +334,10 @@
     "class": "Trap",
     "attack": 0,
     "mana": 1,
-    "img": "27.png"
-  },
-  {
-    "name": "SERVANT OF THE ABYSS",
-    "civilisation": "Nightmare",
-    "rarity": "Uncommon",
-    "type": "CREATURE",
-    "class": "Normal",
-    "attack": 550,
-    "mana": 4,
-    "img": "36.png"
-  },
-  {
-    "name": "VENGEFUL PARASITE",
-    "civilisation": "Nightmare",
-    "rarity": "Uncommon",
-    "type": "CREATURE",
-    "class": "Normal",
-    "attack": 250,
-    "mana": 3,
-    "img": "32.png"
-  },
-  {
-    "name": "RO’KAR, DARK ART MANIPULATOR",
-    "civilisation": "Nightmare",
-    "rarity": "Rare",
-    "type": "CREATURE",
-    "class": "Poison",
-    "attack": 450,
-    "mana": 6,
-    "img": "31.png"
-  },
+    "img": "28.png",
+    "identifier" : "45", 
+  	"edition": "Normal"
+},
   {
     "name": "BLOOD MOON ECLIPSE",
     "civilisation": "Nightmare",
@@ -378,8 +346,94 @@
     "class": "Trap",
     "attack": 0,
     "mana": 5,
-    "img": "26.png"
-  },
+    "img": "29.png",
+    "identifier" : "46", 
+  	"edition": "Normal"
+},
+  {
+    "name": "UNDERWORLD LACKEY",
+    "civilisation": "Nightmare",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 100,
+    "mana": 1,
+    "img": "30.png",
+    "identifier" : "48", 
+  	"edition": "Normal"
+},
+  {
+    "name": "MIND CORRUPTION",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 4,
+    "img": "31.png",
+    "identifier" : "4c", 
+  	"edition": "Normal"
+},
+  {
+    "name": "DEATH’S GRASP",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 6,
+    "img": "32.png",
+    "identifier" : "4b", 
+  	"edition": "Normal"
+},
+  {
+    "name": "DEFIANT SOUL",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 600,
+    "mana": 5,
+    "img": "33.png",
+    "identifier" : "49", 
+  	"edition": "Normal"
+},
+  {
+    "name": "VENGEFUL PARASITE",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 250,
+    "mana": 3,
+    "img": "34.png",
+    "identifier" : "4e", 
+  	"edition": "Normal"
+},
+  {
+    "name": "SERVANT OF THE ABYSS",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 550,
+    "mana": 4,
+    "img": "35.png",
+    "identifier" : "4d", 
+  	"edition": "Normal"
+},
+  {
+    "name": "HORDE KING",
+    "civilisation": "Nightmare",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 150,
+    "mana": 3,
+    "img": "36.png",
+    "identifier" : "4a", 
+  	"edition": "Normal"
+},
   {
     "name": "ELD’VAR, THE UNLEASHED",
     "civilisation": "Nightmare",
@@ -388,8 +442,34 @@
     "class": "Tank",
     "attack": 700,
     "mana": 8,
-    "img": "37.png"
-  },
+    "img": "37.png",
+    "identifier" : "51",
+   	"edition": "Normal"
+},
+  {
+    "name": "RO’KAR, DARK ART MANIPULATOR",
+    "civilisation": "Nightmare",
+    "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Poison",
+    "attack": 450,
+    "mana": 6,
+    "img": "38.png",
+    "identifier" : "4f", 
+  	"edition": "Normal"
+},
+  {
+    "name": "MORTUAL SACRIFICE",
+    "civilisation": "Nightmare",
+    "rarity": "Rare",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 7,
+    "img": "39.png",
+    "identifier" : "50",
+  	"edition": "Normal"
+},
   {
     "name": "RAZIEL, SOULD UNBOUND",
     "civilisation": "Nightmare",
@@ -398,8 +478,10 @@
     "class": "Normal",
     "attack": 500,
     "mana": 10,
-    "img": "33.png"
-  },
+    "img": "40.png",
+    "identifier" : "52" ,
+  	"edition": "Normal"
+},
   {
     "name": "Tra'Zhul, Tormentor of Souls",
     "civilisation": "Nightmare",
@@ -408,16 +490,534 @@
     "class": "Normal",
     "attack": 250,
     "mana": 5,
-    "img": "41.png"
-  },
+    "img": "41.png",
+    "identifier" : "53" ,
+  	"edition": "Normal"
+},
   {
-    "name": "RAZIEL, SOULD UNBOUND",
+    "name": "AZAMGARH, DESTROYER OF CHAINS",
     "civilisation": "Nightmare",
     "rarity": "Legendary",
     "type": "CREATURE",
-    "class": "Tank",
+    "class": "Tank Poison",
     "attack": 300,
+    "mana": 8,
+    "img": "42.png",
+    "identifier" : "54" ,
+  	"edition": "Normal"
+},
+
+
+
+
+
+  {
+    "name": "MOSS SOLDIER",
+    "civilisation": "Nature",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 200,
+    "mana": 1,
+    "img": "43.png",
+    "identifier" : "2b" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "SAPLING ROOT",
+    "civilisation": "Nature",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 250,
+    "mana": 2,
+    "img": "44.png",
+    "identifier" : "2c" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "SHROOM GUARDIAN",
+    "civilisation": "Nature",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Vengeance",
+    "attack": 300,
+    "mana": 4,
+    "img": "45.png",
+    "identifier" : "2d", 
+  	"edition": "Normal"
+},
+  {
+    "name": "CRYSTAL WANDERER",
+    "civilisation": "Nature",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 150,
+    "mana": 3,
+    "img": "46.png",
+    "identifier" : "2e" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "SAND PIT TRAP",
+    "civilisation": "Nature",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 1,
+    "img": "47.png",
+    "identifier" : "2f",
+  	"edition": "Normal"
+},
+  {
+    "name": "EARTH SLIDE",
+    "civilisation": "Nature",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 3,
+    "img": "48.png",
+    "identifier" : "30" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "BOUND BY THE ROOTS",
+    "civilisation": "Nature",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 2,
+    "img": "49.png",
+    "identifier" : "31" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "MUDDLED SPLINTER",
+    "civilisation": "Nature",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 200,
+    "mana": 2,
+    "img": "50.png",
+    "identifier" : "32" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "LUSH PROTECTOR",
+    "civilisation": "Nature",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 500,
+    "mana": 6,
+    "img": "51.png",
+    "identifier" : "33" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "CALL OF THE WILD",
+    "civilisation": "Nature",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 4,
+    "img": "52.png",
+    "identifier" : "36" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "ORGANIC DEFENDER",
+    "civilisation": "Nature",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 400,
+    "mana": 2,
+    "img": "53.png",
+    "identifier" : "34" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "CARNIVOROUS FLYTRAP",
+    "civilisation": "Nature",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Poison",
+    "attack": 400,
+    "mana": 5,
+    "img": "54.png",
+    "identifier" : "35" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "NATURE'S RESOLVE",
+    "civilisation": "Nature",
+    "rarity": "Uncommon",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 4,
+    "img": "55.png",
+    "identifier" : "37" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "LONE STONE GOLEM",
+    "civilisation": "Nature",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 400,
+    "mana": 6,
+    "img": "56.png",
+    "identifier" : "38" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "ELDER MOUNTAIN GIANT",
+    "civilisation": "Nature",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 800,
     "mana": 7,
-    "img": "42.png"
+    "img": "57.png",
+    "identifier" : "39" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "REVITALIZING AQUA SERPENT",
+    "civilisation": "Nature",
+    "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 250,
+    "mana": 5,
+    "img": "58.png",
+    "identifier" : "3a" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "FIRE ELEMENTAL SPIRIT",
+    "civilisation": "Nature",
+    "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 500,
+    "mana": 10,
+    "img": "59.png",
+    "identifier" : "3c" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "GARDEN OF MYSTERY",
+    "civilisation": "Nature",
+    "rarity": "Rare",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 5,
+    "img": "60.png",
+    "identifier" : "3b" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "GANDHARVA, SOIRIT OF NATURE",
+    "civilisation": "Nature",
+    "rarity": "Epic",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 450,
+    "mana": 7,
+    "img": "61.png",
+    "identifier" : "3e" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "LIGHTNING ELEMENTAL SPIRIT",
+    "civilisation": "Nature",
+    "rarity": "Epic",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 1000,
+    "mana": 25,
+    "img": "62.png",
+    "identifier" : "3d" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "HIDOMMO, MASTER OF THE ELEMENTS",
+    "civilisation": "Nature",
+    "rarity": "Legendary",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 0,
+    "mana": 7,
+    "img": "63.png",
+    "identifier" : "3f" ,
+  	"edition": "Normal"
+},
+
+
+
+
+
+  {
+    "name": "RAVENOUS BEAR",
+    "civilisation": "Beast",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 800,
+    "mana": 6,
+    "img": "64.png",
+    "identifier" : "09" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "TACTICAL RETREAT",
+    "civilisation": "Beast",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 0,
+    "img": "65.png",
+    "identifier" : "07" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "THRILL OF THE HUNT",
+    "civilisation": "Beast",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 3,
+    "img": "66.png",
+    "identifier" : "05" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "INSIDIOUS CENTIPEDE",
+    "civilisation": "Beast",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 400,
+    "mana": 2,
+    "img": "67.png",
+    "identifier" : "08" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "CRIPPLING SPIDER",
+    "civilisation": "Beast",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Poison",
+    "attack": 100,
+    "mana": 2,
+    "img": "68.png",
+    "identifier" : "02" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "JUNGLE DWELER",
+    "civilisation": "Beast",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 300,
+    "mana": 2,
+    "img": "69.png",
+    "identifier" : "03" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "BATTLE SCARRED TOAD",
+    "civilisation": "Beast",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Tank",
+    "attack": 500,
+    "mana": 5,
+    "img": "70.png",
+    "identifier" : "01" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "SWIFT DESERT BEETLE",
+    "civilisation": "Beast",
+    "rarity": "Common",
+    "type": "CREATURE",
+    "class": "Swift attacker",
+    "attack": 100,
+    "mana": 1,
+    "img": "71.png",
+    "identifier" : "04" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "VENOM BOMB",
+    "civilisation": "Beast",
+    "rarity": "Common",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 3,
+    "img": "72.png",
+    "identifier" : "06" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "DARK SKY RAVEN",
+    "civilisation": "Beast",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Swift attacker",
+    "attack": 500,
+    "mana": 6,
+    "img": "73.png",
+    "identifier" : "0b" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "GOLDEN BEAKED EAGLE",
+    "civilisation": "Beast",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 150,
+    "mana": 3,
+    "img": "74.png",
+    "identifier" : "0e" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "RELENTLESS ROAR",
+    "civilisation": "Beast",
+    "rarity": "Uncommon",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 7,
+    "img": "75.png",
+    "identifier" : "0d" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "BLOODLUST",
+    "civilisation": "Beast",
+    "rarity": "Uncommon",
+    "type": "SPELL",
+    "class": "Trap",
+    "attack": 0,
+    "mana": 3,
+    "img": "76.png",
+    "identifier" : "0c" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "HARDBACK SCORPION",
+    "civilisation": "Beast",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 150,
+    "mana": 3,
+    "img": "77.png",
+    "identifier" : "0a" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "BRESHA, MASTER OF THE BEASTS",
+    "civilisation": "Beast",
+    "rarity": "Uncommon",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 400,
+    "mana": 6,
+    "img": "78.png",
+    "identifier" : "0f" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "DARK MARE PROTECTOR",
+    "civilisation": "Beast",
+    "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 300,
+    "mana": 4,
+    "img": "79.png",
+    "identifier" : "12" ,
+  	"edition": "Normal"
+},
+  {
+    "name": "STAMPEDE",
+    "civilisation": "Beast",
+    "rarity": "Rare",
+    "type": "SPELL",
+    "class": "Normal Spell",
+    "attack": 0,
+    "mana": 7,
+    "img": "80.png",
+    "identifier" : "11" ,
+  	"edition": "Normal"
+  },
+  {
+    "name": "HORDE WHISPERER",
+    "civilisation": "Beast",
+    "rarity": "Rare",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 200,
+    "mana": 4,
+    "img": "81.png",
+    "identifier" : "10", 
+  	"edition": "Normal"
+  },
+  {
+    "name": "GRIFFON",
+    "civilisation": "Beast",
+    "rarity": "Epic",
+    "type": "CREATURE",
+    "class": "Vengeance",
+    "attack": 500,
+    "mana": 7,
+    "img": "82.png",
+    "identifier" : "13", 
+  	"edition": "Normal"
+  },
+  {
+    "name": "TWIN SKULLED COBRA",
+    "civilisation": "Beast",
+    "rarity": "Epic",
+    "type": "CREATURE",
+    "class": "Normal",
+    "attack": 650,
+    "mana": 8,
+    "img": "83.png",
+    "identifier" : "14", 
+  	"edition": "Normal"
+  },
+  {
+    "name": "TROPHY HUNTER MAUL'DRING",
+    "civilisation": "Beast",
+    "rarity": "Legendary",
+    "type": "CREATURE",
+    "class": "Swift attacker",
+    "attack": 900,
+    "mana": 13,
+    "img": "84.png",
+    "identifier" : "15",
+    "edition": "Normal"
   }
 ]

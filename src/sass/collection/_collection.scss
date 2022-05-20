@@ -70,6 +70,10 @@
             border-radius: 15px;
             margin-bottom: 4rem;
         }
+
+        &-btn{
+            width: 230px;
+        }
     }
     &__zone-btn{
         transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
@@ -90,7 +94,7 @@
             animation: 0.75s ease-out 0s 1 slideInFromTop;
             display: flex;
             flex-direction: column;
-            margin-top: 10%;
+            margin-top: 18rem;
         }
 
         &-cards{
@@ -120,11 +124,46 @@
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0 auto;
-    overflow: hidden;
     min-height: 366px;
     text-align: center;
     white-space: nowrap;
 }
 .box>* {
     flex: 1 1 80px;
+}
+@media screen and (min-width: $desktopBreakpoint) {
+    .box {
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: $desktopBreakpoint) {
+    .box {
+        max-height: 1030px;
+    }
+    .cntnt {
+        &__collectionBlock {
+            display: flex;
+            flex-direction: column;
+            &-cards  {
+               margin-left: 0%;
+            }
+            &-filters {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+        &__contentCollection{
+            &-filter {
+                margin-right: auto;
+                margin-left: auto;
+            }
+            &-btn {
+                margin-top: -1rem;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+    }
 }

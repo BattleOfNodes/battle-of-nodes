@@ -13,7 +13,7 @@
                     </h1>
                     <p class="cntnt__contentCollection">You don't have any cards yet.</p>
                     <router-link class="cntnt__zone-btn" to="/booster-pack">Open a pack</router-link>
-                    <router-link class="cntnt__zone-btn" to="/booster-pack">Buy some cards</router-link>
+                    <a class="cntnt__zone-btn" href="https://deadrare.io/collection/BONCARDS-d1fb64">Buy some cards</a>
                 </div>
                 <div v-else>
                     <h1 class="cntnt__zone-title cntnt__collect-title">
@@ -41,7 +41,7 @@
                                 <option value="EDITION" selected disabled hidden>EDITION</option>
                                 <option v-for="filter in filterEditionArray" :key="filter" :value=filter>{{filter}}</option>
                             </select>
-                            <div class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="resetFilters()">
+                            <div class="cntnt__zone-btn cntnt__contentCollection-btn cntnt__booster-btn pointerCursor" v-on:click="resetFilters()">
                                 RESET FILTERS
                             </div>
                         </div>
@@ -154,8 +154,6 @@ export default {
             }
         },
         async setfilterCards() {
-            console.log(this.filterCiv)
-
             let filteredCards = this.usersCards
             filteredCards = await this.filterByCivilization(filteredCards)
             filteredCards = await this.filterByType(filteredCards)

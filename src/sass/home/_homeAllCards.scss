@@ -149,7 +149,7 @@ $cardMargin: 12px;
                 left: 43%;
                 z-index: 9;
                 position: fixed;
-                transform: scale(3);
+                transform: scale(2.5);
                 transition: all 0.15s cubic-bezier(.27,.78,.38,1.34);
             }
             &:last-child {
@@ -233,11 +233,6 @@ $cardMargin: 12px;
                     transform: scale(1.5) rotate(-3deg);
                 }
             }
-            &-imgCollection {
-                &.active {
-                    transform: scale(2.5);
-                }
-            }
             &-check {
                 position: relative;
                 z-index: 1;
@@ -277,4 +272,93 @@ $cardMargin: 12px;
         }
     }
 
+}
+
+
+// ------------- scale cards my collection
+@media screen and (max-width: $bigPlusBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    transform: scale(2.25)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $bigBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    transform: scale(2)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $largeBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    transform: scale(2)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $desktopBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    transform: scale(1.75)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tabBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    left: 37%;
+                    transform: scale(1.75)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $bigMobileBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    left: 25%;
+                    transform: scale(1.5)
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mediumMobileBreakpoint) {
+    .cntnt {
+        &__allcards {
+            &-imgCollection {
+                &.active {
+                    left: 16%;
+                    transform: scale(1.25)
+                }
+            }
+        }
+    }
 }

@@ -153,6 +153,7 @@ export default {
             // SCAddressHex : "00000000000000000500eb9c542033a0f3e48b2a6aea6fc1e60e2e753597a1e0",
             // redBoosterID : "BONPACKS-f0b549-01",
             // blueBoosterID : "BONPACKS-f0b549-02",
+            // SCAddress: "erd1qqqqqqqqqqqqqpgqaww9ggpn5re7fze2dt4xls0xpch82dvh58sqpu76dr",
             devApi : "https://devnet-api.elrond.com",
             SCAddressHex : "00000000000000000500679c7b8d348a83feddbe2e1a439d64c3a0df8f64cb1f",
             SCAddress : "erd1qqqqqqqqqqqqqpgqv7w8hrf532plahd79cdy88tycwsdlrmyev0swdhkzp",
@@ -461,7 +462,6 @@ export default {
                     this.loaderRed = false
                     this.openModal()
                 }
-                // this.openModal()
             } catch (error) {
                 this.loaderBlue= false
                 this.loaderRed= false
@@ -479,6 +479,20 @@ export default {
             await sleep(500)
             await this.updateIsBoostersOwner()
             waiting-=0.5
+        }
+
+        if(this.$route.query.status === 'success') {
+            this.loaderBlue = true
+            this.loaderRed = true
+            await this.getObtainedCards(this.$route.query.txHash)
+            let waiting = 10
+            while(!this.cardsObtained.length && waiting !=0) {
+                await sleep(1000)
+                await this.getObtainedCards(this.$route.query.txHash)
+                waiting--
+            }
+            this.loaderBlue = false
+            this.loaderRed = false
         }
     },
 }

@@ -306,7 +306,7 @@
     "name": "WALKING ABOMINATION",
     "civilisation": "Nightmare",
     "rarity": "Common",
-    "type": "SWIFT ATTACKER",
+    "type": "CREATURE",
     "class": "Poison",
     "attack": 150,
     "mana": 3,

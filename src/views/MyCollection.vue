@@ -81,6 +81,7 @@
 <script>
 import axios from "axios";
 import HomeAllCardsCard from '@/components/home/HomeAllCardsCard';
+function sleep(n) { return new Promise(resolve=>setTimeout(resolve,n)); }
 
 export default {
     components: {
@@ -265,33 +266,13 @@ export default {
     async beforeMount () {
         this.getJSONCards()
         this.getUserCards()
-        if(this.$erd.logged !== true) {
-            setTimeout(() => {
-                this.getJSONCards()
-                this.getUserCards()}, 500);
-            if(this.$erd.logged !== true) {
-                setTimeout(() => {
-                    this.getJSONCards()
-                    this.getUserCards()}, 500);
-                if(this.$erd.logged !== true) {
-                    setTimeout(() => {
-                        this.getJSONCards()
-                        this.getUserCards()}, 500);
-                    if(this.$erd.logged !== true) {
-                        setTimeout(() => {
-                            this.getJSONCards()
-                            this.getUserCards()}, 500);
-                        if(this.$erd.logged !== true) {
-                            setTimeout(() => {
-                                this.getJSONCards()
-                                this.getUserCards()}, 500);
-                        } else {
-                            this.getJSONCards()
-                            this.getUserCards()
-                        }
-                    }
-                }
-            }
+
+        let waiting = 5
+        while(this.$erd.logged !== true && waiting !=0) {
+            await sleep(500)
+            await this.getJSONCards()
+            await this.getUserCards()
+            waiting-=0.5
         }
     }
 }

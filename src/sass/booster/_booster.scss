@@ -330,16 +330,20 @@ cursor: auto;
 
 /* Loader */
 .loader-dual {
-    top: 40%;
-    left: 59%;
+    margin: 5% auto;
+    position: fixed;
+    top: 35%;
+    left: 0;
+    right: 0;
     width: 200px;
+    z-index: 5;
     height: 200px;
-    position: absolute;
     border-radius: 50%;
-    border: 10px solid #dfc372;
+    border: 15px solid #dfc372;
     border-color: #dfc372 transparent #dfc372 transparent;
     animation: loader-dual 1.2s linear infinite;
 }
+
 
 @keyframes loader-dual {
     0% {

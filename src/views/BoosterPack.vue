@@ -86,7 +86,7 @@
                 <p class="cntnt__booster-ownedPacks-count">X{{ blueBoosterCount }} PACKS OWNED</p>
             </div>
         </div>
-
+        <div v-if="loaderRed || loaderBlue" class="loader-dual" />
         <template v-if="isDesktop">
             <img class="cntnt__home-card cntnt__home-card-1" src="@/assets/images/bg-card-blue.png" />
             <img class="cntnt__home-card cntnt__home-card-2" src="@/assets/images/bg-card-red.png" />
@@ -155,6 +155,7 @@ export default {
             // blueBoosterID : "BONPACKS-f0b549-02",
             devApi : "https://devnet-api.elrond.com",
             SCAddressHex : "00000000000000000500679c7b8d348a83feddbe2e1a439d64c3a0df8f64cb1f",
+            SCAddress : "erd1qqqqqqqqqqqqqpgqv7w8hrf532plahd79cdy88tycwsdlrmyev0swdhkzp",
             redBoosterID : "BONPACKS-1de767-01",
             blueBoosterID : "BONPACKS-1de767-02",
             redBoosterIDHex : null,
@@ -241,7 +242,7 @@ export default {
                 this.blueBooserSupply = 0
             })
 
-            await axios.get(`${this.devApi}/accounts/${this.SCAddressHex}/nfts?identifiers=${this.redBoosterID}`)
+            await axios.get(`${this.devApi}/accounts/${this.SCAddress}/nfts?identifiers=${this.redBoosterID}`)
             .then(res => {
                 if(res?.data?.length)
                     this.redBoosterOpened = res?.data[0]?.balance
@@ -253,7 +254,7 @@ export default {
                 this.redBoosterOpened = 0
             })
 
-            await axios.get(`${this.devApi}/accounts/${this.SCAddressHex}/nfts?identifiers=${this.blueBoosterID}`)
+            await axios.get(`${this.devApi}/accounts/${this.SCAddress}/nfts?identifiers=${this.blueBoosterID}`)
             .then(res => {
                 if(res?.data?.length)
                     this.blueBoosterOpened = res?.data[0]?.balance
@@ -278,7 +279,8 @@ export default {
             {
                 /* We call the function again after
                     50ms and the function returns   */
-                setTimeout(this.updateIsBoostersOwner, 50);
+                await sleep(50)
+                await this.updateIsBoostersOwner()
                 return;
             }
 
@@ -323,9 +325,9 @@ export default {
         async handleSubmit(boosterType) {
             try {
                 let boosterID
-                if(boosterType === 'BLUE') {
+                if(boosterType == 'BLUE') {
                     this.loaderBlue = true
-                    boosterID = await this.getRedBoosterID()
+                    boosterID = await this.getBlueBoosterID()
                 } else {
                     this.loaderRed = true
                     boosterID = await this.getRedBoosterID()
@@ -373,12 +375,14 @@ export default {
                     array to hex     */
                 var hashHex = hashArrayToHex(hashArray);
 
-                console.log("Transaction hash : " + hashHex);
-
                 /* We're pending for the
                 status to be defined  */
-                setTimeout(this.pending, 250, hashHex);
-            } catch (err) { console.log(err) }
+                await sleep(250)
+                await this.pending(hashHex)
+            } catch (err) { 
+                this.loaderBlue= false
+                this.loaderRed= false
+                console.log(err) }
         },
         /***************************************************************
          * pending                                                     *
@@ -396,12 +400,13 @@ export default {
                 var rawRequest = await axios.get(`${this.devApi}/transactions/${hashHex}?fields=status`);
 
                 /* If the transaction is pending */
-                if (rawRequest.data.status === "pending")
+                if (rawRequest.data.status === "pending") {
                     /* We call this function
                          again 250ms later   */
-                    setTimeout(this.pending, 250, hashHex);
+                    await sleep(250)
+                    await this.pending(hashHex)
                 /* Otherwise */
-                else {
+                } else {
                     /*   The transaction is over, we redirect
                          the user to the burn booster result
                        page with the status and the transaction
@@ -419,9 +424,12 @@ export default {
                 } 
             } catch (err) {
                 console.log(err)
+                this.loaderBlue= false
+                this.loaderRed= false
                 /* We need to wait a little bit more time, because the transaction
                    is not reachable yet so we call this function again 250ms later */
-                setTimeout(this.pending, 250, hashHex);
+                await sleep(250)
+                await this.pending(hashHex)
             }
         },
         /**********************************************************************
@@ -455,6 +463,8 @@ export default {
                 }
                 // this.openModal()
             } catch (error) {
+                this.loaderBlue= false
+                this.loaderRed= false
                 console.log("Unable to call elrond API", error);
             }
         },
@@ -463,23 +473,12 @@ export default {
         this.initComponent()
         this.updateSupply()
         this.updateIsBoostersOwner()
-        if(this.$erd.logged !== true) {
-            setTimeout(() => {
-                this.updateIsBoostersOwner()}, 500);
-            if(this.$erd.logged !== true) {
-                setTimeout(() => {
-                    this.updateIsBoostersOwner()}, 500);
-                if(this.$erd.logged !== true) {
-                    setTimeout(() => {
-                        this.updateIsBoostersOwner()}, 500);
-                    if(this.$erd.logged !== true) {
-                        setTimeout(() => {
-                            this.updateIsBoostersOwner()}, 500);
-                    } else {
-                        this.updateIsBoostersOwner()
-                    }
-                } 
-            } 
+
+        let waiting = 5
+        while(this.$erd.logged !== true && waiting !=0) {
+            await sleep(500)
+            await this.updateIsBoostersOwner()
+            waiting-=0.5
         }
     },
 }

@@ -271,8 +271,9 @@
 }
 .boxModal {    
     width: 100%;
-    height: 42%;
+    height: 41%;
     display: flex;
+    margin-bottom: 1%;
 }
 
 .cardModal {
@@ -280,7 +281,7 @@
     margin: auto;
     transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
     animation: 0.75s ease-out 0s 1 slideInFromTop;
-    width: 15%;
+    width: 100%;
     height: 100%;
     transition: transform 1s;
     transform-style: preserve-3d;
@@ -310,20 +311,10 @@ cursor: auto;
 
 
 .boosterImgPack{
-    border-radius: 15px
+    border-radius: 15px;
+    max-height: 100%;
+    max-width: 100%;
 }
-@media screen and (max-width: $largeBreakpoint) {
-    .cardModal { 
-        width: 19%;
-    }
-}
-
-@media screen and (max-width: $desktopBreakpoint) {
-    .cardModal { 
-        width: 28%;
-    }
-}
-
 .pointerCursor {
     cursor: pointer
 }

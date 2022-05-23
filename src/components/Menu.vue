@@ -1,7 +1,7 @@
 <template>
     <nav class="menu">
         <div class="menu__phone">
-            <input type="checkbox" class="menu__phone-check" />
+            <input type="checkbox" id="checkMenu" class="menu__phone-check" />
             <span class="menu__phone-span"></span>
             <span class="menu__phone-span"></span>
             <span class="menu__phone-span"></span>
@@ -24,7 +24,17 @@
                         <span v-else>Connect</span>
                     </router-link>
                 </li>
+                <li class="menu__item connectPhone">
+                    <router-link class="menu__item-link" to="/MintPage">
+                        <span>MINT PACK</span>
+                    </router-link>
+                </li>
             </ul>
         </div>
     </nav>
 </template>
+
+<script>
+export default {
+};
+</script>

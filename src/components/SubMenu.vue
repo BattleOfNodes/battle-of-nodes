@@ -2,6 +2,11 @@
     <nav class="menu menu__submenu">
         <ul class="menu__links menu__submenu-links">
             <li class="menu__item">
+                <router-link class="menu__item-link" to="/MintPage">
+                    <span>MINT PACK</span>
+                </router-link>
+            </li>
+            <li class="menu__item">
                 <router-link class="menu__item-link" to="/login">
                     <span v-if="this.$erd.logged">{{ $erd.obfuscatedWalletAddress }}</span>
                     <span v-else>Connect</span>

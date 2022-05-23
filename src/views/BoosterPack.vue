@@ -98,7 +98,7 @@
     </main>
 </template>
 
-<script>//         <div class="loader-dual"></div>
+<script>
 
 import { Account, Transaction, TransactionPayload, Balance, GasLimit } from "@elrondnetwork/erdjs";
 import axios from "axios";

@@ -71,7 +71,7 @@ function intToHex(string) {
 }
 
 export default {
-    name: 'BoosterPack',
+    name: 'MintPack',
     Components: {
         successMessageMint
     },

@@ -1,6 +1,9 @@
 <template>
     <main>
         
+
+
+        <button>Test button </button>
         <div v-if="loader" class="loader-dual" />
         <template v-if="isDesktop">
             <img class="cntnt__home-card cntnt__home-card-1" src="@/assets/images/bg-card-blue.png" />
@@ -14,18 +17,18 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
-function sleep(n) { return new Promise(resolve=>setTimeout(resolve,n)); }
+// function sleep(n) { return new Promise(resolve=>setTimeout(resolve,n)); }
 
-import errorMessageMint from "@/components/modals/errorMesageMint";
-import successMessageMint from "@/components/modals/successMessageMint";
+// import errorMessageMint from "@/components/modals/errorMesageMint";
+// import successMessageMint from "@/components/modals/successMessageMint";
 
 export default {
     name: 'BoosterPack',
     Components: {
-        errorMessageMint,
-        successMessageMint
+        // errorMessageMint,
+        // successMessageMint
     },
     data () {
         return{

@@ -30,6 +30,8 @@
                     </div>
                 </div>
             </div>
+            <p class="cntnt__mint-text">{{mintedPacks}} PACKS LEFT</p>
+            <p class="cntnt__mint-text">PRICE - 0.35 EGLD</p>
         </div>
         <div v-if="loader" class="loader-dual" />
         <template v-if="isDesktop">
@@ -44,11 +46,29 @@
 </template>
 
 <script>
-// import axios from "axios";
-
-// function sleep(n) { return new Promise(resolve=>setTimeout(resolve,n)); }
-
 import successMessageMint from "@/components/modals/successMessageMint";
+import { Account, Address, Transaction, TransactionPayload, Balance, GasLimit } from "@elrondnetwork/erdjs";
+import axios from "axios";
+import {Buffer} from 'buffer';
+
+function sleep(n) { return new Promise(resolve=>setTimeout(resolve,n)); }
+
+function hashArrayToHex(hashArray) {
+    /* We convert the hash
+        char array to hex  */
+    var hashHex = ""
+    for (const i in hashArray)
+        hashHex = hashHex.concat(intToHex(hashArray[i], 10));
+    return hashHex.substring(0, 64);
+}
+
+function intToHex(string) {
+    let hex = Number(string).toString(16);
+    if (hex.length % 2 !== 0) {
+        hex = `0${hex}`;
+    }
+    return hex;
+}
 
 export default {
     name: 'BoosterPack',
@@ -61,17 +81,26 @@ export default {
             loader: false,
             mintPacks: 1,
             mintedPacks: 0,     // api taken
-            remainingPacks: 1   // api taken
+            remainingPacks: 0,   // api taken
+
+            // ELROND //
+            devApi: "https://devnet-api.elrond.com",
+            SCAddressStr: "erd1qqqqqqqqqqqqqpgqyaqtxp57538uzjl6d5krpfrrzquv5f0ctvkqn59qft",
+
+            // main
+            // devApi : "https://api.elrond.com",
+            // SCAddressStr: "erd1qqqqqqqqqqqqqpgqfj9qht90c9zldjskq62sfx8ugfdxpjte58sq7r8au4",
+
         }
     },
     methods: {
         openModal() {
             const options = { packs: this.mintPacks , remaining: this.remainingPacks};
-            const style = {margin: 'auto', width: '50%', height: '50%'};
+            const style = {margin: 'auto', width: '80%', height: '40%'};
             const events = {'before-close': () => {
                 this.getMintedPacks()
                 this.getRemainingPacks()
-                this.mintPacks = 0
+                this.mintPacks = 1
                 }}
             this.$modal.show(successMessageMint, options, style, events);
         },
@@ -79,24 +108,165 @@ export default {
            window.scrollTo(0,0);
         },
         addBooster() {
-            if(this.mintPacks !== this.remainingPacks)
+            if(this.mintPacks < this.remainingPacks)
                 this.mintPacks++
         },
         removeBooster() {
-            if(this.mintPacks !== 1)
+            if(this.mintPacks > 1)
                 this.mintPacks--
         },
-        getMintedPacks() { // get the already minted Packs
-            
+        async getMintedPacks() { // get the already minted Packs
+
+            var rawMintedPacks = await axios.post(`${this.devApi}/query`,
+                {
+                    "scAddress" : this.SCAddressStr,
+                    "funcName"  : "getTotalNFTBuyable",
+                    "args"      : ["00"],
+                    "value"     : "0"
+                }
+            );
+
+            this.mintedPacks = Number("0x" + Buffer.from(rawMintedPacks.data.returnData[0], 'base64').toString("hex"));
+
+            var rawBoughtPacks = await axios.post(`${this.devApi}/query`, {
+                    "scAddress" : this.SCAddressStr,
+                    "funcName"  : "getNbrNFTBought",
+                    "args"      : ["00"],
+                    "value"     : "0"
+                }
+            );
+
+            if (Buffer.from(rawBoughtPacks.data.returnData[0], 'base64').toString("hex")) {
+                this.mintedPacks -= Number("0x" + Buffer.from(rawBoughtPacks.data.returnData[0], 'base64').toString("hex"));
+            }
         },
-        getRemainingPacks() { // get the packs that the user can mint
-            
+        async getRemainingPacks() { // get the packs that the user can mint
+
+            var rawMaxBuyablePerAddress = await axios.post(`${this.devApi}/query`, {
+                    "scAddress" : this.SCAddressStr,
+                    "funcName"  : "getTotalNFTBuyablePerAddress",
+                    "args"      : ["00"],
+                    "value"     : "0"
+                }
+            );
+
+            this.remainingPacks = Number("0x" + Buffer.from(rawMaxBuyablePerAddress.data.returnData[0], 'base64').toString("hex"));
+
+            var rawBoughtPacksperAddress = await axios.post(`${this.devApi}/query`,
+                {
+                    "scAddress" : this.SCAddressStr,
+                    "funcName"  : "getBoughtForAnAddress",
+                    "args"      : ["00", this.$erd.walletAddress.valueHex],
+                    "value"     : "0"
+                }
+            );
+
+            if (Buffer.from(rawBoughtPacksperAddress.data.returnData[0], 'base64').toString("hex")) {
+                this.remainingPacks -= Number("0x" + Buffer.from(rawBoughtPacksperAddress.data.returnData[0], 'base64').toString("hex"));
+            }
+
+            if(this.mintedPacks < this.remainingPacks) {
+                this.remainingPacks = this.mintedPacks
+            }
         },
-        mintPack() { // just mint a pack
-            this.openModal()
-        }
+        async mintPack() { // just mint a pack
+            try {
+                this.loader = true
+                
+                let select = "00"
+                /* We create an account object */
+                let account = new Account(this.$erd.walletAddress);
+
+                let SCAddress = new Address(this.SCAddressStr);
+
+                /* We wait for the account's
+                nonce to be sync (got it :3) */
+                await account.sync(this.$erd.providers.proxy)
+
+                let quantityToBuy = (this.mintPacks.length%2 ? this.mintPacks : '0' + this.mintPacks);
+
+                /* We create the data payload */
+                var payload = new TransactionPayload(`buyNFT@${select}@${quantityToBuy}`);
+
+                /* We create the transaction */
+                var transaction = new Transaction({
+                    sender: this.$erd.walletAddress,
+                    receiver: SCAddress,
+                    gasLimit: new GasLimit(20000000),
+                    value: Balance.egld(this.mintPacks*0.35),
+                    data: payload,
+                });
+
+                /* We set the transaction's nonce
+                    which is the account's one   */
+                await transaction.setNonce(account?.nonce);
+
+                /*  We send the transaction and
+                get its transaction hash array */
+
+                const hashArray = await this.$erd?.providers?.signAndSend(transaction).then((result) => {return result?.hash?.hash;});
+                /* We convert the hash
+                    array to hex     */
+                var hashHex = hashArrayToHex(hashArray);
+
+                /* We're pending for the
+                status to be defined  */
+                await sleep(250)
+                await this.pending(hashHex)
+            } catch (err) { 
+                this.loader= false
+                console.log(err)
+            }
+        },
+        async pending(hashHex) {
+            /* We try to get the
+               transaction status */
+            try {
+                /* we request the transaction
+                     status through the API   */
+                var rawRequest = await axios.get(`${this.devApi}/transactions/${hashHex}?fields=status`);
+
+                /* If the transaction is pending */
+                if (rawRequest.data.status === "pending") {
+                    /* We call this function
+                         again 250ms later   */
+                    await sleep(250)
+                    await this.pending(hashHex)
+                /* Otherwise */
+                } else {
+                    /*   The transaction is over, we redirect
+                         the user to the burn booster result
+                       page with the status and the transaction
+                                hash as url parameters          */
+                    
+                    await sleep(1500)
+                    this.loader = false
+                    if(rawRequest.data.status === "success") {
+                        this.openModal()
+                    }
+                    // STATUS = rawRequest.data.status      ==> "success" or "failure"
+                } 
+            } catch (err) {
+                console.log(err)
+                /* We need to wait a little bit more time, because the transaction
+                   is not reachable yet so we call this function again 250ms later */
+                await sleep(250)
+                await this.pending(hashHex)
+            }
+        },
     },
     async beforeMount() {
+        if(this.$erd.logged === true) {
+            await this.getMintedPacks()
+            await this.getRemainingPacks()
+        }
+        let waiting = 5
+        while(this.$erd.logged !== true && waiting !=0) {
+            await sleep(500)
+            await this.getMintedPacks()
+            await this.getRemainingPacks()
+            waiting-=0.5
+        }
     }
 }
 

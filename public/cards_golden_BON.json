@@ -134,7 +134,7 @@
   {
     "name": "ZEENOK INFILTRATOR",
     "civilisation": "Robot",
-    "rarity": "Rare",
+    "rarity": "Uncommon",
     "type": "CREATURE",
     "class": "Normal",
     "attack": 600,
@@ -206,7 +206,7 @@
   {
     "name": "ESSENCE DRIVING UNIT",
     "civilisation": "Robot",
-    "rarity": "Uncommon",
+    "rarity": "Rare",
     "type": "CREATURE",
     "class": "Normal",
     "attack": 500,
@@ -329,7 +329,7 @@
   {
     "name": "RAGING SORROW",
     "civilisation": "Nightmare",
-    "rarity": "Uncommon",
+    "rarity": "Common",
     "type": "SPELL",
     "class": "Trap",
     "attack": 0,
@@ -341,7 +341,7 @@
   {
     "name": "BLOOD MOON ECLIPSE",
     "civilisation": "Nightmare",
-    "rarity": "Rare",
+    "rarity": "Common",
     "type": "SPELL",
     "class": "Trap",
     "attack": 0,
@@ -622,7 +622,7 @@
   {
     "name": "CALL OF THE WILD",
     "civilisation": "Nature",
-    "rarity": "Common",
+    "rarity": "Uncommon",
     "type": "SPELL",
     "class": "Trap",
     "attack": 0,
@@ -746,7 +746,7 @@
     "type": "CREATURE",
     "class": "Normal",
     "attack": 1000,
-    "mana": 25,
+    "mana": 20,
     "img": "60Artboard 1@4x.png",
     "identifier" : "91" ,
   	"edition": "golden"

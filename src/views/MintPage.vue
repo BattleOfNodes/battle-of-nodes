@@ -15,6 +15,7 @@
 
 <script>
 import axios from "axios";
+
 function sleep(n) { return new Promise(resolve=>setTimeout(resolve,n)); }
 
 import errorMessageMint from "@/components/modals/errorMesageMint";

@@ -10,7 +10,7 @@
                 </router-link>
                 <div v-else>
                     <div v-if="remainingPacks===0">
-                        <p class="cntnt__booster-text"> You minted all the packs available.</p>
+                        <p class="cntnt__booster-text" v-if="mintedPacks!=0"> You minted all the packs available.</p>
                         <router-link class="cntnt__zone-btn cntnt__mint-btn" style="width: 240px;" to="/booster-pack" @click.native="moveUp()">
                             GO TO PACK OPENING
                         </router-link>

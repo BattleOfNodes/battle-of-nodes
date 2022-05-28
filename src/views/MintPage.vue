@@ -30,7 +30,11 @@
                     </div>
                 </div>
             </div>
-            <p class="cntnt__mint-text">{{mintedPacks}} PACKS LEFT</p>
+            <div v-if="mintedPacks!=0">
+                <p class="cntnt__mint-text" v-if="mintedPacks>15">{{mintedPacks}} PACKS LEFT</p>
+                <p class="cntnt__mint-text" v-else style="color:red">ONLY {{mintedPacks}} PACK{{mintedPacks !== 1 ? 's' : ''}} LEFT!</p>
+            </div>
+            <p class="cntnt__mint-text" v-else>NO MORE PACKS LEFT</p>
             <p class="cntnt__mint-text">PRICE - 0.35 EGLD</p>
         </div>
         <div v-if="loader" class="loader-dual" />
@@ -84,12 +88,12 @@ export default {
             remainingPacks: 0,   // api taken
 
             // ELROND //
-            devApi: "https://devnet-api.elrond.com",
-            SCAddressStr: "erd1qqqqqqqqqqqqqpgqyaqtxp57538uzjl6d5krpfrrzquv5f0ctvkqn59qft",
+            // devApi: "https://devnet-api.elrond.com",
+            // SCAddressStr: "erd1qqqqqqqqqqqqqpgqyaqtxp57538uzjl6d5krpfrrzquv5f0ctvkqn59qft",
 
             // main
-            // devApi : "https://api.elrond.com",
-            // SCAddressStr: "erd1qqqqqqqqqqqqqpgqfj9qht90c9zldjskq62sfx8ugfdxpjte58sq7r8au4",
+            devApi : "https://api.elrond.com",
+            SCAddressStr: "erd1qqqqqqqqqqqqqpgqfj9qht90c9zldjskq62sfx8ugfdxpjte58sq7r8au4",
 
         }
     },

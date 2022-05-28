@@ -1,6 +1,7 @@
 <template>
   <main class="modalMint-content">
-      <p class="modalMint-message">You minted {{packs}} packs, you can mint {{remaining-packs}} more.</p>
+      <p class="modalMint-message" v-if="remaining-packs === 0">You minted {{packs}} pack{{packs > 1 ? 's' : ''}}, you can mint no more.</p>
+      <p class="modalMint-message" v-else>You minted {{packs}} pack{{packs > 1 ? 's' : ''}}, you can mint {{remaining-packs}} more.</p>
       <div class="cntnt__mint-buttons">
         <div class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="$emit('close')">
           CLOSE

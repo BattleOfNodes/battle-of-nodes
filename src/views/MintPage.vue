@@ -197,7 +197,7 @@ export default {
                     sender: this.$erd.walletAddress,
                     receiver: SCAddress,
                     gasLimit: new GasLimit(7000000),
-                    value: Balance.egld(this.mintPacks*0.35),
+                    value: Balance.egld(parseFloat(this.mintPacks*0.35).toPrecision(4)),
                     data: payload,
                 });
 

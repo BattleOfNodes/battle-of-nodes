@@ -2,7 +2,7 @@
     <main class="cntnt__mint">
         <h1 class="cntnt__booster-title">BOOSTER PACK MINTING</h1>
         <div class="cntnt__mint-content">
-            <p class="cntnt__booster-text">1ST EDITION BOOSTER PACK - BASE SET</p>
+            <p class="cntnt__booster-text">BASIC BOOSTER PACK - BASE SET</p>
             <img class="cntnt__mint-booster" src="@/assets/images/BaseSetBoosterPack.png" />
             <div class="cntnt__mint-buttons">
                 <router-link v-if="!this.$erd.logged" class="cntnt__zone-btn cntnt__mint-btn" to="/login" @click.native="moveUp()">

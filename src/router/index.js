@@ -5,6 +5,7 @@ import BoosterPack from '@/views/BoosterPack'
 import Explore from '@/views/Explore'
 import Homepage from '@/views/Homepage'
 import MyCollection from '@/views/MyCollection'
+import MintPage from '@/views/MintPage'
 import vmodal from 'vue-js-modal'
 
 Vue.use(VueRouter)
@@ -35,6 +36,11 @@ const routes = [
     path: '/my-collection',
     name: 'MyCollection',
     component: MyCollection
+  },
+  {
+    path: '/mint-page',
+    name: 'MintPage',
+    component: MintPage
   }
 ]
 

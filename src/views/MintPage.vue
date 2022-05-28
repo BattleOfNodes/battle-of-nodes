@@ -196,7 +196,7 @@ export default {
                 var transaction = new Transaction({
                     sender: this.$erd.walletAddress,
                     receiver: SCAddress,
-                    gasLimit: new GasLimit(20000000),
+                    gasLimit: new GasLimit(7000000),
                     value: Balance.egld(this.mintPacks*0.35),
                     data: payload,
                 });

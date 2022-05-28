@@ -187,7 +187,7 @@ export default {
                 nonce to be sync (got it :3) */
                 await account.sync(this.$erd.providers.proxy)
 
-                let quantityToBuy = (this.mintPacks.length%2 ? this.mintPacks : '0' + this.mintPacks);
+                let quantityToBuy = (this.mintPacks.toString(16).length%2 ? this.mintPacks : '0' + this.mintPacks.toString(16));
 
                 /* We create the data payload */
                 var payload = new TransactionPayload(`buyNFT@${select}@${quantityToBuy}`);

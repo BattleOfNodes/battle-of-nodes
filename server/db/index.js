@@ -1,7 +1,7 @@
 const {Pool} = require('pg')
 
 const pool = new Pool({
-    connectionString: "postgress://nzzfqyhffhzwio:a9cc5c68e5e21f1bedb92265e72a3025c175a595852e12be3e55fb0236dd649f@ec2-176-34-215-248.eu-west-1.compute.amazonaws.com:5432/d871cki1eegq45"
+    connectionString: "postgres://slenclgx:2BB2XVQH1F_rMXKjttdFMiy3IIKLOV7N@tyke.db.elephantsql.com/slenclgx"
 })
 
 module.exports = {

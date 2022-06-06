@@ -30,13 +30,10 @@ export default {
     },
     methods: {
         async sendUserToServer() {
-            if(this.$erd.logged && this.$erd?.walletAddress) {
+            if(this.$erd.logged && this.$erd?.walletAddress && localStorage.dbToken) {
                 const token = Math.random().toString(32).slice(2);
                 await axios.post(`${window.location.origin}/api/v1/sendToken/${this.$erd.walletAddress}/${token}`)
-                .then(res => {
-                    console.log(res)
-                    VueCookies.set("LoginToken", token)
-                })
+                .then(VueCookies.set("LoginToken", token))
                 .catch(err => {
                     console.log(err)
                 })

@@ -14,17 +14,25 @@ router.get('/v1/config', (req,res) => {
 
 
 async function sendToken (req, res) {
-    if(req.params.address.length != 62 && req.params.token.length != 11)
+    if(req.params.address.length < 50 && req.params.token.length < 5)
         return res.status(400).send({'message': 'Address format or token format incorect'})
 
-    const queryCheck = 'SELECT * from loginchart where address like $1'
-    const queryInsertIdToken = 'INSERT INTO loginchart(address, token, date, id) VALUES($1,$2,NOW(),SELECT MAX(id)+1 from loginchart) returning *'
+    const queryCheck = `SELECT * from loginchart where address like $1`
+    const queryInsertIdToken = 'INSERT INTO loginchart(address, token, date, id) VALUES($1,$2,NOW(),$3) returning *'
     const queryInsertToken = 'UPDATE loginchart SET token=$2,date=NOW() WHERE address=$1 returning *'
+    const checkId = 'SELECT * from loginchart where id = $1'
 
     try {
         const { rows } = await db.query(queryCheck, [req.params.address])
         if(rows.length === 0) {
-            const { rows } = await db.query(queryInsertIdToken, [req.params.address, req.params.token])
+            let id = Math.floor(100000000 + Math.random() * 900000000)
+            let rowsId = (await db.query(checkId, [id])).rows
+            while(rowsId.length != 0) {
+                id = Math.floor(100000000 + Math.random() * 900000000)
+                rowsId = (await db.query(checkId, [id])).rows
+            }
+
+            const { rows } = await db.query(queryInsertIdToken, [req.params.address, req.params.token, id])
             return res.status(200).send(rows[0])
         } else {
             const { rows } = await db.query(queryInsertToken, [req.params.address, req.params.token])

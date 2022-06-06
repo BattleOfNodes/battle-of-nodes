@@ -24,7 +24,7 @@
                         <span v-else>Connect</span>
                     </router-link>
                 </li>
-                <li class="menu__item connectPhone glow">
+                <li class="menu__item connectPhone">
                     <router-link class="menu__item-link" to="/mint-page">
                         <span>MINT PACK</span>
                     </router-link>

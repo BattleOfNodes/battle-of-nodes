@@ -52,7 +52,7 @@
                             <p class="cntnt__booster-pack-text">1 Uncommon card guaranteed</p>
                             <p class="cntnt__booster-pack-text" style="margin-top: 3rem;">Packs opened</p>
                             <p class="cntnt__booster-pack-boldText">{{ blueBoosterOpened }}</p>
-                            <p class="cntnt__booster-pack-boldText cntnt__booster-pack-boldText-bottomText">2300/6000 Minted</p>
+                            <p class="cntnt__booster-pack-boldText cntnt__booster-pack-boldText-bottomText">2800/6000 Minted</p>
                         </div>
                     </div>
                 </div>

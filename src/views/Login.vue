@@ -17,6 +17,8 @@
 
 <script>
 import CustomQRCodeHandler from "../components/qrcode/CustomQRCodeHandler";
+import VueCookies from 'vue-cookies'
+import axios from "axios";
 
 export default {
     name: 'Login',
@@ -25,6 +27,21 @@ export default {
             customQrcodeHandler: new CustomQRCodeHandler(),
             isDesktop: window.innerWidth >= 1024
         }
+    },
+    methods: {
+        async sendUserToServer() {
+            if(this.$erd.logged && this.$erd?.walletAddress && localStorage.dbToken) {
+                const token = Math.random().toString(32).slice(2);
+                await axios.post(`${window.location.origin}/api/v1/sendToken/${this.$erd.walletAddress}/${token}`)
+                .then(VueCookies.set("LoginToken", token))
+                .catch(err => {
+                    console.log(err)
+                })
+            }
+        }
+    },
+    async updated(){
+        await this.sendUserToServer()
     }
 };
 </script>

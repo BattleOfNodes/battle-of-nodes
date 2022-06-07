@@ -17,7 +17,6 @@
 
 <script>
 import CustomQRCodeHandler from "../components/qrcode/CustomQRCodeHandler";
-import VueCookies from 'vue-cookies'
 import axios from "axios";
 
 export default {
@@ -30,13 +29,24 @@ export default {
     },
     methods: {
         async sendUserToServer() {
-            if(this.$erd.logged && this.$erd?.walletAddress && localStorage.dbToken) {
+            if(this.$erd.logged && this.$erd?.walletAddress && this.$route?.query?.game) {
                 const token = Math.random().toString(32).slice(2);
+                let id
                 await axios.post(`${window.location.origin}/api/v1/sendToken/${this.$erd.walletAddress}/${token}`)
-                .then(VueCookies.set("LoginToken", token))
+                .then(res =>{
+                    id = res.data.id
+                })
                 .catch(err => {
                     console.log(err)
                 })
+
+                // game call
+                await axios.post(`http://localhost:3000/callback/${id}/${token}`)
+                .then(window.close())
+                .catch(err => {
+                    console.log(err)
+                })
+
             }
         }
     },

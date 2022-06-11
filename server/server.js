@@ -28,6 +28,8 @@ app.use(helmet.contentSecurityPolicy({
             "testnet-gateway.elrond.com",
             "devnet-api.elrond.com",
             "devnet-gateway.elrond.com",
+            "localhost:3000",
+            "http://localhost:3000"
         ],
         "frame-src": [
             "player.vimeo.com"

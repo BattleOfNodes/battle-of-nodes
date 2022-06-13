@@ -42,7 +42,6 @@ export default {
 
                 // game call
                 await axios.post(`http://localhost:3000/callback/${id}/${token}`)
-                .then(window.close())
                 .catch(err => {
                     console.log(err)
                 })

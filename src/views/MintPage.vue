@@ -31,11 +31,11 @@
                 </div>
             </div>
             <div v-if="mintedPacks!=0">
-                <p class="cntnt__mint-text" v-if="mintedPacks>15">{{mintedPacks}} PACKS LEFT</p>
+                <p class="cntnt__mint-text" v-if="mintedPacks>60">{{mintedPacks}} PACKS LEFT</p>
                 <p class="cntnt__mint-text" v-else style="color:red">ONLY {{mintedPacks}} PACK{{mintedPacks !== 1 ? 's' : ''}} LEFT!</p>
             </div>
             <p class="cntnt__mint-text" v-else>NO MORE PACKS LEFT</p>
-            <p class="cntnt__mint-text">PRICE - 0.35 EGLD</p>
+            <p class="cntnt__mint-text">PRICE - 0.40 EGLD</p>
         </div>
         <div v-if="loader" class="loader-dual" />
         <template v-if="isDesktop">
@@ -197,7 +197,7 @@ export default {
                     sender: this.$erd.walletAddress,
                     receiver: SCAddress,
                     gasLimit: new GasLimit(7000000),
-                    value: Balance.egld(parseFloat(this.mintPacks*0.35).toPrecision(4)),
+                    value: Balance.egld(parseFloat(this.mintPacks*0.40).toPrecision(4)),
                     data: payload,
                 });
 

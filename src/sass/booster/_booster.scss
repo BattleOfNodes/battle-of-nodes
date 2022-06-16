@@ -318,6 +318,10 @@ cursor: auto;
 .pointerCursor {
     cursor: pointer
 }
+.noPointerCursor {
+    cursor: not-allowed;
+    pointer-events: all !important;
+}
 
 /* Loader */
 .loader-dual {

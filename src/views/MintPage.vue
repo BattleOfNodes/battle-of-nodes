@@ -191,7 +191,7 @@ export default {
                 let quantityToBuy = (this.mintPacks.toString(16).length%2 ? this.mintPacks : '0' + this.mintPacks.toString(16));
 
                 /* We create the data payload */
-                var payload = new TransactionPayload(`buyNFT@${select}@${quantityToBuy}`);
+                var payload = new TransactionPayload(`buyNFT@${select}@0${quantityToBuy}`);
 
                 /* We create the transaction */
                 var transaction = new Transaction({

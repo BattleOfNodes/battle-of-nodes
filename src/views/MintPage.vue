@@ -21,8 +21,8 @@
                         <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeBooster()">
                             -
                         </div>
-                        <!-- <div class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="mintPack()"> -->
-                        <div class="cntnt__zone-btn cntnt__booster-btn noPointerCursor">
+                        <div class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="mintPack()">
+                        <!-- <div class="cntnt__zone-btn cntnt__booster-btn noPointerCursor"> -->
                             MINT {{ mintPacks }} BASIC PACK
                         </div>
                         <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="addBooster()">

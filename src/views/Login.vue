@@ -1,9 +1,7 @@
 <template>
-    <section class="cntnt__login">
-        <div class="cntnt__login-inner">
-            <h2 class="cntnt__login-title">Connect{{ $erd.logged ? 'ed' : '' }}</h2>
-            <vue-erdjs-connect :qrcodeHandler="customQrcodeHandler"></vue-erdjs-connect>
-        </div>
+    <main>
+        <h1 class="cntnt-title">Connect{{ $erd.logged ? 'ed' : '' }}</h1>
+        <vue-erdjs-connect :qrcodeHandler="customQrcodeHandler"></vue-erdjs-connect>
         <template v-if="isDesktop">
             <img class="cntnt__bgCard cntnt__bgCard-1" src="@/assets/images/bg-card-blue.png" />
             <img class="cntnt__bgCard cntnt__bgCard-2" src="@/assets/images/bg-card-red.png" />
@@ -12,7 +10,7 @@
             <img class="cntnt__bgCard cntnt__bgCard-5" src="@/assets/images/bg-card-blue.png" />
             <img class="cntnt__bgCard cntnt__bgCard-6" src="@/assets/images/bg-card-red.png" />
         </template>
-    </section>
+    </main>
 </template>
 
 <script>

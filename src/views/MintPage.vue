@@ -1,6 +1,6 @@
 <template>
-    <main class="cntnt__mint">
-        <h1 class="cntnt__booster-title">BOOSTER PACK MINTING</h1>
+    <main>
+        <h1 class="cntnt-title">BOOSTER PACK MINTING</h1>
         <div class="cntnt__mint-content">
             <p class="cntnt__booster-text">BASIC BOOSTER PACK - BASE SET</p>
             <img class="cntnt__mint-booster" src="@/assets/images/BaseSetBoosterPack.png" />

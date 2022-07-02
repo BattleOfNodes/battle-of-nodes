@@ -6,6 +6,7 @@ import Explore from '@/views/Explore'
 import Homepage from '@/views/Homepage'
 import MyCollection from '@/views/MyCollection'
 import MintPage from '@/views/MintPage'
+import DownloadDemo from '@/views/DownloadDemo'
 import vmodal from 'vue-js-modal'
 
 Vue.use(VueRouter)
@@ -41,6 +42,11 @@ const routes = [
     path: '/mint-page',
     name: 'MintPage',
     component: MintPage
+  },
+  {
+    path: '/download',
+    name: 'DownloadDemo',
+    component: DownloadDemo
   }
 ]
 

@@ -1,7 +1,15 @@
 <template>
-    <main 
-        class="cntnt__home">
-        <HomeIntro></HomeIntro>
+    <main>
+        <div class="cntnt-inner cntnt__intro-inner">
+            <div class="cntnt__intro-power">
+                Powered by
+                <img src="@/assets/images/elrond-logo.png" alt="Elrond Logo" />
+            </div>
+            <h2 class="cntnt__intro-title">A trading card game project</h2>
+            <p class="cntnt__intro-txt">Collect cards, Trade, Battle</p>
+            <a href="https://deadrare.io/collection/BONPACKS-f0b549" target="_blank" class="cntnt__zone-btn cntnt__intro-btn">Buy a pack now</a>
+        </div>
+
         <HomeCardsSet></HomeCardsSet>
         <HomeInfos></HomeInfos>
         <HomeRoadmap></HomeRoadmap>
@@ -18,7 +26,6 @@
 </template>
 
 <script>
-import HomeIntro from '@/components/home/HomeIntro';
 import HomeCardsSet from '@/components/home/HomeCardsSet';
 import HomeInfos from '@/components/home/HomeInfos';
 import HomeRoadmap from '@/components/home/HomeRoadmap';
@@ -27,7 +34,6 @@ import HomeAllCards from '@/components/home/HomeAllCards';
 export default {
     name: 'Homepage',
     components: {
-        HomeIntro,
         HomeCardsSet,
         HomeInfos,
         HomeRoadmap,

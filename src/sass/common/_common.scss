@@ -1,0 +1,64 @@
+.cntnt {
+    &-title {
+        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+        animation: 0.75s ease-out 0s 1 slideInFromTop;
+        font-size:5rem;
+        margin-top: 7rem;
+        margin-bottom: 10rem;
+        max-width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+    }
+    &-inner {
+        background-size: cover;
+        margin: -200px auto 0;
+        padding: 200px 12px 350px;
+        position: relative;
+
+        &::before {
+            background: radial-gradient(53.32% 53.32% at 50% 44.79%, rgba(6, 32, 56, 0) 0%, #062038 94%, #062038 100%);
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+        }
+    }
+}
+
+@media screen and (max-width: $desktopBreakpoint) {
+    .cntnt {
+        &-title {
+            max-width: 85%;
+            font-size: 3.5rem;
+        }
+    }
+}
+
+
+
+@media screen and (min-width: $largeBreakpoint) {
+    .cntnt {
+        &-inner {
+            background-position: top -25px center;
+            background-size: 1574px 900px;
+            border-radius: 32px 32px 0 0;
+            margin-top: -207px;
+            max-width: 1574px;
+            padding: 275px 12px 372px;
+
+            &::before {
+                border-radius: 32px 32px 0 0;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: $tabBreakpoint) {
+    .cntnt {
+        &-inner {
+            padding-top: 228px;
+        }
+    }
+}

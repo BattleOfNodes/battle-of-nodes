@@ -1,6 +1,6 @@
 <template>
-    <main class="cntnt__collect">
-        <h1 class="cntnt__booster-title">Booster Packs</h1>
+    <main>
+        <h1 class="cntnt-title">Booster Packs</h1>
         <div class="cntnt__booster-content">
             <div class="cntnt__booster-pack cntnt__booster-pack-cardOne">
                 <p class="cntnt__booster-text">1ST EDITION BOOSTER PACK - BASE SET</p>

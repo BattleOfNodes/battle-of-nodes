@@ -5,13 +5,13 @@
             <p class="cntnt__booster-text">BASIC BOOSTER PACK - BASE SET</p>
             <img class="cntnt__mint-booster" src="@/assets/images/BaseSetBoosterPack.png" />
             <div class="cntnt__mint-buttons">
-                <router-link v-if="!this.$erd.logged" class="cntnt__zone-btn cntnt__mint-btn" to="/login" @click.native="moveUp()">
+                <router-link v-if="!this.$erd.logged" class="cntnt-btn cntnt__mint-btn" to="/login" @click.native="moveUp()">
                     CONNECT TO MINT
                 </router-link>
                 <div v-else>
                     <div v-if="remainingPacks===0">
                         <p class="cntnt__booster-text" v-if="mintedPacks!=0"> You minted all the packs available.</p>
-                        <router-link class="cntnt__zone-btn cntnt__mint-btn" style="width: 240px;" to="/booster-pack" @click.native="moveUp()">
+                        <router-link class="cntnt-btn cntnt__mint-btn" style="width: 240px;" to="/booster-pack" @click.native="moveUp()">
                             GO TO PACK OPENING
                         </router-link>
                     </div>
@@ -21,8 +21,8 @@
                         <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeBooster()">
                             -
                         </div>
-                        <div class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="mintPack()">
-                        <!-- <div class="cntnt__zone-btn cntnt__booster-btn noPointerCursor"> -->
+                        <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintPack()">
+                        <!-- <div class="cntnt-btn cntnt__booster-btn noPointerCursor"> -->
                             MINT {{ mintPacks }} BASIC PACK
                         </div>
                         <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="addBooster()">

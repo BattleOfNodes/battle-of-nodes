@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import CustomQRCodeHandler from "../components/qrcode/CustomQRCodeHandler";
+import CustomQRCodeHandler from "@/components/qrcode/CustomQRCodeHandler";
 import axios from "axios";
 
 export default {

@@ -7,7 +7,7 @@
             </div>
             <h2 class="cntnt__intro-title">A trading card game project</h2>
             <p class="cntnt__intro-txt">Collect cards, Trade, Battle</p>
-            <a href="https://deadrare.io/collection/BONPACKS-f0b549" target="_blank" class="cntnt__zone-btn cntnt__intro-btn">Buy a pack now</a>
+            <a href="https://deadrare.io/collection/BONPACKS-f0b549" target="_blank" class="cntnt-btn cntnt__intro-btn">Buy a pack now</a>
         </div>
 
         <HomeCardsSet></HomeCardsSet>

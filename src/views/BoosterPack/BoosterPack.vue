@@ -23,14 +23,14 @@
                         </div>
                     </div>
                 </div>
-                <router-link v-if="!this.$erd.logged" class="cntnt__zone-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
+                <router-link v-if="!this.$erd.logged" class="cntnt-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
                     CONNECT TO OPEN
                 </router-link>
                 <div v-else>
-                    <a v-if="this.redBoosterCount === 0" class="cntnt__zone-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%221st+Edition%22%2C%22value%22%3A%221st+Edition%22%7D%5D%7D">
+                    <a v-if="this.redBoosterCount === 0" class="cntnt-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%221st+Edition%22%2C%22value%22%3A%221st+Edition%22%7D%5D%7D">
                         BUY 1ST EDITION PACK
                     </a>
-                    <div v-else class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="if(!loaderRed && !loaderBlue) {handleSubmit('RED')}">
+                    <div v-else class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="if(!loaderRed && !loaderBlue) {handleSubmit('RED')}">
                         OPEN 1ST EDITION PACK
                     </div>
                 </div>
@@ -56,14 +56,14 @@
                         </div>
                     </div>
                 </div>
-                <router-link v-if="!this.$erd.logged" class="cntnt__zone-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
+                <router-link v-if="!this.$erd.logged" class="cntnt-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
                     CONNECT TO OPEN
                 </router-link>
                 <div v-else>
-                    <a v-if="this.blueBoosterCount === 0" class="cntnt__zone-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%22Basic+Pack%22%2C%22value%22%3A%22Basic+Pack%22%7D%5D%7D">
+                    <a v-if="this.blueBoosterCount === 0" class="cntnt-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%22Basic+Pack%22%2C%22value%22%3A%22Basic+Pack%22%7D%5D%7D">
                         BUY BASIC PACK
                     </a>
-                    <div v-else class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="if(!loaderRed && !loaderBlue) {handleSubmit('BLUE')}">
+                    <div v-else class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="if(!loaderRed && !loaderBlue) {handleSubmit('BLUE')}">
                         OPEN BASIC PACK
                     </div>
                 </div>

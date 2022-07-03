@@ -1,45 +1,10 @@
 .cntnt {
-    font-size: 2rem;
-    font-weight: 500;
-    line-height: 1.333;
-
     &__zone {
         position: relative;
         z-index: 1;
         
         &-title {
             font-size: 3.8rem;
-        }
-        &-btn {
-            background: transparent;
-            color: #fff;
-            display: inline-block;
-            font-size: 1.6rem;
-            height: 52px;
-            letter-spacing: 0.05em;
-            line-height: 48px;
-            padding: 0 24px 4px;
-            position: relative;
-            text-decoration: none;
-            text-shadow: 0px 0px 10px rgba(8, 47, 79, 0.26);
-            z-index: 1;
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
-
-            &::before, &::after {
-                background: transparent url('./assets/images/btn-front.svg') no-repeat top center;
-                border-radius: 24px;
-                content: '';
-                display: block;
-                height: 48px;
-                position: absolute;
-                top: 0; left: 0; right: 0;
-                width: 100%;
-                z-index: -1;
-            }
-            &::before { // Btn Shadow
-                background-image: url('./assets/images/btn-back.svg');
-                top: unset; bottom: 0;
-            }
         }
     }
 }

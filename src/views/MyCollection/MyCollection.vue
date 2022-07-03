@@ -3,13 +3,13 @@
         <h1 class="cntnt-title">My collection</h1>
         <div v-if="!this.$erd.logged">
             <p class="cntnt__contentCollection">Connect your Elrond Wallet in order to see you collection</p>
-            <router-link class="cntnt__zone-btn" to="/login">Connect Wallet</router-link>
+            <router-link class="cntnt-btn" to="/login">Connect Wallet</router-link>
         </div>
         <div v-else>
             <div v-if="this.usersCards.length === 0 ">
                 <p class="cntnt__contentCollection">You don't have any cards yet.</p>
-                <router-link class="cntnt__zone-btn" to="/booster-pack">Open a pack</router-link>
-                <a class="cntnt__zone-btn" href="https://deadrare.io/collection/BONCARDS-d1fb64">Buy some cards</a>
+                <router-link class="cntnt-btn" to="/booster-pack">Open a pack</router-link>
+                <a class="cntnt-btn" href="https://deadrare.io/collection/BONCARDS-d1fb64">Buy some cards</a>
             </div>
             <div v-else>
                 <div class="cntnt__collectionBlock">
@@ -34,7 +34,7 @@
                             <option value="EDITION" selected disabled hidden>EDITION</option>
                             <option v-for="filter in filterEditionArray" :key="filter" v-bind="filter">{{filter}}</option>
                         </select>
-                        <div class="cntnt__zone-btn cntnt__contentCollection-btn cntnt__booster-btn pointerCursor" v-on:click="resetFilters()">
+                        <div class="cntnt-btn cntnt__contentCollection-btn cntnt__booster-btn pointerCursor" v-on:click="resetFilters()">
                             RESET FILTERS
                         </div>
                     </div>

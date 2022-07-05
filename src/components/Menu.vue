@@ -29,6 +29,11 @@
                         <span>MINT PACK</span>
                     </router-link>
                 </li>
+                <li class="menu__item connectPhone">
+                    <router-link class="menu__item-link" to="/download">
+                        <span>Download DEMO</span>
+                    </router-link>
+                </li>
             </ul>
         </div>
     </nav>

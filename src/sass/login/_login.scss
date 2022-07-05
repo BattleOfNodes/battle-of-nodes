@@ -10,19 +10,6 @@
 
 .cntnt {
     &__login {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        min-height: calc(100vh - 300px);
-        padding-bottom: 50px;
-        text-align: center;
-
-        &-inner {
-            max-width: 1160px;
-            padding: 0 16px;
-            width: 100%;
-            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
-        }
         &-title {
             line-height: 1;
             margin-bottom: 32px;
@@ -90,6 +77,9 @@
                 -webkit-tap-highlight-color: rgba(0,0,0,0);
                 transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
                 animation: 0.75s ease-out 0s 1 slideInFromTop;
+                width: 21%;
+                margin-left: auto;
+                margin-right: auto;
 
                 &::before, &::after {
                     background: transparent url('./assets/images/btn-front.svg') no-repeat top center;
@@ -165,6 +155,18 @@
             }
             &__infos-txt{
                 font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .cntnt {
+        .vue3rdj5 {
+            &__modes {
+                &-open{
+                    width: 51%;
+                }
             }
         }
     }

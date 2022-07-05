@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="cntnt__allcards-check">
-                <router-link class="cntnt__zone-btn" @click.native="moveUp()" to="/explore">Explore</router-link>
+                <router-link class="cntnt-btn" @click.native="moveUp()" to="/explore">Explore</router-link>
             </div>
         </div>
     </section>

@@ -10,17 +10,6 @@
 }
 
 .cntnt {
-    &__collect {
-        min-height: calc(100vh - 450px);
-        padding: 100px 0;
-        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
-
-        &-title {
-            margin-bottom: 27px;
-            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
-            animation: 0.75s ease-out 0s 1 slideInFromTop;
-        }
-    }
     &__contentCollection{
         font-size: 2rem;
         font-family: rawengulk,sans-serif;
@@ -75,11 +64,6 @@
         &-btn{
             width: 230px;
         }
-    }
-    &__zone-btn{
-        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
-        margin: 1%;
-        animation: 0.75s ease-out 0s 1 slideInFromTop;
     }
 
     &__collectionBlock {

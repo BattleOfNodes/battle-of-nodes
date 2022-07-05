@@ -76,7 +76,7 @@
           </div>
       </div>
     </div>
-    <div class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="$emit('close')">
+    <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="$emit('close')">
       CLOSE
     </div>
   </main>

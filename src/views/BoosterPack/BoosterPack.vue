@@ -1,6 +1,6 @@
 <template>
-    <main class="cntnt__collect">
-        <h1 class="cntnt__booster-title">Booster Packs</h1>
+    <main>
+        <h1 class="cntnt-title">Booster Packs</h1>
         <div class="cntnt__booster-content">
             <div class="cntnt__booster-pack cntnt__booster-pack-cardOne">
                 <p class="cntnt__booster-text">1ST EDITION BOOSTER PACK - BASE SET</p>
@@ -23,14 +23,14 @@
                         </div>
                     </div>
                 </div>
-                <router-link v-if="!this.$erd.logged" class="cntnt__zone-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
+                <router-link v-if="!this.$erd.logged" class="cntnt-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
                     CONNECT TO OPEN
                 </router-link>
                 <div v-else>
-                    <a v-if="this.redBoosterCount === 0" class="cntnt__zone-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%221st+Edition%22%2C%22value%22%3A%221st+Edition%22%7D%5D%7D">
+                    <a v-if="this.redBoosterCount === 0" class="cntnt-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%221st+Edition%22%2C%22value%22%3A%221st+Edition%22%7D%5D%7D">
                         BUY 1ST EDITION PACK
                     </a>
-                    <div v-else class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="if(!loaderRed && !loaderBlue) {handleSubmit('RED')}">
+                    <div v-else class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="if(!loaderRed && !loaderBlue) {handleSubmit('RED')}">
                         OPEN 1ST EDITION PACK
                     </div>
                 </div>
@@ -56,14 +56,14 @@
                         </div>
                     </div>
                 </div>
-                <router-link v-if="!this.$erd.logged" class="cntnt__zone-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
+                <router-link v-if="!this.$erd.logged" class="cntnt-btn cntnt__booster-btn" to="/login" @click.native="moveUp()">
                     CONNECT TO OPEN
                 </router-link>
                 <div v-else>
-                    <a v-if="this.blueBoosterCount === 0" class="cntnt__zone-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%22Basic+Pack%22%2C%22value%22%3A%22Basic+Pack%22%7D%5D%7D">
+                    <a v-if="this.blueBoosterCount === 0" class="cntnt-btn cntnt__booster-btn" href="https://deadrare.io/collection/BONPACKS-f0b549?filters=%7B%22Edition%22%3A%5B%7B%22label%22%3A%22Basic+Pack%22%2C%22value%22%3A%22Basic+Pack%22%7D%5D%7D">
                         BUY BASIC PACK
                     </a>
-                    <div v-else class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="if(!loaderRed && !loaderBlue) {handleSubmit('BLUE')}">
+                    <div v-else class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="if(!loaderRed && !loaderBlue) {handleSubmit('BLUE')}">
                         OPEN BASIC PACK
                     </div>
                 </div>
@@ -88,12 +88,12 @@
         </div>
         <div v-if="loaderRed || loaderBlue" class="loader-dual" />
         <template v-if="isDesktop">
-            <img class="cntnt__home-card cntnt__home-card-1" src="@/assets/images/bg-card-blue.png" />
-            <img class="cntnt__home-card cntnt__home-card-2" src="@/assets/images/bg-card-red.png" />
-            <img class="cntnt__home-card cntnt__home-card-3" src="@/assets/images/bg-card-blue.png" />
-            <img class="cntnt__home-card cntnt__home-card-4" src="@/assets/images/bg-card-red.png" />
-            <img class="cntnt__home-card cntnt__home-card-5" src="@/assets/images/bg-card-blue.png" />
-            <img class="cntnt__home-card cntnt__home-card-6" src="@/assets/images/bg-card-red.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-1" src="@/assets/images/bg-card-blue.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-2" src="@/assets/images/bg-card-red.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-3" src="@/assets/images/bg-card-blue.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-4" src="@/assets/images/bg-card-red.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-5" src="@/assets/images/bg-card-blue.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-6" src="@/assets/images/bg-card-red.png" />
         </template>
     </main>
 </template>

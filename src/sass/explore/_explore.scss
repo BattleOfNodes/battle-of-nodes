@@ -1,11 +1,7 @@
 .cntnt {
     &__explore {
         &-inner {
-            background-image: url('./assets/images/main-bg-explore.jpg');
-        }
-        &-title {
-            margin: 40px auto 0;
-            max-width: 500px;
+            background: url('./assets/images/main-bg-explore.jpg') no-repeat center center;
         }
         &-story {
             margin: -240px 0 240px;
@@ -52,9 +48,6 @@
 
     .cntnt {
         &__explore {
-            &-title {
-                max-width: 700px;
-            }
             &-story {
                 margin-top: -142px;
             }

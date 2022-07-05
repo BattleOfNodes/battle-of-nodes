@@ -23,18 +23,6 @@
         }
         &-inner {
             background: url('./assets/images/main-bg-home.jpg') no-repeat center center;
-            background-size: cover;
-            margin: -200px auto 0;
-            padding: 200px 12px 350px;
-            position: relative;
-
-            &::before {
-                background: radial-gradient(53.32% 53.32% at 50% 44.79%, rgba(6, 32, 56, 0) 0%, #062038 94%, #062038 100%);
-                content: '';
-                display: block;
-                position: absolute;
-                top: 0; right: 0; bottom: 0; left: 0;
-            }
         }
         &-power {
             align-items: center;
@@ -80,38 +68,12 @@
 }
 
 
-@media screen and (min-width: $tabBreakpoint) {
-
-    .cntnt {
-        &__intro {
-            &-inner {
-                margin-top: -247px;
-                padding-top: 247px;
-            }
-        }
-    }
-
-}
-
-
 @media screen and (min-width: $largeBreakpoint) {
 
     .cntnt {
         &__intro {
             border-radius: 32px 32px 0 0;
             
-            &-inner {
-                background-position: top -25px center;
-                background-size: 1574px 900px;
-                border-radius: 32px 32px 0 0;
-                margin-top: -207px;
-                max-width: 1574px;
-                padding: 275px 12px 372px;
-
-                &::before {
-                    border-radius: 32px 32px 0 0;
-                }
-            }
             &-power {
                 font-size: 2rem;
 

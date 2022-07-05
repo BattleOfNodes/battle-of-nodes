@@ -1,17 +1,17 @@
 <template>
-    <main class="cntnt__mint">
-        <h1 class="cntnt__booster-title">BOOSTER PACK MINTING</h1>
+    <main>
+        <h1 class="cntnt-title">BOOSTER PACK MINTING</h1>
         <div class="cntnt__mint-content">
             <p class="cntnt__booster-text">BASIC BOOSTER PACK - BASE SET</p>
             <img class="cntnt__mint-booster" src="@/assets/images/BaseSetBoosterPack.png" />
             <div class="cntnt__mint-buttons">
-                <router-link v-if="!this.$erd.logged" class="cntnt__zone-btn cntnt__mint-btn" to="/login" @click.native="moveUp()">
+                <router-link v-if="!this.$erd.logged" class="cntnt-btn cntnt__mint-btn" to="/login" @click.native="moveUp()">
                     CONNECT TO MINT
                 </router-link>
                 <div v-else>
                     <div v-if="remainingPacks===0">
                         <p class="cntnt__booster-text" v-if="mintedPacks!=0"> You minted all the packs available.</p>
-                        <router-link class="cntnt__zone-btn cntnt__mint-btn" style="width: 240px;" to="/booster-pack" @click.native="moveUp()">
+                        <router-link class="cntnt-btn cntnt__mint-btn" style="width: 240px;" to="/booster-pack" @click.native="moveUp()">
                             GO TO PACK OPENING
                         </router-link>
                     </div>
@@ -21,8 +21,8 @@
                         <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeBooster()">
                             -
                         </div>
-                        <div class="cntnt__zone-btn cntnt__booster-btn pointerCursor" v-on:click="mintPack()">
-                        <!-- <div class="cntnt__zone-btn cntnt__booster-btn noPointerCursor"> -->
+                        <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintPack()">
+                        <!-- <div class="cntnt-btn cntnt__booster-btn noPointerCursor"> -->
                             MINT {{ mintPacks }} BASIC PACK
                         </div>
                         <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="addBooster()">
@@ -40,12 +40,12 @@
         </div>
         <div v-if="loader" class="loader-dual" />
         <template v-if="isDesktop">
-            <img class="cntnt__home-card cntnt__home-card-1" src="@/assets/images/bg-card-blue.png" />
-            <img class="cntnt__home-card cntnt__home-card-2" src="@/assets/images/bg-card-red.png" />
-            <img class="cntnt__home-card cntnt__home-card-3" src="@/assets/images/bg-card-blue.png" />
-            <img class="cntnt__home-card cntnt__home-card-4" src="@/assets/images/bg-card-red.png" />
-            <img class="cntnt__home-card cntnt__home-card-5" src="@/assets/images/bg-card-blue.png" />
-            <img class="cntnt__home-card cntnt__home-card-6" src="@/assets/images/bg-card-red.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-1" src="@/assets/images/bg-card-blue.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-2" src="@/assets/images/bg-card-red.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-3" src="@/assets/images/bg-card-blue.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-4" src="@/assets/images/bg-card-red.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-5" src="@/assets/images/bg-card-blue.png" />
+            <img class="cntnt__bgCard cntnt__bgCard-6" src="@/assets/images/bg-card-red.png" />
         </template>
     </main>
 </template>

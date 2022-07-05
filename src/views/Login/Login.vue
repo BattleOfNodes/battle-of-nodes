@@ -27,7 +27,7 @@ export default {
     },
     methods: {
         async sendUserToServer() {
-            if(this.$erd.logged && this.$erd?.walletAddress && this.$route?.query?.game) {
+            if(this.$erd.logged && this.$erd?.walletAddress && (this.$route?.query?.game || this.$route?.query?.address)) {
                 const token = Math.random().toString(32).slice(2);
                 let id
                 await axios.post(`${window.location.origin}/api/v1/sendToken/${this.$erd.walletAddress}/${token}`)
@@ -43,7 +43,6 @@ export default {
                 .catch(err => {
                     console.log(err)
                 })
-
             }
         }
     },

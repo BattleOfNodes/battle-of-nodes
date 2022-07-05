@@ -3,6 +3,13 @@
     font-weight: 500;
     line-height: 1.333;
 
+    &-content {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
     &-title {
         transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
         animation: 0.75s ease-out 0s 1 slideInFromTop;
@@ -13,6 +20,52 @@
         margin-right: auto;
         margin-left: auto;
         position: relative;
+    }
+
+    &-secondaryTitle {
+        font-family: rawengulk,sans-serif;
+        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+        animation: 0.75s ease-out 0s 1 slideInFromTop;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        max-width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+        font-size:3.5rem;
+    }
+
+    &-textTitle {
+        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+        animation: 0.75s ease-out 0s 1 slideInFromTop;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-size:2.5rem;
+    }
+
+    &-text{
+        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+        animation: 0.75s ease-out 0s 1 slideInFromTop;
+        font-size:2rem;
+        position: relative;
+        font-family: rawengulk,sans-serif;
+        align-items: flex-start;
+        display: flex;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    &-textBold{
+        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+        animation: 0.75s ease-out 0s 1 slideInFromTop;
+        font-size:2rem;
+        position: relative;
+        font-family: rawengulk,sans-serif;
+        align-items: flex-start;
+        display: flex;
+        margin-left: 20%;
+        margin-right: 20%;
+        font-weight: 800;
     }
 
     &-inner {
@@ -70,6 +123,24 @@
         &-title {
             max-width: 85%;
             font-size: 3.5rem;
+        }
+        &-secondaryTitle {
+            max-width: 85%;
+            font-size: 2.5rem;
+        }
+        &-content {
+            width: 80%;
+        }
+        &-text {
+            display: block;
+            font-size: 1.8rem;
+        }
+        &-textTitle {
+            font-size: 2.3rem;
+        }
+        &-textBold{
+            display: block;
+            font-size: 1.8rem;
         }
     }
 }

@@ -4,7 +4,7 @@
     line-height: 1.333;
 
     &-content {
-        width: 60%;
+        width: 80%;
         margin-left: auto;
         margin-right: auto;
         position: relative;
@@ -32,7 +32,7 @@
         margin-right: auto;
         margin-left: auto;
         position: relative;
-        font-size:3.5rem;
+        font-size:4rem;
     }
 
     &-textTitle {
@@ -40,32 +40,41 @@
         animation: 0.75s ease-out 0s 1 slideInFromTop;
         margin-top: 1rem;
         margin-bottom: 1rem;
-        font-size:2.5rem;
+        font-size:3rem;
     }
 
     &-text{
         transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
         animation: 0.75s ease-out 0s 1 slideInFromTop;
-        font-size:2rem;
+        font-size:2.5rem;
         position: relative;
         font-family: rawengulk,sans-serif;
-        align-items: flex-start;
-        display: flex;
+        text-align: left;
         margin-left: 20%;
         margin-right: 20%;
     }
 
-    &-textBold{
+    &-textBold {
         transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
         animation: 0.75s ease-out 0s 1 slideInFromTop;
-        font-size:2rem;
+        font-size:2.5rem;
         position: relative;
         font-family: rawengulk,sans-serif;
-        align-items: flex-start;
-        display: flex;
+        text-align: left;
         margin-left: 20%;
         margin-right: 20%;
         font-weight: 800;
+
+        margin-top: 1rem;
+        margin-bottom: 1rem;    
+    }
+
+    &-border {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border-style: ridge;
+        border-width: 2px;
+        border-radius: 25px;
     }
 
     &-inner {
@@ -126,21 +135,31 @@
         }
         &-secondaryTitle {
             max-width: 85%;
-            font-size: 2.5rem;
-        }
-        &-content {
-            width: 80%;
+            font-size: 2.7rem;
         }
         &-text {
             display: block;
-            font-size: 1.8rem;
+            font-size: 2.1rem;
         }
         &-textTitle {
-            font-size: 2.3rem;
+            font-size: 2.4rem;
         }
         &-textBold{
             display: block;
-            font-size: 1.8rem;
+            font-size: 2.1rem;
+        }
+    }
+}
+
+@media screen and (max-width: $largeBreakpoint) {
+    .cntnt {
+        &-text {
+            margin-left: 0%;
+            margin-right: 0%;
+        }
+        &-textBold{
+            margin-left: 0%;
+            margin-right: 0%;
         }
     }
 }

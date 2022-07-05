@@ -8,8 +8,8 @@
         <div v-else>
             <div v-if="this.usersCards.length === 0 ">
                 <p class="cntnt__contentCollection">You don't have any cards yet.</p>
-                <router-link class="cntnt-btn" to="/booster-pack">Open a pack</router-link>
-                <a class="cntnt-btn" href="https://deadrare.io/collection/BONCARDS-d1fb64">Buy some cards</a>
+                <router-link class="cntnt-btn" style="margin-right: 1rem;" to="/booster-pack">Open a pack</router-link>
+                <a class="cntnt-btn" style="margin-left: 1rem;" href="https://deadrare.io/collection/BONCARDS-d1fb64">Buy some cards</a>
             </div>
             <div v-else>
                 <div class="cntnt__collectionBlock">

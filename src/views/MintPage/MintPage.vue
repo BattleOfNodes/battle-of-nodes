@@ -58,14 +58,14 @@
                         <div v-else>
                             <p v-if="remainingSkins!==1" class="cntnt__booster-text"> You can mint {{remainingSkins}} skins.</p>
                             <p v-else class="cntnt__booster-text"> You can mint one more skin.</p>
-                            <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeBooster()">
+                            <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeSkin()">
                                 -
                             </div>
                             <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkin()">
                             <!-- <div class="cntnt-btn cntnt__booster-btn noPointerCursor"> -->
                                 MINT {{ mintSkins }} SKINS
                             </div>
-                            <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="addBooster()">
+                            <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="addSkin()">
                                 +
                             </div>
                         </div>

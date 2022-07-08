@@ -241,7 +241,7 @@ export default {
             try {
                 this.loader = true
                 
-                let select = "00"
+                let select = "01"
                 /* We create an account object */
                 let account = new Account(this.$erd.walletAddress);
 

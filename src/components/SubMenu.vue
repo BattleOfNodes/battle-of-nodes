@@ -8,7 +8,7 @@
             </li>
             <li class="menu__item">
                 <router-link class="menu__item-link" to="/mint-page">
-                    <span>MINT PACK</span>
+                    <span>MINT LIVE</span>
                 </router-link>
             </li>
             <li class="menu__item">

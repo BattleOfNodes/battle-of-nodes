@@ -49,21 +49,21 @@
                         CONNECT TO MINT
                     </router-link>
                     <div v-else>
-                        <div v-if="remainingPacks===0">
-                            <p class="cntnt__booster-text" v-if="mintedPacks!=0"> You minted all the skins available.</p>
+                        <div v-if="remainingSkins===0">
+                            <p class="cntnt__booster-text" v-if="mintedSkins!=0"> You minted all the skins available.</p>
                             <router-link class="cntnt-btn cntnt__mint-btn" style="width: 240px;" to="/booster-pack" @click.native="moveUp()">
                                 GO TO PACK OPENING
                             </router-link>
                         </div>
                         <div v-else>
-                            <p v-if="remainingPacks!==1" class="cntnt__booster-text"> You can mint {{remainingPacks}} skins.</p>
+                            <p v-if="remainingSkins!==1" class="cntnt__booster-text"> You can mint {{remainingSkins}} skins.</p>
                             <p v-else class="cntnt__booster-text"> You can mint one more skin.</p>
                             <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeBooster()">
                                 -
                             </div>
                             <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkin()">
                             <!-- <div class="cntnt-btn cntnt__booster-btn noPointerCursor"> -->
-                                MINT {{ mintPacks }} SKINS
+                                MINT {{ mintSkins }} SKINS
                             </div>
                             <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="addBooster()">
                                 +
@@ -71,9 +71,9 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="mintedPacks!=0">
-                    <p class="cntnt__mint-text" v-if="mintedPacks>60">{{mintedPacks}} SKINS LEFT</p>
-                    <p class="cntnt__mint-text" v-else style="color:red">ONLY {{mintedPacks}} SKINS{{mintedPacks !== 1 ? 's' : ''}} LEFT!</p>
+                <div v-if="mintedSkins!=0">
+                    <p class="cntnt__mint-text" v-if="mintedSkins>60">{{mintedSkins}} SKINS LEFT</p>
+                    <p class="cntnt__mint-text" v-else style="color:red">ONLY {{mintedSkins}} SKINS{{mintedSkins !== 1 ? 's' : ''}} LEFT!</p>
                 </div>
                 <p class="cntnt__mint-text" v-else>NO MORE SKINS LEFT</p>
                 <p class="cntnt__mint-text">PRICE - 0.50 EGLD</p>
@@ -335,7 +335,7 @@ export default {
                 {
                     "scAddress" : this.SCAddressStr,
                     "funcName"  : "getTotalNFTBuyable",
-                    "args"      : ["00"],
+                    "args"      : ["01"],
                     "value"     : "0"
                 }
             );
@@ -345,7 +345,7 @@ export default {
             var rawBoughtSkins = await axios.post(`${this.devApi}/query`, {
                     "scAddress" : this.SCAddressStr,
                     "funcName"  : "getNbrNFTBought",
-                    "args"      : ["00"],
+                    "args"      : ["01"],
                     "value"     : "0"
                 }
             );
@@ -359,7 +359,7 @@ export default {
             var rawMaxBuyablePerAddress = await axios.post(`${this.devApi}/query`, {
                     "scAddress" : this.SCAddressStr,
                     "funcName"  : "getTotalNFTBuyablePerAddress",
-                    "args"      : ["00"],
+                    "args"      : ["01"],
                     "value"     : "0"
                 }
             );
@@ -370,7 +370,7 @@ export default {
                 {
                     "scAddress" : this.SCAddressStr,
                     "funcName"  : "getBoughtForAnAddress",
-                    "args"      : ["00", this.$erd.walletAddress.valueHex],
+                    "args"      : ["01", this.$erd.walletAddress.valueHex],
                     "value"     : "0"
                 }
             );

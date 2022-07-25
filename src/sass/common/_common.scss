@@ -127,6 +127,10 @@
     }
 }
 
+.anim {
+    animation: 0.75s ease-out 0s 1 slideInFromTop;
+}
+
 @media screen and (max-width: $desktopBreakpoint) {
     .cntnt {
         &-title {

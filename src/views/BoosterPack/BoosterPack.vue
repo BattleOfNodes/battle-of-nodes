@@ -6,7 +6,7 @@
                 <p class="cntnt__booster-text">1ST EDITION BOOSTER PACK - BASE SET</p>
                 <div class="scene scene--card" :class="{ active: loaderRed }">
                     <div
-                        class="card"
+                        class="card bg-transparent"
                         @click="cardOne == 'start' ? (cardOne = 'flipped' ) : (cardOne = 'start' )"
                         v-bind:class="{ flipme: cardOne == 'flipped' }">
                         <div class="card__face card__faceOne--front">
@@ -39,7 +39,7 @@
                 <p class="cntnt__booster-text">BASIC BOOSTER PACK - BASE SET</p>
                 <div class="scene scene--card" :class="{ active: loaderBlue }">
                     <div
-                        class="card"
+                        class="card bg-transparent"
                         @click="cardTwo == 'start' ? (cardTwo = 'flipped' ) : (cardTwo = 'start' )"
                         v-bind:class="{ flipme: cardTwo == 'flipped' }">
                         <div class="card__face card__faceTwo--front">

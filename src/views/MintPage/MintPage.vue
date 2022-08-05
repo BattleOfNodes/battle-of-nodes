@@ -126,11 +126,11 @@ export default {
             isDesktop: window.innerWidth >= 1024,
             loader: false,
             mintPacks: 1,
-            mintedPacks: 0,     // api taken
+            mintedPacks: localStorage.getItem("mintedPacks") || 0,
             remainingPacks: 0,   // api taken
 
             mintSkins: 1,
-            mintedSkins: 0,     // api taken
+            mintedSkins: localStorage.getItem("mintedSkins") || 0,
             remainingSkins: 0,  // api taken
 
             // ELROND //
@@ -435,19 +435,15 @@ export default {
     },
     async beforeMount() {
         if(this.$erd.logged === true) {
-            await this.getMintedPacks()
             await this.getRemainingPacks()
-            await this.getMintedSkins()
             await this.getRemainingSkins()
         }
-        let waiting = 5
+        let waiting = 4
         while(this.$erd.logged !== true && waiting !=0) {
-            await sleep(500)
-            await this.getMintedPacks()
+            await sleep(1000)
             await this.getRemainingPacks()
-            await this.getMintedSkins()
             await this.getRemainingSkins()
-            waiting-=0.5
+            waiting-=1
         }
     }
 }

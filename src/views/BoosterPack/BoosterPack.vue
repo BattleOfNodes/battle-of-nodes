@@ -478,9 +478,9 @@ export default {
 
         let waiting = 5
         while(this.$erd.logged !== true && waiting !=0) {
-            await sleep(500)
+            await sleep(1000)
             await this.updateIsBoostersOwner()
-            waiting-=0.5
+            waiting-=1
         }
 
         if(this.$route.query.status === 'success') {

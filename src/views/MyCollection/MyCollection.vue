@@ -221,12 +221,12 @@ export default {
         this.getJSONCards()
         this.getUserCards()
 
-        let waiting = 5
+        let waiting = 4
         while(this.$erd.logged !== true && waiting !=0) {
             await sleep(500)
             await this.getJSONCards()
             await this.getUserCards()
-            waiting-=0.5
+            waiting-=1
         }
     }
 }

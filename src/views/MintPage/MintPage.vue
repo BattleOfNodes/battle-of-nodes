@@ -22,7 +22,7 @@
                             <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeBooster()">
                                 -
                             </div>
-                            <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="openModalBooster()">
+                            <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintPack()">
                             <!-- <div class="cntnt-btn cntnt__booster-btn noPointerCursor"> -->
                                 MINT {{ mintPacks }} BASIC PACK
                             </div>
@@ -61,7 +61,7 @@
                             <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeSkin()">
                                 -
                             </div>
-                            <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="openModalSkins()">
+                            <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkin()">
                             <!-- <div class="cntnt-btn cntnt__booster-btn noPointerCursor"> -->
                                 MINT {{ mintSkins }} SKINS
                             </div>
@@ -145,8 +145,8 @@ export default {
     },
     methods: {
         openModalBooster() {
-            const options = { packs: this.mintPacks , remaining: this.remainingSkins};
-            const style = {margin: 'auto', width: '80%', height: '70%'};
+            const options = { packs: this.mintPacks , remaining: this.remainingPacks, type:"packs"};
+            const style = {margin: 'auto', width: '80%', height: '50%'};
             const events = {'before-close': () => {
                 this.getMintedPacks()
                 this.getRemainingPacks()
@@ -155,8 +155,8 @@ export default {
             this.$modal.show(successMessageMint, options, style, events);
         },
         openModalSkins() {
-            const options = { packs: this.mintSkins , remaining: this.remainingSkins};
-            const style = {margin: 'auto', width: '80%', height: '70%'};
+            const options = { packs: this.mintSkins , remaining: this.remainingSkins, type:"skins"};
+            const style = {margin: 'auto', width: '80%', height: '50%'};
             const events = {'before-close': () => {
                 this.getMintedSkins()
                 this.getRemainingSkins()

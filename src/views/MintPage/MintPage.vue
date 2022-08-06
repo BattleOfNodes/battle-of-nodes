@@ -22,7 +22,7 @@
                             <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeBooster()">
                                 -
                             </div>
-                            <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintPack()">
+                            <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="openModalBooster()">
                             <!-- <div class="cntnt-btn cntnt__booster-btn noPointerCursor"> -->
                                 MINT {{ mintPacks }} BASIC PACK
                             </div>
@@ -61,7 +61,7 @@
                             <div class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeSkin()">
                                 -
                             </div>
-                            <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkin()">
+                            <div class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="openModalSkins()">
                             <!-- <div class="cntnt-btn cntnt__booster-btn noPointerCursor"> -->
                                 MINT {{ mintSkins }} SKINS
                             </div>
@@ -146,7 +146,7 @@ export default {
     methods: {
         openModalBooster() {
             const options = { packs: this.mintPacks , remaining: this.remainingSkins};
-            const style = {margin: 'auto', width: '80%', height: '40%'};
+            const style = {margin: 'auto', width: '80%', height: '70%'};
             const events = {'before-close': () => {
                 this.getMintedPacks()
                 this.getRemainingPacks()
@@ -156,7 +156,7 @@ export default {
         },
         openModalSkins() {
             const options = { packs: this.mintSkins , remaining: this.remainingSkins};
-            const style = {margin: 'auto', width: '80%', height: '40%'};
+            const style = {margin: 'auto', width: '80%', height: '70%'};
             const events = {'before-close': () => {
                 this.getMintedSkins()
                 this.getRemainingSkins()
@@ -194,7 +194,7 @@ export default {
                 }
             );
 
-            this.mintedPacks = Number("0x" + Buffer.from(rawMintedPacks.data.returnData[0], 'base64').toString("hex"));
+            const availablePacks = Number("0x" + Buffer.from(rawMintedPacks.data.returnData[0], 'base64').toString("hex"));
 
             var rawBoughtPacks = await axios.post(`${this.devApi}/query`, {
                     "scAddress" : this.SCAddressStr,
@@ -205,7 +205,8 @@ export default {
             );
 
             if (Buffer.from(rawBoughtPacks.data.returnData[0], 'base64').toString("hex")) {
-                this.mintedPacks -= Number("0x" + Buffer.from(rawBoughtPacks.data.returnData[0], 'base64').toString("hex"));
+                this.mintedPacks = availablePacks - Number("0x" + Buffer.from(rawBoughtPacks.data.returnData[0], 'base64').toString("hex"));
+                localStorage.setItem('mintedPacks', this.mintedPacks || 0)
             }
         },
         async getRemainingPacks() { // get the packs that the user can mint
@@ -340,7 +341,7 @@ export default {
                 }
             );
 
-            this.mintedSkins = Number("0x" + Buffer.from(rawMintedSkins.data.returnData[0], 'base64').toString("hex"));
+            const availableSkins = Number("0x" + Buffer.from(rawMintedSkins.data.returnData[0], 'base64').toString("hex"));
 
             var rawBoughtSkins = await axios.post(`${this.devApi}/query`, {
                     "scAddress" : this.SCAddressStr,
@@ -351,7 +352,8 @@ export default {
             );
 
             if (Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex")) {
-                this.mintedSkins -= Number("0x" + Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex"));
+                this.mintedSkins = availableSkins - Number("0x" + Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex"));
+                localStorage.setItem('mintedSkins', this.mintedSkins || 0)
             }
         },
         async getRemainingSkins() { // get the packs that the user can mint

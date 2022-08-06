@@ -78,11 +78,8 @@ export default {
                 mintedSkins -= Number("0x" + Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex"));
             }
 
-            if(mintedPacks || mintedSkins) {
-                localStorage.setItem('mint', true)
-                localStorage.setItem('mintedPacks', mintedPacks)
-                localStorage.setItem('mintedSkins', mintedSkins)
-            }
+            localStorage.setItem('mintedPacks', mintedPacks || 0)
+            localStorage.setItem('mintedSkins', mintedSkins || 0)
         },
     },
     mounted () {

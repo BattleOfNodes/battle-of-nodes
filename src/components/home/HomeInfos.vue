@@ -23,7 +23,7 @@
 export default {
     data() {
         return{
-            link: localStorage.getItem("mint") === "true" ? '/mint-page' : 'https://deadrare.io/collection/BONPACKS-f0b549',
+            link: (localStorage.getItem("mintedPacks") || localStorage.getItem("mintedSkins")) ? '/mint-page' : 'https://deadrare.io/collection/BONPACKS-f0b549',
         }
     }
 };

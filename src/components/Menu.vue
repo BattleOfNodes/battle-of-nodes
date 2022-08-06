@@ -43,7 +43,7 @@
 export default {
      data () {
         return{
-            isMint: localStorage.getItem("mint"),
+            isMint: localStorage.getItem("mintedPacks") || localStorage.getItem("mintedSkins") || 0,
         }
     }
 };

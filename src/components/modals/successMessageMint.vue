@@ -13,10 +13,7 @@
 
 <script>
 export default {
-  name: "boosterModal",
-  data() {
-    return {};
-  },
+  name: "mintMessage",
   props: {
     packs: {
       type: Number,
@@ -29,11 +26,6 @@ export default {
      type: {
       type: String,
       default: "packs"
-    }
-  },
-  methods: {
-    moveUp() {
-      window.scrollTo(0,0);
     }
   }
 };

@@ -47,9 +47,6 @@
                             <template v-for="(card, index) in filteredCard">
                                 <HomeAllCardsCard
                                     :card="card"
-                                    :active-card="activeCard"
-                                    :card-index="index"
-                                    @activate-card="activeCard = index"
                                     :key="index"
                                     :myColection="true"
                                     ></HomeAllCardsCard>
@@ -99,7 +96,6 @@ export default {
             filteredCard: [],
             isDesktop: window.innerWidth >= 1024,
             isMouseDown: false,
-            activeCard: null,
             startX: null,
             scrollLeft: null
         }
@@ -112,11 +108,6 @@ export default {
             this.filterRarity = 'RARITY'
             this.filterEdition = 'EDITION'
             await this.getUserCards()
-        },
-        async addScrollEvent() {
-            this.$refs.cards.addEventListener('scroll', () => {
-                this.activeCard = null;
-            });
         },
         async getJSONCards () {
             if(this.$erd.logged) { 
@@ -214,7 +205,6 @@ export default {
             const x = e.pageX - this.$refs.list.offsetLeft;
             const walk = (x - this.startX) * 3;
             this.$refs.list.scrollLeft = this.scrollLeft - walk;
-            this.activeCard = null;
         },
     },
     async beforeMount () {

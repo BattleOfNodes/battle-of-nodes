@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import singleCardModal from "@/components/modals/singleCardModal";
+
 export default {
     data () {
         return {
@@ -58,9 +60,18 @@ export default {
     },
     methods: {
         activateCard () {
-            this.isActive = !this.isActive;
-            this.$emit('activate-card', this.cardIndex);
-        }
+            if(this.myColection) {
+                this.openModalCard()
+            } else {
+                this.isActive = !this.isActive;
+                this.$emit('activate-card', this.cardIndex);
+            }
+        },
+        openModalCard() {
+            const options = { card: this.card};
+            const style = {margin: 'auto', width: '90%', height: '90%'};
+            this.$modal.show(singleCardModal, options, style);
+        },
     }
 }
 </script>

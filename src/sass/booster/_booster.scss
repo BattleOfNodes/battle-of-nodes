@@ -287,12 +287,18 @@ transform: rotateY(180deg);
 cursor: auto;
 }
 
-
 .boosterImgPack{
     border-radius: 25px;
     max-height: 100%;
     max-width: 100%;
 }
+
+@media screen and (max-height: 600px) {
+    .boosterImgPack {
+        border-radius: 12px;
+    }
+}
+
 .pointerCursor {
     cursor: pointer
 }
@@ -326,3 +332,4 @@ cursor: auto;
         transform: rotate(360deg);
     }
 }
+

@@ -91,6 +91,7 @@ $cardMargin: 12px;
         &-cards {
             overflow-x: auto;
             padding: 54px 0 30px;
+            mask-image: linear-gradient(to right,transparent 0%, black 20%, black 80%, transparent 100%);
         }
         &-list {
             margin: 0 auto;

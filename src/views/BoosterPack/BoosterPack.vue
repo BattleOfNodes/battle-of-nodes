@@ -86,7 +86,17 @@
                 <p class="cntnt__booster-ownedPacks-count">X{{ blueBoosterCount }} PACKS OWNED</p>
             </div>
         </div>
-        <div v-if="loaderRed || loaderBlue" class="loader-dual" />
+        <div v-if="loaderRed || loaderBlue" class="blur-screen">
+            <svg class="loader-box" viewBox="0 0 100 100">
+                <defs>
+                    <filter id="shadow">
+                        <feDropShadow dx="0" dy="0" stdDeviation="1.5" 
+                        flood-color="#fc6767"/>
+                    </filter>
+                </defs>
+                <circle class="loader-spinner" cx="50" cy="50" r="45"/>
+            </svg>
+        </div>
         <template v-if="isDesktop">
             <img class="cntnt__bgCard cntnt__bgCard-1" src="@/assets/images/bg-card-blue.png" />
             <img class="cntnt__bgCard cntnt__bgCard-2" src="@/assets/images/bg-card-red.png" />

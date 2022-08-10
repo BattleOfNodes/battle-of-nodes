@@ -154,3 +154,40 @@
         }
     }
 }
+
+
+.EpicCollection {
+    border-radius: 7%;
+    animation: glowEpicCollection 1.5s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glowEpicCollection {
+    from {
+      box-shadow: 0px 0px 5px 0.4px #741f4b, 0px 0px 10px 0.2px #4f0739;
+    }
+    to {
+    }
+}
+
+.LegendaryCollection {
+    border-radius: 7%;
+    animation: glowLegendaryCollection 1.5s ease-in-out infinite;
+}
+
+@-webkit-keyframes glowLegendaryCollection {
+    0% {
+        box-shadow: -1px -1px 10px 2px #ffe600, 1px 1px 10px 2px #ffae01, 0px 0px 15px 2px #857700;
+    }
+    25% {
+        box-shadow: 1px -1px 10px 2px #ffe600, -1px 1px 10px 2px #ffae01, 0px 0px 15px 2px #857700;
+    }
+    50% {
+        box-shadow: 1px 1px 10px 2px #ffe600, -1px -1px 10px 2px #ffae01, 0px 0px 15px 2px #857700;
+    }
+    75% {
+        box-shadow: -1px 1px 10px 2px #ffe600, 1px -1px 10px 2px #ffae01, 0px 0px 15px 2px #857700;
+    }
+    100% {
+        box-shadow: -1px -1px 10px 2px #ffe600, 1px 1px 10px 2px #ffae01, 0px 0px 15px 2px #857700;
+    }
+}

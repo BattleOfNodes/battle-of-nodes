@@ -9,9 +9,8 @@
     <div v-else>
         <div>
             <figure
-                class="cntnt__allcards-imgCollection" 
-                :class="{ active: isActive }">
-                <img 
+                class="cntnt__allcards-imgCollection">
+                <img :class="card.rarity === 'Epic' || card.rarity === 'Legendary' ? card.rarity + 'Collection' : ''"
                 @click="activateCard()"
                 :src="'./cards/' + card.img" />
                 <div class="cntnt__allcards-cardBalance" v-if="card.balance>1"> 

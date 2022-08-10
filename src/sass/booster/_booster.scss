@@ -234,6 +234,7 @@
 .vm--modal {
     background-color: transparent !important;
     box-shadow: none !important;
+    overflow: visible !important;
 }
 
 .vm--overlay {
@@ -288,15 +289,9 @@ cursor: auto;
 }
 
 .boosterImgPack{
-    border-radius: 25px;
+    border-radius: 9%;
     max-height: 100%;
     max-width: 100%;
-}
-
-@media screen and (max-height: 600px) {
-    .boosterImgPack {
-        border-radius: 12px;
-    }
 }
 
 .pointerCursor {
@@ -333,3 +328,54 @@ cursor: auto;
     }
 }
 
+
+// glow for cards
+
+.Uncommon {
+    box-shadow: 0 0 5px 1px #568c4b;
+}
+
+
+.Rare {
+    animation: glowRare 2s ease-in-out infinite alternate;
+}
+
+
+@-webkit-keyframes glowRare {
+    from {
+      box-shadow: 0px 0px 5px 0.4px #046096, 0px 0px 10px 0.2px #0a39bbec;
+    }
+    to {
+      box-shadow: 0px 0px 5px 0.4px #1f84d6, 0px 0px 10px 0.8px #1e2be4, 0px 0px 15px 1.2px #1d06a1;
+    }
+}
+
+.Epic {
+    animation: glowEpic 1.5s ease-in-out infinite;
+}
+
+@-webkit-keyframes glowEpic {
+    0% {
+        box-shadow: -1px -1px 10px 2px #c43f88, 1px 1px 10px 2px #4f0739, 0px 0px 15px 2px #793d5c;
+    }
+    25% {
+        box-shadow: 1px -1px 10px 2px #c43f88, -1px 1px 10px 2px #4f0739, 0px 0px 15px 2px #793d5c;
+    }
+    50% {
+        box-shadow: 1px 1px 10px 2px #c43f88, -1px -1px 10px 2px #4f0739, 0px 0px 15px 2px #793d5c;
+    }
+    75% {
+        box-shadow: -1px 1px 10px 2px #c43f88, 1px -1px 10px 2px #4f0739, 0px 0px 15px 2px #793d5c;
+    }
+    100% {
+        box-shadow: -1px -1px 10px 2px #c43f88, 1px 1px 10px 2px #4f0739, 0px 0px 15px 2px #793d5c;
+    }
+}
+
+.Legendary {
+    animation: glowLegendary 5s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glowLegendary {
+
+}

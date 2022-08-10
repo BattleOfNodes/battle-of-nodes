@@ -10,7 +10,7 @@
         </div>
         <div class="cardModal__face cardModal__facePack--back">
             <img 
-            class="boosterImgPack" :src="'./cards/' + cards[0].img" />
+            class="boosterImgPack" :class="cards[0].rarity" :src="'./cards/' + cards[0].img" />
         </div>
       </div>
       <div
@@ -22,7 +22,7 @@
           </div>
           <div class="cardModal__face cardModal__facePack--back">
             <img 
-            class="boosterImgPack" :src="'./cards/' + cards[1].img" />
+            class="boosterImgPack" :class="cards[1].rarity" :src="'./cards/' + cards[1].img" />
           </div>
       </div>
       <div
@@ -34,7 +34,7 @@
           </div>
           <div class="cardModal__face cardModal__facePack--back">
             <img 
-            class="boosterImgPack" :src="'./cards/' + cards[2].img" />
+            class="boosterImgPack" :class="cards[2].rarity" :src="'./cards/' + cards[2].img" />
           </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
           </div>
           <div class="cardModal__face cardModal__facePack--back">
             <img 
-            class="boosterImgPack" :src="'./cards/' + cards[3].img" />
+            class="boosterImgPack" :class="cards[3].rarity" :src="'./cards/' + cards[3].img" />
           </div>
       </div>
       <div
@@ -60,7 +60,7 @@
           </div>
           <div class="cardModal__face cardModal__facePack--back">
             <img 
-            class="boosterImgPack" :src="'./cards/' + cards[4].img" />
+            class="boosterImgPack" :class="cards[4].rarity" :src="'./cards/' + cards[4].img" />
           </div>
       </div>
       <div
@@ -72,7 +72,7 @@
           </div>
           <div class="cardModal__face cardModal__facePack--back">
             <img 
-            class="boosterImgPack" :src="'./cards/' + cards[5].img" />
+            class="boosterImgPack" :class="cards[5].rarity" :src="'./cards/' + cards[5].img" />
           </div>
       </div>
     </div>

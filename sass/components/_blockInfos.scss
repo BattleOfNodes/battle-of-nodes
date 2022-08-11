@@ -1,0 +1,96 @@
+.blockinfos {
+    background: transparent url('./assets/images/bg-block-blue.png') no-repeat center center;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    max-width: 840px;
+    padding: 80px 20px 52px;
+    position: relative;
+
+    &__title {
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+    &__txt {
+        font-family: $txtFont;
+        font-size: 1.8rem;
+        letter-spacing: 0;
+        line-height: 1.2;
+        margin: 0 auto 24px;
+        max-width: 594px;
+    }
+
+    &::before, &::after {
+        border-radius: 50%;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0; left: 50%;
+    }
+    &::before {
+        background: transparent url('./assets/images/badge.svg') no-repeat center center;
+        background-size: 100% auto;
+        margin: -45px 0 0 -45px;
+        height: 90px;
+        width: 90px;
+    }
+    &::after {
+        animation: badge 10s ease infinite;
+        animation-direction: alternate;
+        background: linear-gradient(180deg, #88578C, #4E3A93 25%, #4E3A93 75%, #88578C 100%);
+        background-size: 100% 800%;
+        margin: -36px 0 0 -36px;
+        height: 72px;
+        width: 72px;
+    }
+}
+
+@keyframes badge {
+    0% { background-position: 0% 0%; transform: rotate(0deg); }
+    25% { background-position: 0% 50%; transform: rotate(60deg); }
+    75% { background-position: 0% 100%; transform: rotate(200deg); }
+    100% { background-position: 0% 150%; transform: rotate(360deg); }
+}
+
+@media screen and (min-width: $mediumMobileBreakpoint) {
+
+    .blockinfos {
+        &__title {
+            br {
+                display: none;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: $desktopBreakpoint) {
+
+    .blockinfos {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 432px;
+        padding: 100px 20px 60px;
+
+        &__title {
+            margin-bottom: 20px;
+        }
+        &__txt {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        &::before {
+            height: 120px;
+            margin: -60px 0 0 -60px;
+            width: 120px;
+        }
+        &::after {
+            background-size: 100% 1000%;
+            height: 98px;
+            margin: -49px 0 0 -49px;
+            width: 98px;
+        }
+    }
+
+}

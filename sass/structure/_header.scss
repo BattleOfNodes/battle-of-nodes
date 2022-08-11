@@ -1,0 +1,98 @@
+@keyframes slideInFromTop {
+    0% {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+.header {
+    padding: 24px 8px 36px;
+    position: relative;
+    z-index: 2;
+
+    &__logo {
+        margin: 0 auto;
+        max-width: 208px;
+        text-align: center;
+        animation: float 20s ease-in-out infinite;
+
+        &-link {
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        img {
+            display: block;
+        }
+    }
+}
+
+@media screen and (min-width: $tabBreakpoint) {
+
+    .header {
+        padding: 36px 8px 48px;
+
+        &__logo {
+            max-width: 277px;
+        }
+    }
+
+}
+
+@media screen and (min-width: $largeBreakpoint) {
+
+    .header {
+        padding: 22px;
+
+        &__inner {
+            align-items: flex-start;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+        &__logo {
+            margin: 0;
+            order: 10;
+            text-align: left;
+            width: 100%;
+        }
+    }
+
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px) translatex(0px);
+	}
+	10% {
+		transform: translatey(2px) translatex(0.4px);
+	}
+	20% {
+		transform: translatey(0px) translatex(0.7px);
+	}
+	30% {
+		transform: translatey(2px) translatex(0.2px);
+	}
+	40% {
+		transform: translatey(0px) translatex(-0.3px);
+	}
+	50% {
+		transform: translatey(2px) translatex(-0.7px);
+	}
+	60% {
+		transform: translatey(0px) translatex(-0.3px);
+	}
+	70% {
+		transform: translatey(2px) translatex(0.3px);
+	}
+	80% {
+		transform: translatey(0px) translatex(0.2px);
+	}
+	90% {
+		transform: translatey(2px) translatex(0.5px);
+	}
+	100% {
+		transform: translatey(0px) translatex(0px);
+	}
+}

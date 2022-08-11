@@ -1,0 +1,22 @@
+.cntnt {
+    &__zone {
+        position: relative;
+        z-index: 1;
+        
+        &-title {
+            font-size: 3.8rem;
+        }
+    }
+}
+
+@media screen and (min-width: $desktopBreakpoint) {
+
+    .cntnt {    
+        &__zone {            
+            &-title {
+                font-size: 5.4rem;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,207 @@
+.cntnt {
+    &__road {
+        margin-top: 120px;
+        padding: 0 16px;
+
+        &-list {
+            padding: 60px 0;
+            position: relative;
+
+            &::after {
+                background: linear-gradient(180deg, rgba(248, 222, 159, 0) 0%, #F8DE9F 50.52%, rgba(248, 222, 159, 0) 100%);
+                content: '';
+                display: block;
+                position: absolute;
+                top: -20px; left: 50%; bottom: -20px;
+                width: 1px;
+            }
+        }
+        &-title {
+            line-height: 1;
+            position: relative;
+        }
+        &-period {
+            margin-top: 68px;
+            position: relative;
+            z-index: 1;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+        &-date, &-done, &-subtitle {
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+        &-date,&-done {
+            background: rgba(6, 32, 56, 0.7);
+            box-shadow: 0 0 10px 8px rgba(6, 32, 56, 0.7);
+            display: inline-block;
+            margin-bottom: 48px;
+            position: relative;
+
+            &::before, &::after {
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                left: 50%;
+            }
+            &::before {
+                background: transparent url('./assets/images/badge.svg') no-repeat center center;
+                background-size: 100% auto;
+                margin: -32px 0 0 -32px;
+                height: 64px;
+                bottom: -80px;
+                width: 64px;
+            }
+            &::after {
+                background: #062038;
+                margin: -26px 0 0 -26px;
+                height: 52px;
+                bottom: -74px;
+                width: 52px;
+            }
+        }
+        &-done::after {
+            animation: badge 10s ease infinite !important;
+            animation-direction: alternate !important;
+            background: linear-gradient(180deg, #88578C, #4E3A93 25%, #4E3A93 75%, #88578C 100%) !important;
+            background-size: 100% 800% !important;
+            height: 52px;
+            width: 52px;
+        }
+        &-subtitle {
+            margin-bottom: 16px;
+        }
+        &-infos {
+            background: transparent url('./assets/images/bg-block-purple.png') no-repeat center center;
+            background-size: 100% 100%;
+            margin: 0 auto;
+            max-width: 460px;
+            padding: 48px 20px 32px;
+
+            p {
+                font-family: $txtFont;
+                font-size: 1.8rem;
+                letter-spacing: 0;
+                line-height: 1.25;
+                margin-top: 12px;
+            }
+        }
+        &-items {
+            font-family: $txtFont;
+            font-size: 1.8rem;
+            letter-spacing: 0;
+            line-height: 1.2;
+
+            li {
+                margin-top: 8px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $desktopBreakpoint) {
+
+    .cntnt {
+        &__road {
+            margin-bottom: 40px;
+            padding: 0 24px;
+
+            &-list {
+                margin: 30px auto 0;
+                max-width: 1056px;
+                padding-bottom: 160px;
+            }
+            &-date, &-done, &-infos {
+                flex: 0 0 440px;
+                margin: 0;
+            }
+            &-date, &-done {
+                background: transparent;
+                box-shadow: none;
+                flex-basis: 50%;
+                text-align: right;
+
+                &::before, &::after {
+                    margin: 0;
+                    bottom: 50%; left: unset;
+                }
+                &::before {
+                    margin-bottom: -32px;
+                }
+                &::after {
+                    margin-bottom: -26px;
+                }
+                span {
+                    display: block;
+                    max-width: 440px;
+                }
+            }
+            &-infos {
+                padding: 40px;
+            }
+            &-period {
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+
+                &:nth-child(odd) {
+                    .cntnt {
+                        &__road {
+                            &-date, &-done {
+                                order: 1;
+                                text-align: left;
+
+                                &::before {
+                                    left: -32px;
+                                }
+                                &::after {
+                                    left: -26px;
+                                }
+                                span {
+                                    margin-left: auto;
+                                }
+                            }
+                        }
+                    }
+                }
+                &:nth-child(even) {
+                    .cntnt {
+                        &__road {
+                            &-date, &-done {
+                                &::before {
+                                    right: -32px;
+                                }
+                                &::after {
+                                    right: -26px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: $largeBreakpoint) {
+
+    .cntnt {
+        &__road {
+            margin-top: 300px;
+
+            &-infos {
+                flex-basis: 460px;
+            }
+            &-date, &-done {
+                span {
+                    max-width: 460px;
+                }
+            }
+        }
+    }
+
+}

@@ -17,7 +17,10 @@
                 </div>
             </div>
         </section>
-        <CardsList></CardsList>
+        <section class="cardslist">
+            <h2 class="cntnt__zone-title cardslist__title">Complete card list</h2>
+            <p>Coming Soon</p>
+        </section>
         <div v-if="isDesktop">
             <img class="cntnt__bgCard cntnt__bgCard-1" src="@/assets/images/bg-card-blue.png" />
             <img class="cntnt__bgCard cntnt__bgCard-2" src="@/assets/images/bg-card-red.png" />
@@ -30,13 +33,8 @@
 </template>
 
 <script>
-import CardsList from '@/components/commons/CardsList';
-
 export default {
     name: 'Explore',
-    components: {
-        CardsList
-    },
     data () {
         return {
             isDesktop: window.innerWidth >= 1024

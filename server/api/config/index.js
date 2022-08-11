@@ -1,6 +1,5 @@
 const express = require('express');
 const config = require('../../config');
-const cache = require("../cache-middleware");
 const db = require('../../db/index')
 
 const router = express.Router();

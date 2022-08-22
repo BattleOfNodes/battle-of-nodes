@@ -1,0 +1,69 @@
+@import '@/sass/utils/variables.scss';
+
+.cntnt {
+    &__explore {
+        &-inner {
+            background: url('./../../assets/images/main-bg-explore.jpg') no-repeat center center;
+        }
+        &-story {
+            margin: -240px 0 240px;
+
+            .blockinfos {
+                padding: 80px 20px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $tabBreakpoint) {
+
+    .cntnt {
+        &__explore {
+            &-story {
+                margin-bottom: 170px;
+            
+                .blockinfos {
+                    padding: 100px 20px;
+
+                    &__txt {
+                        max-width: 610px;
+                    }
+                }
+            }
+            &-buy {
+                margin-top: 32px;
+            }
+            &-img {
+                &-1 {
+                    top: 90%;
+                }
+                &-2 {
+                    top: 85%;
+                }
+            }
+        }
+    }
+    
+}
+
+@media screen and (min-width: $largeBreakpoint) {
+
+    .cntnt {
+        &__explore {
+            &-story {
+                margin-top: -142px;
+            }
+            &-img {
+                &-1 {
+                    top: 82%;
+                    width: 245px;
+                }
+                &-2 {
+                    top: -14%; right: -10%;
+                    width: 192px;
+                }
+            }
+        }
+    }
+
+}

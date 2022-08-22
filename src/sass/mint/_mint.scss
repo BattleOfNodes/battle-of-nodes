@@ -8,7 +8,7 @@
             flex-direction: column;
         }
         &-booster {
-            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+            
             animation: 0.75s ease-out 0s 1 slideInFromTop;
             height: auto;
             width: 35%;
@@ -19,7 +19,7 @@
         &-buttonAdd {
             margin-left: 1rem;
             margin-right: 1rem;
-            transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
+            
             animation: 0.75s ease-out 0s 1 slideInFromTop;
             width: 0%;
             background: transparent;

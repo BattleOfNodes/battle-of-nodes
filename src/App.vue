@@ -1,7 +1,6 @@
 <template>
     <div
         class="cntnt"
-        :class="{ loading: isLoading, loaded: isLoaded }"
         id="app">
         <Header></Header>
         <router-view />
@@ -82,16 +81,8 @@ export default {
             localStorage.setItem('mintedSkins', mintedSkins || 0)
         },
     },
-    mounted () {
-        setTimeout(() => {
-            this.isLoading = false;
-
-            setTimeout(() => {
-                this.isLoaded = true;
-            }, 1000)
-        }, 1000);
-    },
     async beforeMount() {
+        console.log(this.$store)
         await this.checkIfMintIsLive()
     }
 };

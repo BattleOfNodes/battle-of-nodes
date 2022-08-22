@@ -2,6 +2,7 @@
     font-size: 2rem;
     font-weight: 500;
     line-height: 1.333;
+    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
 
     &-content {
         width: 80%;
@@ -11,7 +12,6 @@
     }
 
     &-title {
-        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
         animation: 0.75s ease-out 0s 1 slideInFromTop;
         font-size:5rem;
         margin-top: 7rem;
@@ -24,7 +24,6 @@
 
     &-secondaryTitle {
         font-family: rawengulk,sans-serif;
-        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
         animation: 0.75s ease-out 0s 1 slideInFromTop;
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -36,7 +35,6 @@
     }
 
     &-textTitle {
-        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
         animation: 0.75s ease-out 0s 1 slideInFromTop;
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -44,7 +42,6 @@
     }
 
     &-text{
-        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
         animation: 0.75s ease-out 0s 1 slideInFromTop;
         font-size:2.5rem;
         position: relative;
@@ -55,7 +52,6 @@
     }
 
     &-textBold {
-        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
         animation: 0.75s ease-out 0s 1 slideInFromTop;
         font-size:2.5rem;
         position: relative;
@@ -106,7 +102,6 @@
         text-shadow: 0px 0px 10px rgba(8, 47, 79, 0.26);
         z-index: 1;
         -webkit-tap-highlight-color: rgba(0,0,0,0);
-        transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.12s;
         animation: 0.75s ease-out 0s 1 slideInFromTop;
 
         &::before, &::after {
@@ -194,4 +189,26 @@
             padding-top: 228px;
         }
     }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.bold {
+    font-family: $mainFont;
+}
+
+.pointerCursor {
+    cursor: pointer
+}
+.noPointerCursor {
+    cursor: not-allowed;
+    pointer-events: all !important;
 }

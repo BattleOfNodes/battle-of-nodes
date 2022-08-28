@@ -6,11 +6,11 @@
         @click="(cardOne = 'flipped' )"
         v-bind:class="{ flipme: cardOne == 'flipped' }">
         <div class="cardModal__face cardModal__facePack--front">
-          <img class="boosterImgPack" src="@/assets/images/card_Back.jpg"/>
+          <div class="boosterImgPack" style="background-image: url(./card_Back.jpg)"/>
         </div>
         <div class="cardModal__face cardModal__facePack--back">
-            <img 
-            class="boosterImgPack" :class="cards[0].rarity" :src="'./cards/' + cards[0].img" />
+            <div 
+            class="boosterImgPack" :class="cards[0].rarity" :style="'background-image: url(./cards/' + cards[0].img + ')'" />
         </div>
       </div>
       <div
@@ -18,11 +18,11 @@
           @click="(cardTwo = 'flipped' )"
           v-bind:class="{ flipme: cardTwo == 'flipped' }">
           <div class="cardModal__face cardModal__facePack--front">
-            <img class="boosterImgPack" src="@/assets/images/card_Back.jpg"/>
+            <div class="boosterImgPack" style="background-image: url(./card_Back.jpg)"/>
           </div>
           <div class="cardModal__face cardModal__facePack--back">
-            <img 
-            class="boosterImgPack" :class="cards[1].rarity" :src="'./cards/' + cards[1].img" />
+            <div 
+            class="boosterImgPack" :class="cards[1].rarity" :style="'background-image: url(./cards/' + cards[1].img + ')'"/>
           </div>
       </div>
       <div
@@ -30,11 +30,11 @@
           @click="(cardThree = 'flipped' )"
           v-bind:class="{ flipme: cardThree == 'flipped' }">
           <div class="cardModal__face cardModal__facePack--front">
-            <img class="boosterImgPack" src="@/assets/images/card_Back.jpg"/>
+            <div class="boosterImgPack" style="background-image: url(./card_Back.jpg)"/>
           </div>
           <div class="cardModal__face cardModal__facePack--back">
-            <img 
-            class="boosterImgPack" :class="cards[2].rarity" :src="'./cards/' + cards[2].img" />
+            <div 
+            class="boosterImgPack" :class="cards[2].rarity" :style="'background-image: url(./cards/' + cards[2].img + ')'" />
           </div>
       </div>
     </div>
@@ -44,11 +44,11 @@
           @click="(cardFour = 'flipped' )"
           v-bind:class="{ flipme: cardFour == 'flipped' }">
           <div class="cardModal__face cardModal__facePack--front">
-            <img class="boosterImgPack" src="@/assets/images/card_Back.jpg"/>
+            <div class="boosterImgPack" style="background-image: url(./card_Back.jpg)"/>
           </div>
           <div class="cardModal__face cardModal__facePack--back">
-            <img 
-            class="boosterImgPack" :class="cards[3].rarity" :src="'./cards/' + cards[3].img" />
+            <div 
+            class="boosterImgPack" :class="cards[3].rarity" :style="'background-image: url(./cards/' + cards[3].img + ')'" />
           </div>
       </div>
       <div
@@ -56,11 +56,11 @@
           @click="(cardFive = 'flipped' )"
           v-bind:class="{ flipme: cardFive == 'flipped' }">
           <div class="cardModal__face cardModal__facePack--front">
-            <img class="boosterImgPack" src="@/assets/images/card_Back.jpg"/>
+            <div class="boosterImgPack" style="background-image: url(./card_Back.jpg)"/>
           </div>
           <div class="cardModal__face cardModal__facePack--back">
-            <img 
-            class="boosterImgPack" :class="cards[4].rarity" :src="'./cards/' + cards[4].img" />
+            <div 
+            class="boosterImgPack" :class="cards[4].rarity" :style="'background-image: url(./cards/' + cards[4].img + ')'" />
           </div>
       </div>
       <div
@@ -68,11 +68,11 @@
           @click="(cardSix = 'flipped' )"
           v-bind:class="{ flipme: cardSix == 'flipped' }">
           <div class="cardModal__face cardModal__facePack--front">
-            <img class="boosterImgPack" src="@/assets/images/card_Back.jpg"/>
+            <div class="boosterImgPack" style="background-image: url(./card_Back.jpg)"/>
           </div>
           <div class="cardModal__face cardModal__facePack--back">
-            <img 
-            class="boosterImgPack" :class="cards[5].rarity" :src="'./cards/' + cards[5].img" />
+            <div 
+            class="boosterImgPack" :class="cards[5].rarity" :style="'background-image: url(./cards/' + cards[5].img + ')'" />
           </div>
       </div>
     </div>
@@ -81,6 +81,10 @@
     </div>
   </main>
 </template>
+
+<style lang="scss">
+    @import "./../BoosterPack.scss";
+</style>
 
 <script>
 export default {

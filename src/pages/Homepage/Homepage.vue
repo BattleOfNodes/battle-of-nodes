@@ -32,10 +32,10 @@
 </style>
 
 <script>
-import HomeCardsSet from '@/components/home/HomeCardsSet';
-import HomeInfos from '@/components/home/HomeInfos';
-import HomeRoadmap from '@/components/home/HomeRoadmap';
-import HomeAllCards from '@/components/home/HomeAllCards';
+import HomeCardsSet from './comps/HomeCardsSet';
+import HomeInfos from './comps/HomeInfos';
+import HomeRoadmap from './comps/HomeRoadmap';
+import HomeAllCards from './comps/HomeAllCards';
 
 export default {
     name: 'Homepage',

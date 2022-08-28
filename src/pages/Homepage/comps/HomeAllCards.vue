@@ -56,7 +56,7 @@
 
 <script>
 import axios from "axios";
-import HomeAllCardsCard from '@/components/home/HomeAllCardsCard';
+import HomeAllCardsCard from './HomeAllCardsCard';
 
 export default {
     components: {

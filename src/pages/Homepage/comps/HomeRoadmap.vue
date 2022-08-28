@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="cntnt__road-period">
-                    <div class="cntnt__road-date"><span>Q2 2022</span></div>
+                    <div class="cntnt__road-done"><span>Q2 2022</span></div>
                     <div class="cntnt__road-infos">
                         <h3 class="cntnt__road-subtitle">Game development</h3>
                         <ul class="cntnt__road-items">

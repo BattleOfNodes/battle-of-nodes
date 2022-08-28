@@ -106,7 +106,7 @@
 </style>
 
 <script>
-import successMessageMint from "@/components/modals/successMessageMint";
+import successMessageMint from "./modal/successMessageMint";
 import { Account, Address, Transaction, TransactionPayload, Balance, GasLimit } from "@elrondnetwork/erdjs";
 import axios from "axios";
 import {Buffer} from 'buffer';

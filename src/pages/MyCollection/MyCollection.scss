@@ -149,36 +149,43 @@
 
 .EpicCollection {
     border-radius: 7%;
-    animation: glowEpicCollection 1.5s ease-in-out infinite alternate;
+    animation: glowEpicCollection 3s ease-in-out infinite alternate;
 }
 
 @-webkit-keyframes glowEpicCollection {
-    from {
-      box-shadow: 0px 0px 5px 0.4px #741f4b, 0px 0px 10px 0.2px #4f0739;
+    0% {
+        box-shadow: 0px 0px 10px 1px #c41273, 0px 0px 15px 2px #db45ae;
     }
-    to {
+    25% {
+        box-shadow: 0px 0px 10px 1px #970756, 0px 0px 15px 2px #8a3a72, 0px 0px 20px 3px #ff379e;
+    }
+    50% {
+        box-shadow: 0px 0px 10px 1px #cf0675, 0px 0px 15px 2px #552546, 0px 0px 25px 3px #ff0e8b;
+    }
+    75% {
+        box-shadow: 0px 0px 10px 1px #961059, 0px 0px 15px 2px #55344b;
+    }
+    100% {
+        box-shadow: 0px 0px 10px 1px #df067d, 0px 0px 15px 2px #f01fb1, 0px 0px 15px 2px #ff6db9;
     }
 }
 
 .LegendaryCollection {
     border-radius: 7%;
-    animation: glowLegendaryCollection 1.5s ease-in-out infinite;
+    animation: glowLegendaryCollection 5s ease-in-out infinite alternate;
 }
 
 @-webkit-keyframes glowLegendaryCollection {
     0% {
-        box-shadow: -1px -1px 10px 2px #ffe600, 1px 1px 10px 2px #ffae01, 0px 0px 15px 2px #857700;
+        box-shadow: 0px 0px 10px 1px #6e6e3b, 0px 0px 15px 2px #cddb00;
     }
-    25% {
-        box-shadow: 1px -1px 10px 2px #ffe600, -1px 1px 10px 2px #ffae01, 0px 0px 15px 2px #857700;
+    33% {
+        box-shadow: 0px 0px 10px 1px #8a9902, 0px 0px 15px 2px #cac851, 0px 0px 20px 3px #f5ff67;
     }
-    50% {
-        box-shadow: 1px 1px 10px 2px #ffe600, -1px -1px 10px 2px #ffae01, 0px 0px 15px 2px #857700;
-    }
-    75% {
-        box-shadow: -1px 1px 10px 2px #ffe600, 1px -1px 10px 2px #ffae01, 0px 0px 15px 2px #857700;
+    66% {
+        box-shadow: 0px 0px 10px 1px #7e7c06, 0px 0px 15px 2px #c4b920;
     }
     100% {
-        box-shadow: -1px -1px 10px 2px #ffe600, 1px 1px 10px 2px #ffae01, 0px 0px 15px 2px #857700;
+        box-shadow: 0px 0px 10px 1px #434406, 0px 0px 15px 2px #ffe601, 0px 0px 15px 3px #eeff53;
     }
 }

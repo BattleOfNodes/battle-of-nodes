@@ -45,11 +45,10 @@
                         ref="cards">
                         <div class="box" ref="list">
                             <template v-for="(card, index) in filteredCard">
-                                <HomeAllCardsCard
+                                <CollectionCards
                                     :card="card"
                                     :key="index"
-                                    :myColection="true"
-                                    ></HomeAllCardsCard>
+                                    />
                             </template>
                         </div>
                     </div>
@@ -73,12 +72,12 @@
 
 <script>
 import axios from "axios";
-import HomeAllCardsCard from '@/components/home/HomeAllCardsCard';
+import CollectionCards from './comps/CollectionCards';
 function sleep(n) { return new Promise(resolve=>setTimeout(resolve,n)); }
 
 export default {
     components: {
-        HomeAllCardsCard
+        CollectionCards
     },
     name: 'MyCollection',
     data() {
@@ -127,8 +126,8 @@ export default {
         },
         async getUserCards () {
             if(this.$erd.logged) { 
-                // await axios.get(`https://devnet-api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d326b4`) // change identifier for live and api endpoint
-                await axios.get(`https://api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d1fb64`)
+                await axios.get(`https://devnet-api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d326b4`) // change identifier for live and api endpoint
+                // await axios.get(`https://api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d1fb64`)
                 .then(async res => {
                     this.usersCards = this.allCards.filter((card) => {
                         return res.data.find((userCard) => {

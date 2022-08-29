@@ -8,7 +8,7 @@
             </li>
             <li class="menu__item">
                 <router-link class="menu__item-link" to="/mint-page">
-                    <span>MINT LIVE</span>
+                    <span :class="{glow: isMint}">MINT</span>
                 </router-link>
             </li>
             <li class="menu__item">
@@ -30,7 +30,9 @@
 <script>
 export default {
     data() {
-        return {};
+        return{
+            isMint: localStorage.getItem("mintedPacks") || localStorage.getItem("mintedSkins") || 0,
+        }
     }
 };
 </script>

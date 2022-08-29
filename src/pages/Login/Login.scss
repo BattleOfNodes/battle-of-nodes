@@ -1,0 +1,174 @@
+@import '@/sass/utils/variables.scss';
+
+.cntnt {
+    &__login {
+        &-title {
+            line-height: 1;
+            margin-bottom: 32px;
+            
+        }
+        animation: 0.75s ease-out 0s 1 slideInFromTop;
+    }
+
+    .vue3rdj5 {
+        &__logged {
+            color: #fff;
+            
+            &-logout {
+                background: transparent;
+                color: #fff;
+                display: inline-block;
+                font-size: 1.6rem;
+                height: 52px;
+                letter-spacing: 0.05em;
+                line-height: 48px;
+                min-width: 170px;
+                padding: 0 24px 4px;
+                position: relative;
+                text-decoration: none;
+                text-shadow: 0px 0px 10px rgba(8, 47, 79, 0.26);
+                width: auto;
+                z-index: 1;
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                
+    
+                &::before, &::after {
+                    background: transparent url('./../../assets/images/btn-front.svg') no-repeat top center;
+                    border-radius: 24px;
+                    content: '';
+                    display: block;
+                    height: 48px;
+                    position: absolute;
+                    top: 0; left: 0; right: 0;
+                    width: 100%;
+                    z-index: -1;
+                }
+                &::before { // Btn Shadow
+                    background-image: url('./../../assets/images/btn-back.svg');
+                    top: unset; bottom: 0;
+                }
+            }
+        }
+        &__modes {
+            &-open{
+                background: transparent;
+                color: #fff;
+                display: flex;
+                font-size: 1.6rem;
+                height: 52px;
+                letter-spacing: 0.05em;
+                line-height: 48px;
+                padding: 0 24px 4px;
+                position: relative;
+                text-decoration: none;
+                text-shadow: 0px 0px 10px rgba(8, 47, 79, 0.26);
+                z-index: 1;
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                
+                animation: 0.75s ease-out 0s 1 slideInFromTop;
+                width: 21%;
+                margin-left: auto;
+                margin-right: auto;
+
+                &::before, &::after {
+                    background: transparent url('./../../assets/images/btn-front.svg') no-repeat top center;
+                    border-radius: 24px;
+                    content: '';
+                    display: block;
+                    height: 48px;
+                    position: absolute;
+                    top: 14px; left: 0; right: 0;
+                    width: 100%;
+                    z-index: -1;
+                }
+                &::before { // Btn Shadow
+                    background-image: url('./../../assets/images/btn-back.svg');
+                    top: unset; bottom: 12px;    
+                }             
+            }
+        }
+
+        &__mode{
+            margin-top: 50px;
+            border-radius: 25px;
+            background: transparent url('./../../assets/images/bg-block-red.png') no-repeat center center;
+            background-size: 100% 100%;
+            animation: growDown 300ms ease-in-out forwards;
+            transform-origin: top center;
+            z-index: 1;
+            
+
+            &::before, &::after {
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0; left: 50%;
+            }
+            &::before {
+                background: transparent url('./../../assets/images/badge.svg') no-repeat center center;
+                background-size: 100% auto;
+                margin: -45px 0 0 -45px;
+                height: 90px;
+                width: 90px;
+            }
+            &::after {
+                animation: badge 10s ease infinite;
+                animation-direction: alternate;
+                background: linear-gradient(180deg, #88578C, #4E3A93 25%, #4E3A93 75%, #88578C 100%);
+                background-size: 100% 800%;
+                margin: -36px 0 0 -36px;
+                height: 72px;
+                width: 72px;
+            }
+
+            &-error{
+                color: #fd0f0f;
+            }
+
+        }
+        &__infos{
+            color: #fff
+        }
+    }
+}
+
+@media screen and (max-width: $desktopBreakpoint) {
+    .cntnt {
+        .vue3rdj5 {
+            &__mode{
+                margin-top: 10px;
+                &::before, &::after {
+                    display: none;
+                }
+            }
+            &__infos-txt{
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .cntnt {
+        .vue3rdj5 {
+            &__modes {
+                &-open{
+                    width: 51%;
+                }
+            }
+        }
+    }
+}
+
+@keyframes growDown {
+    0% {
+      transform: scaleY(0)
+    }
+    80% {
+      transform: scaleY(1.1)
+    }
+    100% {
+      transform: scaleY(1)
+    }
+  }

@@ -1,0 +1,67 @@
+@import '@/sass/utils/variables.scss';
+
+.modalMint {
+    &-content {
+        justify-content: center;
+        border-radius: 25px;
+        background: transparent url('./../../../assets/images/bg-block-red.png') no-repeat center center;
+        background-size: 100% 100%;
+        animation: growDown 300ms ease-in-out forwards;
+        transform-origin: top center;
+        z-index: 99;
+        width: 100%;
+        height: calc(100% - 50px);
+        margin-top: 50px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        
+        &::before, &::after {
+            border-radius: 50%;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0; left: 50%;
+            z-index: 99;
+        }
+        &::before {
+            background: transparent url('./../../../assets/images/badge.svg') no-repeat center center;
+            background-size: 100% auto;
+            margin: -45px 0 0 -45px;
+            height: 90px;
+            width: 90px;
+        }
+        &::after {
+            animation: badge 10s ease infinite;
+            animation-direction: alternate;
+            background: linear-gradient(180deg, #88578C, #4E3A93 25%, #4E3A93 75%, #88578C 100%);
+            background-size: 100% 800%;
+            margin: -36px 0 0 -36px;
+            height: 72px;
+            width: 72px;
+        }
+    }
+    &-buttons { 
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+    }
+    &-message{
+        padding-top: 5%;
+        color: green;
+        font-size: 2rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+
+@media screen and (max-width: $desktopBreakpoint) {
+    .modalMint {
+        &-content {
+            &::before, &::after {
+                display: none;
+            }
+        }
+    }
+}

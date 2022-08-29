@@ -118,6 +118,7 @@
 @media screen and (max-width: $desktopBreakpoint) {
     .box {
         max-height: 1030px;
+        overflow: auto;
     }
     .cntnt {
         &__collectionBlock {

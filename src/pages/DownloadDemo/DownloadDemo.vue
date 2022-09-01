@@ -5,7 +5,7 @@
             <div class="blockinfos mb-5">
                 <h2 class="cntnt__zone-title blockinfos__title">Demo event offline</h2>
                 <p class="blockinfos__txt">The demo event is currently offline, stay tuned to our <a style="color:white;" href="https://discord.gg/6X2FN6BRKz" target="_blank">discord</a> to be ready for the next one.</p>
-                <a href="https://discord.gg/6X2FN6BRKz" style="transform: scale(5);" target="_blank" class="menu__item-link"><img class="thumbnailLogo" src="@/assets/images/discordWhite.png" alt="Discord Logo" /></a>
+                <a href="https://discord.gg/6X2FN6BRKz" style="transform: scale(5);" target="_blank" class="menu__item-link mt-4"><img class="thumbnailLogo" src="@/assets/images/discordWhite.png" alt="Discord Logo" /></a>
             </div>
             <a style="margin-bottom:5rem;transform: scale(1.3);" class="cntnt-btn cntnt__intro-btn noPointerCursor">DOWNLOAD DEMO</a>
             <p class="cntnt-textTitle">Demo Event Prerequisites:</p>

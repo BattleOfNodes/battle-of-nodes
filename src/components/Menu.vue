@@ -34,6 +34,11 @@
                         <span>Download DEMO</span>
                     </router-link>
                 </li>
+                <li class="menu__item connectPhone">
+                    <router-link class="menu__item-link" to="/staking">
+                        <span>Staking</span>
+                    </router-link>
+                </li>
             </ul>
         </div>
     </nav>

@@ -1,10 +1,10 @@
 <template>
     <div
-        class="cntnt"
+        :class="{cntnt: this.$route.path !== '/staking'}"
         id="app">
-        <Header></Header>
+        <Header v-if="this.$route.path !== '/staking'"></Header>
         <router-view />
-        <Footer></Footer>
+        <Footer v-if="this.$route.path !== '/staking'"></Footer>
     </div>
 </template>
 
@@ -20,9 +20,6 @@ export default {
     },
     data () {
         return {
-            isLoading: true,
-            isLoaded: false,
-            
             devApi : "https://api.elrond.com",
             SCAddressStr: "erd1qqqqqqqqqqqqqpgqfj9qht90c9zldjskq62sfx8ugfdxpjte58sq7r8au4"
         }
@@ -82,7 +79,6 @@ export default {
         },
     },
     async beforeMount() {
-        console.log(this.$store)
         await this.checkIfMintIsLive()
     }
 };

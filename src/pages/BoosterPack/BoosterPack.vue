@@ -489,13 +489,14 @@ export default {
     async beforeMount() {
         this.initComponent()
         this.updateSupply()
-        this.updateIsBoostersOwner()
 
-        let waiting = 5
+        let waiting = 40
         while(this.$erd.logged !== true && waiting !=0) {
-            await sleep(1000)
-            await this.updateIsBoostersOwner()
+            await sleep(100)
             waiting-=1
+        }
+        if(this.$erd.logged === true) {
+            await this.updateIsBoostersOwner()
         }
 
         if(this.$route.query.status === 'success') {

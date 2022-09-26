@@ -287,21 +287,6 @@ export default {
         async updateIsBoostersOwner() {
             /* If the user isn't logged
                in, the function returns */
-            if (this.$erd.logged === false)
-                return
-            /*     If the user's wallet address is
-               still null (but the user is logged in),
-                 or any boosterID isn't defined yet,
-                    we just have to wait for it       */
-            if(this.$erd.walletAddress === null || this.blueBoosterID === undefined )// || this.redBoosterID === undefined)
-            {
-                /* We call the function again after
-                    50ms and the function returns   */
-                await sleep(50)
-                await this.updateIsBoostersOwner()
-                return;
-            }
-
             await axios.get(`${this.devApi}/accounts/${this.$erd.walletAddress}/nfts?identifiers=${this.redBoosterID}`)
             .then(res => {
                 if(res?.data?.length)

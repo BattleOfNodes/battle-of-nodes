@@ -287,21 +287,6 @@ export default {
         async updateIsBoostersOwner() {
             /* If the user isn't logged
                in, the function returns */
-            if (this.$erd.logged === false)
-                return
-            /*     If the user's wallet address is
-               still null (but the user is logged in),
-                 or any boosterID isn't defined yet,
-                    we just have to wait for it       */
-            if(this.$erd.walletAddress === null || this.blueBoosterID === undefined )// || this.redBoosterID === undefined)
-            {
-                /* We call the function again after
-                    50ms and the function returns   */
-                await sleep(50)
-                await this.updateIsBoostersOwner()
-                return;
-            }
-
             await axios.get(`${this.devApi}/accounts/${this.$erd.walletAddress}/nfts?identifiers=${this.redBoosterID}`)
             .then(res => {
                 if(res?.data?.length)
@@ -489,20 +474,21 @@ export default {
     async beforeMount() {
         this.initComponent()
         this.updateSupply()
-        this.updateIsBoostersOwner()
 
-        let waiting = 5
+        let waiting = 80
         while(this.$erd.logged !== true && waiting !=0) {
-            await sleep(1000)
-            await this.updateIsBoostersOwner()
+            await sleep(50)
             waiting-=1
+        }
+        if(this.$erd.logged === true) {
+            await this.updateIsBoostersOwner()
         }
 
         if(this.$route.query.status === 'success') {
             this.loaderBlue = true
             this.loaderRed = true
             await this.getObtainedCards(this.$route.query.txHash)
-            let waiting = 10
+            let waiting = 40
             while(!this.cardsObtained.length && waiting !=0) {
                 await sleep(1000)
                 await this.getObtainedCards(this.$route.query.txHash)

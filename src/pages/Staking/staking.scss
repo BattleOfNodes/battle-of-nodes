@@ -1,0 +1,195 @@
+@import '@/sass/utils/variables.scss';
+
+.stake {
+    background-color: white !important;
+    width: 100%;
+    height: 100vh;
+}
+
+.marketplaceMenu {
+    overflow: auto;
+    background: linear-gradient(315deg,#054968,#071835);
+    position: fixed;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.marketplaceContent {
+    width: 80%;
+    margin-right: 0;
+    margin-left: auto;
+    background-color: #e6e8ee;
+    height: 100%;
+}
+
+.marketMenuItem {
+    margin-bottom: 1.3rem;
+    color: #6a7687;
+    font-size: 2rem;
+    text-align: initial;
+    padding-left: 20%;
+    border-left: 4px solid transparent;
+    &:hover {
+        color: white;
+    }
+    &-selected {
+        margin-bottom: 1.3rem;
+        color: #6a7687;
+        font-size: 2rem;
+        text-align: initial;
+        padding-left: 20%;
+        border-left: 4px solid white;
+        color: white;
+    }
+}
+
+.marketplaceLogo {
+    margin: 7%;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.marketMenuDown {
+    margin-bottom: 3rem;
+}
+
+.thumbnailMarket {
+    max-width: 2.5rem;
+    margin: 1rem;
+}
+
+.marketLoginShards {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+
+.marketLink {
+    margin-right: 2rem;
+}
+
+.commingSoon {
+position: relative;
+display: inline-block;
+}
+
+/* commingSoon text */
+.commingSoon .commingSoontext {
+visibility: hidden;
+width: 120px;
+background-color: black;
+color: #fff;
+text-align: center;
+padding: 5px 0;
+border-radius: 6px;
+
+/* Position the commingSoon text - see examples below! */
+position: absolute;
+z-index: 1;
+}
+
+/* Show the commingSoon text when you mouse over the commingSoon container */
+.commingSoon:hover .commingSoontext {
+visibility: visible;
+}
+
+.marketLink {
+    color: black;
+    &:hover {
+        color: #6a7687;
+    }
+}
+
+.marketShards {
+    border-style: solid;
+    border-color: #cccccc;
+    display: flex;
+    border-width: 1px;
+    border-radius: 25px;
+    height: 80%;
+    align-items: center;
+}
+
+.shardImage {
+    margin: 5px;
+}
+
+.marketUpperText {
+    color: black;
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.marketLink {
+    background: linear-gradient(0deg, rgba(220,190,99,1) 0%, rgba(243,215,148,1) 100%);
+    padding: 1rem;
+    border-radius: 25px;
+    font-size: 1.5rem;
+    margin-right: 3%;
+    margin-left: auto;
+    text-decoration: none;
+    color: white;
+}
+
+.marketSection {
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.infoBlock {
+    background: white;
+    border-radius: 25px;
+    padding: 2rem;
+    width: 100%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.marketSmallText {
+    color: #6a7687;
+    font-size: 1rem;
+}
+
+.marketText {
+    color: black;
+    font-size: 2rem;
+}
+
+.marketButton {
+    background: linear-gradient(0deg, rgba(220,190,99,1) 0%, rgba(243,215,148,1) 100%);
+    padding: 1rem;
+    border-radius: 25px;
+    font-size: 1.5rem;
+    color: white;
+    border: none;
+}
+
+.claimableShards {
+    display: flex;
+    align-items: center;
+}
+
+.marketPacks {
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.packsContainer {
+    display: flex;
+}
+
+.marketBooster {
+    width: 20%;
+}

@@ -450,16 +450,14 @@ export default {
         },
     },
     async beforeMount() {
+        let waiting = 80
+        while(this.$erd.logged !== true && waiting !=0) {
+            await sleep(50)
+            waiting-=1
+        } 
         if(this.$erd.logged === true) {
             await this.getRemainingPacks()
             await this.getRemainingSkins()
-        }
-        let waiting = 4
-        while(this.$erd.logged !== true && waiting !=0) {
-            await sleep(1000)
-            await this.getRemainingPacks()
-            await this.getRemainingSkins()
-            waiting-=1
         }
     }
 }

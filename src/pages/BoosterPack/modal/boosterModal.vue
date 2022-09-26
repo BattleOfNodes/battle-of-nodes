@@ -60,7 +60,7 @@
           </div>
           <div class="cardModal__face cardModal__facePack--back">
             <div 
-            class="boosterImgPack" :class="cards[4].rarity" :style="'background-image: url(./cards/' + cards[4].img + ')'" />
+            class="boosterImgPack"  :class="cards[4].rarity"  :style="'background-image: url(./cards/' + cards[4].img + ')'" />
           </div>
       </div>
       <div
@@ -72,7 +72,7 @@
           </div>
           <div class="cardModal__face cardModal__facePack--back">
             <div 
-            class="boosterImgPack" :class="cards[5].rarity" :style="'background-image: url(./cards/' + cards[5].img + ')'" />
+            class="boosterImgPack" v-bind:class="cards[5].rarity" :style="'background-image: url(./cards/' + cards[5].img + ')'"/>
           </div>
       </div>
     </div>
@@ -101,11 +101,14 @@ export default {
   },
   props: {
     cards: {
-        type: Object,
-        default () {
-            return {}
-        }
+      type: Object,
+      default () {
+          return {}
+      }
     },
+  },
+  mounted() {
+    console.log(this.cards)    
   }
 };
 </script>

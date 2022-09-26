@@ -211,15 +211,14 @@ export default {
         },
     },
     async beforeMount () {
-        this.getJSONCards()
-        this.getUserCards()
-
-        let waiting = 4
+        let waiting = 80
         while(this.$erd.logged !== true && waiting !=0) {
-            await sleep(500)
+            await sleep(50)
+            waiting-=1
+        }
+        if(this.$erd.logged === true) {
             await this.getJSONCards()
             await this.getUserCards()
-            waiting-=1
         }
     }
 }

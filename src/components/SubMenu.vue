@@ -1,9 +1,14 @@
 <template>
     <nav class="menu menu__submenu">
         <ul class="menu__links menu__submenu-links">
+            <!-- <li class="menu__item">
+                <router-link class="menu__item-link" to="/staking">
+                    <span>Staking</span>
+                </router-link>
+            </li> -->
             <li class="menu__item">
                 <router-link class="menu__item-link" to="/download">
-                    <span>Download DEMO</span>
+                    <span>Download</span>
                 </router-link>
             </li>
             <li class="menu__item">

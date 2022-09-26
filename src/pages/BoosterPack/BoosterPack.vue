@@ -475,9 +475,9 @@ export default {
         this.initComponent()
         this.updateSupply()
 
-        let waiting = 40
+        let waiting = 80
         while(this.$erd.logged !== true && waiting !=0) {
-            await sleep(100)
+            await sleep(50)
             waiting-=1
         }
         if(this.$erd.logged === true) {
@@ -488,7 +488,7 @@ export default {
             this.loaderBlue = true
             this.loaderRed = true
             await this.getObtainedCards(this.$route.query.txHash)
-            let waiting = 10
+            let waiting = 40
             while(!this.cardsObtained.length && waiting !=0) {
                 await sleep(1000)
                 await this.getObtainedCards(this.$route.query.txHash)

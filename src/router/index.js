@@ -48,12 +48,12 @@ const routes = [
     path: '/download',
     name: 'DownloadDemo',
     component: DownloadDemo
-  },
-  {
-    path: '/staking',
-    name: 'Staking',
-    component: staking
   }
+  // {
+  //   path: '/staking',
+  //   name: 'Staking',
+  //   component: staking
+  // }
 ]
 
 const router = new VueRouter({

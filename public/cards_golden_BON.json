@@ -7,7 +7,7 @@
     "class": "Normal",
     "attack": 200,
     "mana": 1,
-    "img": "5Artboard 1@4x.png",
+    "img": "5Artboard.png",
     "identifier" : "6a",
   	"edition": "golden"
   },
@@ -19,7 +19,7 @@
     "class": "Tank",
     "attack": 300,
     "mana": 3,
-    "img": "6Artboard 1@4x.png",
+    "img": "6Artboard.png",
     "identifier" : "6b" ,
   	"edition": "golden"
   },
@@ -31,7 +31,7 @@
     "class": "Normal",
     "attack": 500,
     "mana": 5,
-    "img": "1Artboard 1@4x.png",
+    "img": "1Artboard.png",
     "identifier" : "71" ,
   	"edition": "golden"
   },
@@ -43,7 +43,7 @@
     "class": "Poison",
     "attack": 100,
     "mana": 4,
-    "img": "3Artboard 1@4x.png",
+    "img": "3Artboard.png",
     "identifier" : "6d" ,
   	"edition": "golden"
   },
@@ -55,7 +55,7 @@
     "class": "Swift Attacker",
     "attack": 400,
     "mana": 5,
-    "img": "7Artboard 1@4x.png",
+    "img": "7Artboard.png",
     "identifier" : "6c" ,
   	"edition": "golden"
   },
@@ -67,7 +67,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 3,
-    "img": "12Artboard 1@4x.png",
+    "img": "12Artboard.png",
     "identifier" : "6f" ,
   	"edition": "golden"
   },
@@ -79,7 +79,7 @@
     "class": "Normal Spell",
     "attack": 0 ,
     "mana": 3,
-    "img": "14Artboard 1@4x.png",
+    "img": "14Artboard.png",
     "identifier" : "6e" ,
   	"edition": "golden"
   },
@@ -91,7 +91,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 3,
-    "img": "16Artboard 1@4x.png",
+    "img": "16Artboard.png",
     "identifier" : "70", 
   	"edition": "golden"
   },
@@ -103,7 +103,7 @@
     "class": "Tank",
     "attack": 700,
     "mana": 7,
-    "img": "19Artboard 1@4x.png",
+    "img": "19Artboard.png",
     "identifier" : "72" ,
   	"edition": "golden"
   },
@@ -115,7 +115,7 @@
     "class": "Normal",
     "attack": 200,
     "mana": 2,
-    "img": "2Artboard 1@4x.png",
+    "img": "2Artboard.png",
     "identifier" : "77" ,
   	"edition": "golden"
   },
@@ -127,7 +127,7 @@
     "class": "Normal",
     "attack": 100,
     "mana": 2,
-    "img": "4Artboard 1@4x.png",
+    "img": "4Artboard.png",
     "identifier" : "73" ,
   	"edition": "golden"
   },
@@ -139,7 +139,7 @@
     "class": "Normal",
     "attack": 600,
     "mana": 8,
-    "img": "8Artboard 1@4x.png",
+    "img": "8Artboard.png",
     "identifier" : "78" ,
   	"edition": "golden"
   },
@@ -151,7 +151,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 4,
-    "img": "11Artboard 1@4x.png",
+    "img": "11Artboard.png",
     "identifier" : "76" ,
   	"edition": "golden"
   },
@@ -163,7 +163,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 3,
-    "img": "13Artboard 1@4x.png",
+    "img": "13Artboard.png",
     "identifier" : "75" ,
   	"edition": "golden"
   },
@@ -175,7 +175,7 @@
     "class": "Normal",
     "attack": 600,
     "mana": 4,
-    "img": "20Artboard 1@4x.png",
+    "img": "20Artboard.png",
     "identifier" : "74" ,
   	"edition": "golden"
   },
@@ -187,7 +187,7 @@
     "class": "Vengeance",
     "attack": 350,
     "mana": 5,
-    "img": "9Artboard 1@4x.png",
+    "img": "9Artboard.png",
     "identifier" : "7b" ,
   	"edition": "golden"
   },
@@ -199,7 +199,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 5,
-    "img": "15Artboard 1@4x.png",
+    "img": "15Artboard.png",
     "identifier" : "7a" ,
   	"edition": "golden"
   },
@@ -211,7 +211,7 @@
     "class": "Normal",
     "attack": 500,
     "mana": 6,
-    "img": "18Artboard 1@4x.png",
+    "img": "18Artboard.png",
     "identifier" : "79" ,
   	"edition": "golden"
   },
@@ -223,7 +223,7 @@
     "class": "Normal",
     "attack": 400,
     "mana": 6,
-    "img": "10Artboard 1@4x.png",
+    "img": "10Artboard.png",
     "identifier" : "7c" ,
   	"edition": "golden"
   },
@@ -235,7 +235,7 @@
     "class": "Swift Attacker",
     "attack": 200,
     "mana": 7,
-    "img": "36Artboard 1@4x.png",
+    "img": "36Artboard.png",
     "identifier" : "7d" ,
   	"edition": "golden"
   },
@@ -247,7 +247,7 @@
     "class": "Tank",
     "attack": 800,
     "mana": 9,
-    "img": "17Artboard 1@4x.png",
+    "img": "17Artboard.png",
     "identifier" : "7e", 
   	"edition": "golden"
   },
@@ -262,7 +262,7 @@
     "class": "Normal",
     "attack": 300,
     "mana": 1,
-    "img": "21Artboard 1@4x.png",
+    "img": "21Artboard.png",
     "identifier" : "94" ,
   	"edition": "golden"
   },
@@ -274,7 +274,7 @@
     "class": "Swift Attacker",
     "attack": 200,
     "mana": 2,
-    "img": "22Artboard 1@4x.png",
+    "img": "22Artboard.png",
     "identifier" : "95" ,
   	"edition": "golden"
   },
@@ -286,7 +286,7 @@
     "class": "Normal",
     "attack": 700,
     "mana": 4,
-    "img": "23Artboard 1@4x.png",
+    "img": "23Artboard.png",
     "identifier" : "96" ,
   	"edition": "golden"
   },
@@ -298,7 +298,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 2,
-    "img": "28Artboard 1@4x.png",
+    "img": "28Artboard.png",
     "identifier" : "98" ,
   	"edition": "golden"
   },
@@ -310,7 +310,7 @@
     "class": "Poison",
     "attack": 150,
     "mana": 3,
-    "img": "24Artboard 1@4x.png",
+    "img": "24Artboard.png",
     "identifier" : "97" ,
   	"edition": "golden"
   },
@@ -322,7 +322,7 @@
     "class": "Normal",
     "attack": 350,
     "mana": 2,
-    "img": "25Artboard 1@4x.png",
+    "img": "25Artboard.png",
     "identifier" : "9b" ,
   	"edition": "golden"
   },
@@ -334,7 +334,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 1,
-    "img": "30Artboard 1@4x.png",
+    "img": "30Artboard.png",
     "identifier" : "99" ,
   	"edition": "golden"
   },
@@ -346,7 +346,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 5,
-    "img": "31Artboard 1@4x.png",
+    "img": "31Artboard.png",
     "identifier" : "9a" ,
   	"edition": "golden"
   },
@@ -358,7 +358,7 @@
     "class": "Normal",
     "attack": 100,
     "mana": 1,
-    "img": "40Artboard 1@4x.png",
+    "img": "40Artboard.png",
     "identifier" : "9c" ,
   	"edition": "golden"
   },
@@ -370,7 +370,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 4,
-    "img": "26Artboard 1@4x.png",
+    "img": "26Artboard.png",
     "identifier" : "a0" ,
   	"edition": "golden"
   },
@@ -382,7 +382,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 6,
-    "img": "27Artboard 1@4x.png",
+    "img": "27Artboard.png",
     "identifier" : "9f" ,
   	"edition": "golden"
   },
@@ -394,7 +394,7 @@
     "class": "Normal",
     "attack": 600,
     "mana": 5,
-    "img": "32Artboard 1@4x.png",
+    "img": "32Artboard.png",
     "identifier" : "9d" ,
   	"edition": "golden"
   },
@@ -406,7 +406,7 @@
     "class": "Normal",
     "attack": 250,
     "mana": 3,
-    "img": "34Artboard 1@4x.png",
+    "img": "34Artboard.png",
     "identifier" : "a2" ,
   	"edition": "golden"
   },
@@ -418,7 +418,7 @@
     "class": "Normal",
     "attack": 550,
     "mana": 4,
-    "img": "38Artboard 1@4x.png",
+    "img": "38Artboard.png",
     "identifier" : "a1", 
   	"edition": "golden"
   },
@@ -430,7 +430,7 @@
     "class": "Normal",
     "attack": 150,
     "mana": 3,
-    "img": "39Artboard 1@4x.png",
+    "img": "39Artboard.png",
     "identifier" : "9e" ,
   	"edition": "golden"
   },
@@ -442,7 +442,7 @@
     "class": "Tank",
     "attack": 700,
     "mana": 8,
-    "img": "37Artboard 1@4x.png",
+    "img": "37Artboard.png",
     "identifier" : "a5",
     	"edition": "golden"
   },
@@ -454,7 +454,7 @@
     "class": "Poison",
     "attack": 450,
     "mana": 6,
-    "img": "35Artboard 1@4x.png",
+    "img": "35Artboard.png",
     "identifier" : "a3", 
   	"edition": "golden"
   },
@@ -466,7 +466,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 7,
-    "img": "29Artboard 1@4x.png",
+    "img": "29Artboard.png",
     "identifier" : "a4",
   	"edition": "golden"
   },
@@ -478,7 +478,7 @@
     "class": "Normal",
     "attack": 500,
     "mana": 10,
-    "img": "33Artboard 1@4x.png",
+    "img": "33Artboard.png",
     "identifier" : "a6" ,
   	"edition": "golden"
   },
@@ -490,7 +490,7 @@
     "class": "Normal",
     "attack": 250,
     "mana": 5,
-    "img": "41Artboard 1@4x.png",
+    "img": "41Artboard.png",
     "identifier" : "a7", 
   	"edition": "golden"
   },
@@ -502,7 +502,7 @@
     "class": "Tank Poison",
     "attack": 300,
     "mana": 8,
-    "img": "42Artboard 1@4x.png",
+    "img": "42Artboard.png",
     "identifier" : "a8", 
   	"edition": "golden"
   },
@@ -519,7 +519,7 @@
     "class": "Tank",
     "attack": 200,
     "mana": 1,
-    "img": "43Artboard 1@4x.png",
+    "img": "43Artboard.png",
     "identifier" : "7f", 
   	"edition": "golden"
   },
@@ -531,7 +531,7 @@
     "class": "Normal",
     "attack": 250,
     "mana": 2,
-    "img": "44Artboard 1@4x.png",
+    "img": "44Artboard.png",
     "identifier" : "80", 
   	"edition": "golden"
   },
@@ -543,7 +543,7 @@
     "class": "Vengeance",
     "attack": 300,
     "mana": 4,
-    "img": "45Artboard 1@4x.png",
+    "img": "45Artboard.png",
     "identifier" : "81" ,
   	"edition": "golden"
   },
@@ -555,7 +555,7 @@
     "class": "Normal",
     "attack": 150,
     "mana": 3,
-    "img": "46Artboard 1@4x.png",
+    "img": "46Artboard.png",
     "identifier" : "82" ,
   	"edition": "golden"
   },
@@ -567,7 +567,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 1,
-    "img": "47Artboard 1@4x.png",
+    "img": "47Artboard.png",
     "identifier" : "83",
   	"edition": "golden"
   },
@@ -579,7 +579,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 3,
-    "img": "48Artboard 1@4x.png",
+    "img": "48Artboard.png",
     "identifier" : "84" ,
   	"edition": "golden"
   },
@@ -591,7 +591,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 2,
-    "img": "49Artboard 1@4x.png",
+    "img": "49Artboard.png",
     "identifier" : "85", 
   	"edition": "golden"
   },
@@ -603,7 +603,7 @@
     "class": "Normal",
     "attack": 200,
     "mana": 2,
-    "img": "52Artboard 1@4x.png",
+    "img": "52Artboard.png",
     "identifier" : "86" ,
   	"edition": "golden"
   },
@@ -615,7 +615,7 @@
     "class": "Normal",
     "attack": 500,
     "mana": 6,
-    "img": "53Artboard 1@4x.png",
+    "img": "53Artboard.png",
     "identifier" : "87" ,
   	"edition": "golden"
   },
@@ -627,7 +627,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 4,
-    "img": "50Artboard 1@4x.png",
+    "img": "50Artboard.png",
     "identifier" : "8a" ,
   	"edition": "golden"
   },
@@ -639,7 +639,7 @@
     "class": "Tank",
     "attack": 400,
     "mana": 2,
-    "img": "54Artboard 1@4x.png",
+    "img": "54Artboard.png",
     "identifier" : "88" ,
   	"edition": "golden"
   },
@@ -651,7 +651,7 @@
     "class": "Poison",
     "attack": 400,
     "mana": 5,
-    "img": "55Artboard 1@4x.png",
+    "img": "55Artboard.png",
     "identifier" : "89" ,
   	"edition": "golden"
   },
@@ -663,7 +663,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 4,
-    "img": "51Artboard 1@4x.png",
+    "img": "51Artboard.png",
     "identifier" : "8b" ,
   	"edition": "golden"
   },
@@ -675,7 +675,7 @@
     "class": "Normal",
     "attack": 400,
     "mana": 6,
-    "img": "56Artboard 1@4x.png",
+    "img": "56Artboard.png",
     "identifier" : "8c" ,
   	"edition": "golden"
   },
@@ -687,7 +687,7 @@
     "class": "Tank",
     "attack": 800,
     "mana": 7,
-    "img": "57Artboard 1@4x.png",
+    "img": "57Artboard.png",
     "identifier" : "8d" ,
   	"edition": "golden"
   },
@@ -699,7 +699,7 @@
     "class": "Normal",
     "attack": 250,
     "mana": 5,
-    "img": "58Artboard 1@4x.png",
+    "img": "58Artboard.png",
     "identifier" : "8e" ,
   	"edition": "golden"
   },
@@ -711,7 +711,7 @@
     "class": "Normal",
     "attack": 500,
     "mana": 10,
-    "img": "59Artboard 1@4x.png",
+    "img": "59Artboard.png",
     "identifier" : "90" ,
   	"edition": "golden"
   },
@@ -723,7 +723,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 5,
-    "img": "64Artboard 1@4x.png",
+    "img": "64Artboard.png",
     "identifier" : "8f" ,
   	"edition": "golden"
   },
@@ -735,7 +735,7 @@
     "class": "Normal",
     "attack": 450,
     "mana": 7,
-    "img": "61Artboard 1@4x.png",
+    "img": "61Artboard.png",
     "identifier" : "92" ,
   	"edition": "golden"
   },
@@ -747,7 +747,7 @@
     "class": "Normal",
     "attack": 1000,
     "mana": 20,
-    "img": "60Artboard 1@4x.png",
+    "img": "60Artboard.png",
     "identifier" : "91" ,
   	"edition": "golden"
   },
@@ -759,7 +759,7 @@
     "class": "Normal",
     "attack": 0,
     "mana": 7,
-    "img": "62Artboard 1@4x.png",
+    "img": "62Artboard.png",
     "identifier" : "93" ,
   	"edition": "golden"
   },
@@ -776,7 +776,7 @@
     "class": "Normal",
     "attack": 800,
     "mana": 6,
-    "img": "63Artboard 1@4x.png",
+    "img": "63Artboard.png",
     "identifier" : "5d" ,
   	"edition": "golden"
   },
@@ -788,7 +788,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 0,
-    "img": "66Artboard 1@4x.png",
+    "img": "66Artboard.png",
     "identifier" : "5b" ,
   	"edition": "golden"
   },
@@ -800,7 +800,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 3,
-    "img": "65Artboard 1@4x.png",
+    "img": "65Artboard.png",
     "identifier" : "59" ,
   	"edition": "golden"
   },
@@ -812,7 +812,7 @@
     "class": "Normal",
     "attack": 400,
     "mana": 2,
-    "img": "78Artboard 1@4x.png",
+    "img": "78Artboard.png",
     "identifier" : "5c" ,
   	"edition": "golden"
   },
@@ -824,7 +824,7 @@
     "class": "Poison",
     "attack": 100,
     "mana": 2,
-    "img": "79Artboard 1@4x.png",
+    "img": "79Artboard.png",
     "identifier" : "56" ,
   	"edition": "golden"
   },
@@ -836,7 +836,7 @@
     "class": "Normal",
     "attack": 300,
     "mana": 2,
-    "img": "83Artboard 1@4x.png",
+    "img": "83Artboard.png",
     "identifier" : "57" ,
   	"edition": "golden"
   },
@@ -848,7 +848,7 @@
     "class": "Tank",
     "attack": 500,
     "mana": 5,
-    "img": "82Artboard 1@4x.png",
+    "img": "82Artboard.png",
     "identifier" : "55" ,
   	"edition": "golden"
   },
@@ -860,7 +860,7 @@
     "class": "Swift attacker",
     "attack": 100,
     "mana": 1,
-    "img": "84Artboard 1@4x.png",
+    "img": "84Artboard.png",
     "identifier" : "58" ,
   	"edition": "golden"
   },
@@ -872,7 +872,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 3,
-    "img": "81Artboard 1@4x.png",
+    "img": "81Artboard.png",
     "identifier" : "5a" ,
   	"edition": "golden"
   },
@@ -884,7 +884,7 @@
     "class": "Swift attacker",
     "attack": 500,
     "mana": 6,
-    "img": "70Artboard 1@4x.png",
+    "img": "70Artboard.png",
     "identifier" : "5f" ,
   	"edition": "golden"
   },
@@ -896,7 +896,7 @@
     "class": "Normal",
     "attack": 150,
     "mana": 3,
-    "img": "71Artboard 1@4x.png",
+    "img": "71Artboard.png",
     "identifier" : "62" ,
   	"edition": "golden"
   },
@@ -908,7 +908,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 7,
-    "img": "68Artboard 1@4x.png",
+    "img": "68Artboard.png",
     "identifier" : "61" ,
   	"edition": "golden"
   },
@@ -920,7 +920,7 @@
     "class": "Trap",
     "attack": 0,
     "mana": 3,
-    "img": "67Artboard 1@4x.png",
+    "img": "67Artboard.png",
     "identifier" : "60" ,
   	"edition": "golden"
   },
@@ -932,7 +932,7 @@
     "class": "Normal",
     "attack": 150,
     "mana": 3,
-    "img": "69Artboard 1@4x.png",
+    "img": "69Artboard.png",
     "identifier" : "5e" ,
   	"edition": "golden"
   },
@@ -944,7 +944,7 @@
     "class": "Normal",
     "attack": 400,
     "mana": 6,
-    "img": "72Artboard 1@4x.png",
+    "img": "72Artboard.png",
     "identifier" : "63" ,
   	"edition": "golden"
   },
@@ -956,7 +956,7 @@
     "class": "Normal",
     "attack": 300,
     "mana": 4,
-    "img": "76Artboard 1@4x.png",
+    "img": "76Artboard.png",
     "identifier" : "66" ,
   	"edition": "golden"
   },
@@ -968,7 +968,7 @@
     "class": "Normal Spell",
     "attack": 0,
     "mana": 7,
-    "img": "80Artboard 1@4x.png",
+    "img": "80Artboard.png",
     "identifier" : "65" ,
   	"edition": "golden"
   },
@@ -980,7 +980,7 @@
     "class": "Normal",
     "attack": 200,
     "mana": 4,
-    "img": "77Artboard 1@4x.png",
+    "img": "77Artboard.png",
     "identifier" : "64" ,
   	"edition": "golden"
   },
@@ -992,7 +992,7 @@
     "class": "Vengeance",
     "attack": 500,
     "mana": 7,
-    "img": "75Artboard 1@4x.png",
+    "img": "75Artboard.png",
     "identifier" : "67" ,
   	"edition": "golden"
   },
@@ -1004,7 +1004,7 @@
     "class": "Normal",
     "attack": 650,
     "mana": 8,
-    "img": "74Artboard 1@4x.png",
+    "img": "74Artboard.png",
     "identifier" : "68" ,
   	"edition": "golden"
   },
@@ -1016,7 +1016,7 @@
     "class": "Swift attacker",
     "attack": 900,
     "mana": 13,
-    "img": "73Artboard 1@4x.png",
+    "img": "73Artboard.png",
     "identifier" : "69" ,
     "edition": "golden"
   }

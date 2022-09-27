@@ -50,6 +50,7 @@ export default {
                 mintedPacks -= Number("0x" + Buffer.from(rawBoughtPacks.data.returnData[0], 'base64').toString("hex"));
             }
 
+            // ----------------- skin ----------------------
 
             let rawMintedSkins = await axios.post(`${this.devApi}/query`,
                 {
@@ -74,8 +75,87 @@ export default {
                 mintedSkins -= Number("0x" + Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex"));
             }
 
+            // -------------------- wine skin --------------------------
+
+            let rawMintedSkinsWine = await axios.post(`${this.devApi}/query`,
+                {
+                    "scAddress" : this.SCAddressStr,
+                    "funcName"  : "getTotalNFTBuyable",
+                    "args"      : ["02"],
+                    "value"     : "0"
+                }
+            );
+
+            let mintedWineSkin = Number("0x" + Buffer.from(rawMintedSkinsWine.data.returnData[0], 'base64').toString("hex"));
+
+            let rawBoughtSkinsWine = await axios.post(`${this.devApi}/query`, {
+                    "scAddress" : this.SCAddressStr,
+                    "funcName"  : "getNbrNFTBought",
+                    "args"      : ["02"],
+                    "value"     : "0"
+                }
+            );
+
+            if (Buffer.from(rawBoughtSkinsWine.data.returnData[0], 'base64').toString("hex")) {
+                mintedWineSkin -= Number("0x" + Buffer.from(rawBoughtSkinsWine.data.returnData[0], 'base64').toString("hex"));
+            }
+
+            // ----------------------- wine skin shard -------------------------------
+
+            let rawMintedSkinsWineShard = await axios.post(`${this.devApi}/query`,
+                {
+                    "scAddress" : this.SCAddressStr,
+                    "funcName"  : "getTotalNFTBuyable",
+                    "args"      : ["03"],
+                    "value"     : "0"
+                }
+            );
+
+            let mintedWineSkinShards = Number("0x" + Buffer.from(rawMintedSkinsWineShard.data.returnData[0], 'base64').toString("hex"));
+
+            let rawBoughtSkinsWineShard = await axios.post(`${this.devApi}/query`, {
+                    "scAddress" : this.SCAddressStr,
+                    "funcName"  : "getNbrNFTBought",
+                    "args"      : ["03"],
+                    "value"     : "0"
+                }
+            );
+
+            if (Buffer.from(rawBoughtSkinsWineShard.data.returnData[0], 'base64').toString("hex")) {
+                mintedWineSkinShards -= Number("0x" + Buffer.from(rawBoughtSkinsWineShard.data.returnData[0], 'base64').toString("hex"));
+            }
+
+            // --------------------- wine skin wtoken ----------------------------
+
+            let rawMintedSkinsWineWtoken = await axios.post(`${this.devApi}/query`,
+                {
+                    "scAddress" : this.SCAddressStr,
+                    "funcName"  : "getTotalNFTBuyable",
+                    "args"      : ["04"],
+                    "value"     : "0"
+                }
+            );
+
+            let mintedWineSkinWtoken = Number("0x" + Buffer.from(rawMintedSkinsWineWtoken.data.returnData[0], 'base64').toString("hex"));
+
+            let rawBoughtSkinssWineWtoken = await axios.post(`${this.devApi}/query`, {
+                    "scAddress" : this.SCAddressStr,
+                    "funcName"  : "getNbrNFTBought",
+                    "args"      : ["04"],
+                    "value"     : "0"
+                }
+            );
+
+            if (Buffer.from(rawBoughtSkinssWineWtoken.data.returnData[0], 'base64').toString("hex")) {
+                mintedWineSkinWtoken -= Number("0x" + Buffer.from(rawBoughtSkinssWineWtoken.data.returnData[0], 'base64').toString("hex"));
+            }
+
             localStorage.setItem('mintedPacks', mintedPacks || 0)
             localStorage.setItem('mintedSkins', mintedSkins || 0)
+
+            localStorage.setItem('mintedWineSkin', mintedWineSkin || 0)
+            localStorage.setItem('mintedWineSkinShards', mintedWineSkinShards || 0)
+            localStorage.setItem('mintedWineSkinWtoken', mintedWineSkinWtoken || 0)
         },
     },
     async beforeMount() {

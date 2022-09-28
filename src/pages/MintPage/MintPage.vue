@@ -859,7 +859,7 @@ export default {
                 }
             );
 
-            this.remainingWineSkin = Number("0x" + Buffer.from(rawMaxBuyablePerAddress.data.returnData[0], 'base64').toString("hex"));
+            this.remainingWineSkinWtoken = Number("0x" + Buffer.from(rawMaxBuyablePerAddress.data.returnData[0], 'base64').toString("hex"));
 
             var rawBoughtSkinsperAddress = await axios.post(`${this.devApi}/query`,
                 {

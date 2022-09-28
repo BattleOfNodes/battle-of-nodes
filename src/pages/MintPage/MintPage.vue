@@ -80,7 +80,7 @@
             </div>  
 
             <!----------------------- wine skin -------------------------------->
-            <div style="margin-top:10rem;">   
+            <div style="margin-top:10rem;" class="mb-4">   
                 <p class="cntnt__booster-text">WWWINE COLLABORATION SKINn</p>
                 <img class="cntnt__mint-booster" src="@/assets/images/WWWINE_SKIN.png" />
                 <div class="cntnt__mint-buttons">
@@ -98,7 +98,7 @@
                                 (parseInt(selectedWineOption) === 2 && mintedWineSkinShards !== 0) || 
                                 (parseInt(selectedWineOption) === 3 && mintedWineSkinWtoken !== 0)"
                             > You minted all the skins available.</p>
-                            <select class="cntnt__booster-wineSlector" v-model="selectedWineOption">
+                            <select class="cntnt__booster-wineSlector cntnt__booster-wineSlector-noMore" v-model="selectedWineOption">
                                 <option value=1 selected>EGDL</option>
                                 <option value=2>Shard</option>
                                 <option value=3>Grapes</option>
@@ -118,25 +118,27 @@
                             <div v-if="parseInt(selectedWineOption) === 3">
                                 <p class="cntnt__booster-text"> You can mint one skin.</p>
                             </div>
-                            <select class="cntnt__booster-wineSlector" v-model="selectedWineOption">
-                                <option value=1 selected>EGDL</option>
-                                <option value=2>Shard</option>
-                                <option value=3>Grapes</option>
-                            </select>
-                            <div v-if="parseInt(selectedWineOption) === 1" class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeSkinWine()">
-                                -
-                            </div>
-                            <div v-if="parseInt(selectedWineOption) === 1" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWine()">
-                                MINT {{ mintWineSkin }} SKINS
-                            </div>
-                            <div v-if="parseInt(selectedWineOption) === 2" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWineShard()">
-                                MINT ONE SKIN
-                            </div>
-                            <div v-if="parseInt(selectedWineOption) === 3" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWineWtoken()">
-                                MINT ONE SKIN
-                            </div>
-                            <div v-if="parseInt(selectedWineOption) === 1" class="cntnt__mint-buttonAdd pointerCursor" v-on:click="addSkinWine()">
-                                +
+                            <div>
+                                <select class="cntnt__booster-wineSlector" :class="{'cntnt__booster-wineSlector-tokens' :parseInt(selectedWineOption) === 2 || parseInt(selectedWineOption) === 3}" v-model="selectedWineOption">
+                                    <option value=1 selected>EGDL</option>
+                                    <option value=2>Shard</option>
+                                    <option value=3>Grapes</option>
+                                </select>
+                                <div v-if="parseInt(selectedWineOption) === 1" class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeSkinWine()">
+                                    -
+                                </div>
+                                <div v-if="parseInt(selectedWineOption) === 1" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWine()">
+                                    MINT {{ mintWineSkin }} SKINS
+                                </div>
+                                <div v-if="parseInt(selectedWineOption) === 2" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWineShard()">
+                                    MINT ONE SKIN
+                                </div>
+                                <div v-if="parseInt(selectedWineOption) === 3" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWineWtoken()">
+                                    MINT ONE SKIN
+                                </div>
+                                <div v-if="parseInt(selectedWineOption) === 1" class="cntnt__mint-buttonAdd pointerCursor" v-on:click="addSkinWine()">
+                                    +
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -162,6 +164,26 @@
                 <p class="cntnt__mint-text" v-if="parseInt(selectedWineOption) === 2">PRICE - 500 SHARDS</p>
                 <p class="cntnt__mint-text" v-if="parseInt(selectedWineOption) === 3">PRICE - 500 GRAPES</p>
             </div>  
+            <p class="mt-5 mb-4">MINT REWARDS</p>
+            <div class="d-flex m-auto">
+                <div style="width:33%;">
+                    <img class="cntnt__booster-wineSlector-logos" src="@/assets/images/SHARDS.svg" alt="Discord Logo" />
+                    <p>X1 FREE RANDOM</p>
+                    <p>NATURE CARD</p>
+                </div>
+                <div style="margin-right:2rem;margin-left:2rem;width: 33%;">
+                    <img class="cntnt__booster-wineSlector-logos" src="@/assets/images/ELROND.svg" alt="Discord Logo" />
+                    <p>X1 FREE RANDOM</p>
+                    <p>NATURE CARD</p>
+                    <p>+25 SHARD TOKENS</p>
+                </div>
+                <div style="width:33%;">
+                    <img class="cntnt__booster-wineSlector-logos" src="@/assets/images/GRAPES.svg" alt="Discord Logo" />
+                    <p>X2 FREE RANDOM</p>
+                    <p>NATURE CARD</p>
+                    <p>+50 SHARD TOKENS</p>
+                </div>
+            </div>
         </div>
         <div v-if="loader" class="blur-screen">
             <svg class="loader-box" viewBox="0 0 100 100">

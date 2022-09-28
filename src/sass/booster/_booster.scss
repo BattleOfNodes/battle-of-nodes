@@ -1,14 +1,25 @@
 
 .cntnt {
     &__booster{
-        &-wineSlector{
+        &-wineSlector {
             border-radius: 8px;
             background: #062038;
             border-color: #939393;
             border-width: 1px;
             color: white;
-            margin-right: 1rem;
-            margin-left: -5%;
+            position: absolute;
+            margin-top: 1rem;
+            margin-left: -9.5rem;
+            &-noMore {
+                margin-top: 3rem !important;
+                margin-left: -10.5rem !important;
+            }
+            &-tokens {
+                margin-left: -10.5rem !important;
+            }
+            &-logos {
+                max-width: 4.5rem;
+            }
         }
         &-btn{
             animation: 0.75s ease-out 0s 1 slideInFromTop;

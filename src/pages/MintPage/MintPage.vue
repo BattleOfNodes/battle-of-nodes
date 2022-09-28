@@ -98,7 +98,7 @@
                                 (parseInt(selectedWineOption) === 2 && mintedWineSkinShards !== 0) || 
                                 (parseInt(selectedWineOption) === 3 && mintedWineSkinWtoken !== 0)"
                             > You minted all the skins available.</p>
-                            <select class="cntnt__booster-wineSlector cntnt__booster-wineSlector-noMore" v-model="selectedWineOption">
+                            <select class="cntnt__booster-wineSlector cntnt__booster-wineSlector-noMore wineSelctorDesktop" v-model="selectedWineOption">
                                 <option value=1 selected>EGDL</option>
                                 <option value=2>Shard</option>
                                 <option value=3>Grapes</option>
@@ -119,7 +119,7 @@
                                 <p class="cntnt__booster-text"> You can mint one skin.</p>
                             </div>
                             <div>
-                                <select class="cntnt__booster-wineSlector" :class="{'cntnt__booster-wineSlector-tokens' :parseInt(selectedWineOption) === 2 || parseInt(selectedWineOption) === 3}" v-model="selectedWineOption">
+                                <select class="cntnt__booster-wineSlector wineSelctorDesktop" :class="{'cntnt__booster-wineSlector-tokens' :parseInt(selectedWineOption) === 2 || parseInt(selectedWineOption) === 3}" v-model="selectedWineOption">
                                     <option value=1 selected>EGDL</option>
                                     <option value=2>Shard</option>
                                     <option value=3>Grapes</option>
@@ -143,6 +143,11 @@
                         </div>
                     </div>
                 </div>
+                <select class="cntnt__booster-wineSlector wineSelctorMobile" v-model="selectedWineOption">
+                    <option value=1 selected>EGDL</option>
+                    <option value=2>Shard</option>
+                    <option value=3>Grapes</option>
+                </select>
                 <div v-if="mintedWineSkin!=0 && parseInt(selectedWineOption) === 1">
                     <p class="cntnt__mint-text" v-if="mintedWineSkin>60">{{mintedWineSkin}} SKINS LEFT</p>
                     <p class="cntnt__mint-text" v-else style="color:red">ONLY {{mintedWineSkin}} SKINS{{mintedWineSkin !== 1 ? 's' : ''}} LEFT!</p>

@@ -1,6 +1,26 @@
 
 .cntnt {
     &__booster{
+        &-wineSlector {
+            border-radius: 8px;
+            background: #062038;
+            border-color: #939393;
+            border-width: 1px;
+            color: white;
+            position: absolute;
+            margin-top: 1rem;
+            margin-left: -9.5rem;
+            &-noMore {
+                margin-top: 3rem !important;
+                margin-left: -10.5rem !important;
+            }
+            &-tokens {
+                margin-left: -10.5rem !important;
+            }
+            &-logos {
+                max-width: 4.5rem;
+            }
+        }
         &-btn{
             animation: 0.75s ease-out 0s 1 slideInFromTop;
             margin-bottom: 2rem;
@@ -414,6 +434,25 @@ cursor: auto;
     }
     100% {
         box-shadow: 0px 0px 10px 1px #434406, 0px 0px 15px 2px #ffe601, 0px 0px 15px 3px #eeff53;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .wineSelctorDesktop {
+        display: none;
+    }
+    .wineSelctorMobile {
+        position: relative;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 4rem;
+        margin-top: 0rem;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .wineSelctorMobile {
+        display: none;
     }
 }
 

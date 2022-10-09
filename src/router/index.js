@@ -7,7 +7,7 @@ import Homepage from '@/pages/Homepage/Homepage'
 import MyCollection from '@/pages/MyCollection/MyCollection'
 import MintPage from '@/pages/MintPage/MintPage'
 import DownloadDemo from '@/pages/DownloadDemo/DownloadDemo'
-// import staking from '@/pages/Staking/staking'
+import staking from '@/pages/Staking/staking'
 import vmodal from 'vue-js-modal'
 
 Vue.use(VueRouter)
@@ -48,12 +48,12 @@ const routes = [
     path: '/download',
     name: 'DownloadDemo',
     component: DownloadDemo
+  },
+  {
+    path: '/staking',
+    name: 'Staking',
+    component: staking
   }
-  // {
-  //   path: '/staking',
-  //   name: 'Staking',
-  //   component: staking
-  // }
 ]
 
 const router = new VueRouter({

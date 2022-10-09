@@ -271,12 +271,12 @@ export default {
             selectedWineOption: 1,
 
             // ELROND //
-            // devApi: "https://devnet-api.elrond.com",
-            // SCAddressStr: "erd1qqqqqqqqqqqqqpgqyaqtxp57538uzjl6d5krpfrrzquv5f0ctvkqn59qft",
+            devApi: "https://devnet-api.elrond.com",
+            SCAddressStr: "erd1qqqqqqqqqqqqqpgqyaqtxp57538uzjl6d5krpfrrzquv5f0ctvkqn59qft",
 
             // main
-            devApi : "https://api.elrond.com",
-            SCAddressStr: "erd1qqqqqqqqqqqqqpgqfj9qht90c9zldjskq62sfx8ugfdxpjte58sq7r8au4",
+            // devApi : "https://api.elrond.com",
+            // SCAddressStr: "erd1qqqqqqqqqqqqqpgqfj9qht90c9zldjskq62sfx8ugfdxpjte58sq7r8au4",
 
         }
     },

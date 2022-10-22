@@ -9,7 +9,7 @@
         <img v-else class="modalImage mt-3 mb-3" src="@/assets/images/BaseSetBoosterPack.png" />
         <div class="amountSection d-flex justify-content-center">
           <input class="amountToStake" type="number" min="1" :max="amountLeft" v-model="numberOfPacks" />
-          <p class="amountOwned">x{{amountLeft}} packs stacked
+          <p class="amountOwned">x{{amountLeft}} packs staked
         </div>
         <button  v-if="packType==='red'" class="modalBtn" @click="unStakeRedPack(numberOfPacks)">
           UNSTAKE NFT

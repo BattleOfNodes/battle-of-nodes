@@ -154,7 +154,7 @@
                     <!-- my stacked packs -->
                     <div class="infoBlocks">
                         <div class="infoBlock">
-                            <p class="marketSmallText mb-3">My staked packs</p>
+                            <p class="marketSmallText mb-3">My Staked Packs</p>
                             <p class="marketText mb-3 mt-4">{{ stackedBluePack + stackedRedPack }} PACKS</p>
                             <button class="marketButton mt-4" @click="unstakeAllPacks()" :disabled="(stackedBluePack + stackedRedPack) === 0" :class="{disabledButton: (stackedBluePack + stackedRedPack) === 0}">UNSTAKE ALL</button>
                         </div>
@@ -176,7 +176,7 @@
                         </div>
                         <!-- global packs stacked -->
                         <div class="infoBlock">
-                            <p class="marketSmallText mb-3">Global Packs Stacked</p>
+                            <p class="marketSmallText mb-3">Global Packs Staked</p>
                             <p class="marketText">{{ globalPacksStacked }} PACKS</p>
                         </div>
                     </div>
@@ -209,11 +209,11 @@
                             <img style="width:50%;border-radius:9%;" src="@/assets/images/1stEditionBoosterPack.png" />
                             <div class="marketStakedBox-text w-100 align-items-baseline">
                                 <div class="d-flex flex-column align-items-baseline">
-                                    <p class="marketSmallText">Packs stacked</p>
+                                    <p class="marketSmallText">Packs Staked</p>
                                     <p class="marketText mb-3">{{ stackedRedPack }} PACKS</p>
                                 </div>
                                 <div class="d-flex flex-column align-items-baseline">
-                                    <p class="marketSmallText">Shards earning</p>
+                                    <p class="marketSmallText">Shards Earning</p>
                                     <p class="marketText mb-3">{{ stackedRedPack * redEarning }}/DAY</p>
                                 </div>
                                 <div class="w-100 justify-content-around d-flex">
@@ -226,11 +226,11 @@
                             <img style="width:50%;border-radius:9%;" src="@/assets/images/BaseSetBoosterPack.png" />
                             <div class="marketStakedBox-text w-100 align-items-baseline">
                                 <div class="d-flex flex-column align-items-baseline">
-                                    <p class="marketSmallText">Packs stacked</p>
+                                    <p class="marketSmallText">Packs Staked</p>
                                     <p class="marketText mb-3">{{ stackedBluePack }} PACKS</p>
                                 </div>
                                 <div class="d-flex flex-column align-items-baseline">
-                                    <p class="marketSmallText">Shards earning</p>
+                                    <p class="marketSmallText">Shards Earning</p>
                                     <p class="marketText mb-3">{{ stackedBluePack * blueEarning }}/DAY</p>
                                 </div>
 
@@ -250,11 +250,11 @@
                             <img style="width:50%;border-radius:9%;" src="@/assets/images/1stEditionBoosterPack.png" />
                             <div class="marketStakedBox-text w-100 align-items-baseline">
                                 <div class="d-flex flex-column align-items-baseline">
-                                    <p class="marketSmallText">Packs unstacking</p>
+                                    <p class="marketSmallText">Packs Unstaking</p>
                                     <p class="marketText mb-3">{{ unboundingRedPacks }} PACKS</p>
                                 </div>
                                 <div class="d-flex flex-column align-items-baseline">
-                                    <p class="marketSmallText">Unbounding period</p>
+                                    <p class="marketSmallText">Unbounding Period</p>
                                     <p class="marketText mb-3">{{unboundingTimeRedHours}}:{{ new Date(unboundingTimeRed * 1000).toISOString().slice(14, 19)}}</p>
                                 </div>
                                 <div class="w-100 d-flex">
@@ -266,11 +266,11 @@
                             <img style="width:50%;border-radius:9%;" src="@/assets/images/BaseSetBoosterPack.png" />
                             <div class="marketStakedBox-text w-100 align-items-baseline">
                                 <div class="d-flex flex-column align-items-baseline">
-                                    <p class="marketSmallText">Packs unstacking</p>
+                                    <p class="marketSmallText">Packs Unstaking</p>
                                     <p class="marketText mb-3">{{ unboundingBluePacks }} PACKS</p>
                                 </div>
                                 <div class="d-flex flex-column align-items-baseline">
-                                    <p class="marketSmallText">Unbounding period</p>
+                                    <p class="marketSmallText">Unbounding Period</p>
                                     <p class="marketText mb-3">{{unboundingTimeBlueHours}}:{{new Date(unboundingTimeBlue * 1000).toISOString().slice(14, 19)}}</p>
                                 </div>
                                 <div class="w-100 d-flex">

@@ -12,19 +12,25 @@
                     </router-link>
                 </div>
                 <ul class="marketMenu">
-                    <li class="marketMenuItem" data-toggle="tooltip" to data-placement="top" title="Comming soon">
-                        <router-link class="marketMenuItem"
+                    <li class="marketMenuItem">
+                        <router-link class="normalLinkText"
                             to="/">
                             <p>Back to main site</p>
                         </router-link>
                     </li>
-                    <li class="marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                    <li class="marketMenuItem">
                         <!-- comming soon -->
-                        <p>MY COLLECTION</p>
+                        <router-link class="normalLinkText"
+                            to="/my-collection">
+                            <p>MY COLLECTION</p>
+                        </router-link>
                     </li>
-                    <li class="marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                    <li class="marketMenuItem">
                         <!-- comming soon -->
-                        <p>EXPLORE</p>
+                        <router-link class="normalLinkText"
+                            to="/explore">
+                            <p>EXPLORE</p>
+                        </router-link>
                     </li>
                     <li class="marketMenuItem-selected">
                         <p>STAKING</p>
@@ -85,19 +91,25 @@
                                 src="@/assets/images/battle-of-nodes-logo.png">
                             </router-link>
                         </div>
-                        <li class="stakeMenu__item marketMenuItem" data-toggle="tooltip" to data-placement="top" title="Comming soon">
-                            <router-link class="marketMenuItem"
+                        <li class="stakeMenu__item marketMenuItem">
+                            <router-link class="textDecorNone"
                                 to="/">
                                 <p class="marketMenuItem">Back to main site</p>
                             </router-link>
                         </li>
-                        <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                        <li class="stakeMenu__item marketMenuItem">
                             <!-- comming soon -->
-                            <p class="marketMenuItem">MY COLLECTION</p>
+                            <router-link class="textDecorNone"
+                                to="/my-collection">
+                                <p class="marketMenuItem">MY COLLECTION</p>
+                            </router-link>
                         </li>
-                        <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                        <li class="stakeMenu__item marketMenuItem">
                             <!-- comming soon -->
-                            <p class="marketMenuItem">EXPLORE</p>
+                            <router-link class="textDecorNone"
+                                to="/explore">
+                                <p class="marketMenuItem">EXPLORE</p>
+                            </router-link>
                         </li>
                         <li class="stakeMenu__item marketMenuItem">
                             <p class="marketMenuItem-selected">STAKING</p>

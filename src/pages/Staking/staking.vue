@@ -69,6 +69,76 @@
         <div class="marketplaceContent">
             <!-- login and shard section -->
             <div class="marketLoginShards">
+
+                <div class="stakeMenu__phone menuStake">
+                    <input type="checkbox" id="checkMenu" class="stakeMenu__phone-check" />
+                    <span class="stakeMenu__phone-span"></span>
+                    <span class="stakeMenu__phone-span"></span>
+                    <span class="stakeMenu__phone-span"></span>
+
+                    <ul class="stakeMenu__links">
+                        <div class="marketplaceLogo">
+                            <router-link
+                            to="/">
+                            <img
+                                alt="Battle of Nodes - Logo"
+                                src="@/assets/images/battle-of-nodes-logo.png">
+                            </router-link>
+                        </div>
+                        <li class="stakeMenu__item marketMenuItem" data-toggle="tooltip" to data-placement="top" title="Comming soon">
+                            <router-link class="marketMenuItem"
+                                to="/">
+                                <p class="marketMenuItem">Back to main site</p>
+                            </router-link>
+                        </li>
+                        <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                            <!-- comming soon -->
+                            <p class="marketMenuItem">MY COLLECTION</p>
+                        </li>
+                        <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                            <!-- comming soon -->
+                            <p class="marketMenuItem">EXPLORE</p>
+                        </li>
+                        <li class="stakeMenu__item marketMenuItem">
+                            <p class="marketMenuItem-selected">STAKING</p>
+                        </li>
+                        <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                            <!-- comming soon -->
+                            <p class="marketMenuItem">LENDING</p>
+                        </li>
+                        <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                            <!-- comming soon -->
+                            <p class="marketMenuItem">CRAFTING</p>
+                        </li>
+                        <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                            <!-- comming soon -->
+                            <p class="marketMenuItem">ACTIVITY</p>
+                        </li>
+                        <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                            <!-- comming soon -->
+                            <p class="marketMenuItem">WALLET</p>
+                        </li>
+
+                        <div class="marketMenuDown marketMenuDown-phone">
+                            <ul class="marketMenu">
+                                <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                                    <p>RESSOURCES</p>
+                                </li>
+                                <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                                    <p>COMPANY</p>
+                                </li>
+                                <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
+                                    <p>GAME</p>
+                                </li>
+                            </ul>
+                            <div class="marketMenuLinks">
+                                <a href="https://twitter.com/BattleOfNodeNFT" target="_blank"><img class="thumbnailMarket" src="@/assets/images/twitterWhite.png" alt="Twitter Logo" /></a>
+                                <a href="https://discord.gg/6X2FN6BRKz" target="_blank"><img class="thumbnailMarket" src="@/assets/images/discordWhite.png" alt="Discord Logo" /></a>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+
                 <div class="marketShards">
                     <p class="marketUpperText">{{ shards }}</p>
                     <img class="shardImage" src="@/assets/images/shard.png" alt="shard" />
@@ -781,7 +851,7 @@ export default {
                     "args"      : [this.$erd.walletAddress.valueHex]
                 }
             );
-            this.claimableShards = parseInt(Buffer.from(rawShards.data.returnData[0], 'base64').toString("hex"), 16) || 0
+            this.claimableShards = parseInt(Buffer.from(rawShards.data.returnData[0], 'base64').toString("hex"), 16)/1000000 || 0
         },
         async getGlobalStackedPacks() {
             var rawGlobalStacked = await axios.post(`${this.devApi}/query`,

@@ -56,7 +56,7 @@
             <div class="marketMenuDown mt-5">
                 <ul class="marketMenu">
                     <li class="marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
-                        <p>RESSOURCES</p>
+                        <a class="normalLinkText" href= "https://docs.google.com/document/d/1kkCQ4QC1qnClHm2gcOTqrUoE26fcxCtNLHH3enMfBdM/edit?usp=sharing">RESSOURCES</a>
                     </li>
                     <li class="marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
                         <p>COMPANY</p>
@@ -134,7 +134,7 @@
                         <div class="marketMenuDown marketMenuDown-phone">
                             <ul class="marketMenu">
                                 <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
-                                    <p>RESSOURCES</p>
+                                    <a class="normalLinkText" href= "https://docs.google.com/document/d/1kkCQ4QC1qnClHm2gcOTqrUoE26fcxCtNLHH3enMfBdM/edit?usp=sharing">RESSOURCES</a>
                                 </li>
                                 <li class="stakeMenu__item marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
                                     <p>COMPANY</p>

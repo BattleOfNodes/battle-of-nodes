@@ -159,7 +159,7 @@ export default {
         },
     },
     async beforeMount() {
-        await this.checkIfMintIsLive()
+        this.checkIfMintIsLive()
     }
 };
 </script>

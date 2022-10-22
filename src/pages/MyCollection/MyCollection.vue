@@ -218,7 +218,7 @@ export default {
         }
         if(this.$erd.logged === true) {
             await this.getJSONCards()
-            await this.getUserCards()
+            this.getUserCards()
         }
     }
 }

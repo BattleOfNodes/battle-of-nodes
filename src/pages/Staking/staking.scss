@@ -31,6 +31,7 @@
     text-align: initial;
     padding-left: 20%;
     border-left: 4px solid transparent;
+    text-decoration: none;
     &:hover {
         color: white;
     }
@@ -61,7 +62,7 @@
 }
 
 .marketLoginShards {
-    height: 50px;
+    height: 70px;
     display: flex;
     align-items: center;
     background-color: white;
@@ -104,12 +105,13 @@ visibility: visible;
 }
 
 .marketShards {
+    margin-left: 4.5rem;
     border-style: solid;
     border-color: #cccccc;
     display: flex;
     border-width: 1px;
     border-radius: 25px;
-    height: 80%;
+    height: 65%;
     align-items: center;
 }
 
@@ -125,7 +127,7 @@ visibility: visible;
 
 .marketLink {
     background: linear-gradient(0deg, rgba(220,190,99,1) 0%, rgba(243,215,148,1) 100%);
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 25px;
     font-size: 1.5rem;
     margin-right: 3%;
@@ -136,7 +138,7 @@ visibility: visible;
 
 .marketSection {
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 5rem;
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
@@ -146,29 +148,35 @@ visibility: visible;
 .infoBlock {
     background: white;
     border-radius: 25px;
-    padding: 2rem;
+    padding: 4rem;
     width: 100%;
-    margin-left: 0.5%;
-    margin-right: 0.5%;
+    margin-left: 1%;
+    margin-right: 1%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.infoBlocks {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
 .marketSmallText {
     color: #6a7687;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .marketText {
     color: black;
-    font-size: 2.5rem;
+    font-size: 2.9rem;
 }
 
 .marketButton {
     background: linear-gradient(0deg, rgba(220,190,99,1) 0%, rgba(243,215,148,1) 100%);
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 25px;
     font-size: 2rem;
     color: white;
@@ -191,6 +199,16 @@ visibility: visible;
 
 .marketBooster {
     width: 20%;
+    display: flex;
+    margin-right: 3rem;
+    will-change: transform;
+    &-image {
+        height: auto;
+        width: 35%;
+        border-radius: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .marketStaked {
@@ -211,4 +229,144 @@ visibility: visible;
         justify-content: space-around;
         flex-direction: column;
     }
+}
+
+.disabledButton {
+    filter: opacity(0.5);
+    cursor: not-allowed;
+    pointer-events: all!important;
+}
+
+.disabledPack {
+    filter: opacity(0.6);
+    pointer-events: none;
+}
+
+.bigButtons {
+    margin-right: 2rem;
+}
+
+.marketInnerContent {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.marketBoosterCounter {
+    background-image: url('./../../assets/images/elippse.png');
+    background-size: 100%;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    color: black;
+    font-size: 1.7rem;
+    top: 90%;
+    left: 40%;
+}
+
+.marketBoosterCounterText {
+    margin-top: 35%;
+}
+
+@media screen and (max-width: $bigBreakpoint) {
+    .marketSmallText {
+        font-size: 1.4rem;
+    }
+    .marketText {
+        font-size: 2.4rem;
+    }
+    .marketMenuItem {
+        font-size: 1.6rem;
+        margin-bottom: 1.6rem;
+        &-selected {
+            font-size: 1.6rem;
+            margin-bottom: 1.6rem;
+        }
+    }
+    .marketButton {
+        font-size: 1.6rem;
+    }
+    .marketBoosterCounter {
+        left: 35%;
+    }
+}
+
+@media screen and (max-width: $largeBreakpoint) {
+    .marketBoosterCounterText {
+        font-size: 1.5rem;
+    }
+    .marketBoosterCounter {
+        width: 50px;
+        height: 50px;
+    }
+
+    .marketSmallText {
+        font-size: 1.2rem;
+    }
+    .marketText {
+        font-size: 2rem;
+    }
+
+    .marketButton {
+        font-size: 1.4rem;
+        padding: 1.2rem;
+    }
+    .marketBoosterCounter {
+        left: 35%;
+    }
+    .bigButtons {
+        margin-right: 1rem;
+    }
+    .infoBlock {
+        padding: 3rem;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+    }   
+}
+
+@media screen and (max-width: $desktopBreakpoint) {
+    .marketplaceMenu {
+        display: none;
+    }
+    .marketplaceContent {
+        width: 100%;
+    }
+    .infoBlock {
+        padding: 2rem;
+    }   
+    .bigButtons {
+        margin-right: 5px;
+        margin-left: -5px;
+    }
+    .marketBooster {
+        width: 30%;
+    }
+    .marketBoosterCounter {
+        left: 40%;
+    }
+}
+
+@media screen and (max-width: $tabBreakpoint) {
+    .stakedPacks {
+        flex-direction: column;
+    }
+    .marketStakedBox {
+        margin-bottom: 1rem;
+    }
+    .marketBooster {
+        width: 50%;
+    }
+    .marketInfo {
+        flex-direction: column;
+    }
+    .infoBlocks {
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: $bigMobileBreakpoint) {
+
+}
+
+@media screen and (max-width: $mediumMobileBreakpoint) {
+
 }

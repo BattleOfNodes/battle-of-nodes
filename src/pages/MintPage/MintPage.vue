@@ -938,11 +938,11 @@ export default {
             waiting-=1
         } 
         if(this.$erd.logged === true) {
-            await this.getRemainingPacks()
-            await this.getRemainingSkins()
-            await this.getRemainingWineSkinWtoken()
-            await this.getRemainingWineSkinShard()
-            await this.getRemainingWineSkin()
+            this.getRemainingPacks()
+            this.getRemainingSkins()
+            this.getRemainingWineSkinWtoken()
+            this.getRemainingWineSkinShard()
+            this.getRemainingWineSkin()
         }
     }
 }

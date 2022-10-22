@@ -12,6 +12,12 @@
                     </router-link>
                 </div>
                 <ul class="marketMenu">
+                    <li class="marketMenuItem" data-toggle="tooltip" to data-placement="top" title="Comming soon">
+                        <router-link class="marketMenuItem"
+                            to="/">
+                            <p>Back to main site</p>
+                        </router-link>
+                    </li>
                     <li class="marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
                         <!-- comming soon -->
                         <p>MY COLLECTION</p>
@@ -41,7 +47,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="marketMenuDown">
+            <div class="marketMenuDown mt-5">
                 <ul class="marketMenu">
                     <li class="marketMenuItem noPointerCursor" data-toggle="tooltip" data-placement="top" title="Comming soon">
                         <p>RESSOURCES</p>
@@ -63,10 +69,6 @@
         <div class="marketplaceContent">
             <!-- login and shard section -->
             <div class="marketLoginShards">
-                <router-link
-                    to="/">
-                    <p class="marketUpperText">Back to main site</p>
-                </router-link>
                 <div class="marketShards">
                     <p class="marketUpperText">{{ shards }}</p>
                     <img class="shardImage" src="@/assets/images/shard.png" alt="shard" />
@@ -76,92 +78,138 @@
                     <span v-else>Connect</span>
                 </router-link>
             </div>
-            <!-- info panels -->
-            <div class="marketInfo marketSection">
-                <!-- my stacked packs -->
-                <div class="infoBlock">
-                    <p class="marketSmallText mb-3">My staked packs</p>
-                    <p class="marketText mb-3">{{ stackedBluePack + stackedRedPack }} PACKS</p>
-                    <button class="marketButton" @click="unStakeAll()">UNSTAKE ALL</button>
-                </div>
-                <!-- shards earning -->
-                <div class="infoBlock">
-                    <p class="marketSmallText mb-3">Shards Earning</p>
-                    <p class="marketText">{{ shardsPerDay }}/DAY</p>
-                </div>
-                <!-- claimable shards -->
-                <div class="infoBlock">
-                    <p class="marketSmallText mb-3">Claimable Shards</p>
-                    <div class="claimableShards mb-3">
-                        <p class="marketText ">{{ claimableShards }}</p>
-                        <img class="shardImage w-50" src="@/assets/images/shard.png" alt="shard" />
-                    </div>
-                    <button class="marketButton" @click="claimAllShards()">CLAIM ALL</button>
-                </div>
-                <!-- global packs stacked -->
-                <div class="infoBlock">
-                    <p class="marketSmallText mb-3">Global Packs Stacked</p>
-                    <p class="marketText">{{ globalPacksStacked }} PACKS</p>
-                </div>
-            </div>
-            <!-- available packs -->
-            <div class="marketPacks marketSection">
-                <p class="marketText ms-lg-4">AVAILABLE PACKS</p>
-                <div class="packsContainer ms-lg-4 mt-3">
-                    <div v-if="redPackCount" class="marketBooster">
-                        <img class="cntnt__mint-booster w-100 ms-lg-2" src="@/assets/images/1stEditionBoosterPack.png" />
-                    <div v-if="redPackCount > 1" class="marketBoosterCounter">X{{ redPackCount }}</div>
-                    </div>
-                    <div v-if="bluePackCount" class="marketBooster">
-                        <img class="cntnt__mint-booster w-100" src="@/assets/images/BaseSetBoosterPack.png" />
-                        <div v-if="bluePackCount > 1"  class="marketBoosterCounter">X{{ bluePackCount }}</div>
-                    </div>
-                </div>
-            </div>
-            <!-- staked packs -->
-            <div class="marketStaked marketSection">
-                <p class="marketText ms-lg-4 mb-4">STAKED PACKS</p>
-                <div class="stakedPacks">
-                    <div class="marketStakedBox infoBlock d-flex flex-row justify-content-start">
-                        <img style="width:50%;border-radius:25px;" src="@/assets/images/1stEditionBoosterPack.png" />
-                        <div class="marketStakedBox-text w-100 align-items-baseline">
-                            <div class="d-flex flex-column align-items-baseline">
-                                <p class="marketSmallText">Packs stacked</p>
-                                <p class="marketText mb-3">{{ stackedRedPack }} PACKS</p>
-                            </div>
-                            <div class="d-flex flex-column align-items-baseline">
-                                <p class="marketSmallText">Shards earning</p>
-                                <p class="marketText mb-3">{{ stackedRedPack * redEarning }}/DAY</p>
-                            </div>
-                            <div class="w-100 justify-content-around d-flex">
-                                <button class="marketButton" @click="unStakeAll()">CLAIM</button>
-                                <button class="marketButton" @click="unStakeAll()">UNSTAKE</button>
-                            </div>
+            <div class="marketInnerContent">
+                <!-- info panels -->
+                <div class="marketInfo marketSection">
+                    <!-- my stacked packs -->
+                    <div class="infoBlocks">
+                        <div class="infoBlock">
+                            <p class="marketSmallText mb-3">My staked packs</p>
+                            <p class="marketText mb-3 mt-4">{{ stackedBluePack + stackedRedPack }} PACKS</p>
+                            <button class="marketButton mt-4" @click="unstakeAllPacks()" :disabled="(stackedBluePack + stackedRedPack) === 0" :class="{disabledButton: (stackedBluePack + stackedRedPack) === 0}">UNSTAKE ALL</button>
+                        </div>
+                        <!-- shards earning -->
+                        <div class="infoBlock">
+                            <p class="marketSmallText mb-3">Shards Earning</p>
+                            <p class="marketText">{{ parseInt(this.stackedBluePack) * parseInt(this.blueEarning) + parseInt(this.stackedRedPack) * parseInt(this.redEarning) }}/DAY</p>
                         </div>
                     </div>
-                    <div class="marketStakedBox infoBlock d-flex flex-row justify-content-start">
-                        <img style="width:50%;border-radius:25px;" src="@/assets/images/BaseSetBoosterPack.png" />
-                        <div class="marketStakedBox-text w-100 align-items-baseline">
-                            <div class="d-flex flex-column align-items-baseline">
-                                <p class="marketSmallText">Packs stacked</p>
-                                <p class="marketText mb-3">{{ stackedBluePack }} PACKS</p>
+                    <!-- claimable shards -->
+                    <div class="infoBlocks">
+                        <div class="infoBlock">
+                            <p class="marketSmallText mb-3">Claimable Shards</p>
+                            <div class="claimableShards mb-3">
+                                <p class="marketText ">{{ claimableShards }}</p>
+                                <img class="shardImage w-50" src="@/assets/images/shard.png" alt="shard" />
                             </div>
-                            <div class="d-flex flex-column align-items-baseline">
-                                <p class="marketSmallText">Shards earning</p>
-                                <p class="marketText mb-3">{{ stackedBluePack * blueEarning }}/DAY</p>
+                            <button class="marketButton" :disabled="(claimableShards) === 0" :class="{disabledButton: (claimableShards) === 0}" @click="claimRewards()">CLAIM ALL</button>
+                        </div>
+                        <!-- global packs stacked -->
+                        <div class="infoBlock">
+                            <p class="marketSmallText mb-3">Global Packs Stacked</p>
+                            <p class="marketText">{{ globalPacksStacked }} PACKS</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- available packs -->
+                <template>
+                    <div class="marketPacks marketSection">
+                        <p class="marketText ms-lg-4 mb-4">AVAILABLE PACKS({{ parseInt(redPackCount) + parseInt(bluePackCount) }})</p>
+                        <div class="packsContainer ms-lg-4 mt-3">
+                            <template>
+                            <figure class="marketBooster">
+                                <img :class="{disabledPack: redPackCount===0}"  @click="openModalStacking('red' ,redPackCount)" class="marketBooster-image w-100 ms-lg-2" src="@/assets/images/1stEditionBoosterPack.png" />
+                                <div v-if="redPackCount > 1" class="marketBoosterCounter"><p class="marketBoosterCounterText">X{{ redPackCount }}</p></div>
+                            </figure>
+                             </template>
+                             <template>
+                            <figure class="marketBooster">
+                                <img :class="{disabledPack: bluePackCount===0}"  @click="openModalStacking('blue' ,bluePackCount)" class="marketBooster-image w-100" src="@/assets/images/BaseSetBoosterPack.png" />
+                                <div v-if="bluePackCount > 1" class="marketBoosterCounter"><p class="marketBoosterCounterText">X{{ bluePackCount }}</p></div>
+                            </figure>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+                <!-- staked packs -->
+                <div class="marketStaked marketSection">
+                    <p class="marketText ms-lg-4 mb-5">STAKED PACKS</p>
+                    <div class="stakedPacks">
+                        <div class="marketStakedBox infoBlock d-flex flex-row justify-content-start">
+                            <img style="width:50%;border-radius:9%;" src="@/assets/images/1stEditionBoosterPack.png" />
+                            <div class="marketStakedBox-text w-100 align-items-baseline">
+                                <div class="d-flex flex-column align-items-baseline">
+                                    <p class="marketSmallText">Packs stacked</p>
+                                    <p class="marketText mb-3">{{ stackedRedPack }} PACKS</p>
+                                </div>
+                                <div class="d-flex flex-column align-items-baseline">
+                                    <p class="marketSmallText">Shards earning</p>
+                                    <p class="marketText mb-3">{{ stackedRedPack * redEarning }}/DAY</p>
+                                </div>
+                                <div class="w-100 justify-content-around d-flex">
+                                    <button class="marketButton bigButtons w-100" :disabled="(claimableShards) === 0" :class="{disabledButton: (claimableShards) === 0}" @click="claimRewards()">CLAIM</button>
+                                    <button class="marketButton w-100" :disabled="(stackedRedPack) === 0" :class="{disabledButton: (stackedRedPack) === 0}" @click="openModalUnstaking('red', stackedRedPack)">UNSTAKE</button>
+                                </div>
                             </div>
+                        </div>
+                        <div class="marketStakedBox infoBlock d-flex flex-row justify-content-start">
+                            <img style="width:50%;border-radius:9%;" src="@/assets/images/BaseSetBoosterPack.png" />
+                            <div class="marketStakedBox-text w-100 align-items-baseline">
+                                <div class="d-flex flex-column align-items-baseline">
+                                    <p class="marketSmallText">Packs stacked</p>
+                                    <p class="marketText mb-3">{{ stackedBluePack }} PACKS</p>
+                                </div>
+                                <div class="d-flex flex-column align-items-baseline">
+                                    <p class="marketSmallText">Shards earning</p>
+                                    <p class="marketText mb-3">{{ stackedBluePack * blueEarning }}/DAY</p>
+                                </div>
 
-                            <div class="w-100 justify-content-around d-flex">
-                                <button class="marketButton" @click="unStakeAll()">CLAIM</button>
-                                <button class="marketButton" @click="unStakeAll()">UNSTAKE</button>
+                                <div class="w-100 justify-content-around d-flex">
+                                    <button class="marketButton bigButtons w-100" :disabled="(claimableShards) === 0" :class="{disabledButton: (claimableShards) === 0}" @click="claimRewards()">CLAIM</button>
+                                    <button class="marketButton w-100" :disabled="(stackedBluePack) === 0" :class="{disabledButton: (stackedBluePack) === 0}" @click="openModalUnstaking('blue', stackedBluePack)">UNSTAKE</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- unbounding -->
-            <div v-if="unbounding" class="marketUnbound marketSection">
-                <p class="marketText ms-lg-4">UNBOUNDING</p>
+                <!-- unbounding -->
+                <div v-if="unboundingTimeRed !== 0 || unboundingBluePacks !== 0" class="marketStaked marketSection">
+                    <p class="marketText ms-lg-4 mb-5">UNBOUNDING</p>
+                    <div class="stakedPacks">
+                        <div class="marketStakedBox infoBlock d-flex flex-row justify-content-start">
+                            <img style="width:50%;border-radius:9%;" src="@/assets/images/1stEditionBoosterPack.png" />
+                            <div class="marketStakedBox-text w-100 align-items-baseline">
+                                <div class="d-flex flex-column align-items-baseline">
+                                    <p class="marketSmallText">Packs unstacking</p>
+                                    <p class="marketText mb-3">{{ unboundingRedPacks }} PACKS</p>
+                                </div>
+                                <div class="d-flex flex-column align-items-baseline">
+                                    <p class="marketSmallText">Unbounding period</p>
+                                    <p class="marketText mb-3">{{unboundingTimeRedHours}}:{{ new Date(unboundingTimeRed * 1000).toISOString().slice(14, 19)}}</p>
+                                </div>
+                                <div class="w-100 d-flex">
+                                    <button class="marketButton" :disabled="(unboundingRedPacks) === 0 || (unboundingTimeRed) > 0" :class="{disabledButton: (unboundingRedPacks) === 0 || (unboundingTimeRed) > 0 }" @click="claimAll()">CLAIM PACK</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="marketStakedBox infoBlock d-flex flex-row justify-content-start">
+                            <img style="width:50%;border-radius:9%;" src="@/assets/images/BaseSetBoosterPack.png" />
+                            <div class="marketStakedBox-text w-100 align-items-baseline">
+                                <div class="d-flex flex-column align-items-baseline">
+                                    <p class="marketSmallText">Packs unstacking</p>
+                                    <p class="marketText mb-3">{{ unboundingBluePacks }} PACKS</p>
+                                </div>
+                                <div class="d-flex flex-column align-items-baseline">
+                                    <p class="marketSmallText">Unbounding period</p>
+                                    <p class="marketText mb-3">{{unboundingTimeBlueHours}}:{{new Date(unboundingTimeBlue * 1000).toISOString().slice(14, 19)}}</p>
+                                </div>
+                                <div class="w-100 d-flex">
+                                    <button class="marketButton" :disabled="(unboundingBluePacks) === 0 ||  (unboundingTimeBlue) > 0" :class="{disabledButton: (unboundingBluePacks) === 0 ||  (unboundingTimeBlue) > 0 }" @click="claimAll()">CLAIM PACK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div v-if="loader" class="blur-screen">
@@ -175,7 +223,6 @@
                 <circle class="loader-spinner" cx="50" cy="50" r="45"/>
             </svg>
         </div>
-        <button @click="claimRewards()">claimRewards</button>
     </main>
 </template>
 
@@ -184,6 +231,8 @@
 </style>
 
 <script>
+import stakingModal from "./modal/stakingModal";
+import unstakingModal from "./modal/unstakingModal";
 import { Account, Address, Transaction, TransactionPayload, Balance, GasLimit } from "@elrondnetwork/erdjs";
 import axios from "axios";
 import {Buffer} from 'buffer';
@@ -215,14 +264,6 @@ function formatXBits(str, x)
     str = "0" + str
    return str
 }
-
-// function formatU64(str) {
-//   if (str.length % 2)
-//   {
-//     return '0'+str
-//   }
-//   return str
-// }
 
 function hashArrayToHex(hashArray) {
     /* We convert the hash
@@ -303,10 +344,10 @@ function findUnboundingTime(datas, token_id, token_nonce) {
         let actualPendingToken = decodeQueuePendingEgldOrEsdtTokenPayment(Buffer.from(datas[i], 'base64').toString("hex"))
         if (actualPendingToken["token_id"] == token_id && actualPendingToken["token_nonce"] == token_nonce)
         {
-            return parseInt((Date.now() - actualPendingToken["date"])/1000)
+            return [parseInt((Date.now() - actualPendingToken["date"])/1000), actualPendingToken["amout"]]
         }
     }
-    return 0
+    return [0,0]
 }
 
 
@@ -321,28 +362,36 @@ export default {
             loader: false,
             transaction: null,
 
-            blueEarning: 10,
-            redEarning: 20,
+            blueEarning: 5,
+            redEarning: 10,
 
             stackedBluePack: 0,
             stackedRedPack: 0,
             shards: 0,
-            shardsPerDay: 0,
             claimableShards: 0,
             globalPacksStacked: 0,
 
-            claimingTimeSec: 432000,
+            claimingTimeSec: 259200,
 
-            unbounding: 0,
+            unboundingTimeRed: 0,
+            unboundingTimeBlue: 0,
+
+            unboundingTimeRedHours :0,
+            unboundingTimeBlueHours: 0,
+
+            unboundingRedPacks: 0,
+            unboundingBluePacks: 0,
             SCFunctionHex: "7374616B65",
+
+            timer: 0,
 
             // collection: 'BONPACKS-f0b549',
             // devApi : "https://api.elrond.com",
             // redBoosterID : "BONPACKS-f0b549-01",
             // blueBoosterID : "BONPACKS-f0b549-02",
             // shardsId: "SHARD-d1f010",
-            // scAddress: "",
-            // SCAddressHex: "",
+            // scAddress: "erd1qqqqqqqqqqqqqpgqpympqqtk8efg7xszlw3gu2z5fjj688dj58sque0kcr",
+            // SCAddressHex: "0000000000000000050009361001763e528f1a02fba28e28544ca5a39db2a1e0",
 
             collection: 'BONPACKS-1de767',
             devApi : "https://devnet-api.elrond.com",
@@ -353,7 +402,41 @@ export default {
             shardsId: "XDAO-d9b260",
         }
     },
+    Components: {
+        stakingModal,
+        unstakingModal
+    },
     methods: {
+        openModalStacking(packType, amountLeft) {
+            const options = { packType, amountLeft };
+            const style = {margin: 'auto', width: '70%', height: '70%'};
+            const events = {'before-close':async () => {
+                this.getBlueCount()
+                this.getRedCount()
+                this.getClaimableShards()
+                this.getGlobalStackedPacks()
+                this.getShardsCount()
+                await this.getStackedBluePacks()
+                await this.getStackedRedPack()
+                await this.getUnboundTime()
+                }}
+            this.$modal.show(stakingModal, options, style, events);
+        },
+        openModalUnstaking(packType, amountLeft) {
+            const options = { packType, amountLeft };
+            const style = {margin: 'auto', width: '70%', height: '70%'};
+            const events = {'before-close':async () => {
+                this.getBlueCount()
+                this.getRedCount()
+                this.getClaimableShards()
+                this.getGlobalStackedPacks()
+                this.getShardsCount()
+                await this.getStackedBluePacks()
+                await this.getStackedRedPack()
+                await this.getUnboundTime()
+                }}
+            this.$modal.show(unstakingModal, options, style, events);
+        },
         // PACKS AND SHARDS
         async getBlueCount() {
             await axios.get(`${this.devApi}/accounts/${this.$erd.walletAddress}/nfts?identifiers=${this.blueBoosterID}`)
@@ -385,8 +468,8 @@ export default {
             axios.get(`${this.devApi}/accounts/${this.$erd.walletAddress}/tokens/${this.shardsId}`)
             .then(res => {
                 if(res?.data)
-                    // this.shards = parseInt(res?.data?.balance/1000000)
-                    this.shards = parseInt(res?.data?.balance)
+                    this.shards = parseInt(res?.data?.balance/1000000)
+                    // this.shards = parseInt(res?.data?.balance)
                 else 
                     this.shards = 0
             })
@@ -417,7 +500,7 @@ export default {
             this.stackedRedPack = parseInt(Buffer.from(rawStackedRedPacks.data.returnData[0], 'base64').toString("hex")) || 0
         },
         // UNBOUND TIME
-        async getUnboundTimeBlue(){
+        async getUnboundTime(){
             var rawtime = await axios.post(`${this.devApi}/query`,
                 {
                     "scAddress" : this.scAddress,
@@ -425,22 +508,51 @@ export default {
                     "args"      : [this.$erd.walletAddress.valueHex]
                 }
             );
-            console.log('rawtime')
-            console.log(await findUnboundingTime(rawtime.data.returnData,"BONPACKS-1de767",2))  
-            console.log(await findUnboundingTime(rawtime.data.returnData,"BONPACKS-1de767",1))      
-        },
-        async getUnboundTimeRed(){
-            var rawtime = await axios.post(`${this.devApi}/query`,
-                {
-                    "scAddress" : this.scAddress,
-                    "funcName"  : "getPendingTokensQueue",
-                    "args"      : [this.$erd.walletAddress.valueHex]
-                }
-            );
-            console.log(findUnboundingTime(rawtime,"BONPACKS-1de767",1))          
+            const Red = findUnboundingTime(rawtime.data.returnData,this.collection,1)
+            const Blue = findUnboundingTime(rawtime.data.returnData,this.collection,2)  
+            let timeRed = this.claimingTimeSec - Red[0]
+            this.unboundingTimeRedHours = parseInt(timeRed/3600)
+            this.unboundingTimeRed = timeRed - (this.unboundingTimeRedHours * 3600)
+            this.unboundingRedPacks = Red[1]
+
+            let timeBlue = this.claimingTimeSec - Blue[0]
+            this.unboundingTimeBlueHours = parseInt(timeBlue/3600)
+            this.unboundingTimeBlue = timeBlue - (this.unboundingTimeBlueHours * 3600)
+            this.unboundingBluePacks = Blue[1]
+
+            if(this.unboundingTimeBlueHours < 0){
+                this.unboundingTimeBlueHours = 0
+            }
+            if(this.unboundingTimeRedHours < 0){
+                this.unboundingTimeRedHours = 0
+            }
+
+            if(this.unboundingTimeRed < 0){
+                this.unboundingTimeRed = 0
+            }
+
+            if(this.unboundingTimeBlue < 0){
+                this.unboundingTimeBlue = 0
+            }
+
+            if(Red[0] === 0) {
+                this.unboundingTimeRedHours = 0
+                this.unboundingTimeRed = 0
+            }
+
+            if(Blue[0] === 0) {
+                this.unboundingTimeBlue = 0
+                this.unboundingTimeBlueHours = 0
+            }
+
+            if(this.timer === 0) {
+                this.timer = 1
+                this.unboundingTimer()
+            }
         },
         // STAKE ACTION
         async stakeBluePack() {
+            this.loader = true
             var splittedBoosterID = this.blueBoosterID?.split('-');
             var boosterCollectionID = stringToHex(splittedBoosterID?.slice(0, splittedBoosterID.length - 1).join('-'));
             var boosterNonce = splittedBoosterID[splittedBoosterID.length - 1];
@@ -476,6 +588,8 @@ export default {
             status to be defined  */
             await sleep(250)
             await this.pending(hashHex)
+            this.getBlueCount()
+            await this.getStackedBluePacks()
         },
         async pending(hashHex) {
             /* We try to get the
@@ -505,9 +619,11 @@ export default {
                         await this.checkTranzaction(hashHex)
                         waiting--
                     }
+                    this.loader = false
                 } 
             } catch (err) {
                 console.log(err)
+                this.loader = false
                 /* We need to wait a little bit more time, because the transaction
                    is not reachable yet so we call this function again 250ms later */
                 await sleep(250)
@@ -532,6 +648,7 @@ export default {
             }
         },
         async stakeRedPack() {
+            this.loader = true
             var splittedBoosterID = this.redBoosterID?.split('-');
             var boosterCollectionID = stringToHex(splittedBoosterID?.slice(0, splittedBoosterID.length - 1).join('-'));
             var boosterNonce = splittedBoosterID[splittedBoosterID.length - 1];
@@ -568,9 +685,12 @@ export default {
             status to be defined  */
             await sleep(250)
             await this.pending(hashHex)
+            this.getRedCount()
+            await this.getStackedRedPack()
         },
         // UNSTAKE ACTION
-        async unStakeBluePack() {
+        async unStakeBluePack(number = 1) {
+            this.loader = true
             var splittedBoosterID = this.blueBoosterID?.split('-');
             var boosterNonce = splittedBoosterID[splittedBoosterID.length - 1];
 
@@ -583,7 +703,7 @@ export default {
             await account.sync(this.$erd.providers.proxy)
 
             /* We create the data payload */
-            var payload = new TransactionPayload(`unstake@${encodeEgldOrEsdtTokenPayment(this.collection, boosterNonce, 1)}`);
+            var payload = new TransactionPayload(`unstake@${encodeEgldOrEsdtTokenPayment(this.collection, boosterNonce, number)}`);
 
             /* We create the transaction */
             var transaction = new Transaction({
@@ -608,8 +728,11 @@ export default {
             status to be defined  */
             await sleep(250)
             await this.pending(hashHex)
+            this.getGlobalStackedPacks()
+            await this.getStackedBluePacks()
         },
-        async unStakeRedPack() {
+        async unStakeRedPack(number = 1) {
+            this.loader = true
             var splittedBoosterID = this.redBoosterID?.split('-');
             var boosterNonce = splittedBoosterID[splittedBoosterID.length - 1];
 
@@ -622,7 +745,7 @@ export default {
             await account.sync(this.$erd.providers.proxy)
 
             /* We create the data payload */
-            var payload = new TransactionPayload(`unstake@${encodeEgldOrEsdtTokenPayment(this.collection, boosterNonce, 1)}`);
+            var payload = new TransactionPayload(`unstake@${encodeEgldOrEsdtTokenPayment(this.collection, boosterNonce, number)}`);
 
             /* We create the transaction */
             var transaction = new Transaction({
@@ -647,6 +770,8 @@ export default {
             status to be defined  */
             await sleep(250)
             await this.pending(hashHex)
+            this.getGlobalStackedPacks()
+            await this.getStackedRedPack()
         },
         async getClaimableShards() {
             var rawShards = await axios.post(`${this.devApi}/query`,
@@ -668,21 +793,9 @@ export default {
             );
             this.globalPacksStacked = parseInt(Buffer.from(rawGlobalStacked.data.returnData[0], 'base64').toString("hex")) || 0
         },
-        async calculateShardsPerDay() {
-            this.shardsPerDay = this.stackedBluePack * this.blueEarning + this.stackedRedPack * this.redEarning
-        },
         // info panel button actions
-        async unStakeAll() {
-            this.loader = true
-            await sleep(1000)
-            this.loader = false
-        },
-        async claimAllShards() {
-            this.loader = true
-            await sleep(1000)
-            this.loader = false
-        },
         async claimAll() {
+            this.loader = true
             let account = new Account(this.$erd.walletAddress);
 
             /* We wait for the account's
@@ -717,8 +830,18 @@ export default {
             status to be defined  */
             await sleep(250)
             await this.pending(hashHex)
+
+            this.getBlueCount()
+            this.getRedCount()
+            this.getClaimableShards()
+            this.getGlobalStackedPacks()
+            this.getShardsCount()
+            await this.getStackedBluePacks()
+            await this.getStackedRedPack()
+            await this.getUnboundTime()
         },
         async claimRewards() {
+            this.loader = true
             let account = new Account(this.$erd.walletAddress);
 
             /* We wait for the account's
@@ -742,7 +865,7 @@ export default {
             /* We set the transaction's nonce
                 which is the account's one   */
             await transaction.setNonce(account?.nonce);
-            /*  We send the transaction and
+            /*  We send the transaction and[]
             get its transaction hash array */
             const hashArray = await this.$erd?.providers?.signAndSend(transaction).then((result) => {return result?.hash?.hash;});
             /* We convert the hash
@@ -753,6 +876,58 @@ export default {
             status to be defined  */
             await sleep(250)
             await this.pending(hashHex)
+            
+            this.getBlueCount()
+            this.getRedCount()
+            this.getClaimableShards()
+            this.getGlobalStackedPacks()
+            this.getShardsCount()
+            await this.getStackedBluePacks()
+            await this.getStackedRedPack()
+            await this.getUnboundTime()
+        },
+        async unboundingTimer() {
+            while(this.unboundingTimeRed > 0 && this.unboundingTimeBlue > 0) {
+                await sleep(1000)
+                this.unboundingTimeRed-=1
+                this.unboundingTimeBlue-=1
+                if(this.unboundingTimeRed <= 0){
+                    this.unboundingTimeRed = 0
+                    await this.getUnboundTime()
+                    this.timer = 0
+                    return
+                }
+                if(this.unboundingTimeBlue <= 0){
+                    this.unboundingTimeBlue = 0
+                    await this.getUnboundTime()
+                    this.timer = 0
+                    return
+                }
+            }
+            while(this.unboundingTimeRed <= 0 && this.unboundingTimeBlue > 0) {
+                await sleep(1000)
+                this.unboundingTimeBlue-=1
+                if(this.unboundingTimeBlue <= 0){
+                    this.unboundingTimeBlue = 0
+                    await this.getUnboundTime()
+                    this.timer = 0
+                    return
+                }
+            }
+            while(this.unboundingTimeRed > 0 && this.unboundingTimeBlue <= 0) {
+                await sleep(1000)
+                this.unboundingTimeRed-=1
+                if(this.unboundingTimeRed <= 0){
+                    this.unboundingTimeRed = 0
+                    await this.getUnboundTime()
+                    this.timer = 0
+                    return
+                }
+            }
+        },
+        async unstakeAllPacks() {
+            await this.unStakeRedPack(this.stackedRedPack)
+            await this.unStakeBluePack(this.stackedBluePack)
         }
     },
     async beforeMount() {
@@ -762,15 +937,14 @@ export default {
             waiting-=1
         }
         if(this.$erd.logged === true) {
-            await this.getBlueCount()
-            await this.getRedCount()
-            await this.getShardsCount()
+            this.getBlueCount()
+            this.getRedCount()
+            this.getClaimableShards()
+            this.getGlobalStackedPacks()
+            this.getShardsCount()
             await this.getStackedBluePacks()
             await this.getStackedRedPack()
-            await this.calculateShardsPerDay()
-            await this.getUnboundTimeBlue()
-            await this.getClaimableShards()
-            await this.getGlobalStackedPacks()
+            await this.getUnboundTime()
         }
     }
 }

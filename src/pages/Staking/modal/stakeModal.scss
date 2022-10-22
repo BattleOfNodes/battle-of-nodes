@@ -1,0 +1,127 @@
+@import '@/sass/utils/variables.scss';
+
+.modalBoxGray {
+    background: #e6e8ee;
+    border-radius: 25px;
+    padding: 3rem;
+    height: 100%;
+}
+
+.modalBox {
+    background: white;
+    border-radius: 25px;
+    padding: 3rem;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.modalImage {
+    max-height: 60%;
+    max-width: 100%;
+    border-radius: 9%;
+}
+
+.modalText {
+    font-size: 3rem;
+    color: #49494c;
+}
+
+.redModalText {
+    font-size: 2rem;
+    color: #f20000;
+}
+
+.amountToStake {
+    text-align: center;
+    border-radius: 25px;
+    border: none;
+    color: #343435;
+    font-size: 2rem;
+    background-color: #f4f5f8;
+}
+
+.amountOwned {
+    position: absolute;
+    color: #bfbfbf;
+    font-size: 1.3rem;
+    margin-top: 8px;
+    margin-left: 26rem;
+}
+
+.modalBtn {
+    background: linear-gradient(0deg, rgba(220,190,99,1) 0%, rgba(243,215,148,1) 100%);
+    padding: 1.5rem;
+    border-radius: 25px;
+    font-size: 2rem;
+    color: white;
+    border: none;
+    width: 60%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.closeModal {
+    position: absolute;
+    width: 12%;
+    right: -4%;
+    top: -9%;
+}
+
+
+@media screen and (max-width: $largeBreakpoint) {
+    .closeModal {
+        width: 15%;
+        top: -8%;
+    }
+}
+
+@media screen and (max-width: $desktopBreakpoint) {
+    .closeModal {
+        width: 20%;
+        right: -7%;
+        top: -8%;
+    }
+    .amountOwned {
+        margin-left: 25rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: $tabBreakpoint) {
+    .modalBoxGray {
+        padding: 2rem;
+    }
+    .redModalText {
+        font-size: 1.5rem;
+    }
+    .modalBtn {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+    .modalText {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: $bigMobileBreakpoint) {
+    .modalBox {
+        justify-content: space-around;
+    }
+    .amountOwned {
+        margin-left: 0rem;
+        font-size: 1.2rem;
+        margin-top: 3.5rem;
+    }
+    .closeModal {
+        width: 34%;
+        right: -13%;
+        top: -5%;
+    }
+}
+
+@media screen and (max-width: $mediumMobileBreakpoint) {
+
+}

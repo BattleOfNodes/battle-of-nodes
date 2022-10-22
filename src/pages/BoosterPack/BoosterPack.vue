@@ -481,7 +481,7 @@ export default {
             waiting-=1
         }
         if(this.$erd.logged === true) {
-            await this.updateIsBoostersOwner()
+            this.updateIsBoostersOwner()
         }
 
         if(this.$route.query.status === 'success') {

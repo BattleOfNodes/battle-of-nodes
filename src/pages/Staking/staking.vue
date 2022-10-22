@@ -1013,6 +1013,7 @@ export default {
         }
     },
     async beforeMount() {
+        this.getGlobalStackedPacks()
         let waiting = 40
         while(this.$erd.logged !== true && waiting !=0) {
             await sleep(100)
@@ -1022,7 +1023,6 @@ export default {
             this.getBlueCount()
             this.getRedCount()
             this.getClaimableShards()
-            this.getGlobalStackedPacks()
             this.getShardsCount()
             await this.getStackedBluePacks()
             await this.getStackedRedPack()

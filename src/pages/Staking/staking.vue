@@ -569,7 +569,7 @@ export default {
                     "args"      : [await encodeStackedTokenKey(this.$erd.walletAddress.valueHex, this.collection, 2)]
                 }
             );
-            this.stackedBluePack = parseInt(Buffer.from(rawStackedBluePacks.data.returnData[0], 'base64').toString("hex")) || 0
+            this.stackedBluePack = parseInt(Buffer.from(rawStackedBluePacks.data.returnData[0], 'base64').toString("hex"), 16) || 0
         },
         async getStackedRedPack() {
             var rawStackedRedPacks = await axios.post(`${this.devApi}/query`,
@@ -579,7 +579,7 @@ export default {
                     "args"      : [await encodeStackedTokenKey(this.$erd.walletAddress.valueHex, this.collection, 1)]
                 }
             );
-            this.stackedRedPack = parseInt(Buffer.from(rawStackedRedPacks.data.returnData[0], 'base64').toString("hex")) || 0
+            this.stackedRedPack = parseInt(Buffer.from(rawStackedRedPacks.data.returnData[0], 'base64').toString("hex"), 16) || 0
         },
         // UNBOUND TIME
         async getUnboundTime(){
@@ -873,7 +873,7 @@ export default {
                     "args"      : [stringToHex(this.collection)]
                 }
             );
-            this.globalPacksStacked = parseInt(Buffer.from(rawGlobalStacked.data.returnData[0], 'base64').toString("hex")) || 0
+            this.globalPacksStacked = parseInt(Buffer.from(rawGlobalStacked.data.returnData[0], 'base64').toString("hex"), 16) || 0
         },
         // info panel button actions
         async claimAll() {

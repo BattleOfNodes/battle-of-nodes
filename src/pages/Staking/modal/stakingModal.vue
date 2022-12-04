@@ -8,7 +8,7 @@
         <img v-if="packType === 'red'" class="modalImage mt-3 mb-3" src="@/assets/images/1stEditionBoosterPack.png" />
         <img v-else class="modalImage mt-3 mb-3" src="@/assets/images/BaseSetBoosterPack.png" />
         <div class="amountSection d-flex justify-content-center">
-          <input class="amountToStake" type="number" min="1" :max="amountLeft" v-model="numberOfPacks" />
+          <input class="amountToStake" type="number" min="1" :max="amountLeft" v-model="numberOfPacks" @change="changeNumberOfPacks()" />
           <p class="amountOwned">x{{amountLeft}} packs owned
         </div>
         <button  v-if="packType==='red'" class="modalBtn" @click="stakeRedPack(numberOfPacks)">
@@ -39,7 +39,7 @@
 </style>
 
 <script>
-
+import successStakeModal from "./successStakeModal";
 import { Account, Transaction, TransactionPayload, Balance, GasLimit } from "@elrondnetwork/erdjs";
 import axios from "axios";
 
@@ -102,7 +102,23 @@ export default {
       // shardsId: "XDAO-d9b260",
     }
   },
+  Components: {
+    successStakeModal
+  },
   methods:{
+    changeNumberOfPacks() {
+      if(parseInt(this.numberOfPacks) > parseInt(this.amountLeft)) {
+        this.numberOfPacks = this.amountLeft
+      }
+      if(this.numberOfPacks <= 0) {
+        this.numberOfPacks = 1
+      }
+    },
+    openModalSuccess(packType, amount, actionType) {
+      const options = { packType, amount, actionType };
+      const style = {margin: 'auto', width: '70%', height: '70%'};
+      this.$modal.show(successStakeModal, options, style);
+    },
     addBooster() {
       if(this.numberOfPacks < this.amountLeft)
           this.numberOfPacks++
@@ -151,6 +167,7 @@ export default {
       await this.pending(hashHex)
       this.loader = false
       this.$emit('close')
+      this.openModalSuccess('blue', number, 'stake')
     },
     async pending(hashHex) {
       /* We try to get the
@@ -248,6 +265,7 @@ export default {
       await this.pending(hashHex)
       this.loader = false
       this.$emit('close')
+      this.openModalSuccess('red', number, 'stake')
     }
   }
 };

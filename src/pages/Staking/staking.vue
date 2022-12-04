@@ -1008,8 +1008,12 @@ export default {
             }
         },
         async unstakeAllPacks() {
-            await this.unStakeRedPack(this.stackedRedPack)
-            await this.unStakeBluePack(this.stackedBluePack)
+            if(this.stackedRedPack > 0) {
+                await this.unStakeRedPack(this.stackedRedPack)
+            }
+            if(this.stackedBluePack > 0) {
+                await this.unStakeBluePack(this.stackedBluePack)
+            }
         }
     },
     async beforeMount() {

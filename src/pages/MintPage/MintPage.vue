@@ -161,9 +161,9 @@
                     <p class="cntnt__mint-text" v-else style="color:red">ONLY {{mintedWineSkinWtoken}} SKINS{{mintedWineSkinWtoken !== 1 ? 's' : ''}} LEFT!</p>
                 </div>
                 <p class="cntnt__mint-text" v-if="
-                    (parseInt(selectedWineOption) === 1 && mintedWineSkin === 0) || 
-                    (parseInt(selectedWineOption) === 2 && mintedWineSkinShards === 0) || 
-                    (parseInt(selectedWineOption) === 3 && mintedWineSkinWtoken === 0)"
+                    (parseInt(selectedWineOption) === 1 && parseInt(mintedWineSkin) === 0) || 
+                    (parseInt(selectedWineOption) === 2 && parseInt(mintedWineSkinShards) === 0) || 
+                    (parseInt(selectedWineOption) === 3 && parseInt(mintedWineSkinWtoken) === 0)"
                 >NO MORE SKINS LEFT</p>
                 <p class="cntnt__mint-text" v-if="parseInt(selectedWineOption) === 1">PRICE - 0.40 EGLD</p>
                 <p class="cntnt__mint-text" v-if="parseInt(selectedWineOption) === 2">PRICE - 500 SHARDS</p>

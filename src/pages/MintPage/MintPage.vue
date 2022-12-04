@@ -127,13 +127,13 @@
                                 <div v-if="parseInt(selectedWineOption) === 1" class="cntnt__mint-buttonAdd pointerCursor" v-on:click="removeSkinWine()">
                                     -
                                 </div>
-                                <div v-if="parseInt(selectedWineOption) === 1" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWine()">
+                                <div v-if="parseInt(selectedWineOption) === 1" :class="{disabledButton: parseInt(mintedWineSkin) === 0}" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWine()">
                                     MINT {{ mintWineSkin }} SKINS
                                 </div>
-                                <div v-if="parseInt(selectedWineOption) === 2" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWineShard()">
+                                <div v-if="parseInt(selectedWineOption) === 2" :class="{disabledButton: parseInt(mintedWineSkinShards) === 0}" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWineShard()">
                                     MINT ONE SKIN
                                 </div>
-                                <div v-if="parseInt(selectedWineOption) === 3" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWineWtoken()">
+                                <div v-if="parseInt(selectedWineOption) === 3" :class="{disabledButton: parseInt(mintedWineSkinWtoken) === 0}" class="cntnt-btn cntnt__booster-btn pointerCursor" v-on:click="mintSkinWineWtoken()">
                                     MINT ONE SKIN
                                 </div>
                                 <div v-if="parseInt(selectedWineOption) === 1" class="cntnt__mint-buttonAdd pointerCursor" v-on:click="addSkinWine()">

@@ -1,7 +1,6 @@
 <template>
     <figure
         class="cntnt__allcards-imgCollection">
-        <!-- <img :class="card.rarity === 'Epic' || card.rarity === 'Legendary' ? card.rarity + 'Collection' : ''" -->
         <img
         @click="activateCard()"
         :src="'./cards/' + card.img" />

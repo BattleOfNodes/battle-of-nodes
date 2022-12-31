@@ -31,27 +31,31 @@ export default {
     },
     methods: {
         async sendUserToServer() {
-            if(this.$erd.logged && this.$erd?.walletAddress && (this.$route?.query?.game || this.$route?.query?.address)) {
-                const token = Math.random().toString(32).slice(2);
-                let id
-                await axios.post(`${window.location.origin}/api/v1/sendToken/${this.$erd.walletAddress}/${token}`)
-                .then(res =>{
-                    id = res.data.id
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+            try {
+                if(this.$erd.logged && this.$erd?.walletAddress && (this.$route?.query?.game || this.$route?.query?.address)) {
+                    const token = Math.random().toString(32).slice(2);
+                    let id
+                    await axios.post(`${window.location.origin}/api/v1/sendToken/${this.$erd.walletAddress}/${token}`)
+                    .then(res =>{
+                        id = res.data.id
+                    })
 
-                // game call
-                await axios.post(`http://localhost:3000/callback/${id}/${token}`)
-                .catch(err => {
-                    console.log(err)
-                })
+                    // game call
+                    await axios.post(`http://localhost:3000/callback/${id}/${token}`)
+                }
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         }
     },
-    async updated(){
-        await this.sendUserToServer()
+    updated(){
+        this.sendUserToServer()
     }
 };
 </script>

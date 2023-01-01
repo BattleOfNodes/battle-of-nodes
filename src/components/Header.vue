@@ -6,6 +6,7 @@
                     class="header__logo-link"
                     to="/">
                     <img
+                        class="mt-3"
                         alt="Battle of Nodes - Logo"
                         src="@/assets/images/battle-of-nodes-logo.png">
                 </router-link>

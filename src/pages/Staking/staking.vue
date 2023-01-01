@@ -255,7 +255,7 @@
                     </div>
                 </div>
                 <!-- unbounding -->
-                <div v-if="unboundingTimeRed !== 0 || unboundingBluePacks !== 0" class="marketStaked marketSection">
+                <div v-if="unboundingRedPacks !== 0 || unboundingBluePacks !== 0" class="marketStaked marketSection">
                     <p class="marketText ms-lg-4 mb-5">UNBOUNDING</p>
                     <div class="stakedPacks">
                         <div class="marketStakedBox infoBlock d-flex flex-row justify-content-start">

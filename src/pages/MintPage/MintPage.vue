@@ -221,25 +221,7 @@ import successMessageMint from "./modal/successMessageMint";
 import { Account, Address, Transaction, TransactionPayload, Balance, GasLimit } from "@elrondnetwork/erdjs";
 import axios from "axios";
 import {Buffer} from 'buffer';
-
-function sleep(n) { return new Promise(resolve=>setTimeout(resolve,n)); }
-
-function hashArrayToHex(hashArray) {
-    /* We convert the hash
-        char array to hex  */
-    var hashHex = ""
-    for (const i in hashArray)
-        hashHex = hashHex.concat(intToHex(hashArray[i], 10));
-    return hashHex.substring(0, 64);
-}
-
-function intToHex(string) {
-    let hex = Number(string).toString(16);
-    if (hex.length % 2 !== 0) {
-        hex = `0${hex}`;
-    }
-    return hex;
-}
+import { sleep, hashArrayToHex} from "../../utils"
 
 export default {
     name: 'MintPack',
@@ -357,58 +339,76 @@ export default {
                 this.mintWineSkin--
         },
         async getMintedPacks() { // get the already minted Packs
+            try {
+                var rawMintedPacks = await axios.post(`${this.devApi}/query`,
+                    {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getTotalNFTBuyable",
+                        "args"      : ["00"],
+                        "value"     : "0"
+                    }
+                );
 
-            var rawMintedPacks = await axios.post(`${this.devApi}/query`,
-                {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getTotalNFTBuyable",
-                    "args"      : ["00"],
-                    "value"     : "0"
+                const availablePacks = Number("0x" + Buffer.from(rawMintedPacks.data.returnData[0], 'base64').toString("hex"));
+
+                var rawBoughtPacks = await axios.post(`${this.devApi}/query`, {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getNbrNFTBought",
+                        "args"      : ["00"],
+                        "value"     : "0"
+                    }
+                );
+
+                if (Buffer.from(rawBoughtPacks.data.returnData[0], 'base64').toString("hex")) {
+                    this.mintedPacks = availablePacks - Number("0x" + Buffer.from(rawBoughtPacks.data.returnData[0], 'base64').toString("hex"));
+                    localStorage.setItem('mintedPacks', this.mintedPacks || 0)
                 }
-            );
-
-            const availablePacks = Number("0x" + Buffer.from(rawMintedPacks.data.returnData[0], 'base64').toString("hex"));
-
-            var rawBoughtPacks = await axios.post(`${this.devApi}/query`, {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getNbrNFTBought",
-                    "args"      : ["00"],
-                    "value"     : "0"
-                }
-            );
-
-            if (Buffer.from(rawBoughtPacks.data.returnData[0], 'base64').toString("hex")) {
-                this.mintedPacks = availablePacks - Number("0x" + Buffer.from(rawBoughtPacks.data.returnData[0], 'base64').toString("hex"));
-                localStorage.setItem('mintedPacks', this.mintedPacks || 0)
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
         async getRemainingPacks() { // get the packs that the user can mint
+            try {
+                var rawMaxBuyablePerAddress = await axios.post(`${this.devApi}/query`, {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getTotalNFTBuyablePerAddress",
+                        "args"      : ["00"],
+                        "value"     : "0"
+                    }
+                );
 
-            var rawMaxBuyablePerAddress = await axios.post(`${this.devApi}/query`, {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getTotalNFTBuyablePerAddress",
-                    "args"      : ["00"],
-                    "value"     : "0"
+                this.remainingPacks = Number("0x" + Buffer.from(rawMaxBuyablePerAddress.data.returnData[0], 'base64').toString("hex"));
+
+                var rawBoughtPacksperAddress = await axios.post(`${this.devApi}/query`,
+                    {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getBoughtForAnAddress",
+                        "args"      : ["00", this.$erd.walletAddress.valueHex],
+                        "value"     : "0"
+                    }
+                );
+
+                if (Buffer.from(rawBoughtPacksperAddress.data.returnData[0], 'base64').toString("hex")) {
+                    this.remainingPacks -= Number("0x" + Buffer.from(rawBoughtPacksperAddress.data.returnData[0], 'base64').toString("hex"));
                 }
-            );
 
-            this.remainingPacks = Number("0x" + Buffer.from(rawMaxBuyablePerAddress.data.returnData[0], 'base64').toString("hex"));
-
-            var rawBoughtPacksperAddress = await axios.post(`${this.devApi}/query`,
-                {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getBoughtForAnAddress",
-                    "args"      : ["00", this.$erd.walletAddress.valueHex],
-                    "value"     : "0"
+                if(this.mintedPacks < this.remainingPacks) {
+                    this.remainingPacks = this.mintedPacks
                 }
-            );
-
-            if (Buffer.from(rawBoughtPacksperAddress.data.returnData[0], 'base64').toString("hex")) {
-                this.remainingPacks -= Number("0x" + Buffer.from(rawBoughtPacksperAddress.data.returnData[0], 'base64').toString("hex"));
-            }
-
-            if(this.mintedPacks < this.remainingPacks) {
-                this.remainingPacks = this.mintedPacks
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
         async mintPack() { // just mint a pack
@@ -457,7 +457,13 @@ export default {
                 await this.pending(hashHex, 'booster')
             } catch (err) { 
                 this.loader= false
-                console.log(err)
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
         async pending(hashHex, mode) {
@@ -502,68 +508,92 @@ export default {
                     // STATUS = rawRequest.data.status      ==> "success" or "failure"
                 } 
             } catch (err) {
-                console.log(err)
                 /* We need to wait a little bit more time, because the transaction
                    is not reachable yet so we call this function again 250ms later */
                 await sleep(250)
                 await this.pending(hashHex, mode)
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
 
         // ---------------------------------- mint skins ---------------------------------
         async getMintedSkins() { // get the already minted Packs
+            try {
+                var rawMintedSkins = await axios.post(`${this.devApi}/query`,
+                    {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getTotalNFTBuyable",
+                        "args"      : ["01"],
+                        "value"     : "0"
+                    }
+                );
 
-            var rawMintedSkins = await axios.post(`${this.devApi}/query`,
-                {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getTotalNFTBuyable",
-                    "args"      : ["01"],
-                    "value"     : "0"
+                const availableSkins = Number("0x" + Buffer.from(rawMintedSkins.data.returnData[0], 'base64').toString("hex"));
+
+                var rawBoughtSkins = await axios.post(`${this.devApi}/query`, {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getNbrNFTBought",
+                        "args"      : ["01"],
+                        "value"     : "0"
+                    }
+                );
+
+                if (Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex")) {
+                    this.mintedSkins = availableSkins - Number("0x" + Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex"));
+                    localStorage.setItem('mintedSkins', this.mintedSkins || 0)
                 }
-            );
-
-            const availableSkins = Number("0x" + Buffer.from(rawMintedSkins.data.returnData[0], 'base64').toString("hex"));
-
-            var rawBoughtSkins = await axios.post(`${this.devApi}/query`, {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getNbrNFTBought",
-                    "args"      : ["01"],
-                    "value"     : "0"
-                }
-            );
-
-            if (Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex")) {
-                this.mintedSkins = availableSkins - Number("0x" + Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex"));
-                localStorage.setItem('mintedSkins', this.mintedSkins || 0)
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
         async getRemainingSkins() { // get the packs that the user can mint
+            try {
+                var rawMaxBuyablePerAddress = await axios.post(`${this.devApi}/query`, {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getTotalNFTBuyablePerAddress",
+                        "args"      : ["01"],
+                        "value"     : "0"
+                    }
+                );
 
-            var rawMaxBuyablePerAddress = await axios.post(`${this.devApi}/query`, {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getTotalNFTBuyablePerAddress",
-                    "args"      : ["01"],
-                    "value"     : "0"
+                this.remainingSkins = Number("0x" + Buffer.from(rawMaxBuyablePerAddress.data.returnData[0], 'base64').toString("hex"));
+
+                var rawBoughtSkinsperAddress = await axios.post(`${this.devApi}/query`,
+                    {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getBoughtForAnAddress",
+                        "args"      : ["01", this.$erd.walletAddress.valueHex],
+                        "value"     : "0"
+                    }
+                );
+
+                if (Buffer.from(rawBoughtSkinsperAddress.data.returnData[0], 'base64').toString("hex")) {
+                    this.remainingSkins -= Number("0x" + Buffer.from(rawBoughtSkinsperAddress.data.returnData[0], 'base64').toString("hex"));
                 }
-            );
 
-            this.remainingSkins = Number("0x" + Buffer.from(rawMaxBuyablePerAddress.data.returnData[0], 'base64').toString("hex"));
-
-            var rawBoughtSkinsperAddress = await axios.post(`${this.devApi}/query`,
-                {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getBoughtForAnAddress",
-                    "args"      : ["01", this.$erd.walletAddress.valueHex],
-                    "value"     : "0"
+                if(this.mintedSkins < this.remainingSkins) {
+                    this.remainingSkins = this.mintedSkins
                 }
-            );
-
-            if (Buffer.from(rawBoughtSkinsperAddress.data.returnData[0], 'base64').toString("hex")) {
-                this.remainingSkins -= Number("0x" + Buffer.from(rawBoughtSkinsperAddress.data.returnData[0], 'base64').toString("hex"));
-            }
-
-            if(this.mintedSkins < this.remainingSkins) {
-                this.remainingSkins = this.mintedSkins
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
         async mintSkin() { // just mint a skin!!
@@ -612,64 +642,88 @@ export default {
                 await this.pending(hashHex, 'skin')
             } catch (err) { 
                 this.loader= false
-                console.log(err)
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
 
         // ---------------- wine skin --------------------------
          async getMintedWineSkin() { // get the already minted Packs
+            try {
+                var rawMintedSkins = await axios.post(`${this.devApi}/query`,
+                    {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getTotalNFTBuyable",
+                        "args"      : ["02"],
+                        "value"     : "0"
+                    }
+                );
 
-            var rawMintedSkins = await axios.post(`${this.devApi}/query`,
-                {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getTotalNFTBuyable",
-                    "args"      : ["02"],
-                    "value"     : "0"
+                const availableSkins = Number("0x" + Buffer.from(rawMintedSkins.data.returnData[0], 'base64').toString("hex"));
+
+                var rawBoughtSkins = await axios.post(`${this.devApi}/query`, {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getNbrNFTBought",
+                        "args"      : ["02"],
+                        "value"     : "0"
+                    }
+                );
+
+                if (Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex")) {
+                    this.mintedWineSkin = availableSkins - Number("0x" + Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex"));
+                    localStorage.setItem('mintedWineSkin', this.mintedWineSkin || 0)
                 }
-            );
-
-            const availableSkins = Number("0x" + Buffer.from(rawMintedSkins.data.returnData[0], 'base64').toString("hex"));
-
-            var rawBoughtSkins = await axios.post(`${this.devApi}/query`, {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getNbrNFTBought",
-                    "args"      : ["02"],
-                    "value"     : "0"
-                }
-            );
-
-            if (Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex")) {
-                this.mintedWineSkin = availableSkins - Number("0x" + Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex"));
-                localStorage.setItem('mintedWineSkin', this.mintedWineSkin || 0)
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
         async getRemainingWineSkin() { // get the packs that the user can mint
+            try {
+                var rawMaxBuyablePerAddress = await axios.post(`${this.devApi}/query`, {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getTotalNFTBuyablePerAddress",
+                        "args"      : ["02"],
+                        "value"     : "0"
+                    }
+                );
 
-            var rawMaxBuyablePerAddress = await axios.post(`${this.devApi}/query`, {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getTotalNFTBuyablePerAddress",
-                    "args"      : ["02"],
-                    "value"     : "0"
+                this.remainingWineSkin = Number("0x" + Buffer.from(rawMaxBuyablePerAddress.data.returnData[0], 'base64').toString("hex"));
+
+                var rawBoughtSkinsperAddress = await axios.post(`${this.devApi}/query`,
+                    {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getBoughtForAnAddress",
+                        "args"      : ["02", this.$erd.walletAddress.valueHex],
+                        "value"     : "0"
+                    }
+                );
+
+                if (Buffer.from(rawBoughtSkinsperAddress.data.returnData[0], 'base64').toString("hex")) {
+                    this.remainingWineSkin -= Number("0x" + Buffer.from(rawBoughtSkinsperAddress.data.returnData[0], 'base64').toString("hex"));
                 }
-            );
 
-            this.remainingWineSkin = Number("0x" + Buffer.from(rawMaxBuyablePerAddress.data.returnData[0], 'base64').toString("hex"));
-
-            var rawBoughtSkinsperAddress = await axios.post(`${this.devApi}/query`,
-                {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getBoughtForAnAddress",
-                    "args"      : ["02", this.$erd.walletAddress.valueHex],
-                    "value"     : "0"
+                if(this.mintedWineSkin < this.remainingWineSkin) {
+                    this.remainingWineSkin = this.mintedWineSkin
                 }
-            );
-
-            if (Buffer.from(rawBoughtSkinsperAddress.data.returnData[0], 'base64').toString("hex")) {
-                this.remainingWineSkin -= Number("0x" + Buffer.from(rawBoughtSkinsperAddress.data.returnData[0], 'base64').toString("hex"));
-            }
-
-            if(this.mintedWineSkin < this.remainingWineSkin) {
-                this.remainingWineSkin = this.mintedWineSkin
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
 
@@ -719,39 +773,54 @@ export default {
                 await this.pending(hashHex, 'skinWine')
             } catch (err) { 
                 this.loader= false
-                console.log(err)
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
         // ---------------- wine skin shard --------------------------
 
         async getMintedWineSkinShard() { // get the already minted Packs
+            try {
+                var rawMintedSkins = await axios.post(`${this.devApi}/query`,
+                    {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getTotalNFTBuyable",
+                        "args"      : ["03"],
+                        "value"     : "0"
+                    }
+                );
 
-            var rawMintedSkins = await axios.post(`${this.devApi}/query`,
-                {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getTotalNFTBuyable",
-                    "args"      : ["03"],
-                    "value"     : "0"
+                const availableSkins = Number("0x" + Buffer.from(rawMintedSkins.data.returnData[0], 'base64').toString("hex"));
+
+                var rawBoughtSkins = await axios.post(`${this.devApi}/query`, {
+                        "scAddress" : this.SCAddressStr,
+                        "funcName"  : "getNbrNFTBought",
+                        "args"      : ["03"],
+                        "value"     : "0"
+                    }
+                );
+
+                if (Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex")) {
+                    this.mintedWineSkinShards = availableSkins - Number("0x" + Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex"));
+                    localStorage.setItem('mintedWineSkinShards', this.mintedWineSkinShards || 0)
                 }
-            );
-
-            const availableSkins = Number("0x" + Buffer.from(rawMintedSkins.data.returnData[0], 'base64').toString("hex"));
-
-            var rawBoughtSkins = await axios.post(`${this.devApi}/query`, {
-                    "scAddress" : this.SCAddressStr,
-                    "funcName"  : "getNbrNFTBought",
-                    "args"      : ["03"],
-                    "value"     : "0"
-                }
-            );
-
-            if (Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex")) {
-                this.mintedWineSkinShards = availableSkins - Number("0x" + Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex"));
-                localStorage.setItem('mintedWineSkinShards', this.mintedWineSkinShards || 0)
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
         async getRemainingWineSkinShard() { // get the packs that the user can mint
-
+            try {
             var rawMaxBuyablePerAddress = await axios.post(`${this.devApi}/query`, {
                     "scAddress" : this.SCAddressStr,
                     "funcName"  : "getTotalNFTBuyablePerAddress",
@@ -777,6 +846,15 @@ export default {
 
             if(this.mintedWineSkinShards < this.remainingWineSkinShards) {
                 this.remainingWineSkinShards = this.mintedWineSkinShards
+            }
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
 
@@ -822,14 +900,20 @@ export default {
                 await this.pending(hashHex, 'skinWineShard')
             } catch (err) { 
                 this.loader= false
-                console.log(err)
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
 
         // ---------------- wine skin wine token --------------------------
 
         async getMintedWineSkinWtoken() { // get the already minted Packs
-
+            try {
             var rawMintedSkins = await axios.post(`${this.devApi}/query`,
                 {
                     "scAddress" : this.SCAddressStr,
@@ -853,9 +937,18 @@ export default {
                 this.mintedWineSkinWtoken = availableSkins - Number("0x" + Buffer.from(rawBoughtSkins.data.returnData[0], 'base64').toString("hex"));
                 localStorage.setItem('mintedWineSkinWtoken', this.mintedWineSkinWtoken || 0)
             }
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
+            }
         },
         async getRemainingWineSkinWtoken() { // get the packs that the user can mint
-
+            try {
             var rawMaxBuyablePerAddress = await axios.post(`${this.devApi}/query`, {
                     "scAddress" : this.SCAddressStr,
                     "funcName"  : "getTotalNFTBuyablePerAddress",
@@ -881,6 +974,15 @@ export default {
 
             if(this.mintedWineSkinWtoken < this.remainingWineSkinWtoken) {
                 this.remainingWineSkinWtoken = this.mintedWineSkinWtoken
+            }
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
 
@@ -927,22 +1029,38 @@ export default {
                 await this.pending(hashHex, 'skinWineWtoken')
             } catch (err) { 
                 this.loader= false
-                console.log(err)
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
     },
     async beforeMount() {
-        let waiting = 80
-        while(this.$erd.logged !== true && waiting !=0) {
-            await sleep(50)
-            waiting-=1
-        } 
-        if(this.$erd.logged === true) {
-            this.getRemainingPacks()
-            this.getRemainingSkins()
-            this.getRemainingWineSkinWtoken()
-            this.getRemainingWineSkinShard()
-            this.getRemainingWineSkin()
+        try {
+            let waiting = 80
+            while(this.$erd.logged !== true && waiting !=0) {
+                await sleep(50)
+                waiting-=1
+            } 
+            if(this.$erd.logged === true) {
+                this.getRemainingPacks()
+                this.getRemainingSkins()
+                this.getRemainingWineSkinWtoken()
+                this.getRemainingWineSkinShard()
+                this.getRemainingWineSkin()
+            }
+        } catch(e) {
+            this.$toast.open({
+                message: 'Something went wrong! Please try again later!',
+                type: 'error',
+                dismissible: true,
+                position: 'top-right',
+                duration: 5000,
+            });
         }
     }
 }

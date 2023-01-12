@@ -73,7 +73,7 @@
 <script>
 import axios from "axios";
 import CollectionCards from './comps/CollectionCards';
-function sleep(n) { return new Promise(resolve=>setTimeout(resolve,n)); }
+import { sleep } from "../../utils"
 
 export default {
     components: {
@@ -105,93 +105,104 @@ export default {
     },
     methods: {
         async resetFilters() {
-            this.filterCiv = 'CIVILIZATION'
-            this.filterClass = 'TYPE'
-            this.filterType = 'CARD TYPE'
-            this.filterRarity = 'RARITY'
-            this.filterEdition = 'EDITION'
-            await this.getUserCards()
+            try {
+                this.filterCiv = 'CIVILIZATION'
+                this.filterClass = 'TYPE'
+                this.filterType = 'CARD TYPE'
+                this.filterRarity = 'RARITY'
+                this.filterEdition = 'EDITION'
+                await this.getUserCards()
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
+            }
         },
         async getJSONCards () {
-            if(this.$erd.logged) { 
-                await axios.get('/cards_BON.json')
-                .then(res => this.normalCards = res.data)
-                .catch(err => console.log(err))
-                await axios.get('/cards_golden_BON.json')
-                .then(res => this.goldenCards = res.data)
-                .catch(err => console.log(err))
+            this.normalCards = await axios.get('/cards_BON.json')
+            this.goldenCards = await axios.get('/cards_golden_BON.json')
 
-                this.allCards = [...this.goldenCards,...this.normalCards]
-            }
+            this.allCards = [...this.goldenCards?.data,...this.normalCards?.data]
         },
         async getUserCards () {
-            if(this.$erd.logged) { 
-                // await axios.get(`https://devnet-api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d326b4`) // change identifier for live and api endpoint
-                await axios.get(`https://api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d1fb64`)
-                .then(async res => {
-                    this.usersCards = this.allCards.filter((card) => {
-                        return res.data.find((userCard) => {
-                            card.balance = userCard.balance
-                            return card.identifier === userCard.identifier.substr(-2) })
-                    })
-                    this.setfilterCards()
+            const res = await axios.get(`https://devnet-api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d326b4`) // change identifier for live and api endpoint
+            // const res = await axios.get(`https://api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d1fb64`)
 
-                    await this.CivFilters(this.usersCards)
-                    await this.TypeFilters(this.usersCards)
-                    await this.CardTypeFilters(this.usersCards)
-                    await this.RarityFilters(this.usersCards)
-                    await this.EditionFilters(this.usersCards)
-                })
-                .catch(err => console.log(err))
-            }
+            this.usersCards = this.allCards.filter((card) => {
+                return res.data.find((userCard) => {
+                    card.balance = userCard.balance
+                    return card.identifier === userCard.identifier.substr(-2) })
+            })
+
+            this.setfilterCards()
+
+            this.CivFilters(this.usersCards)
+            this.TypeFilters(this.usersCards)
+            this.CardTypeFilters(this.usersCards)
+            this.RarityFilters(this.usersCards)
+            this.EditionFilters(this.usersCards)
         },
-        async setfilterCards() {
-            let filteredCards = this.usersCards
-            filteredCards = await this.filterByCivilization(filteredCards)
-            filteredCards = await this.filterByType(filteredCards)
-            filteredCards = await this.filterByCardType(filteredCards)
-            filteredCards = await this.filterByRarity(filteredCards)
-            filteredCards = await this.filterByEdition(filteredCards)
-            this.filteredCard = filteredCards            
+        setfilterCards() {
+            try {
+                let filteredCards = this.usersCards
+                filteredCards = this.filterByCivilization(filteredCards)
+                filteredCards = this.filterByType(filteredCards)
+                filteredCards = this.filterByCardType(filteredCards)
+                filteredCards = this.filterByRarity(filteredCards)
+                filteredCards = this.filterByEdition(filteredCards)
+                this.filteredCard = filteredCards       
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
+            }     
         },
-        async filterByCivilization(filteredCards) {
+        filterByCivilization(filteredCards) {
             return filteredCards.filter( card => {
                 return card.civilisation.toUpperCase() === this.filterCiv || this.filterCiv === 'CIVILIZATION' || this.filterCiv === 'ALL CIVILIZATIONS';
             });
         },
-        async filterByType(filteredCards) {
+        filterByType(filteredCards) {
             return filteredCards.filter( card => {
                 return card.class.toUpperCase() === this.filterClass || this.filterClass === 'TYPE' || this.filterClass === 'ALL TYPES';
             });
         },
-        async filterByCardType(filteredCards) {
+        filterByCardType(filteredCards) {
             return filteredCards.filter( card => {
                 return card.type.toUpperCase() === this.filterType || this.filterType === 'CARD TYPE' || this.filterType === 'ALL CARD TYPES';
             });
         },
-        async filterByRarity(filteredCards) {
+        filterByRarity(filteredCards) {
             return filteredCards.filter( card => {
                 return card.rarity.toUpperCase() === this.filterRarity || this.filterRarity === 'RARITY' || this.filterRarity === 'ALL RARITYS';
             });
         },
-        async filterByEdition(filteredCards) {
+        filterByEdition(filteredCards) {
             return filteredCards.filter( card => {
                 return card.edition.toUpperCase() === this.filterEdition || this.filterEdition === 'EDITION' || this.filterEdition === 'ALL EDITIONS';
             });
         },
-        async CivFilters(filteredCards) {
+        CivFilters(filteredCards) {
             this.filterCivArray = [...new Set(filteredCards.map(card => card.civilisation.toUpperCase()))]
         },
-        async TypeFilters(filteredCards) {
+        TypeFilters(filteredCards) {
             this.filterClassArray = [...new Set(filteredCards.map(card => card.class.toUpperCase()))]
         },
-        async CardTypeFilters(filteredCards) {
+        CardTypeFilters(filteredCards) {
             this.filterTypeArray = [...new Set(filteredCards.map(card => card.type.toUpperCase()))]
         },
-        async RarityFilters(filteredCards) {
+        RarityFilters(filteredCards) {
             this.filterRarityArray = [...new Set(filteredCards.map(card => card.rarity.toUpperCase()))]
         },
-        async EditionFilters(filteredCards) {
+        EditionFilters(filteredCards) {
             this.filterEditionArray = [...new Set(filteredCards.map(card => card.edition.toUpperCase()))]
         },
         mouseDown (e) {
@@ -211,14 +222,25 @@ export default {
         },
     },
     async beforeMount () {
-        let waiting = 80
-        while(this.$erd.logged !== true && waiting !=0) {
-            await sleep(50)
-            waiting-=1
-        }
-        if(this.$erd.logged === true) {
-            await this.getJSONCards()
-            this.getUserCards()
+        try {
+            let waiting = 80
+            while(this.$erd.logged !== true && waiting !=0) {
+                await sleep(50)
+                waiting-=1
+            }
+            if(this.$erd.logged === true) {
+                await this.getJSONCards()
+                this.getUserCards()
+            }
+        } catch(e) {
+            console.log(e)
+            this.$toast.open({
+                message: 'Something went wrong! Please try again later!',
+                type: 'error',
+                dismissible: true,
+                position: 'top-right',
+                duration: 5000,
+            });
         }
     }
 }

@@ -39,6 +39,16 @@
                         <span>Staking</span>
                     </router-link>
                 </li>
+                <div class="d-flex mt-auto">
+                    <ul class="d-flex flex-row">
+                        <li class="menu__item connectPhone">
+                            <a href="https://twitter.com/BattleOfNodeNFT" target="_blank" class="menu__item-link"><img class="thumbnailLogo" src="@/assets/images/twitterWhite.png" alt="Twitter Logo" /></a>
+                        </li>
+                        <li class="menu__item connectPhone">
+                            <a href="https://discord.gg/6X2FN6BRKz" target="_blank" class="menu__item-link"><img class="thumbnailLogo" src="@/assets/images/discordWhite.png" alt="Discord Logo" /></a>
+                        </li>
+                    </ul>
+                </div>
             </ul>
         </div>
     </nav>
@@ -46,9 +56,14 @@
 
 <script>
 export default {
-     data () {
+    data () {
         return{
             isMint: localStorage.getItem("mintedPacks") || localStorage.getItem("mintedSkins") || 0,
+        }
+    },
+    watch:{
+        $route (){
+            document.getElementById('checkMenu').checked = false
         }
     }
 };

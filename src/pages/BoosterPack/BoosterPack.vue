@@ -116,30 +116,7 @@
 
 import { Account, Transaction, TransactionPayload, Balance, GasLimit } from "@elrondnetwork/erdjs";
 import axios from "axios";
-
-function sleep(n) { return new Promise(resolve=>setTimeout(resolve,n)); }
-
-function hashArrayToHex(hashArray) {
-    /* We convert the hash
-        char array to hex  */
-    var hashHex = ""
-    for (const i in hashArray)
-        hashHex = hashHex.concat(intToHex(hashArray[i], 10));
-    return hashHex.substring(0, 64);
-}
-
-function intToHex(string) {
-    let hex = Number(string).toString(16);
-    if (hex.length % 2 !== 0) {
-        hex = `0${hex}`;
-    }
-    return hex;
-}
-
-function stringToHex(string) {
-    return string.split('').map((c) => c.charCodeAt(0).toString(16).padStart(2, '0')) .join('');
-}
-
+import { sleep, hashArrayToHex, stringToHex} from "../../utils"
 import boosterModal from "./modal/boosterModal";
 
 export default {
@@ -236,88 +213,81 @@ export default {
          * Used by the dApp to update the boosters owner variables *
          ***********************************************************/
         async updateSupply() {
-            await axios.get(`${this.devApi}/nfts/${this.redBoosterID}/supply`)
-            .then(res => {
-                if(res?.data?.supply)
-                    this.redBoosterSupply = res?.data?.supply
-                else
-                    this.redBoosterSupply = 0
-            })
-            .catch(err => {
-                console.log(err)
-                this.redBoosterSupply = 0
-            })
+            try { 
+                await axios.get(`${this.devApi}/nfts/${this.redBoosterID}/supply`)
+                .then(res => {
+                    if(res?.data?.supply)
+                        this.redBoosterSupply = res?.data?.supply
+                    else
+                        this.redBoosterSupply = 0
+                })
 
-            await axios.get(`${this.devApi}/nfts/${this.blueBoosterID}/supply`)
-            .then(res => {
-                if(res?.data?.supply)
-                    this.blueBooserSupply = res?.data?.supply
-                else
-                    this.blueBooserSupply = 0
-            })
-            .catch(err => {
-                console.log(err)
-                this.blueBooserSupply = 0
-            })
+                await axios.get(`${this.devApi}/nfts/${this.blueBoosterID}/supply`)
+                .then(res => {
+                    if(res?.data?.supply)
+                        this.blueBooserSupply = res?.data?.supply
+                    else
+                        this.blueBooserSupply = 0
+                })
 
-            await axios.get(`${this.devApi}/accounts/${this.SCAddress}/nfts?identifiers=${this.redBoosterID}`)
-            .then(res => {
-                if(res?.data?.length)
-                    this.redBoosterOpened = res?.data[0]?.balance
-                else
-                    this.redBoosterOpened = 0
-            })
-            .catch(err => {
-                console.log(err)
-                this.redBoosterOpened = 0
-            })
+                await axios.get(`${this.devApi}/accounts/${this.SCAddress}/nfts?identifiers=${this.redBoosterID}`)
+                .then(res => {
+                    if(res?.data?.length)
+                        this.redBoosterOpened = res?.data[0]?.balance
+                    else
+                        this.redBoosterOpened = 0
+                })
 
-            await axios.get(`${this.devApi}/accounts/${this.SCAddress}/nfts?identifiers=${this.blueBoosterID}`)
-            .then(res => {
-                if(res?.data?.length)
-                    this.blueBoosterOpened = res?.data[0]?.balance
-                else
-                    this.blueBoosterOpened = 0
-            })
-            .catch(err => {
-                console.log(err)
-                this.blueBoosterOpened = 0
-            })
+                await axios.get(`${this.devApi}/accounts/${this.SCAddress}/nfts?identifiers=${this.blueBoosterID}`)
+                .then(res => {
+                    if(res?.data?.length)
+                        this.blueBoosterOpened = res?.data[0]?.balance
+                    else
+                        this.blueBoosterOpened = 0
+                })
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
+            }
         },
         async updateIsBoostersOwner() {
-            /* If the user isn't logged
-               in, the function returns */
-            await axios.get(`${this.devApi}/accounts/${this.$erd.walletAddress}/nfts?identifiers=${this.redBoosterID}`)
-            .then(res => {
-                if(res?.data?.length)
-                    this.redBoosterCount = res?.data[0]?.balance
-                else
-                    this.redBoosterCount = 0
-            })
-            .catch(err => {
-                console.log(err)
-                this.redBoosterCount = 0
-            })
+            try {
+                /* If the user isn't logged
+                in, the function returns */
+                await axios.get(`${this.devApi}/accounts/${this.$erd.walletAddress}/nfts?identifiers=${this.redBoosterID}`)
+                .then(res => {
+                    if(res?.data?.length)
+                        this.redBoosterCount = res?.data[0]?.balance
+                    else
+                        this.redBoosterCount = 0
+                })
 
-            await axios.get(`${this.devApi}/accounts/${this.$erd.walletAddress}/nfts?identifiers=${this.blueBoosterID}`)
-            .then(res => {
-                if(res?.data?.length)
-                    this.blueBoosterCount = res?.data[0]?.balance      
-                else 
-                    this.blueBoosterCount = 0
-            })
-            .catch(err => {
-                console.log(err)
-                this.blueBoosterCount = 0
-            })
+                await axios.get(`${this.devApi}/accounts/${this.$erd.walletAddress}/nfts?identifiers=${this.blueBoosterID}`)
+                .then(res => {
+                    if(res?.data?.length)
+                        this.blueBoosterCount = res?.data[0]?.balance      
+                    else 
+                        this.blueBoosterCount = 0
+                })
 
-            await axios.get('/cards_BON.json')
-            .then(res => this.allCards = res.data)
-            .catch(err => console.log(err))
-            await axios.get('/cards_golden_BON.json')
-            .then(res => this.allCards =[...res.data,...this.allCards])
-            .catch(err => console.log(err))
-
+                await axios.get('/cards_BON.json')
+                .then(res => this.allCards = res.data)
+                await axios.get('/cards_golden_BON.json')
+                .then(res => this.allCards =[...res.data,...this.allCards])
+            } catch(e) {
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
+            }
         },
         /*****************************************************************
          * handleSubmit                                                  *
@@ -385,7 +355,14 @@ export default {
             } catch (err) { 
                 this.loaderBlue= false
                 this.loaderRed= false
-                console.log(err) }
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
+            }
         },
         /***************************************************************
          * pending                                                     *
@@ -426,13 +403,19 @@ export default {
                     this.loaderRed = false
                 } 
             } catch (err) {
-                console.log(err)
                 this.loaderBlue= false
                 this.loaderRed= false
                 /* We need to wait a little bit more time, because the transaction
                    is not reachable yet so we call this function again 250ms later */
                 await sleep(250)
                 await this.pending(hashHex)
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
         /**********************************************************************
@@ -465,37 +448,53 @@ export default {
                     this.openModal()
                 }
             } catch (error) {
-                this.loaderBlue= false
-                this.loaderRed= false
-                console.log("Unable to call elrond API", error);
+                this.loaderBlue = false
+                this.loaderRed = false
+                this.$toast.open({
+                    message: 'Something went wrong! Please try again later!',
+                    type: 'error',
+                    dismissible: true,
+                    position: 'top-right',
+                    duration: 5000,
+                });
             }
         },
     },
     async beforeMount() {
-        this.initComponent()
-        this.updateSupply()
+        try {
+            this.initComponent()
+            this.updateSupply()
 
-        let waiting = 80
-        while(this.$erd.logged !== true && waiting !=0) {
-            await sleep(50)
-            waiting-=1
-        }
-        if(this.$erd.logged === true) {
-            this.updateIsBoostersOwner()
-        }
-
-        if(this.$route.query.status === 'success') {
-            this.loaderBlue = true
-            this.loaderRed = true
-            await this.getObtainedCards(this.$route.query.txHash)
-            let waiting = 40
-            while(!this.cardsObtained.length && waiting !=0) {
-                await sleep(1000)
-                await this.getObtainedCards(this.$route.query.txHash)
-                waiting--
+            let waiting = 80
+            while(this.$erd.logged !== true && waiting !=0) {
+                await sleep(50)
+                waiting-=1
             }
-            this.loaderBlue = false
-            this.loaderRed = false
+            if(this.$erd.logged === true) {
+                this.updateIsBoostersOwner()
+            }
+
+            if(this.$route.query.status === 'success') {
+                this.loaderBlue = true
+                this.loaderRed = true
+                await this.getObtainedCards(this.$route.query.txHash)
+                let waiting = 40
+                while(!this.cardsObtained.length && waiting !=0) {
+                    await sleep(1000)
+                    await this.getObtainedCards(this.$route.query.txHash)
+                    waiting--
+                }
+                this.loaderBlue = false
+                this.loaderRed = false
+            }
+        } catch(e) {
+            this.$toast.open({
+                message: 'Something went wrong! Please try again later!',
+                type: 'error',
+                dismissible: true,
+                position: 'top-right',
+                duration: 5000,
+            });
         }
     },
 }

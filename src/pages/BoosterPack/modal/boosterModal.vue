@@ -106,9 +106,6 @@ export default {
           return {}
       }
     },
-  },
-  mounted() {
-    console.log(this.cards)    
   }
 };
 </script>

@@ -154,7 +154,8 @@
         .vue3rdj5 {
             &__modes {
                 &-open{
-                    width: 51%;
+                    min-width: 51% !important;
+                    width: auto;
                 }
             }
         }

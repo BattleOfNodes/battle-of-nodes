@@ -80,6 +80,13 @@ export default {
         if(this.$erd.logged === true) {
             this.getShardsCount()
         }
-    }
+    },
+    watch: {
+        '$erd.logged': () => {
+            if ( this.$erd.logged === true ) {
+                this.getShardsCount()
+            }
+        }
+    },
 };
 </script>

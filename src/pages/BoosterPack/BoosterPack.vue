@@ -141,13 +141,13 @@ export default {
             /* DEVNET DATAS */
             SCFunctionHex : "6275726e426f6f73746572",
 
-            devApi : "https://api.elrond.com",
+            devApi : "https://api.multiversx.com",
             SCAddressHex : "00000000000000000500eb9c542033a0f3e48b2a6aea6fc1e60e2e753597a1e0",
             redBoosterID : "BONPACKS-f0b549-01",
             blueBoosterID : "BONPACKS-f0b549-02",
             SCAddress: "erd1qqqqqqqqqqqqqpgqaww9ggpn5re7fze2dt4xls0xpch82dvh58sqpu76dr",
             
-            // devApi : "https://devnet-api.elrond.com",
+            // devApi : "https://devnet-api.multiversx.com",
             // SCAddressHex : "00000000000000000500679c7b8d348a83feddbe2e1a439d64c3a0df8f64cb1f",
             // SCAddress : "erd1qqqqqqqqqqqqqpgqv7w8hrf532plahd79cdy88tycwsdlrmyev0swdhkzp",
             // redBoosterID : "BONPACKS-1de767-01",
@@ -383,7 +383,7 @@ export default {
                 if (rawRequest.data.status === "pending") {
                     /* We call this function
                          again 250ms later   */
-                    await sleep(250)
+                    await sleep(1000)
                     await this.pending(hashHex)
                 /* Otherwise */
                 } else {
@@ -395,7 +395,7 @@ export default {
                     await this.getObtainedCards(hashHex)
                     let waiting = 35
                     while(!this.cardsObtained.length && waiting !=0) {
-                        await sleep(1000)
+                        await sleep(3000)
                         await this.getObtainedCards(hashHex)
                         waiting--
                     }

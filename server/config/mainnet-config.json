@@ -1,15 +1,15 @@
 {
     "elrond": {
         "api": {
-            "url": "https://api.elrond.com",
+            "url": "https://api.multiversx.com",
             "timeout": 5000
         },
         "proxy": {
-            "url": "https://gateway.elrond.com",
+            "url": "https://gateway.multiversx.com",
             "timeout": 5000
         },
         "explorer": {
-            "url": "https://explorer.elrond.com"
+            "url": "https://explorer.multiversx.com"
         },
         "maiar": {
             "walletConnectBridgeUrl": "https://bridge.walletconnect.org",
@@ -17,7 +17,7 @@
             "heartbeatInterval": 3000
         },
         "webWallet": {
-            "url":"https://wallet.elrond.com"
+            "url":"https://wallet.multiversx.com"
         }
     },
     "bon": {

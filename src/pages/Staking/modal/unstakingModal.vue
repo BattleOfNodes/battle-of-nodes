@@ -9,7 +9,7 @@
         <img v-else class="modalImage mt-3 mb-3" src="@/assets/images/BaseSetBoosterPack.png" />
         <div class="amountSection d-flex justify-content-center">
           <input class="amountToStake" type="number" min="1" :max="amountLeft" v-model="numberOfPacks" @change="changeNumberOfPacks()" />
-          <p class="amountOwned">x{{amountLeft}} packs staked
+          <p class="amountOwned">x{{amountLeft}} packs staked</p>
         </div>
         <button  v-if="packType==='red'" class="modalBtn" @click="unStakeRedPack(numberOfPacks)">
           UNSTAKE NFT
@@ -111,7 +111,7 @@ export default {
       SCFunctionHex: "7374616B65",
 
       collection: 'BONPACKS-f0b549',
-      devApi : "https://api.elrond.com",
+      devApi : "https://api.multiversx.com",
       redBoosterID : "BONPACKS-f0b549-01",
       blueBoosterID : "BONPACKS-f0b549-02",
       shardsId: "SHARD-d1f010",
@@ -119,7 +119,7 @@ export default {
       SCAddressHex: "0000000000000000050009361001763e528f1a02fba28e28544ca5a39db2a1e0",
 
       // collection: 'BONPACKS-1de767',
-      // devApi : "https://devnet-api.elrond.com",
+      // devApi : "https://devnet-api.multiversx.com",
       // redBoosterID : "BONPACKS-1de767-01",
       // blueBoosterID : "BONPACKS-1de767-02",
       // scAddress: "erd1qqqqqqqqqqqqqpgq5uuxj062z7efyefdua7zrtedr0klu7p5fg8sa475jk",
@@ -164,7 +164,7 @@ export default {
         if (rawRequest.data.status === "pending") {
             /* We call this function
                   again 250ms later   */
-            await sleep(250)
+            await sleep(1000)
             await this.pending(hashHex)
         /* Otherwise */
         } else {
@@ -176,7 +176,7 @@ export default {
             await this.checkTranzaction(hashHex)
             let waiting = 35
             while(!this.transaction && waiting !=0) {
-                await sleep(1000)
+                await sleep(3000)
                 await this.checkTranzaction(hashHex)
                 waiting--
             }

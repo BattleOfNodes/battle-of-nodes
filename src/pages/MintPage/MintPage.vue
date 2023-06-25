@@ -253,11 +253,11 @@ export default {
             selectedWineOption: 1,
 
             // // ELROND //
-            // devApi: "https://devnet-api.elrond.com",
+            // devApi: "https://devnet-api.multiversx.com",
             // SCAddressStr: "erd1qqqqqqqqqqqqqpgqyaqtxp57538uzjl6d5krpfrrzquv5f0ctvkqn59qft",
 
             // main
-            devApi : "https://api.elrond.com",
+            devApi : "https://api.multiversx.com",
             SCAddressStr: "erd1qqqqqqqqqqqqqpgqfj9qht90c9zldjskq62sfx8ugfdxpjte58sq7r8au4",
 
         }
@@ -478,7 +478,7 @@ export default {
                 if (rawRequest.data.status === "pending") {
                     /* We call this function
                          again 250ms later   */
-                    await sleep(250)
+                    await sleep(1000)
                     await this.pending(hashHex, mode)
                 /* Otherwise */
                 } else {

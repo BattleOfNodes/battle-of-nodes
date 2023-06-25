@@ -45,7 +45,7 @@ export default {
         return{
             isMint: localStorage.getItem("mintedPacks") || localStorage.getItem("mintedSkins") || 0,
             shards: 0,
-            devApi : "https://api.elrond.com",
+            devApi : "https://api.multiversx.com",
             shardsId: "SHARD-d1f010",
         }
     },

@@ -22,12 +22,12 @@ app.use(helmet.contentSecurityPolicy({
         "connect-src": [
             "'self'",
             "wss://*.bridge.walletconnect.org",
-            "api.elrond.com",
-            "gateway.elrond.com",
-            "testnet-api.elrond.com",
-            "testnet-gateway.elrond.com",
-            "devnet-api.elrond.com",
-            "devnet-gateway.elrond.com",
+            "api.multiversx.com",
+            "gateway.multiversx.com",
+            "testnet-api.multiversx.com",
+            "testnet-gateway.multiversx.com",
+            "devnet-api.multiversx.com",
+            "devnet-gateway.multiversx.com",
             "localhost:3000",
             "http://localhost:3000"
         ],

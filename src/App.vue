@@ -20,7 +20,7 @@ export default {
     },
     data () {
         return {
-            devApi : "https://api.elrond.com",
+            devApi : "https://api.multiversx.com",
             SCAddressStr: "erd1qqqqqqqqqqqqqpgqfj9qht90c9zldjskq62sfx8ugfdxpjte58sq7r8au4"
         }
     },

@@ -129,8 +129,8 @@ export default {
             this.allCards = [...this.goldenCards?.data,...this.normalCards?.data]
         },
         async getUserCards () {
-            const res = await axios.get(`https://devnet-api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d326b4`) // change identifier for live and api endpoint
-            // const res = await axios.get(`https://api.elrond.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d1fb64`)
+            const res = await axios.get(`https://devnet-api.multiversx.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d326b4`) // change identifier for live and api endpoint
+            // const res = await axios.get(`https://api.multiversx.com/accounts/${this.$erd.walletAddress}/nfts?size=10000&collection=BONCARDS-d1fb64`)
 
             this.usersCards = this.allCards.filter((card) => {
                 return res.data.find((userCard) => {
